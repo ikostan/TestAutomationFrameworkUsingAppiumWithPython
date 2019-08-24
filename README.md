@@ -1,6 +1,12 @@
 ## Creating a Test Automation Framework Using Appium with Python
 
 
+### Documentation:
+- [Appium API Documentation](http://appium.io/docs/en/about-appium/api/)
+- [Appium Desktop](https://github.com/appium/appium-desktop)
+- [Appium Python Client](https://github.com/appium/python-client)
+
+
 ### Tech Issues and Problem Solving:<br/>
 <a id="tech_issues"></a>
 
@@ -130,6 +136,30 @@ Source: https://www.idiotinside.com/2015/05/10/python-auto-generate-requirements
   
   <br/>Source: https://stackoverflow.com/questions/36940425/gitlab-push-failed-error
   
+</details>
+
+
+<details>
+  <summary><b>Android Debug Bridge (adb)</b></summary>
+
+<br/><br/>
+
+</details>
+
+
+<details>
+  <summary><b>dumpsys</b></summary>
+
+<br/><br/>
+
+</details>
+
+
+<details>
+  <summary><b></b></summary>
+
+<br/><br/>
+
 </details>
 
 
