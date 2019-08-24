@@ -12,7 +12,7 @@ class Driver:
 			"appActivity": "com.android.calculator2.Calculator"
 		}
 
-		self._instance = webdriver.Remote("http://0.0.0.0:4723/wd/hub", self._desired_capabilities)
+		self._instance = webdriver.Remote("http://127.0.0.1:4723/wd/hub", self._desired_capabilities)
 
 	@property
 	def instance(self):
