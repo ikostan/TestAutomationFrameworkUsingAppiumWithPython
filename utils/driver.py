@@ -14,6 +14,7 @@ class Driver:
 
 		self._instance = webdriver.Remote("http://127.0.0.1:4723/wd/hub", self._desired_capabilities)
 
+
 	@property
 	def instance(self):
 		"""
