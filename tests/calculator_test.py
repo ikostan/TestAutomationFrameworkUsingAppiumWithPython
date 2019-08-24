@@ -7,7 +7,7 @@ class TestCalculatorCases(unittest.TestCase):
 
 	def setUp(self) -> None:
 		self.driver = Driver
-	
+
 	def tearDown(self) -> None:
 		self.driver.instance.quit()
 
