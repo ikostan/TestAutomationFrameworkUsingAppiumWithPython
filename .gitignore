@@ -123,3 +123,6 @@ dmypy.json
 .pyre/
 .idea/inspectionProfiles/profiles_settings.xml
 .idea/misc.xml
+.idea/modules.xml
+.idea/TEST_AUTOMATION_FRAMEWORK_USING_APPIUM_WITH_PYTHON.iml
+.idea/vcs.xml
