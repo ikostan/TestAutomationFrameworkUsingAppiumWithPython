@@ -22,7 +22,11 @@ class PageLocator:
 	MULTIPLICATION_BTN = (MobileBy.ID, 'com.android.calculator2:id/op_mul')
 	DIVISION_BTN = (MobileBy.ID, 'com.android.calculator2:id/op_div')
 	DEL_BTN = (MobileBy.ID, 'com.android.calculator2:id/del')
+
+	CLEAR_BTN = (MobileBy.ID, 'com.android.calculator2:id/clr')
 	EQUAL_BTN = (MobileBy.ID, 'com.android.calculator2:id/eq')
 
+	DISPLAY = (MobileBy.ID, 'com.android.calculator2:id/display')
 	SCREEN_FORMULA = (MobileBy.ID, 'com.android.calculator2:id/formula')
 	SCREEN_RESULT = (MobileBy.ID, 'com.android.calculator2:id/result')
+
