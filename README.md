@@ -216,6 +216,42 @@ Source: https://www.idiotinside.com/2015/05/10/python-auto-generate-requirements
 
 
 <details>
+  
+  <summary><b>Environment variables for Android ADB</b></summary>
+   <br/>
+<b>A. In order to configure ANDROID_HOME path do the following:</b><br/>
+  1. Go to "Advanced System Settings" > Advanced Tab > Environment Variables<br/>
+  2. Go to System Variables section > click on New... button<br/>
+  3. Type Variable name: ANDROID_HOME<br/>
+  4. Enter Variable Value: C:\Users\username\AppData\Local\Android\Sdk<br/>
+  5. Press OK button<br/><br/>
+  <div align="center"> 
+  <img width="90%" height="90%" src="https://github.com/ikostan/AppiumTesting/blob/master/img/maven_home.jpg" hspace="10">
+  </div>
+  
+  <b>B. Edit environment variable:</b><br/>
+  1. From System variables list select path > Press Edit... button<br/>
+  2. Press on New button > type: %ANDROID_HOME%\tools<br/>
+  3. Press OK button<br/>
+  4. Press on New button > type: %ANDROID_HOME%\platform-tools<br/>
+  5. Press OK button<br/>
+  
+  <div align="center"> 
+  <img width="90%" height="90%" src="https://github.com/ikostan/AppiumTesting/blob/master/img/android_home_2.JPG" hspace="10">
+  </div>
+  
+  <b>C. Test:</b>
+  1. Open CMD > run "adb devices"<br/>
+  2. If everifyng is configured properly you will something like this:<br/>
+  
+  <div align="center"> 
+  <img width="50%" height="50%" src="https://github.com/ikostan/AppiumTesting/blob/master/img/adb_devices.JPG" hspace="10">
+  </div>
+  
+</details>
+
+
+<details>
   <summary><b>Connect to a device over Wi-Fi using Android Debug Bridge (adb)</b></summary>
   
   <br/>
