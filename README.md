@@ -5,6 +5,7 @@
 - [Appium API Documentation](http://appium.io/docs/en/about-appium/api/)
 - [Appium Desktop](https://github.com/appium/appium-desktop)
 - [Appium Python Client](https://github.com/appium/python-client)
+- [Android Debug Bridge (adb)](https://developer.android.com/studio/command-line/adb)
 
 
 ### Tech Issues and Problem Solving:<br/>
@@ -141,6 +142,9 @@ Source: https://www.idiotinside.com/2015/05/10/python-auto-generate-requirements
 
 <details>
   <summary><b>Android Debug Bridge (adb)</b></summary>
+  
+  <br/>
+  adb is included in the Android SDK Platform-Tools package. You can download this package with the [SDK Manager](https://developer.android.com/studio/intro/update.html#sdk-manager), which installs it at android_sdk/platform-tools/. Or if you want the standalone Android SDK Platform-Tools package, you can download it [here](https://developer.android.com/studio/releases/platform-tools.html).<br/>
 
     <br/>
     **Run Appium Tests On Real Android Device over Wifi:**<br/>
