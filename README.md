@@ -283,6 +283,20 @@ Source: https://www.idiotinside.com/2015/05/10/python-auto-generate-requirements
 
 
 <details>
+  
+  <summary><b>How to restart ADB server</b></summary>
+ 
+  1. Open Command promt > run: adb kill-server
+  2. press enter
+  3. run:  adb start-server
+  4. press enter
+  
+  <br/>Source: https://stackoverflow.com/questions/29826101/how-to-restart-adb-manually-from-android-studio
+  
+</details>
+
+
+<details>
   <summary><b>Connect to a device over Wi-Fi using Android Debug Bridge (adb)</b></summary>
   
   <br/>
