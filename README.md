@@ -47,7 +47,7 @@
 9. [GIT 2.22.0.windows.1](https://git-scm.com/download/win)<br/>
 10. [Java SE 8](https://www.oracle.com/technetwork/java/javase/overview/index.html)<br/>
 11. [Scoop](https://scoop.sh/)<br/>
-12. Android tablet (real device)<br/>
+12. Android tablet (real device with Android v7.0)<br/>
 13. [Android Studio 3.5](https://developer.android.com/studio/?gclid=CjwKCAjw44jrBRAHEiwAZ9igKJZ4_eky4PfdbRM1P_T2XejHOYyRH1GIdTyLyAWmEUULF3Dmv6zi7xoCaOwQAvD_BwE)
 
 
