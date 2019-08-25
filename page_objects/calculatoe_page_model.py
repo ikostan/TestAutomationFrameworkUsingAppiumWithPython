@@ -1,0 +1,10 @@
+"""Calculator Page Model Class"""
+
+#  Created by Egor Kostan.
+#  GitHub: https://github.com/ikostan
+#  LinkedIn: https://www.linkedin.com/in/egor-kostan/
+
+
+class CalculatorPageModel:
+	pass
+
