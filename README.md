@@ -168,7 +168,8 @@ Source: https://www.idiotinside.com/2015/05/10/python-auto-generate-requirements
 
 <details>
   <summary><b>Discover current Activity name with dumpsys</b></summary>
-    
+   <br/>
+   
    **dumpsys** is a shell command. You can run it from the command line as follows:<br/>
         - adb shell dumpsys window windows | grep -E 'mCurrentFocus | mFocusedApp'<br/>
     
