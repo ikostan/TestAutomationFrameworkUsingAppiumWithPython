@@ -3,7 +3,8 @@
 
 ### Table of Contents:<br/>
 
-**Main Objectives:**<br/>
+
+### Main Objectives:<br/>
 - Build fast and readable automation using minimal code<br/>
 - Showcase with effective way to identify app elements<br/>
 - [Page Objects](https://github.com/SeleniumHQ/selenium/wiki/PageObjects) and [Element Objects](https://www.tutorialspoint.com/dom/dom_element_object) implementation<br/>
