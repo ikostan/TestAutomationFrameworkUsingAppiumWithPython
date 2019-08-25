@@ -1,3 +1,7 @@
+#  Created by Egor Kostan.
+#  GitHub: https://github.com/ikostan
+#  LinkedIn: https://www.linkedin.com/in/egor-kostan/
+
 import unittest
 
 
@@ -33,5 +37,15 @@ class TestAdditionCase(unittest.TestCase):
 
 	Source: https://mozilla.github.io/calculator/test/?grep=Unit%20Tests%20Addition
 	"""
+
+	def setUp(self) -> None:
+		self.driver = Driver()
+		self.driver.instance.implicitly_wait(3)
+
+	def tearDown(self) -> None:
+		if self.driver.instance:
+			self.driver.instance.quit()
+			self.driver = None
+
 	def test_something(self):
 		pass
