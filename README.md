@@ -146,8 +146,6 @@ Source: https://www.idiotinside.com/2015/05/10/python-auto-generate-requirements
   <br/>
   
   **adb** is included in the Android SDK Platform-Tools package. You can download this package with the [SDK Manager](https://developer.android.com/studio/intro/update.html#sdk-manager), which installs it at android_sdk/platform-tools/. Or if you want the standalone Android SDK Platform-Tools package, you can download it [here](https://developer.android.com/studio/releases/platform-tools.html).<br/>
-
-    <br/>
     
    **Run Appium Tests On Real Android Device over Wifi:**<br/>
     
@@ -161,9 +159,7 @@ Source: https://www.idiotinside.com/2015/05/10/python-auto-generate-requirements
        - adb connect <ip address>:<tcpip port><br/>
    6. Finally you got connected to the device over without USB cable as your device is getting listed.<br/>
     
-    <br/>
    Source: https://rajeevkumarweb.wordpress.com/2017/06/03/run-appium-tests-on-real-android-device-over-wifi/<br/>
-    <br/>
 
 </details>
 
