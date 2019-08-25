@@ -24,7 +24,6 @@ from locators.page_locator import PageLocator
 @allure.sub_suite("Positive Tests")
 @allure.feature("Basic Functionality")
 @allure.story('Basic Buttons')
-# @screenshot_on_fail()
 class TestBasicCalculatorCases(unittest.TestCase):
     """
     Test basic functionality:
