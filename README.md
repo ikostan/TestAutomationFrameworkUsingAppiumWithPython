@@ -226,7 +226,7 @@ Source: https://www.idiotinside.com/2015/05/10/python-auto-generate-requirements
   4. Enter Variable Value: C:\Users\username\AppData\Local\Android\Sdk<br/>
   5. Press OK button<br/><br/>
   <div align="center"> 
-  <img width="90%" height="90%" src="https://github.com/ikostan/AppiumTesting/blob/master/img/maven_home.jpg" hspace="10">
+  <img width="90%" height="90%" src="https://github.com/ikostan/AppiumTesting/blob/master/img/android_home.JPG" hspace="10">
   </div>
   
   <b>B. Edit environment variable:</b><br/>
