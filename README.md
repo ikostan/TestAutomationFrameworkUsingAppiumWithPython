@@ -18,12 +18,12 @@
 
 
 ### Documentation:
-- [Appium API Documentation](http://appium.io/docs/en/about-appium/api/)
-- [Appium Desktop](https://github.com/appium/appium-desktop)
-- [Appium Python Client](https://github.com/appium/python-client)
-- [Android Debug Bridge (adb)](https://developer.android.com/studio/command-line/adb)
-- [Appium Desired Capabilities](http://appium.io/docs/en/writing-running-appium/caps/)
-- [Appium Android Driver](https://github.com/appium/appium-android-driver)
+- [Appium API Documentation](http://appium.io/docs/en/about-appium/api/)<br/>
+- [Appium Desktop](https://github.com/appium/appium-desktop)<br/>
+- [Appium Python Client](https://github.com/appium/python-client)<br/>
+- [Android Debug Bridge (adb)](https://developer.android.com/studio/command-line/adb)<br/>
+- [Appium Desired Capabilities](http://appium.io/docs/en/writing-running-appium/caps/)<br/>
+- [Appium Android Driver](https://github.com/appium/appium-android-driver)<br/>
 
 
 **Additional Resources:**<br/>
@@ -33,14 +33,15 @@
 - ['Selenium with Python' official documentation webpage](https://selenium-python.readthedocs.io)<br/>
 - [PyCharm - Manage dependencies using requirements.txt](https://www.jetbrains.com/help/pycharm/managing-dependencies.html)<br/>
 - [Allure Framework](https://docs.qameta.io/allure/)<br/>
-- [CREATING A TEST AUTOMATION FRAMEWORK USING APPIUM WITH PYTHON](https://qaboy.com/2018/06/27/automation-framework-using-appium-python/)
+- [CREATING A TEST AUTOMATION FRAMEWORK USING APPIUM WITH PYTHON](https://qaboy.com/2018/06/27/automation-framework-using-appium-python/)<br/>
+- [How to Setup ADB/Fastboot on Windows](https://theunlockr.com/how-to-set-up-adb-usb-drivers-for-android-devices/)<br/>
 
 
 ### Dev Environment:<br/>
 <a id="dev"></a>
 
 1. [Python 3.7.4](https://www.python.org/downloads/release/python-374/)<br/>
-2. [Appium](http://appium.io/)
+2. [Appium](http://appium.io/)<br/>
 3. [Appium-Python-Client 0.47](https://pypi.org/project/Appium-Python-Client/)<br/>
 4. [PyTest 5.1.1](https://pypi.org/project/pytest/)<br/>
 5. [Allure Framework 2.12.1](http://allure.qatools.ru/)<br/>
@@ -51,7 +52,7 @@
 10. [Java SE 8](https://www.oracle.com/technetwork/java/javase/overview/index.html)<br/>
 11. [Scoop](https://scoop.sh/)<br/>
 12. Android tablet (real device with Android v7.0)<br/>
-13. [Android Studio 3.5](https://developer.android.com/studio/?gclid=CjwKCAjw44jrBRAHEiwAZ9igKJZ4_eky4PfdbRM1P_T2XejHOYyRH1GIdTyLyAWmEUULF3Dmv6zi7xoCaOwQAvD_BwE)
+13. [Android Studio 3.5](https://developer.android.com/studio/?gclid=CjwKCAjw44jrBRAHEiwAZ9igKJZ4_eky4PfdbRM1P_T2XejHOYyRH1GIdTyLyAWmEUULF3Dmv6zi7xoCaOwQAvD_BwE)<br/>
 
 
 ### Python Packages:<br/>
@@ -59,14 +60,14 @@ Full list of dependencies see [here.](https://github.com/ikostan/TEST_AUTOMATION
 
 
 ### Nice to have tools:
-1. [Fiddler: The free web debugging proxy](https://www.telerik.com/fiddler)
-2. [Kite: Code Faster in Python](https://kite.com/)
-3. [Ragnorex: Smart Selector Generator](https://www.ranorex.com/selocity/browser-extension)
-4. [Pynsource: Python source code into UML diagrams](https://www.pynsource.com/index.html)
-5. [TeamViewer](https://www.teamviewer.com/en/?pcc_keyword=teamviewer&gclid=CjwKCAjw44jrBRAHEiwAZ9igKBBMHbZjxT2zAPCJFrK-Agcldw0iOKD_1TyEeKcbCN_uTZjvCnQaNxoCfuwQAvD_BwE)
-6. [AirDroid](https://www.airdroid.com/)
-7. [QuickSupport](https://play.google.com/store/apps/details?id=com.teamviewer.quicksupport.market&hl=en_CA)
-8. [App Info, Application Info](https://play.google.com/store/apps/details?id=com.bestappfactory.appinfo&hl=en_CA)
+1. [Fiddler: The free web debugging proxy](https://www.telerik.com/fiddler)<br/>
+2. [Kite: Code Faster in Python](https://kite.com/)<br/>
+3. [Ragnorex: Smart Selector Generator](https://www.ranorex.com/selocity/browser-extension)<br/>
+4. [Pynsource: Python source code into UML diagrams](https://www.pynsource.com/index.html)<br/>
+5. [TeamViewer](https://www.teamviewer.com/en/?pcc_keyword=teamviewer&gclid=CjwKCAjw44jrBRAHEiwAZ9igKBBMHbZjxT2zAPCJFrK-Agcldw0iOKD_1TyEeKcbCN_uTZjvCnQaNxoCfuwQAvD_BwE)<br/>
+6. [AirDroid](https://www.airdroid.com/)<br/>
+7. [QuickSupport](https://play.google.com/store/apps/details?id=com.teamviewer.quicksupport.market&hl=en_CA)<br/>
+8. [App Info, Application Info](https://play.google.com/store/apps/details?id=com.bestappfactory.appinfo&hl=en_CA)<br/>
 
 
 ### Tech Issues and Problem Solving:<br/>
@@ -181,23 +182,28 @@ Source: https://www.idiotinside.com/2015/05/10/python-auto-generate-requirements
 </details>
 
 
-<details>
-  <summary><b>Common Selenium errors</b></summary>
 
-<br/>- **[How to fix common Selenium errors?](https://www.ultimateqa.com/common-selenium-webdriver-errors-fix/)**<br/>
+<details>
+  <summary><b>JAVA_HOME configuration</b></summary>
+
+<br/><br/>
 
 </details>
 
 
 <details>
-  
-  <summary><b>error: RPC failed; curl 56 Recv failure: Connection was reset</b></summary>
-  <br/>
-  1. Open Git Bash<br/>
-  2. Run: "git config --global http.postBuffer 157286400" 
-  
-  <br/>Source: https://stackoverflow.com/questions/36940425/gitlab-push-failed-error
-  
+  <summary><b>ANDROID_HOME configuration</b></summary>
+
+<br/><br/>
+
+</details>
+
+
+<details>
+  <summary><b>Inspect devices via Chrome Browser</b></summary>
+
+<br/><br/>
+
 </details>
 
 
@@ -246,9 +252,20 @@ Source: https://www.idiotinside.com/2015/05/10/python-auto-generate-requirements
 
 
 <details>
-  <summary><b></b></summary>
+  <summary><b>Common Selenium errors</b></summary>
 
-<br/><br/>
+<br/>- **[How to fix common Selenium errors?](https://www.ultimateqa.com/common-selenium-webdriver-errors-fix/)**<br/>
 
 </details>
 
+
+<details>
+  
+  <summary><b>error: RPC failed; curl 56 Recv failure: Connection was reset</b></summary>
+  <br/>
+  1. Open Git Bash<br/>
+  2. Run: "git config --global http.postBuffer 157286400" 
+  
+  <br/>Source: https://stackoverflow.com/questions/36940425/gitlab-push-failed-error
+  
+</details>
