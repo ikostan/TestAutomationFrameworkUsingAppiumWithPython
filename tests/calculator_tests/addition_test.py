@@ -42,11 +42,11 @@ class TestAdditionCase(unittest.TestCase):
 
 	def setUp(self) -> None:
 		self.driver = Driver()
-		self.driver.instance.implicitly_wait(3)
+		self.driver.driver_instance.implicitly_wait(3)
 
 	def tearDown(self) -> None:
-		if self.driver.instance:
-			self.driver.instance.quit()
+		if self.driver.driver_instance:
+			self.driver.driver_instance.quit()
 			self.driver = None
 
 	def test_something(self):
