@@ -9,7 +9,7 @@ from appium.webdriver.common.mobileby import MobileBy
 
 class PageLocator:
     """
-    Contains locators for Calculator App
+    Contains locators for calculator_tests App
     Each locator is a tuple: locator method + locator
     """
     DIGITS = {
