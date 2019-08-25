@@ -15,7 +15,7 @@ class Driver:
 			"platformName": "android",
 			"deviceName": "Android Tablet",
 			"appPackage": "com.android.calculator2",
-			"appActivity": "com.android.calculator2.calculator_tests",
+			"appActivity": "com.android.calculator2.calculator_test",
 			"automationName": "Appium",
 			"platformVersion": "7.0",
 		}
