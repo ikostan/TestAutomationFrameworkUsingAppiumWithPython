@@ -142,7 +142,21 @@ Source: https://www.idiotinside.com/2015/05/10/python-auto-generate-requirements
 <details>
   <summary><b>Android Debug Bridge (adb)</b></summary>
 
-<br/><br/>
+    <br/>
+    **Run Appium Tests On Real Android Device over Wifi:**<br/>
+    
+    1. Connect your device to computer via USB and check if it is connected using **‘adb devices’** which will list you the devices connected to your machine.<br/>
+    2. We should make sure that android device and the Laptop are connected to the same Wifi network. In my case wifi is on for laptop and mobile device and not need to purchase any wireless wifi adapter.<br/>
+    3. Restart adb and make it work over tcpip by specifying the port value (***adb tcpip 5555*). If no port number is specified, Port 5555 is used by default. This step will make your adb daemon to re-start on the specified port.
+    4. We need to get the IP address of the the device. There are two ways to get IP address of your device by using below options:<br/>
+        - Your device -> Settings -> Wifi -> Wifi Settings<br/>
+        - adb shell ip -f inet addr show wlan0<br/>
+    5. Run the below command to connect adb to your device over Wi-Fi using IP address of your device:<br/>
+        - adb connect <ip address>:<tcpip port><br/>
+    6. Finally you got connected to the device over without USB cable as your device is getting listed.<br/>
+    
+    <br/>Source: https://rajeevkumarweb.wordpress.com/2017/06/03/run-appium-tests-on-real-android-device-over-wifi/<br/>
+    <br/>
 
 </details>
 
