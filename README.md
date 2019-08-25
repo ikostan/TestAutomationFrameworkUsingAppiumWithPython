@@ -1,12 +1,13 @@
 [![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
 
-## Creating a Test Automation Framework Using Appium with Python
+## Creating Mobile Automation Testing Framework for IOS and Android Using Appium with Python
 
 
 ### Table of Contents:<br/>
 
 
 ### Main Objectives:<br/>
+- Creating Mobile Automation Testing Framework for IOS and Android<br/>
 - Build fast and readable automation using minimal code<br/>
 - Showcase with effective way to identify app elements<br/>
 - [Page Objects](https://github.com/SeleniumHQ/selenium/wiki/PageObjects) and [Element Objects](https://www.tutorialspoint.com/dom/dom_element_object) implementation<br/>
@@ -40,19 +41,23 @@
 ### Dev Environment:<br/>
 <a id="dev"></a>
 
-1. [Python 3.7.4](https://www.python.org/downloads/release/python-374/)<br/>
-2. [Appium](http://appium.io/)<br/>
-3. [Appium-Python-Client 0.47](https://pypi.org/project/Appium-Python-Client/)<br/>
-4. [PyTest 5.1.1](https://pypi.org/project/pytest/)<br/>
-5. [Allure Framework 2.12.1](http://allure.qatools.ru/)<br/>
-6. [Win 10 (64 bit)](https://www.microsoft.com/en-ca/software-download/windows10)<br/>
-7. [PyCharm 2019.2 (Community Edition)](https://www.jetbrains.com/pycharm/download/#section=windows)<br/>
-8. [GitHub Desktop 2.1.0](https://desktop.github.com/)<br/>
-9. [GIT 2.22.0.windows.1](https://git-scm.com/download/win)<br/>
-10. [Java SE 8](https://www.oracle.com/technetwork/java/javase/overview/index.html)<br/>
-11. [Scoop](https://scoop.sh/)<br/>
-12. Android tablet (real device with Android v7.0)<br/>
-13. [Android Studio 3.5](https://developer.android.com/studio/?gclid=CjwKCAjw44jrBRAHEiwAZ9igKJZ4_eky4PfdbRM1P_T2XejHOYyRH1GIdTyLyAWmEUULF3Dmv6zi7xoCaOwQAvD_BwE)<br/>
+- [Python 3.7.4](https://www.python.org/downloads/release/python-374/)<br/>
+- [Appium](http://appium.io/)<br/>
+- [Appium-Python-Client 0.47](https://pypi.org/project/Appium-Python-Client/)<br/>
+- [PyTest 5.1.1](https://pypi.org/project/pytest/)<br/>
+- [Allure Framework 2.12.1](http://allure.qatools.ru/)<br/>
+- [Win 10 (64 bit)](https://www.microsoft.com/en-ca/software-download/windows10)<br/>
+- [PyCharm 2019.2 (Community Edition)](https://www.jetbrains.com/pycharm/download/#section=windows)<br/>
+- [GitHub Desktop 2.1.2](https://desktop.github.com/)<br/>
+- [GIT 2.22.0.windows.1](https://git-scm.com/download/win)<br/>
+- [Java SE Development Kit 8 Update 221 (64-bit)](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)<br/>
+- [Node.js v10.6.3](https://nodejs.org/en/download/current/)<br/>
+- [Appium Server GUI client v1.13.0](http://appium.io/)<br/>
+- [nmp v6.9.0](https://nodejs.org/en/download/)<br/>
+- [Maven 3.6.1](https://maven.apache.org/download.cgi)<br/>
+- [Scoop](https://scoop.sh/)<br/>
+- Android tablet (real device with Android v7.0)<br/>
+- [Android Studio 3.5](https://developer.android.com/studio/?gclid=CjwKCAjw44jrBRAHEiwAZ9igKJZ4_eky4PfdbRM1P_T2XejHOYyRH1GIdTyLyAWmEUULF3Dmv6zi7xoCaOwQAvD_BwE)<br/>
 
 
 ### Python Packages:<br/>
@@ -164,30 +169,33 @@ Source: https://www.idiotinside.com/2015/05/10/python-auto-generate-requirements
 </details>
 
 
-<details>
-  <summary><b>How to fix in case .gitignore is ignored by Git</b></summary>
-
-<br/>Even if you haven't tracked the files so far, Git seems to be able to "know" about them even after you add them to .gitignore.<br/> 
-
-**NOTE:**<br/>
-    - First commit your current changes, or you will lose them.<br/> 
-    - Then run the following commands from the top folder of your Git repository:<br/> 
-    
-   ```bash 
-    git rm -r --cached .
-    git add .
-    git commit -m "fixed untracked files"
-   ```
-    
-</details>
 
 
 
 <details>
-  <summary><b>JAVA_HOME configuration</b></summary>
+  
+  <summary><b>JAVA_HOME PATH</b></summary>
 
-<br/><br/>
-
+   <br/>A. In order to configure JAVA_HOME path do the following:</b><br/>
+   1. Go to "Advanced System Settings" > Advanced Tab > Environment Variables<br/>
+   2. Go to System Variables section > click on New... button<br/>
+   3. Type Variable name: JAVA_HOME<br/>
+   4. Enter Variable Value: C:\Program Files\Java\jdk1.8.0_221<br/>
+   5. Press OK button<br/><br/>
+  
+  <div align="center"> 
+  <img width="90%" height="90%" src="https://github.com/ikostan/AppiumTesting/blob/master/img/java_home.jpg" hspace="10">
+  </div>
+  
+  <b>B. Edit environment variable:</b><br/>
+  1. From System variables list select path > Press Edit... button<br/>
+  2. Press on New button > type: %JAVA_HOME%\bin<br/>
+  3. Press OK button<br/>
+  
+  <div align="center"> 
+  <img width="90%" height="90%" src="https://github.com/ikostan/AppiumTesting/blob/master/img/java_home_2.jpg" hspace="10">
+  </div>
+  
 </details>
 
 
@@ -268,4 +276,22 @@ Source: https://www.idiotinside.com/2015/05/10/python-auto-generate-requirements
   
   <br/>Source: https://stackoverflow.com/questions/36940425/gitlab-push-failed-error
   
+</details>
+
+
+<details>
+  <summary><b>How to fix in case .gitignore is ignored by Git</b></summary>
+
+<br/>Even if you haven't tracked the files so far, Git seems to be able to "know" about them even after you add them to .gitignore.<br/> 
+
+**NOTE:**<br/>
+    - First commit your current changes, or you will lose them.<br/> 
+    - Then run the following commands from the top folder of your Git repository:<br/> 
+    
+   ```bash 
+    git rm -r --cached .
+    git add .
+    git commit -m "fixed untracked files"
+   ```
+    
 </details>
