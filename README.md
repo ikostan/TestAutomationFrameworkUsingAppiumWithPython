@@ -169,9 +169,6 @@ Source: https://www.idiotinside.com/2015/05/10/python-auto-generate-requirements
 </details>
 
 
-
-
-
 <details>
   
   <summary><b>JAVA_HOME PATH</b></summary>
@@ -200,24 +197,58 @@ Source: https://www.idiotinside.com/2015/05/10/python-auto-generate-requirements
 
 
 <details>
-  <summary><b>ANDROID_HOME configuration</b></summary>
-
-<br/><br/>
-
-</details>
-
-
-<details>
-  <summary><b>Inspect devices via Chrome Browser</b></summary>
-
-<br/><br/>
-
+  
+  <summary><b>Maven PATH</b></summary>
+  <br/>
+  <b>A. In order to configure MVN_HOME path do the following:</b><br/>
+  1. Go to "Advanced System Settings" > Advanced Tab > Environment Variables<br/>
+  2. Go to System Variables section > click on New... button<br/>
+  3. Type Variable name: MVN_HOME<br/>
+  4. Enter Variable Value: C:\Users\username\AppData\Local\Android\Sdk<br/>
+  5. Press OK button<br/><br/>
+  <div align="center"> 
+  <img width="90%" height="90%" src="https://github.com/ikostan/AppiumTesting/blob/master/img/maven_home.jpg" hspace="10">
+  </div>
+  
+  <b>B. Edit environment variable:</b><br/>
+  1. From System variables list select path > Press Edit... button<br/>
+  2. Press on New button > type: %MVN_HOME%\bin<br/>
+  3. Press OK button<br/>
+  
+  <div align="center"> 
+  <img width="90%" height="90%" src="https://github.com/ikostan/AppiumTesting/blob/master/img/maven_home_2.jpg" hspace="10">
+  </div>
+  
+  <b>C. Test:</b>
+  1. Open CMD > run "mvn --version"<br/>
+  2. If everifyng is configured properly you will something like this:<br/>
+  
+  <div align="center"> 
+  <img width="50%" height="50%" src="https://github.com/ikostan/AppiumTesting/blob/master/img/maven_cmd.JPG" hspace="10">
+  </div>
+  
 </details>
 
 
 <details>
   
-  <summary><b>Environment variables for Android ADB</b></summary>
+  <summary><b>Inspect devices with Chrome Developer</b></summary>
+  <br/>
+  1. Open Chrome web browser > new tab<br/>
+  2. Paste following address: chrome:..inspect/#devices<br/>
+  
+  <br/>If evryfing connected properly you will see something like this:<br>
+  <div align="center"> 
+  <img width="90%" height="90%" src="https://github.com/ikostan/AppiumTesting/blob/master/img/inspect_devices.JPG" hspace="10">
+  </div>
+  
+  Source: 
+</details>
+
+
+<details>
+  
+  <summary><b>Environment variables for Android ADB (ANDROID_HOME PATH)</b></summary>
    <br/>
 <b>A. In order to configure ANDROID_HOME path do the following:</b><br/>
   1. Go to "Advanced System Settings" > Advanced Tab > Environment Variables<br/>
@@ -289,6 +320,11 @@ Source: https://www.idiotinside.com/2015/05/10/python-auto-generate-requirements
         
    Then, replace <your-device-id> with the relevant device ID:<br/>
         - adb -s <your-device-id> shell dumpsys window windows | grep -E 'mCurrentFocus | mFocusedApp'<br/>
+   
+   <br/> You should see something like that:
+   <div align="center"> 
+   <img width="60%" height="60%" src="https://github.com/ikostan/AppiumTesting/blob/master/img/adb_shell.JPG" hspace="10">
+   </div>
    
    Source: https://developer.android.com/studio/command-line/dumpsys<br/>
    Source: https://stackoverflow.com/questions/43178672/dumpsys-window-windows-grep-e-mcurrentfocusmfocusedapp-command-is-not-retu/46545726#46545726<br/>
