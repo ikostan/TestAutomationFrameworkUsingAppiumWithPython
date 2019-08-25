@@ -57,7 +57,10 @@ class TestBasicCalculatorCases(unittest.TestCase):
         self.driver.instance.implicitly_wait(3)
 
     def screen_shot(self):
-        """Take a Screen-shot of the drive homepage, when it Failed."""
+        """
+        Take a Screen-shot of the drive homepage, when it Failed.
+        Source: https://stackoverflow.com/questions/12024848/automatic-screenshots-when-test-fail-by-selenium-webdriver-in-python
+        """
         for error in self._outcome.errors:
             if error:
                 file_name = "screenshot_{}.png".format(self.id())
