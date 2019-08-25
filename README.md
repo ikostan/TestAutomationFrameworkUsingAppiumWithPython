@@ -156,7 +156,7 @@ Source: https://www.idiotinside.com/2015/05/10/python-auto-generate-requirements
        - Your device -> Settings -> Wifi -> Wifi Settings<br/>
        - adb shell ip -f inet addr show wlan0<br/>
    5. Run the below command to connect adb to your device over Wi-Fi using IP address of your device:<br/>
-       - adb connect <ip address>:<tcpip port><br/>
+       - adb connect ip_address:tcpip_port<br/>
    6. Finally you got connected to the device over without USB cable as your device is getting listed.<br/>
     
    Source: https://rajeevkumarweb.wordpress.com/2017/06/03/run-appium-tests-on-real-android-device-over-wifi/<br/>
