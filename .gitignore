@@ -127,3 +127,4 @@ dmypy.json
 .idea/modules.xml
 .idea/TEST_AUTOMATION_FRAMEWORK_USING_APPIUM_WITH_PYTHON.iml
 .idea/vcs.xml
+tests/
