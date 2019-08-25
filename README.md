@@ -141,7 +141,7 @@ Source: https://www.idiotinside.com/2015/05/10/python-auto-generate-requirements
 
 
 <details>
-  <summary><b>Android Debug Bridge (adb)</b></summary>
+  <summary><b>Connect to a device over Wi-Fi using Android Debug Bridge (adb)</b></summary>
   
   <br/>
   
@@ -178,7 +178,8 @@ Source: https://www.idiotinside.com/2015/05/10/python-auto-generate-requirements
         
    Then, replace <your-device-id> with the relevant device ID:<br/>
         - adb -s <your-device-id> shell dumpsys window windows | grep -E 'mCurrentFocus | mFocusedApp'<br/>
-    
+   
+   Source: https://developer.android.com/studio/command-line/dumpsys<br/>
    Source: https://stackoverflow.com/questions/43178672/dumpsys-window-windows-grep-e-mcurrentfocusmfocusedapp-command-is-not-retu/46545726#46545726<br/>
 </details>
 
