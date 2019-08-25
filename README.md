@@ -165,10 +165,18 @@ Source: https://www.idiotinside.com/2015/05/10/python-auto-generate-requirements
 
 
 <details>
-  <summary><b>dumpsys</b></summary>
-
-<br/><br/>
-
+  <summary><b>Discover current Activity name with dumpsys</b></summary>
+    
+   **dumpsys** is a shell command. You can run it from the command line as follows:<br/>
+        - adb shell dumpsys window windows | grep -E 'mCurrentFocus | mFocusedApp'<br/>
+    
+   If you have multiple devices connected, first get their IDs by executing:<br/>
+        - adb devices<br/>
+        
+   Then, replace <your-device-id> with the relevant device ID:<br/>
+        - adb -s <your-device-id> shell dumpsys window windows | grep -E 'mCurrentFocus | mFocusedApp'<br/>
+    
+   Source: https://stackoverflow.com/questions/43178672/dumpsys-window-windows-grep-e-mcurrentfocusmfocusedapp-command-is-not-retu/46545726#46545726<br/>
 </details>
 
 
