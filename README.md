@@ -37,17 +37,18 @@
 <a id="dev"></a>
 
 1. [Python 3.7.4](https://www.python.org/downloads/release/python-374/)<br/>
-2. [Appium-Python-Client 0.47](https://pypi.org/project/Appium-Python-Client/)<br/>
-3. [PyTest 5.1.1](https://pypi.org/project/pytest/)<br/>
-4. [Allure Framework 2.12.1](http://allure.qatools.ru/)<br/>
-5. [Win 10 (64 bit)](https://www.microsoft.com/en-ca/software-download/windows10)<br/>
-6. [PyCharm 2019.2 (Community Edition)](https://www.jetbrains.com/pycharm/download/#section=windows)<br/>
-7. [GitHub Desktop 2.1.0](https://desktop.github.com/)<br/>
-8. [GIT 2.22.0.windows.1](https://git-scm.com/download/win)<br/>
-9. [Java SE 8](https://www.oracle.com/technetwork/java/javase/overview/index.html)<br/>
-10. [Scoop](https://scoop.sh/)<br/>
-11. Android tablet (real device)<br/>
-12. [Android Studio 3.5](https://developer.android.com/studio/?gclid=CjwKCAjw44jrBRAHEiwAZ9igKJZ4_eky4PfdbRM1P_T2XejHOYyRH1GIdTyLyAWmEUULF3Dmv6zi7xoCaOwQAvD_BwE)
+2. [Appium](http://appium.io/)
+3. [Appium-Python-Client 0.47](https://pypi.org/project/Appium-Python-Client/)<br/>
+4. [PyTest 5.1.1](https://pypi.org/project/pytest/)<br/>
+5. [Allure Framework 2.12.1](http://allure.qatools.ru/)<br/>
+6. [Win 10 (64 bit)](https://www.microsoft.com/en-ca/software-download/windows10)<br/>
+7. [PyCharm 2019.2 (Community Edition)](https://www.jetbrains.com/pycharm/download/#section=windows)<br/>
+8. [GitHub Desktop 2.1.0](https://desktop.github.com/)<br/>
+9. [GIT 2.22.0.windows.1](https://git-scm.com/download/win)<br/>
+10. [Java SE 8](https://www.oracle.com/technetwork/java/javase/overview/index.html)<br/>
+11. [Scoop](https://scoop.sh/)<br/>
+12. Android tablet (real device)<br/>
+13. [Android Studio 3.5](https://developer.android.com/studio/?gclid=CjwKCAjw44jrBRAHEiwAZ9igKJZ4_eky4PfdbRM1P_T2XejHOYyRH1GIdTyLyAWmEUULF3Dmv6zi7xoCaOwQAvD_BwE)
 
 
 ### Python Packages:<br/>
