@@ -1,11 +1,67 @@
 ## Creating a Test Automation Framework Using Appium with Python
 
 
+### Table of Contents:<br/>
+
+**Main Objectives:**<br/>
+- Build fast and readable automation using minimal code<br/>
+- Showcase with effective way to identify app elements<br/>
+- [Page Objects](https://github.com/SeleniumHQ/selenium/wiki/PageObjects) and [Element Objects](https://www.tutorialspoint.com/dom/dom_element_object) implementation<br/>
+- Industry-ready test structure<br/>
+- Ability to pass arguments from CLI (see [get_args_from_cli](https://github.com/ikostan/TEST_AUTOMATION_FRAMEWORK_USING_APPIUM_WITH_PYTHON/blob/master/utils/get_args_from_cli.py) file)
+- Build readable test report using Allure Framework<br/>
+- Test code should avoid violating principles like [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself), [YAGNI](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it), [SRP](https://en.wikipedia.org/wiki/Single_responsibility_principle) and [KISS](https://en.wikipedia.org/wiki/KISS_principle).
+- Using built-in apps in order to accomplish all the above<br/>
+
+
 ### Documentation:
 - [Appium API Documentation](http://appium.io/docs/en/about-appium/api/)
 - [Appium Desktop](https://github.com/appium/appium-desktop)
 - [Appium Python Client](https://github.com/appium/python-client)
 - [Android Debug Bridge (adb)](https://developer.android.com/studio/command-line/adb)
+- [Appium Desired Capabilities](http://appium.io/docs/en/writing-running-appium/caps/)
+
+
+**Additional Resources:**<br/>
+
+- [Selenium Documentation](https://seleniumhq.github.io/selenium/docs/api/py/api.html)<br/>
+- [Full Pytest documentation](http://doc.pytest.org/en/latest/contents.html)<br/>
+- ['Selenium with Python' official documentation webpage](https://selenium-python.readthedocs.io)<br/>
+- [PyCharm - Manage dependencies using requirements.txt](https://www.jetbrains.com/help/pycharm/managing-dependencies.html)<br/>
+- [Allure Framework](https://docs.qameta.io/allure/)<br/>
+- [CREATING A TEST AUTOMATION FRAMEWORK USING APPIUM WITH PYTHON](https://qaboy.com/2018/06/27/automation-framework-using-appium-python/)
+
+
+### Dev Environment:<br/>
+<a id="dev"></a>
+
+1. [Python 3.7.4](https://www.python.org/downloads/release/python-374/)<br/>
+2. [Appium-Python-Client 0.47](https://pypi.org/project/Appium-Python-Client/)<br/>
+3. [PyTest 5.1.1](https://pypi.org/project/pytest/)<br/>
+4. [Allure Framework 2.12.1](http://allure.qatools.ru/)<br/>
+5. [Win 10 (64 bit)](https://www.microsoft.com/en-ca/software-download/windows10)<br/>
+6. [PyCharm 2019.2 (Community Edition)](https://www.jetbrains.com/pycharm/download/#section=windows)<br/>
+7. [GitHub Desktop 2.1.0](https://desktop.github.com/)<br/>
+8. [GIT 2.22.0.windows.1](https://git-scm.com/download/win)<br/>
+9. [Java SE 8](https://www.oracle.com/technetwork/java/javase/overview/index.html)<br/>
+10. [Scoop](https://scoop.sh/)<br/>
+11. Android tablet (real device)<br/>
+12. [Android Studio 3.5](https://developer.android.com/studio/?gclid=CjwKCAjw44jrBRAHEiwAZ9igKJZ4_eky4PfdbRM1P_T2XejHOYyRH1GIdTyLyAWmEUULF3Dmv6zi7xoCaOwQAvD_BwE)
+
+
+### Python Packages:<br/>
+Full list of dependencies see [here.](https://github.com/ikostan/TEST_AUTOMATION_FRAMEWORK_USING_APPIUM_WITH_PYTHON/blob/master/requirements.txt)
+
+
+### Nice to have tools:
+1. [Fiddler: The free web debugging proxy](https://www.telerik.com/fiddler)
+2. [Kite: Code Faster in Python](https://kite.com/)
+3. [Ragnorex: Smart Selector Generator](https://www.ranorex.com/selocity/browser-extension)
+4. [Pynsource: Python source code into UML diagrams](https://www.pynsource.com/index.html)
+5. [TeamViewer](https://www.teamviewer.com/en/?pcc_keyword=teamviewer&gclid=CjwKCAjw44jrBRAHEiwAZ9igKBBMHbZjxT2zAPCJFrK-Agcldw0iOKD_1TyEeKcbCN_uTZjvCnQaNxoCfuwQAvD_BwE)
+6. [AirDroid](https://www.airdroid.com/)
+7. [QuickSupport](https://play.google.com/store/apps/details?id=com.teamviewer.quicksupport.market&hl=en_CA)
+8. [App Info, Application Info](https://play.google.com/store/apps/details?id=com.bestappfactory.appinfo&hl=en_CA)
 
 
 ### Tech Issues and Problem Solving:<br/>
@@ -190,7 +246,4 @@ Source: https://www.idiotinside.com/2015/05/10/python-auto-generate-requirements
 <br/><br/>
 
 </details>
-
-
-Source Tutorials: [CREATING A TEST AUTOMATION FRAMEWORK USING APPIUM WITH PYTHON](https://qaboy.com/2018/06/27/automation-framework-using-appium-python/)
 
