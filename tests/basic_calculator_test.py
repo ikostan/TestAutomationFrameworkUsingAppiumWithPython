@@ -1,12 +1,26 @@
+#  Created by Egor Kostan.
+#  GitHub: https://github.com/ikostan
+#  LinkedIn: https://www.linkedin.com/in/egor-kostan/
+
 import unittest
+import allure
 
 from utils.driver import Driver
+from utils.screenshot import screenshot_on_fail
+
 from locators.page_locator import PageLocator
 
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
+@allure.epic('Android Built-In App')
+@allure.parent_suite('End To End')
+@allure.suite("Calculator Test Suite")
+@allure.sub_suite("Positive Tests")
+@allure.feature("Basic Functionality")
+@allure.story('Basic Buttons')
+@screenshot_on_fail()
 class TestBasicCalculatorCases(unittest.TestCase):
 	"""
 	Test basic functionality:
