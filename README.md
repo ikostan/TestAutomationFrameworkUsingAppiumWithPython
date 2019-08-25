@@ -23,6 +23,7 @@
 - [Appium Python Client](https://github.com/appium/python-client)
 - [Android Debug Bridge (adb)](https://developer.android.com/studio/command-line/adb)
 - [Appium Desired Capabilities](http://appium.io/docs/en/writing-running-appium/caps/)
+- [Appium Android Driver](https://github.com/appium/appium-android-driver)
 
 
 **Additional Resources:**<br/>
