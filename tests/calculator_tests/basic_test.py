@@ -4,10 +4,6 @@
 #  GitHub: https://github.com/ikostan
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
 
-#  Created by Egor Kostan.
-#  GitHub: https://github.com/ikostan
-#  LinkedIn: https://www.linkedin.com/in/egor-kostan/
-
 import os
 import unittest
 
@@ -19,7 +15,7 @@ import allure
 from allure_commons.types import AttachmentType
 
 from utils.driver import Driver
-from locators.page_locator import PageLocator
+from page_locators.calculator_page_locator import CalculatorPageLocator
 
 
 @allure.epic('Android Native App')
@@ -55,6 +51,12 @@ class TestBasicCalculatorCases(unittest.TestCase):
 
     def setUp(self) -> None:
         self.driver = Driver()
+        self.driver.set_capability("appPackage", "com.android.calculator2")
+        self.driver.set_capability("appActivity", "com.android.calculator2.Calculator")
+
+        # Set the current device/browser orientation
+        # self.driver.driver_instance.orientation = "LANDSCAPE"
+
         # NOTE: In addCleanup, the first in, is executed last.
         self.addCleanup(self.driver.driver_instance.quit)
         self.addCleanup(self.screen_shot)
@@ -82,54 +84,54 @@ class TestBasicCalculatorCases(unittest.TestCase):
         """
 
         # Digits 0-9
-        for key in PageLocator.DIGITS:
+        for key in CalculatorPageLocator.DIGITS:
             btn = WebDriverWait(self.driver.driver_instance, 5).until(
-                EC.presence_of_element_located(PageLocator.DIGITS[key]))
+                EC.presence_of_element_located(CalculatorPageLocator.DIGITS[key]))
             assert btn.is_displayed()
 
         # . button
         btn = WebDriverWait(self.driver.driver_instance, 5).until(
-            EC.presence_of_element_located(PageLocator.POINT_BTN))
+            EC.presence_of_element_located(CalculatorPageLocator.POINT_BTN))
         assert btn.is_displayed()
 
         # +
         btn = WebDriverWait(self.driver.driver_instance, 5).until(
-            EC.presence_of_element_located(PageLocator.PLUS_BTN))
+            EC.presence_of_element_located(CalculatorPageLocator.PLUS_BTN))
         assert btn.is_displayed()
 
         # -
         btn = WebDriverWait(self.driver.driver_instance, 5).until(
-            EC.presence_of_element_located(PageLocator.MINUS_BTN))
+            EC.presence_of_element_located(CalculatorPageLocator.MINUS_BTN))
         assert btn.is_displayed()
 
         # *
         btn = WebDriverWait(self.driver.driver_instance, 5).until(
-            EC.presence_of_element_located(PageLocator.MULTIPLICATION_BTN))
+            EC.presence_of_element_located(CalculatorPageLocator.MULTIPLICATION_BTN))
         assert btn.is_displayed()
 
         # /
         btn = WebDriverWait(self.driver.driver_instance, 5).until(
-            EC.presence_of_element_located(PageLocator.DIVISION_BTN))
+            EC.presence_of_element_located(CalculatorPageLocator.DIVISION_BTN))
         assert btn.is_displayed()
 
         # DEL
         btn = WebDriverWait(self.driver.driver_instance, 5).until(
-            EC.presence_of_element_located(PageLocator.DEL_BTN))
+            EC.presence_of_element_located(CalculatorPageLocator.DEL_BTN))
         assert btn.is_displayed()
 
         # CLR button is not presented by default
         with self.assertRaises(TimeoutException):
             WebDriverWait(self.driver.driver_instance, 5).until(
-                EC.presence_of_element_located(PageLocator.CLEAR_BTN))
+                EC.presence_of_element_located(CalculatorPageLocator.CLEAR_BTN))
 
         # =
         btn = WebDriverWait(self.driver.driver_instance, 5).until(
-            EC.presence_of_element_located(PageLocator.EQUAL_BTN))
+            EC.presence_of_element_located(CalculatorPageLocator.EQUAL_BTN))
         assert btn.is_displayed()
 
         # Display
         btn = WebDriverWait(self.driver.driver_instance, 5).until(
-            EC.presence_of_element_located(PageLocator.DISPLAY))
+            EC.presence_of_element_located(CalculatorPageLocator.DISPLAY))
         assert btn.is_displayed()
 
     def test_entering_digits(self):
@@ -141,13 +143,13 @@ class TestBasicCalculatorCases(unittest.TestCase):
         :return:
         """
 
-        for key in PageLocator.DIGITS:
+        for key in CalculatorPageLocator.DIGITS:
             btn = WebDriverWait(self.driver.driver_instance, 5).until(
-                EC.element_to_be_clickable(PageLocator.DIGITS[key]))
+                EC.element_to_be_clickable(CalculatorPageLocator.DIGITS[key]))
             btn.click()
 
         screen_formula = WebDriverWait(self.driver.driver_instance, 5).until(
-            EC.presence_of_element_located(PageLocator.SCREEN_FORMULA))
+            EC.presence_of_element_located(CalculatorPageLocator.SCREEN_FORMULA))
         assert screen_formula.text == '0123456789'
 
     def test_equal_btn(self):
@@ -160,17 +162,17 @@ class TestBasicCalculatorCases(unittest.TestCase):
         :return:
         """
 
-        for key in PageLocator.DIGITS:
+        for key in CalculatorPageLocator.DIGITS:
             btn = WebDriverWait(self.driver.driver_instance, 5).until(
-                EC.element_to_be_clickable(PageLocator.DIGITS[key]))
+                EC.element_to_be_clickable(CalculatorPageLocator.DIGITS[key]))
             btn.click()
 
         btn = WebDriverWait(self.driver.driver_instance, 5).until(
-            EC.element_to_be_clickable(PageLocator.EQUAL_BTN))
+            EC.element_to_be_clickable(CalculatorPageLocator.EQUAL_BTN))
         btn.click()
 
         screen_result = WebDriverWait(self.driver.driver_instance, 5).until(
-            EC.presence_of_element_located(PageLocator.SCREEN_RESULT))
+            EC.presence_of_element_located(CalculatorPageLocator.SCREEN_RESULT))
         assert screen_result.text == '123456789'
 
     def test_clear_btn(self):
@@ -181,29 +183,29 @@ class TestBasicCalculatorCases(unittest.TestCase):
         :return:
         """
 
-        for key in PageLocator.DIGITS:
+        for key in CalculatorPageLocator.DIGITS:
             btn = WebDriverWait(self.driver.driver_instance, 5).until(
-                EC.element_to_be_clickable(PageLocator.DIGITS[key]))
+                EC.element_to_be_clickable(CalculatorPageLocator.DIGITS[key]))
             btn.click()
 
         btn = WebDriverWait(self.driver.driver_instance, 5).until(
-            EC.element_to_be_clickable(PageLocator.EQUAL_BTN))
+            EC.element_to_be_clickable(CalculatorPageLocator.EQUAL_BTN))
         btn.click()
 
         btn = WebDriverWait(self.driver.driver_instance, 5).until(
-            EC.presence_of_element_located(PageLocator.CLEAR_BTN))
+            EC.presence_of_element_located(CalculatorPageLocator.CLEAR_BTN))
         assert btn.is_displayed()
 
         btn = WebDriverWait(self.driver.driver_instance, 5).until(
-            EC.element_to_be_clickable(PageLocator.CLEAR_BTN))
+            EC.element_to_be_clickable(CalculatorPageLocator.CLEAR_BTN))
         btn.click()
 
         screen_formula = WebDriverWait(self.driver.driver_instance, 5).until(
-            EC.presence_of_element_located(PageLocator.SCREEN_FORMULA))
+            EC.presence_of_element_located(CalculatorPageLocator.SCREEN_FORMULA))
         assert screen_formula.text == ''
 
         screen_result = WebDriverWait(self.driver.driver_instance, 5).until(
-            EC.presence_of_element_located(PageLocator.SCREEN_RESULT))
+            EC.presence_of_element_located(CalculatorPageLocator.SCREEN_RESULT))
         assert screen_result.text == ''
 
     def test_delete_btn(self):
@@ -216,24 +218,24 @@ class TestBasicCalculatorCases(unittest.TestCase):
         :return:
         """
 
-        for key in PageLocator.DIGITS:
+        for key in CalculatorPageLocator.DIGITS:
             btn = WebDriverWait(self.driver.driver_instance, 5).until(
-                EC.element_to_be_clickable(PageLocator.DIGITS[key]))
+                EC.element_to_be_clickable(CalculatorPageLocator.DIGITS[key]))
             btn.click()
 
         for index in range(len('0123456789')):
             btn = WebDriverWait(self.driver.driver_instance, 5).until(
-                EC.element_to_be_clickable(PageLocator.DEL_BTN))
+                EC.element_to_be_clickable(CalculatorPageLocator.DEL_BTN))
             btn.click()
 
             screen_formula = WebDriverWait(self.driver.driver_instance, 5).until(
-                EC.presence_of_element_located(PageLocator.SCREEN_FORMULA))
+                EC.presence_of_element_located(CalculatorPageLocator.SCREEN_FORMULA))
             assert screen_formula.text == '0123456789'[0:len('0123456789') - (1 + index)]
 
         screen_formula = WebDriverWait(self.driver.driver_instance, 5).until(
-            EC.presence_of_element_located(PageLocator.SCREEN_FORMULA))
+            EC.presence_of_element_located(CalculatorPageLocator.SCREEN_FORMULA))
         assert screen_formula.text == ''
 
         screen_result = WebDriverWait(self.driver.driver_instance, 5).until(
-            EC.presence_of_element_located(PageLocator.SCREEN_RESULT))
+            EC.presence_of_element_located(CalculatorPageLocator.SCREEN_RESULT))
         assert screen_result.text == ''
