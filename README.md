@@ -75,6 +75,22 @@ Full list of dependencies see [here.](https://github.com/ikostan/TEST_AUTOMATION
 8. [App Info, Application Info](https://play.google.com/store/apps/details?id=com.bestappfactory.appinfo&hl=en_CA)<br/>
 
 
+### General guidelines: How to set up dev environment.<br/>
+
+1. Install Python<br/>
+2. Install PyCharm<br/>
+3. Configure virtual environment and activate it<br/>
+4. Install Python prerequisites/packages<br/>
+5. Install Java JDK > configure JAVA_HOME PATH<br/>
+6. Install Android Studio > configure ANDROID_HOME PATH<br/>
+7. <br/>
+8. <br/>
+9. <br/>
+10. <br/>
+
+**NOTE:** for more detailed info please see "Tech Issues and Problem Solving" section<br/>
+
+
 ### Tech Issues and Problem Solving:<br/>
 <a id="tech_issues"></a>
 
