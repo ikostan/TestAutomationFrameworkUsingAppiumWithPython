@@ -199,9 +199,13 @@ Source: https://www.idiotinside.com/2015/05/10/python-auto-generate-requirements
 <details>
   
   <summary><b>Environment variables for Android ADB (ANDROID_HOME PATH)</b></summary>
-  <br/>
-    **NOTE:** Android Studio must be installed first.
+  
    <br/>
+   
+   **NOTE:** Android Studio must be installed first.
+    
+   <br/>
+   
 <b>A. In order to configure ANDROID_HOME path do the following:</b><br/>
   1. Go to "Advanced System Settings" > Advanced Tab > Environment Variables<br/>
   2. Go to System Variables section > click on New... button<br/>
