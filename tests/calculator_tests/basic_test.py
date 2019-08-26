@@ -1,28 +1,22 @@
-"""Basic calculator_test Test Case"""
+"""Basic Functionality Test Case"""
 
 #  Created by Egor Kostan.
 #  GitHub: https://github.com/ikostan
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
 
-import os
-import unittest
-
-from selenium.common.exceptions import TimeoutException
 
 import allure
-from allure_commons.types import AttachmentType
-
-from page_objects.calculatoe_page_model import CalculatorPageModel
-from utils.driver import Driver
+from selenium.common.exceptions import TimeoutException
+from tests.calculator_tests.base_testcase import BaseTestCase
 
 
 @allure.epic('Android Native App')
 @allure.parent_suite('End To End')
-@allure.suite("calculator_test Test Suite")
+@allure.suite("Calculator Test Suite")
 @allure.sub_suite("Positive Tests")
 @allure.feature("Basic Functionality")
 @allure.story('Basic Buttons')
-class TestBasicCalculatorCases(unittest.TestCase):
+class TestBasicCalculatorCases(BaseTestCase):
     """
     Test basic functionality:
 
@@ -35,49 +29,6 @@ class TestBasicCalculatorCases(unittest.TestCase):
     Should be able to close the app
     Check for the visibility of all buttons (0-9, DEL, CLR, . +,-,*,/,=)
     """
-
-    @classmethod
-    def setUpClass(cls) -> None:
-        with allure.step("Set driver to None"):
-            cls._driver = None
-
-    @classmethod
-    def tearDownClass(cls) -> None:
-        with allure.step("Close Page Model > Set driver to None"):
-            if cls._driver:
-                if cls._driver.driver_instance:
-                    cls._driver.driver_instance.quit()
-                cls._driver = None
-
-    def setUp(self) -> None:
-        with allure.step("Set up driver object"):
-            self._driver = Driver()
-            self._driver.set_capability("appPackage", "com.android.calculator2")
-            self._driver.set_capability("appActivity", "com.android.calculator2.Calculator")
-
-        with allure.step("Set up Page Model object"):
-            self.app = CalculatorPageModel(self._driver.driver_instance)
-
-        # Set the current device/browser orientation
-        # self.driver.driver_instance.orientation = "LANDSCAPE"
-
-        # NOTE: In addCleanup, the first in, is executed last.
-        with allure.step("Set up Cleanup methods"):
-            self.addCleanup(self._driver.driver_instance.quit)
-            self.addCleanup(self.screen_shot)
-            self._driver.driver_instance.implicitly_wait(3)
-
-    def screen_shot(self):
-        """
-        Take a Screen-shot of the drive homepage, when it Failed.
-        Source: https://stackoverflow.com/questions/12024848/automatic-screenshots-when-test-fail-by-selenium-webdriver-in-python
-        """
-        for error in self._outcome.errors:
-            if error:
-                file_name = "screenshot_{}.png".format(self.id())
-                self._driver.driver_instance.get_screenshot_as_file(file_name)
-                allure.attach.file('./' + file_name, attachment_type=AttachmentType.PNG)
-                os.remove('./' + file_name)
 
     def test_btn_visibility(self):
         """
@@ -111,7 +62,7 @@ class TestBasicCalculatorCases(unittest.TestCase):
             assert BaseElement(self.driver.driver_instance,
                                CalculatorPageLocator.POINT_BTN).is_visible
             '''
-            assert self.app.dot.is_visible
+            assert not self.app.dot.is_visible
 
         # +
         with allure.step("Test '+' button visibility"):
