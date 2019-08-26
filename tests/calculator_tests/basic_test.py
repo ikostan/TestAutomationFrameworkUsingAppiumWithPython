@@ -14,6 +14,8 @@ from selenium.webdriver.support import expected_conditions as EC
 import allure
 from allure_commons.types import AttachmentType
 
+from drivers.element.base_element import BaseElement
+from page_objects.calculatoe_page_model import CalculatorPageModel
 from utils.driver import Driver
 from page_locators.calculator_page_locator import CalculatorPageLocator
 
@@ -40,27 +42,34 @@ class TestBasicCalculatorCases(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls) -> None:
-        cls.driver = None
+        with allure.step("Set driver to None"):
+            cls.driver = None
 
     @classmethod
     def tearDownClass(cls) -> None:
-        if cls.driver:
-            if cls.driver.driver_instance:
-                cls.driver.driver_instance.quit()
-            cls.driver = None
+        with allure.step("Close Page Model > Set driver to None"):
+            if cls.driver:
+                if cls.driver.driver_instance:
+                    cls.driver.driver_instance.quit()
+                cls.driver = None
 
     def setUp(self) -> None:
-        self.driver = Driver()
-        self.driver.set_capability("appPackage", "com.android.calculator2")
-        self.driver.set_capability("appActivity", "com.android.calculator2.Calculator")
+        with allure.step("Set up driver object"):
+            self.driver = Driver()
+            self.driver.set_capability("appPackage", "com.android.calculator2")
+            self.driver.set_capability("appActivity", "com.android.calculator2.Calculator")
+
+        with allure.step("Set up Page Model object"):
+            self.app = CalculatorPageModel(self.driver.driver_instance)
 
         # Set the current device/browser orientation
         # self.driver.driver_instance.orientation = "LANDSCAPE"
 
         # NOTE: In addCleanup, the first in, is executed last.
-        self.addCleanup(self.driver.driver_instance.quit)
-        self.addCleanup(self.screen_shot)
-        self.driver.driver_instance.implicitly_wait(3)
+        with allure.step("Set up Cleanup methods"):
+            self.addCleanup(self.driver.driver_instance.quit)
+            self.addCleanup(self.screen_shot)
+            self.driver.driver_instance.implicitly_wait(3)
 
     def screen_shot(self):
         """
@@ -83,56 +92,68 @@ class TestBasicCalculatorCases(unittest.TestCase):
         Check for the visibility of all buttons (0-9, DEL, CLR, ., +, -, *, /, =)
         """
 
+        allure.dynamic.title("Buttons visibility test")
+        allure.dynamic.severity(allure.severity_level.BLOCKER)
+
         # Digits 0-9
-        for key in CalculatorPageLocator.DIGITS:
-            btn = WebDriverWait(self.driver.driver_instance, 5).until(
-                EC.presence_of_element_located(CalculatorPageLocator.DIGITS[key]))
-            assert btn.is_displayed()
+        with allure.step("Test 0-9 digits/buttons visibility"):
+            for key in CalculatorPageLocator.DIGITS:
+                assert BaseElement(self.driver.driver_instance,
+                                   CalculatorPageLocator.DIGITS[key]).is_visible
 
         # . button
-        btn = WebDriverWait(self.driver.driver_instance, 5).until(
-            EC.presence_of_element_located(CalculatorPageLocator.POINT_BTN))
-        assert btn.is_displayed()
+        with allure.step("Test '.' button visibility"):
+            btn = WebDriverWait(self.driver.driver_instance, 5).until(
+                EC.presence_of_element_located(CalculatorPageLocator.POINT_BTN))
+            assert btn.is_displayed()
 
         # +
-        btn = WebDriverWait(self.driver.driver_instance, 5).until(
-            EC.presence_of_element_located(CalculatorPageLocator.PLUS_BTN))
-        assert btn.is_displayed()
+        with allure.step("Test '+' button visibility"):
+            btn = WebDriverWait(self.driver.driver_instance, 5).until(
+                EC.presence_of_element_located(CalculatorPageLocator.PLUS_BTN))
+            assert btn.is_displayed()
 
         # -
-        btn = WebDriverWait(self.driver.driver_instance, 5).until(
-            EC.presence_of_element_located(CalculatorPageLocator.MINUS_BTN))
-        assert btn.is_displayed()
+        with allure.step("Test '-' button visibility"):
+            btn = WebDriverWait(self.driver.driver_instance, 5).until(
+                EC.presence_of_element_located(CalculatorPageLocator.MINUS_BTN))
+            assert btn.is_displayed()
 
         # *
-        btn = WebDriverWait(self.driver.driver_instance, 5).until(
-            EC.presence_of_element_located(CalculatorPageLocator.MULTIPLICATION_BTN))
-        assert btn.is_displayed()
+        with allure.step("Test '*' button visibility"):
+            btn = WebDriverWait(self.driver.driver_instance, 5).until(
+                EC.presence_of_element_located(CalculatorPageLocator.MULTIPLICATION_BTN))
+            assert btn.is_displayed()
 
         # /
-        btn = WebDriverWait(self.driver.driver_instance, 5).until(
-            EC.presence_of_element_located(CalculatorPageLocator.DIVISION_BTN))
-        assert btn.is_displayed()
+        with allure.step("Test '/' button visibility"):
+            btn = WebDriverWait(self.driver.driver_instance, 5).until(
+                EC.presence_of_element_located(CalculatorPageLocator.DIVISION_BTN))
+            assert btn.is_displayed()
 
         # DEL
-        btn = WebDriverWait(self.driver.driver_instance, 5).until(
-            EC.presence_of_element_located(CalculatorPageLocator.DEL_BTN))
-        assert btn.is_displayed()
+        with allure.step("Test 'DEL' button visibility"):
+            btn = WebDriverWait(self.driver.driver_instance, 5).until(
+                EC.presence_of_element_located(CalculatorPageLocator.DEL_BTN))
+            assert btn.is_displayed()
 
         # CLR button is not presented by default
-        with self.assertRaises(TimeoutException):
-            WebDriverWait(self.driver.driver_instance, 5).until(
-                EC.presence_of_element_located(CalculatorPageLocator.CLEAR_BTN))
+        with allure.step("Test 'CLR' button visibility"):
+            with self.assertRaises(TimeoutException):
+                WebDriverWait(self.driver.driver_instance, 5).until(
+                    EC.presence_of_element_located(CalculatorPageLocator.CLEAR_BTN))
 
         # =
-        btn = WebDriverWait(self.driver.driver_instance, 5).until(
-            EC.presence_of_element_located(CalculatorPageLocator.EQUAL_BTN))
-        assert btn.is_displayed()
+        with allure.step("Test '=' button visibility"):
+            btn = WebDriverWait(self.driver.driver_instance, 5).until(
+                EC.presence_of_element_located(CalculatorPageLocator.EQUAL_BTN))
+            assert btn.is_displayed()
 
         # Display
-        btn = WebDriverWait(self.driver.driver_instance, 5).until(
-            EC.presence_of_element_located(CalculatorPageLocator.DISPLAY))
-        assert btn.is_displayed()
+        with allure.step("Test main display visibility"):
+            btn = WebDriverWait(self.driver.driver_instance, 5).until(
+                EC.presence_of_element_located(CalculatorPageLocator.DISPLAY))
+            assert btn.is_displayed()
 
     def test_entering_digits(self):
         """
@@ -143,14 +164,19 @@ class TestBasicCalculatorCases(unittest.TestCase):
         :return:
         """
 
-        for key in CalculatorPageLocator.DIGITS:
-            btn = WebDriverWait(self.driver.driver_instance, 5).until(
-                EC.element_to_be_clickable(CalculatorPageLocator.DIGITS[key]))
-            btn.click()
+        allure.dynamic.title("0-9 buttons basic functionality test")
+        allure.dynamic.severity(allure.severity_level.BLOCKER)
 
-        screen_formula = WebDriverWait(self.driver.driver_instance, 5).until(
-            EC.presence_of_element_located(CalculatorPageLocator.SCREEN_FORMULA))
-        assert screen_formula.text == '0123456789'
+        with allure.step("Enter digits 0-9"):
+            for key in CalculatorPageLocator.DIGITS:
+                btn = WebDriverWait(self.driver.driver_instance, 5).until(
+                    EC.element_to_be_clickable(CalculatorPageLocator.DIGITS[key]))
+                btn.click()
+
+        with allure.step("Verify screen output"):
+            screen_formula = WebDriverWait(self.driver.driver_instance, 5).until(
+                EC.presence_of_element_located(CalculatorPageLocator.SCREEN_FORMULA))
+            assert screen_formula.text == '0123456789'
 
     def test_equal_btn(self):
         """
@@ -162,18 +188,24 @@ class TestBasicCalculatorCases(unittest.TestCase):
         :return:
         """
 
-        for key in CalculatorPageLocator.DIGITS:
+        allure.dynamic.title("'=' basic functionality test")
+        allure.dynamic.severity(allure.severity_level.BLOCKER)
+
+        with allure.step("Enter digits 0-9"):
+            for key in CalculatorPageLocator.DIGITS:
+                btn = WebDriverWait(self.driver.driver_instance, 5).until(
+                    EC.element_to_be_clickable(CalculatorPageLocator.DIGITS[key]))
+                btn.click()
+
+        with allure.step("Press '=' button"):
             btn = WebDriverWait(self.driver.driver_instance, 5).until(
-                EC.element_to_be_clickable(CalculatorPageLocator.DIGITS[key]))
+                EC.element_to_be_clickable(CalculatorPageLocator.EQUAL_BTN))
             btn.click()
 
-        btn = WebDriverWait(self.driver.driver_instance, 5).until(
-            EC.element_to_be_clickable(CalculatorPageLocator.EQUAL_BTN))
-        btn.click()
-
-        screen_result = WebDriverWait(self.driver.driver_instance, 5).until(
-            EC.presence_of_element_located(CalculatorPageLocator.SCREEN_RESULT))
-        assert screen_result.text == '123456789'
+        with allure.step("Verify screen output"):
+            screen_result = WebDriverWait(self.driver.driver_instance, 5).until(
+                EC.presence_of_element_located(CalculatorPageLocator.SCREEN_RESULT))
+            assert screen_result.text == '123456789'
 
     def test_clear_btn(self):
         """
@@ -183,30 +215,39 @@ class TestBasicCalculatorCases(unittest.TestCase):
         :return:
         """
 
-        for key in CalculatorPageLocator.DIGITS:
+        allure.dynamic.title("'CLR' basic functionality test")
+        allure.dynamic.severity(allure.severity_level.BLOCKER)
+
+        with allure.step("Enter digits 0-9"):
+            for key in CalculatorPageLocator.DIGITS:
+                btn = WebDriverWait(self.driver.driver_instance, 5).until(
+                    EC.element_to_be_clickable(CalculatorPageLocator.DIGITS[key]))
+                btn.click()
+
+        with allure.step("Press '=' button"):
             btn = WebDriverWait(self.driver.driver_instance, 5).until(
-                EC.element_to_be_clickable(CalculatorPageLocator.DIGITS[key]))
+                EC.element_to_be_clickable(CalculatorPageLocator.EQUAL_BTN))
             btn.click()
 
-        btn = WebDriverWait(self.driver.driver_instance, 5).until(
-            EC.element_to_be_clickable(CalculatorPageLocator.EQUAL_BTN))
-        btn.click()
+        with allure.step("Test 'CLR' button visibility"):
+            btn = WebDriverWait(self.driver.driver_instance, 5).until(
+                EC.presence_of_element_located(CalculatorPageLocator.CLEAR_BTN))
+            assert btn.is_displayed()
 
-        btn = WebDriverWait(self.driver.driver_instance, 5).until(
-            EC.presence_of_element_located(CalculatorPageLocator.CLEAR_BTN))
-        assert btn.is_displayed()
+        with allure.step("Press 'CLR' button"):
+            btn = WebDriverWait(self.driver.driver_instance, 5).until(
+                EC.element_to_be_clickable(CalculatorPageLocator.CLEAR_BTN))
+            btn.click()
 
-        btn = WebDriverWait(self.driver.driver_instance, 5).until(
-            EC.element_to_be_clickable(CalculatorPageLocator.CLEAR_BTN))
-        btn.click()
+        with allure.step("Verify formula screen output"):
+            screen_formula = WebDriverWait(self.driver.driver_instance, 5).until(
+                EC.presence_of_element_located(CalculatorPageLocator.SCREEN_FORMULA))
+            assert screen_formula.text == ''
 
-        screen_formula = WebDriverWait(self.driver.driver_instance, 5).until(
-            EC.presence_of_element_located(CalculatorPageLocator.SCREEN_FORMULA))
-        assert screen_formula.text == ''
-
-        screen_result = WebDriverWait(self.driver.driver_instance, 5).until(
-            EC.presence_of_element_located(CalculatorPageLocator.SCREEN_RESULT))
-        assert screen_result.text == ''
+        with allure.step("Verify result screen output"):
+            screen_result = WebDriverWait(self.driver.driver_instance, 5).until(
+                EC.presence_of_element_located(CalculatorPageLocator.SCREEN_RESULT))
+            assert screen_result.text == ''
 
     def test_delete_btn(self):
         """
@@ -218,24 +259,34 @@ class TestBasicCalculatorCases(unittest.TestCase):
         :return:
         """
 
-        for key in CalculatorPageLocator.DIGITS:
-            btn = WebDriverWait(self.driver.driver_instance, 5).until(
-                EC.element_to_be_clickable(CalculatorPageLocator.DIGITS[key]))
-            btn.click()
+        allure.dynamic.title("'DEL' basic functionality test")
+        allure.dynamic.severity(allure.severity_level.BLOCKER)
 
-        for index in range(len('0123456789')):
-            btn = WebDriverWait(self.driver.driver_instance, 5).until(
-                EC.element_to_be_clickable(CalculatorPageLocator.DEL_BTN))
-            btn.click()
+        with allure.step("Enter digits 0-9"):
+            for key in CalculatorPageLocator.DIGITS:
+                btn = WebDriverWait(self.driver.driver_instance, 5).until(
+                    EC.element_to_be_clickable(CalculatorPageLocator.DIGITS[key]))
+                btn.click()
 
+        with allure.step("Test 'DEL' button"):
+
+            for index in range(len('0123456789')):
+                with allure.step("Press 'DEL' button"):
+                    btn = WebDriverWait(self.driver.driver_instance, 5).until(
+                        EC.element_to_be_clickable(CalculatorPageLocator.DEL_BTN))
+                    btn.click()
+
+                with allure.step("Verify formula screen output"):
+                    screen_formula = WebDriverWait(self.driver.driver_instance, 5).until(
+                        EC.presence_of_element_located(CalculatorPageLocator.SCREEN_FORMULA))
+                    assert screen_formula.text == '0123456789'[0:len('0123456789') - (1 + index)]
+
+        with allure.step("Verify formula screen output"):
             screen_formula = WebDriverWait(self.driver.driver_instance, 5).until(
                 EC.presence_of_element_located(CalculatorPageLocator.SCREEN_FORMULA))
-            assert screen_formula.text == '0123456789'[0:len('0123456789') - (1 + index)]
+            assert screen_formula.text == ''
 
-        screen_formula = WebDriverWait(self.driver.driver_instance, 5).until(
-            EC.presence_of_element_located(CalculatorPageLocator.SCREEN_FORMULA))
-        assert screen_formula.text == ''
-
-        screen_result = WebDriverWait(self.driver.driver_instance, 5).until(
-            EC.presence_of_element_located(CalculatorPageLocator.SCREEN_RESULT))
-        assert screen_result.text == ''
+        with allure.step("Verify result screen output"):
+            screen_result = WebDriverWait(self.driver.driver_instance, 5).until(
+                EC.presence_of_element_located(CalculatorPageLocator.SCREEN_RESULT))
+            assert screen_result.text == ''
