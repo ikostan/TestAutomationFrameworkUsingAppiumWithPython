@@ -61,7 +61,7 @@ class TestAdditionCase(BaseTestCase):
 		Should be able to add a negative integer to a positive floating point number
 		:return:
 		"""
-		allure.dynamic.title("")
+		allure.dynamic.title("Add a negative integer to a positive floating point number")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 		pass
 
@@ -70,7 +70,7 @@ class TestAdditionCase(BaseTestCase):
 		Should be able to add a floating point number to an integer
 		:return:
 		"""
-		allure.dynamic.title("")
+		allure.dynamic.title("Add a floating point number to an integer")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 		pass
 
@@ -79,7 +79,7 @@ class TestAdditionCase(BaseTestCase):
 		Should be able to add an integer to a floating point number
 		:return:
 		"""
-		allure.dynamic.title("")
+		allure.dynamic.title("Add an integer to a floating point number")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 		pass
 
@@ -88,7 +88,7 @@ class TestAdditionCase(BaseTestCase):
 		Should be able to add two floating point numbers
 		:return:
 		"""
-		allure.dynamic.title("")
+		allure.dynamic.title("Add two floating point numbers")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 		pass
 
@@ -97,7 +97,7 @@ class TestAdditionCase(BaseTestCase):
 		Should be able to add a negative integer and zero
 		:return:
 		"""
-		allure.dynamic.title("")
+		allure.dynamic.title("Add a negative integer and zero")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 		pass
 
@@ -106,7 +106,7 @@ class TestAdditionCase(BaseTestCase):
 		Should be able to add zero and a positive integer
 		:return:
 		"""
-		allure.dynamic.title("")
+		allure.dynamic.title("Add zero and a positive integer")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 		pass
 
@@ -115,7 +115,7 @@ class TestAdditionCase(BaseTestCase):
 		Should be able to add a negative integer with a positive number
 		:return:
 		"""
-		allure.dynamic.title("")
+		allure.dynamic.title("Add a negative integer with a positive number")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 		pass
 
@@ -124,7 +124,7 @@ class TestAdditionCase(BaseTestCase):
 		Should be able to add two large positive integers
 		:return:
 		"""
-		allure.dynamic.title("")
+		allure.dynamic.title("Add two large positive integers")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 		pass
 
@@ -133,7 +133,7 @@ class TestAdditionCase(BaseTestCase):
 		Should be able to add a negative floating point and a positive integer
 		:return:
 		"""
-		allure.dynamic.title("")
+		allure.dynamic.title("Add a negative floating point and a positive integer")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 		pass
 
@@ -142,7 +142,7 @@ class TestAdditionCase(BaseTestCase):
 		Should be able to add a positive integer to the results of a previous operation
 		:return:
 		"""
-		allure.dynamic.title("")
+		allure.dynamic.title("Add a positive integer to the results of a previous operation")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 		pass
 
@@ -151,7 +151,7 @@ class TestAdditionCase(BaseTestCase):
 		Should be able to add a positive floating point number to the results of a previous operation
 		:return:
 		"""
-		allure.dynamic.title("")
+		allure.dynamic.title("Add a positive floating point number to the results of a previous operation")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 		pass
 
@@ -160,7 +160,7 @@ class TestAdditionCase(BaseTestCase):
 		Should be able to add a floating point number with many decimal places to a previous result
 		:return:
 		"""
-		allure.dynamic.title("")
+		allure.dynamic.title("Add a floating point number with many decimal places to a previous result")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 		pass
 
@@ -169,7 +169,7 @@ class TestAdditionCase(BaseTestCase):
 		Should be able to add a large integer to a previous result
 		:return:
 		"""
-		allure.dynamic.title("")
+		allure.dynamic.title("Add a large integer to a previous result")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 		pass
 
