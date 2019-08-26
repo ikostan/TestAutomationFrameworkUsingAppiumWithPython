@@ -17,12 +17,12 @@ from selenium.webdriver.support import expected_conditions as EC
 from utils.driver import Driver
 
 
-@allure.epic('Android Native App')
+@allure.epic('Android Web App')
 @allure.parent_suite('End To End')
-@allure.suite("calculator_test Test Suite")
+@allure.suite("Web App Test Suite")
 @allure.sub_suite("Positive Tests")
 @allure.feature("Basic Functionality")
-@allure.story('Basic Buttons')
+@allure.story('Basic Elements')
 class TestBasicCalculatorCases(unittest.TestCase):
     """
     Test basic web app functionality
