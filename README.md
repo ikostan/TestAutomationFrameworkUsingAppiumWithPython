@@ -54,7 +54,6 @@
 - [Node.js v10.6.3](https://nodejs.org/en/download/current/)<br/>
 - [Appium Server GUI client v1.13.0](http://appium.io/)<br/>
 - [nmp v6.9.0](https://nodejs.org/en/download/)<br/>
-- [Maven 3.6.1](https://maven.apache.org/download.cgi)<br/>
 - [Scoop](https://scoop.sh/)<br/>
 - Android tablet (real device with Android v7.0)<br/>
 - [Android Studio 3.5](https://developer.android.com/studio/?gclid=CjwKCAjw44jrBRAHEiwAZ9igKJZ4_eky4PfdbRM1P_T2XejHOYyRH1GIdTyLyAWmEUULF3Dmv6zi7xoCaOwQAvD_BwE)<br/>
@@ -79,14 +78,13 @@ Full list of dependencies see [here.](https://github.com/ikostan/TEST_AUTOMATION
 
 1. Install Python<br/>
 2. Install PyCharm<br/>
-3. Configure virtual environment and activate it<br/>
+3. Configure Python virtual environment and activate it<br/>
 4. Install Python prerequisites/packages<br/>
 5. Install Java JDK > configure JAVA_HOME PATH<br/>
 6. Install Android Studio > configure ANDROID_HOME PATH<br/>
-7. <br/>
-8. <br/>
-9. <br/>
-10. <br/>
+7. Install Node JS<br/>
+8. Install Appium NPM package: open cmd > npm install -g appium<br/>
+9. Install Appium GUI client (optional)<br/>
 
 **NOTE:** for more detailed info please see "Tech Issues and Problem Solving" section<br/>
 
@@ -256,40 +254,6 @@ Source: https://www.idiotinside.com/2015/05/10/python-auto-generate-requirements
 
 <details>
   
-  <summary><b>Maven PATH</b></summary>
-  <br/>
-  <b>A. In order to configure MVN_HOME path do the following:</b><br/>
-  1. Go to "Advanced System Settings" > Advanced Tab > Environment Variables<br/>
-  2. Go to System Variables section > click on New... button<br/>
-  3. Type Variable name: MVN_HOME<br/>
-  4. Enter Variable Value: C:\Users\username\AppData\Local\Android\Sdk<br/>
-  5. Press OK button<br/><br/>
-  <div align="center"> 
-  <img width="90%" height="90%" src="https://github.com/ikostan/AppiumTesting/blob/master/img/maven_home.jpg" hspace="10">
-  </div>
-  
-  <b>B. Edit environment variable:</b><br/>
-  1. From System variables list select path > Press Edit... button<br/>
-  2. Press on New button > type: %MVN_HOME%\bin<br/>
-  3. Press OK button<br/>
-  
-  <div align="center"> 
-  <img width="90%" height="90%" src="https://github.com/ikostan/AppiumTesting/blob/master/img/maven_home_2.jpg" hspace="10">
-  </div>
-  
-  <b>C. Test:</b>
-  1. Open CMD > run "mvn --version"<br/>
-  2. If everifyng is configured properly you will something like this:<br/>
-  
-  <div align="center"> 
-  <img width="50%" height="50%" src="https://github.com/ikostan/AppiumTesting/blob/master/img/maven_cmd.JPG" hspace="10">
-  </div>
-  
-</details>
-
-
-<details>
-  
   <summary><b>Inspect devices with Chrome Developer</b></summary>
   <br/>
   1. Open Chrome web browser > new tab<br/>
@@ -349,13 +313,15 @@ Source: https://www.idiotinside.com/2015/05/10/python-auto-generate-requirements
    <br/>
    
    **dumpsys** is a shell command. You can run it from the command line as follows:<br/>
-        - adb shell dumpsys window windows | grep -E 'mCurrentFocus | mFocusedApp'<br/>
+        - adb shell<br/>
+        - dumpsys window windows | grep -E 'mCurrentFocus | mFocusedApp'<br/>
     
    If you have multiple devices connected, first get their IDs by executing:<br/>
         - adb devices<br/>
         
    Then, replace <your-device-id> with the relevant device ID:<br/>
-        - adb -s <your-device-id> shell dumpsys window windows | grep -E 'mCurrentFocus | mFocusedApp'<br/>
+        - adb -s <your-device-id> shell<br/>
+        - dumpsys window windows | grep -E 'mCurrentFocus | mFocusedApp'<br/>
    
    <br/> You should see something like that:
    <div align="center"> 
