@@ -44,6 +44,8 @@ class TestAdditionCase(unittest.TestCase):
 
 	def setUp(self) -> None:
 		self.driver = Driver()
+		self.driver.set_capability("appPackage", "com.android.calculator2")
+		self.driver.set_capability("appActivity", "com.android.calculator2.Calculator")
 		self.driver.driver_instance.implicitly_wait(3)
 
 	def tearDown(self) -> None:
