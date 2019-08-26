@@ -17,10 +17,7 @@ class Driver:
 		self._desired_capabilities = {
 			"platformName": "android",
 			"deviceName": "Android Tablet",
-
 			"automationName": "Appium",
-			# "platformVersion": "8.1.0",
-			# "browserName": "Chrome",
 		}
 
 		self._driver_instance = None
