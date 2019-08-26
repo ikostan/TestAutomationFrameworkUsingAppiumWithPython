@@ -17,17 +17,29 @@ class Driver:
 		self._desired_capabilities = {
 			"platformName": "android",
 			"deviceName": "Android Tablet",
-			"appPackage": "com.android.calculator2",
-			"appActivity": "com.android.calculator2.calculator_test",
+
 			"automationName": "Appium",
-			"platformVersion": "7.0",
+			# "platformVersion": "8.1.0",
+			# "browserName": "Chrome",
 		}
 
-		print("Opening test app: {}...".format(self._desired_capabilities["appActivity"]))
-		self._driver_instance = webdriver.Remote("http://127.0.0.1:4723/wd/hub", self._desired_capabilities)
+		self._driver_instance = None
+
+	def set_capability(self, capability_type, capability):
+		"""
+		Set/add desired capability
+		:param capability_type:
+		:param capability:
+		:return:
+		"""
+		self._desired_capabilities[capability_type] = capability
 
 	@property
 	def capabilities(self):
+		"""
+		Returns desired capabilities
+		:return:
+		"""
 		return self._desired_capabilities
 
 	@property
@@ -36,4 +48,9 @@ class Driver:
 		Returns an instance of webdriver.Remote
 		:return:
 		"""
-		return self._driver_instance
+		if self._driver_instance:
+			return self._driver_instance
+		else:
+			self._driver_instance = webdriver.Remote("http://127.0.0.1:4723/wd/hub",
+			                                         self._desired_capabilities)
+			return self._driver_instance
