@@ -9,8 +9,8 @@ import unittest
 
 import allure
 from allure_commons.types import AttachmentType
-from selenium.webdriver.common.by import By
 
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -72,6 +72,9 @@ class TestBasicCalculatorCases(unittest.TestCase):
         Close web page
         :return:
         """
+
+        allure.dynamic.title("Basic web app test")
+        allure.dynamic.severity(allure.severity_level.MINOR)
 
         # Open Google search web page
         self.driver.driver_instance.get("http://google.com")
