@@ -10,7 +10,7 @@ from tests.calculator_tests.base_testcase import BaseTestCase
 
 
 @allure.epic('Android Native App')
-@allure.parent_suite('End To End')
+@allure.parent_suite('Functional test')
 @allure.suite("Calculator Test Suite")
 @allure.sub_suite("Positive Tests")
 @allure.feature("Basic Functionality")
@@ -35,6 +35,7 @@ class TestBasicCalculatorCases(BaseTestCase):
 
         Should be able to open calculator_test app
         Should be able to close the app
+        Check if all the numbers are working ( 0 to 9)
         Check for the visibility of all buttons (0-9, DEL, CLR, ., +, -, *, /, =)
         """
 
