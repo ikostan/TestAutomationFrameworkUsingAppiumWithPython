@@ -93,26 +93,22 @@ class TestAdditionCase(BaseTestCase):
 		numbers = [9999999, 1]
 		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
 			self.perform_addition(numbers)
-			assert self.scientific_notation_to_integer_converter(
-				self.app.screen_result.label) == self.eval_formula(sum(numbers))
+			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
 
 		numbers = [99999999, 1]
 		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
 			self.perform_addition(numbers)
-			assert self.scientific_notation_to_integer_converter(
-				self.app.screen_result.label) == self.eval_formula(sum(numbers))
+			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
 
 		numbers = [999999999, 1]
 		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
 			self.perform_addition(numbers)
-			assert self.scientific_notation_to_integer_converter(
-				self.app.screen_result.label) == self.eval_formula(sum(numbers))
+			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
 
 		numbers = [9999999999, 1]
 		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
 			self.perform_addition(numbers)
-			assert self.scientific_notation_to_integer_converter(
-				self.app.screen_result.label) == self.eval_formula(sum(numbers))
+			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
 
 	def test_able_to_add_a_negative_integer_to_a_positive_floating_point_number(self):
 		"""
@@ -125,22 +121,19 @@ class TestAdditionCase(BaseTestCase):
 		numbers = [-1, 1.000]
 		with allure.step("Check the addition of negative integer to a positive floating point number: {}".format(numbers)):
 			self.perform_addition(numbers)
-			assert self.scientific_notation_to_integer_converter(
-				self.app.screen_result.label) == self.eval_formula(sum(numbers))
+			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
 
 		numbers = [-2, 1.000]
 		with allure.step(
 				"Check the addition of negative integer to a positive floating point number: {}".format(numbers)):
 			self.perform_addition(numbers)
-			assert self.scientific_notation_to_integer_converter(
-				self.app.screen_result.label) == self.eval_formula(sum(numbers))
+			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
 
 		numbers = [-1, 2.000]
 		with allure.step(
 				"Check the addition of negative integer to a positive floating point number: {}".format(numbers)):
 			self.perform_addition(numbers)
-			assert self.scientific_notation_to_integer_converter(
-				self.app.screen_result.label) == self.eval_formula(sum(numbers))
+			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
 
 	def test_able_to_add_a_floating_point_number_to_an_integer(self):
 		"""
@@ -154,22 +147,19 @@ class TestAdditionCase(BaseTestCase):
 		with allure.step(
 				"Check the addition of floating point number to an integer: {}".format(numbers)):
 			self.perform_addition(numbers)
-			assert self.scientific_notation_to_integer_converter(
-				self.app.screen_result.label) == self.eval_formula(sum(numbers))
+			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
 
 		numbers = [10.000, 2]
 		with allure.step(
 				"Check the addition of floating point number to an integer: {}".format(numbers)):
 			self.perform_addition(numbers)
-			assert self.scientific_notation_to_integer_converter(
-				self.app.screen_result.label) == self.eval_formula(sum(numbers))
+			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
 
 		numbers = [0.0, 2]
 		with allure.step(
 				"Check the addition of floating point number to an integer: {}".format(numbers)):
 			self.perform_addition(numbers)
-			assert self.scientific_notation_to_integer_converter(
-				self.app.screen_result.label) == self.eval_formula(sum(numbers))
+			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
 
 	def test_able_to_add_an_integer_to_a_floating_point_number(self):
 		"""
@@ -183,15 +173,13 @@ class TestAdditionCase(BaseTestCase):
 		with allure.step(
 				"Check the addition of an integer to a floating point number: {}".format(numbers)):
 			self.perform_addition(numbers)
-			assert self.scientific_notation_to_integer_converter(
-				self.app.screen_result.label) == self.eval_formula(sum(numbers))
+			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
 
 		numbers = [9, 10.9999]
 		with allure.step(
 				"Check the addition of an integer to a floating point number: {}".format(numbers)):
 			self.perform_addition(numbers)
-			assert self.scientific_notation_to_integer_converter(
-				self.app.screen_result.label) == self.eval_formula(sum(numbers))
+			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
 
 	def test_able_to_add_two_floating_point_numbers(self):
 		"""
@@ -205,22 +193,19 @@ class TestAdditionCase(BaseTestCase):
 		with allure.step(
 				"Check the addition of two floating point numbers: {}".format(numbers)):
 			self.perform_addition(numbers)
-			assert self.scientific_notation_to_integer_converter(
-				self.app.screen_result.label) == self.eval_formula(sum(numbers))
+			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
 
 		numbers = [1.0, 34.999]
 		with allure.step(
 				"Check the addition of two floating point numbers: {}".format(numbers)):
 			self.perform_addition(numbers)
-			assert self.scientific_notation_to_integer_converter(
-				self.app.screen_result.label) == self.eval_formula(sum(numbers))
+			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
 
 		numbers = [1.0000, 34.999]
 		with allure.step(
 				"Check the addition of two floating point numbers: {}".format(numbers)):
 			self.perform_addition(numbers)
-			assert self.scientific_notation_to_integer_converter(
-				self.app.screen_result.label) == self.eval_formula(sum(numbers))
+			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
 
 	def test_able_to_add_a_negative_integer_and_zero(self):
 		"""
@@ -234,29 +219,25 @@ class TestAdditionCase(BaseTestCase):
 		with allure.step(
 				"Check the addition of negative integer and zero: {}".format(numbers)):
 			self.perform_addition(numbers)
-			assert self.scientific_notation_to_integer_converter(
-				self.app.screen_result.label) == self.eval_formula(sum(numbers))
+			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
 
 		numbers = [-5, 0]
 		with allure.step(
 				"Check the addition of negative integer and zero: {}".format(numbers)):
 			self.perform_addition(numbers)
-			assert self.scientific_notation_to_integer_converter(
-				self.app.screen_result.label) == self.eval_formula(sum(numbers))
+			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
 
 		numbers = [5, -0]
 		with allure.step(
 				"Check the addition of negative integer and zero: {}".format(numbers)):
 			self.perform_addition(numbers)
-			assert self.scientific_notation_to_integer_converter(
-				self.app.screen_result.label) == self.eval_formula(sum(numbers))
+			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
 
 		numbers = [-0, 5]
 		with allure.step(
 				"Check the addition of negative integer and zero: {}".format(numbers)):
 			self.perform_addition(numbers)
-			assert self.scientific_notation_to_integer_converter(
-				self.app.screen_result.label) == self.eval_formula(sum(numbers))
+			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
 
 	def test_able_to_add_zero_and_a_positive_integer(self):
 		"""
@@ -293,7 +274,26 @@ class TestAdditionCase(BaseTestCase):
 		"""
 		allure.dynamic.title("Add a negative integer with a positive number")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
-		pass
+
+		numbers = [-5, 5]
+		with allure.step("Check the addition of a negative integer with a positive number: {}".format(numbers)):
+			self.perform_addition(numbers)
+			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+
+		numbers = [5, -5]
+		with allure.step("Check the addition of a negative integer with a positive number: {}".format(numbers)):
+			self.perform_addition(numbers)
+			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+
+		numbers = [6, -5]
+		with allure.step("Check the addition of a negative integer with a positive number: {}".format(numbers)):
+			self.perform_addition(numbers)
+			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+
+		numbers = [-6, 5]
+		with allure.step("Check the addition of a negative integer with a positive number: {}".format(numbers)):
+			self.perform_addition(numbers)
+			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
 
 	def test_able_to_add_two_large_positive_integers(self):
 		"""
@@ -324,6 +324,21 @@ class TestAdditionCase(BaseTestCase):
 			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
 
 		numbers = [9999999999, 567457362343241]
+		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
+			self.perform_addition(numbers)
+			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+
+		numbers = [300000000, 900000000]
+		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
+			self.perform_addition(numbers)
+			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+
+		numbers = [900000000, 900000000]
+		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
+			self.perform_addition(numbers)
+			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+
+		numbers = [999999999, 1]
 		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
 			self.perform_addition(numbers)
 			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
