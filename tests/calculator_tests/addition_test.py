@@ -369,7 +369,7 @@ class TestAdditionCase(BaseTestCase):
 		allure.dynamic.title("Add a positive integer to the results of a previous operation")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 
-		# 1500 - 2000 = -500 + 500 = 0
+		# 1500 - 2000 = -500 + 500 =
 		numbers = [1500, -2000, -500, 500]
 		with allure.step("Check the addition of positive integer to the results of a previous operation: {}".format(numbers)):
 			self.enter_number(numbers[0])
@@ -401,7 +401,7 @@ class TestAdditionCase(BaseTestCase):
 		allure.dynamic.title("Add a positive floating point number to the results of a previous operation")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 
-		# 1500 - 2000 = -500 + 0.25 = -999.75
+		# 1500 - 2000 = -500 + 0.25 =
 		numbers = [1500, -2000, -500, 0.25]
 		with allure.step(
 				"Check that user is able to add a positive floating point "
@@ -409,7 +409,7 @@ class TestAdditionCase(BaseTestCase):
 			self.enter_number(numbers[0])
 			self.app.plus.tap()
 			self.enter_number(numbers[1])
-			self.app.plus.tap()
+			self.app.equal.tap()
 			self.enter_number(numbers[2])
 			self.app.plus.tap()
 			self.enter_number(numbers[3])
@@ -424,7 +424,7 @@ class TestAdditionCase(BaseTestCase):
 		allure.dynamic.title("Add a floating point number with many decimal places to a previous result")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 
-		# 1500 - 2000 = -500 + 1.23456789 = -998.765432
+		# 1500 - 2000 = -500 + 1.23456789 =
 		numbers = [1500, -2000, -500, 1.23456789]
 		with allure.step(
 				"Check that user is able to add a floating point number with many decimal "
@@ -432,7 +432,7 @@ class TestAdditionCase(BaseTestCase):
 			self.enter_number(numbers[0])
 			self.app.plus.tap()
 			self.enter_number(numbers[1])
-			self.app.plus.tap()
+			self.app.equal.tap()
 			self.enter_number(numbers[2])
 			self.app.plus.tap()
 			self.enter_number(numbers[3])
