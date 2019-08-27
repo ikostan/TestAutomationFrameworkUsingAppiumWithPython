@@ -13,7 +13,7 @@ from tests.calculator_tests.base_testcase import BaseTestCase
 @allure.suite("Calculator Test Suite")
 @allure.sub_suite("Negative Tests")
 @allure.feature("Division Calculation")
-@allure.story('Division Button')
+@allure.story('Division By Zero')
 class TestDivideByZeroCase(BaseTestCase):
 	"""
 	Test the condition where some number divided by zero
