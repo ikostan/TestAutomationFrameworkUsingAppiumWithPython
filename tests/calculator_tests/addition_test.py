@@ -1,4 +1,4 @@
-"""Calculator App Test Case: Addition"""
+"""Calculator App Test: Addition"""
 
 #  Created by Egor Kostan.
 #  GitHub: https://github.com/ikostan
@@ -9,7 +9,7 @@ from tests.calculator_tests.base_testcase import BaseTestCase
 
 
 @allure.epic('Android Native App')
-@allure.parent_suite('End To End')
+@allure.parent_suite('Functional Test')
 @allure.suite("Calculator Test Suite")
 @allure.sub_suite("Positive Tests")
 @allure.feature("Addition Calculation")
@@ -21,10 +21,8 @@ class TestAdditionCase(BaseTestCase):
 
 	Terminology
 	Addend + Addend = Sum
-	Minuend - Subtrahend = Difference
-	Multiplicand * Multiplier = Product
-	Dividend / Divisor = quotient
-	calculator_test Test Suite
+
+	Test Suite List:
 
 	Should be able to add two positive integers numbers
 	Should be able to add a negative integer to a positive floating point number
@@ -46,12 +44,71 @@ class TestAdditionCase(BaseTestCase):
 
 	def test_able_to_add_two_positive_integers(self):
 		"""
-		Should be able to add two positive integers numbers
+		Should be able to add two positive integers numbers and display the result
+
+		Steps:
+		1. Key in a valid integer from - 9999999999 to +9999999999
+		2. Key in operator +
+		3. Key in second operand,a valid integer from - 9999999999 To +999999999
+		4. Result verification > check the screen output
+
+		Source: https://www.ques10.com/p/38809/prepare-and-write-six-test-cases-for-simple-calcul/?
 		:return:
 		"""
-		allure.dynamic.title("Add two positive integers numbers")
+		allure.dynamic.title("Add two positive integers numbers and display the result")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
-		pass
+
+		# Should be able to add two positive integers numbers
+
+		numbers = [1, 1]
+		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
+			self.perform_addition(numbers)
+			assert self.app.screen_result.label == str(sum(numbers))
+
+		numbers = [1, 9]
+		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
+			self.perform_addition(numbers)
+			assert self.app.screen_result.label == str(sum(numbers))
+
+		numbers = [19, 2]
+		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
+			self.perform_addition(numbers)
+			assert self.app.screen_result.label == str(sum(numbers))
+
+		numbers = [19, 37]
+		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
+			self.perform_addition(numbers)
+			assert self.app.screen_result.label == str(sum(numbers))
+
+		numbers = [1500, 2000]
+		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
+			self.perform_addition(numbers)
+			assert self.app.screen_result.label == str(sum(numbers))
+
+		numbers = [999999, 1]
+		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
+			self.perform_addition(numbers)
+			assert self.app.screen_result.label == str(sum(numbers))
+
+		numbers = [9999999, 1]
+		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
+			self.perform_addition(numbers)
+			assert self.scientific_notation_to_integer_converter(self.app.screen_result.label) == str(sum(numbers))
+
+		numbers = [99999999, 1]
+		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
+			self.perform_addition(numbers)
+			assert self.scientific_notation_to_integer_converter(self.app.screen_result.label) == str(sum(numbers))
+
+		numbers = [999999999, 1]
+		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
+			self.perform_addition(numbers)
+			assert self.scientific_notation_to_integer_converter(self.app.screen_result.label) == str(sum(numbers))
+
+		numbers = [9999999999, 1]
+		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
+			self.perform_addition(numbers)
+			assert self.scientific_notation_to_integer_converter(self.app.screen_result.label) == str(sum(numbers))
 
 	def test_able_to_add_a_negative_integer_to_a_positive_floating_point_number(self):
 		"""
@@ -105,7 +162,21 @@ class TestAdditionCase(BaseTestCase):
 		"""
 		allure.dynamic.title("Add zero and a positive integer")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
-		pass
+
+		numbers = [0, 0]
+		with allure.step("Check the addition of zero and a positive integer: {}".format(numbers)):
+			self.perform_addition(numbers)
+			assert self.app.screen_result.label == str(sum(numbers))
+
+		numbers = [0, 1]
+		with allure.step("Check the addition of zero and a positive integer: {}".format(numbers)):
+			self.perform_addition(numbers)
+			assert self.app.screen_result.label == str(sum(numbers))
+
+		numbers = [1, 0]
+		with allure.step("Check the addition of zero and a positive integer: {}".format(numbers)):
+			self.perform_addition(numbers)
+			assert self.app.screen_result.label == str(sum(numbers))
 
 	def test_able_to_add_a_negative_integer_with_a_positive_number(self):
 		"""
@@ -123,7 +194,31 @@ class TestAdditionCase(BaseTestCase):
 		"""
 		allure.dynamic.title("Add two large positive integers")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
-		pass
+
+		numbers = [999999, 999999]
+		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
+			self.perform_addition(numbers)
+			assert self.app.screen_result.label == str(sum(numbers))
+
+		numbers = [999999, 99999]
+		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
+			self.perform_addition(numbers)
+			assert self.app.screen_result.label == str(sum(numbers))
+
+		numbers = [99999, 99999]
+		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
+			self.perform_addition(numbers)
+			assert self.app.screen_result.label == str(sum(numbers))
+
+		numbers = [53645567, 78967875]
+		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
+			self.perform_addition(numbers)
+			assert self.app.screen_result.label == str(sum(numbers))
+
+		numbers = [9999999999, 567457362343241]
+		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
+			self.perform_addition(numbers)
+			assert self.app.screen_result.label == str(sum(numbers))
 
 	def test_able_to_add_a_negative_floating_point_and_a_positive_integer(self):
 		"""
