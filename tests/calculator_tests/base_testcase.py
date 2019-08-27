@@ -57,6 +57,8 @@ class BaseTestCase(unittest.TestCase):
         :return:
         """
 
+        print("Enter a number: {}".format(number))
+
         if number < 0:
             self.app.minus.tap()
 
