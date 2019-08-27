@@ -146,22 +146,6 @@ class BaseTestCase(unittest.TestCase):
 
             for i, arg in enumerate(args):
 
-                '''
-                if arg < 0:
-                    self.app.minus.tap()
-
-                if len(str(arg)) == 1:
-                    self.app.digits[abs(arg)].tap()
-                else:
-                    for char in str(arg):
-
-                        if char.isdigit():
-                            self.app.digits[int(char)].tap()
-
-                        if char == '.':
-                            self.app.dot.tap()
-                '''
-
                 self.enter_number(arg)
 
                 if i != len(args) - 1:
@@ -179,4 +163,5 @@ class BaseTestCase(unittest.TestCase):
                 assert expected == actual
 
             self.app.equal.tap()
+            print("Tap '='")
             print("Screen output: {}".format(self.app.screen_result.label))
