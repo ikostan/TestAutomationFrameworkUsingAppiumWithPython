@@ -7,6 +7,12 @@
 from tests.calculator_tests.base_testcase import BaseTestCase
 
 
+@allure.epic('Android Native App')
+@allure.parent_suite('Non Functional Test')
+@allure.suite("Calculator Test Suite")
+@allure.sub_suite("Positive Tests")
+@allure.feature("Multi Touch Functionality")
+@allure.story('Multi Touch Support')
 class TestMultiTouchCase(BaseTestCase):
 	"""
 	Multi Touch Test Case
