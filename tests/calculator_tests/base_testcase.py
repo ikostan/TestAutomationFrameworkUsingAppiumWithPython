@@ -8,7 +8,6 @@
 import os
 import unittest
 
-
 import allure
 from allure_commons.types import AttachmentType
 
@@ -114,6 +113,28 @@ class BaseTestCase(unittest.TestCase):
             print("Converting {} into int.".format(data))
             return str(int(float(self.app.screen_result.label.replace('.E', 'e'))))
 
+
+
+    @staticmethod
+    def eval_formula(data) -> str:
+        """
+        Converts input to a string if needed
+        Check if the eval result as a string == float, and if so process it as an integer
+        Convert result to a string and return it
+        :return:
+        """
+
+        if not isinstance(data, str):
+            data = str(data)
+
+        expected = eval(data)
+        expected_int = int(expected)
+
+        if expected == float(expected_int):
+            return str(expected_int)
+        else:
+            return str(expected)
+
     def perform_addition(self, args):
         """
         Perform addition action for any list of numbers.
@@ -147,14 +168,13 @@ class BaseTestCase(unittest.TestCase):
             print("Formula: {}".format(self.app.screen_formula.label))
             print("Result: {}".format(self.app.screen_result.label))
 
+            expected = self.eval_formula(self.app.screen_formula.label)
+            actual = self.scientific_notation_to_integer_converter(self.app.screen_result.label)
             with allure.step("Perform result (screen) evaluation: "
-                             "{} should be equal {}".format(self.app.screen_result.label,
-                                                            eval(self.app.screen_formula.label))):
-
-                expected = str(eval(self.app.screen_formula.label))
-                actual = self.scientific_notation_to_integer_converter(self.app.screen_result.label)
+                             "{} should be equal {}".format(actual, expected)):
+                print('Perform result (screen) evaluation: '
+                      '{} should be equal {}'.format(actual, expected))
                 assert expected == actual
 
             self.app.equal.tap()
             print("Screen output: {}".format(self.app.screen_result.label))
-
