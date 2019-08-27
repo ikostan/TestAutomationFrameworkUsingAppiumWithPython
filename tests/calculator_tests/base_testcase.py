@@ -129,8 +129,10 @@ class BaseTestCase(unittest.TestCase):
         expected_int = int(expected)
 
         if expected == float(expected_int):
+            print("Evaluation formula result: {}".format(expected_int))
             return str(expected_int)
         else:
+            print("Evaluation formula result: {}".format(expected))
             return str(expected)
 
     def perform_subtraction(self, args):
@@ -163,7 +165,6 @@ class BaseTestCase(unittest.TestCase):
                 assert expected == actual
 
             self.app.equal.tap()
-            print("Tap '='")
             print("Screen output: {}".format(self.app.screen_result.label))
 
     def perform_addition(self, args):
@@ -196,5 +197,4 @@ class BaseTestCase(unittest.TestCase):
                 assert expected == actual
 
             self.app.equal.tap()
-            print("Tap '='")
             print("Screen output: {}".format(self.app.screen_result.label))
