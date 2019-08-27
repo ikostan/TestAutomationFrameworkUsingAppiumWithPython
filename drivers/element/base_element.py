@@ -27,6 +27,8 @@ class BaseElement:
 		"""
 		element = WebDriverWait(self._driver, 5).until(
 			EC.element_to_be_clickable(self._locator))
+		if element.text not in '0123456789.':
+			print("Tapping '{}'".format(element.text))
 		element.click()
 		return None
 
