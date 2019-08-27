@@ -13,8 +13,8 @@ from tests.calculator_tests.base_testcase import BaseTestCase
 @allure.parent_suite('Functional test')
 @allure.suite("Calculator Test Suite")
 @allure.sub_suite("Positive Tests")
-@allure.feature("Basic Functionality")
-@allure.story('Basic Buttons')
+@allure.feature("Calculator Basic Buttons")
+@allure.story('Basic Functionality')
 class TestBasicCalculatorCases(BaseTestCase):
     """
     Test basic functionality:
