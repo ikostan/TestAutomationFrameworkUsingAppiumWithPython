@@ -29,6 +29,14 @@ class TestBasicCalculatorCases(BaseTestCase):
     Check for the visibility of all buttons (0-9, DEL, CLR, . +,-,*,/,=)
     """
 
+    def test_btn_labeling(self):
+        """
+        All buttons should be labeled appropriately
+        :return:
+        """
+
+        assert False
+
     def test_btn_visibility(self):
         """
         Test basic functionality:
