@@ -4,6 +4,7 @@
 #  GitHub: https://github.com/ikostan
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
 
+import allure
 from tests.calculator_tests.base_testcase import BaseTestCase
 
 
