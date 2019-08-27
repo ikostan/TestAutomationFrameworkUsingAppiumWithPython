@@ -133,6 +133,39 @@ class BaseTestCase(unittest.TestCase):
         else:
             return str(expected)
 
+    def perform_subtraction(self, args):
+        """
+        Perform subtraction for any list of numbers.
+        :param args:
+        :return:
+        """
+        self.clear_calculator_screen()
+
+        with allure.step("Performing subtraction of following numbers: {}".format(args)):
+            print("\nPerforming subtraction of following numbers: {}".format(args))
+
+            for i, arg in enumerate(args):
+
+                self.enter_number(arg)
+
+                if i != len(args) - 1:
+                    self.app.minus.tap()
+
+            print("Formula: {}".format(self.app.screen_formula.label))
+            print("Result: {}".format(self.app.screen_result.label))
+
+            expected = self.eval_formula(self.app.screen_formula.label)
+            actual = self.app.screen_result.label
+            with allure.step("Perform result (screen) evaluation: "
+                             "{} should be equal {}".format(actual, expected)):
+                print('Perform result (screen) evaluation: '
+                      '{} should be equal {}'.format(actual, expected))
+                assert expected == actual
+
+            self.app.equal.tap()
+            print("Tap '='")
+            print("Screen output: {}".format(self.app.screen_result.label))
+
     def perform_addition(self, args):
         """
         Perform addition action for any list of numbers.
