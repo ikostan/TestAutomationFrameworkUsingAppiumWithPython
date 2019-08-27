@@ -37,7 +37,8 @@ class BaseElement:
 		:return:
 		"""
 		try:
-			return self._element.text
+			txt = self.string_formatter(self._element.text)
+			return txt
 		except NoSuchAttributeException as err:
 			print("ERROR: {}".format(err))
 			return None
@@ -50,3 +51,19 @@ class BaseElement:
 		:return:
 		"""
 		return self._element.is_displayed()
+
+	@staticmethod
+	def string_formatter(data):
+		"""
+		Replace invalid characters with valid math operators:
+
+		1. '−' >>> '-'
+
+		:param data:
+		:return:
+		"""
+
+		if '−' in data:
+			data = data.replace('−', '-')
+
+		return data
