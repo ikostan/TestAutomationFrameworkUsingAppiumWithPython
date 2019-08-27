@@ -10,7 +10,7 @@ from tests.calculator_tests.base_testcase import BaseTestCase
 
 
 @allure.epic('Android Native App')
-@allure.parent_suite('Functional test')
+@allure.parent_suite('Functional Test')
 @allure.suite("Calculator Test Suite")
 @allure.sub_suite("Positive Tests")
 @allure.feature("Calculator Basic Buttons")
