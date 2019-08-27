@@ -34,7 +34,6 @@ class TestBasicCalculatorCases(BaseTestCase):
         All buttons should be labeled appropriately
         :return:
         """
-
         assert False
 
     def test_btn_visibility(self):
@@ -106,7 +105,7 @@ class TestBasicCalculatorCases(BaseTestCase):
 
         with allure.step("Enter digits 0-9"):
             for digit in self.app.digits:
-                digit.tap()
+                self.app.digits[digit].tap()
 
         with allure.step("Verify screen output"):
             assert self.app.screen_formula.label == '0123456789'
@@ -126,7 +125,7 @@ class TestBasicCalculatorCases(BaseTestCase):
 
         with allure.step("Enter digits 0-9"):
             for digit in self.app.digits:
-                digit.tap()
+                self.app.digits[digit].tap()
 
         with allure.step("Press '=' button"):
             self.app.equal.tap()
@@ -147,7 +146,7 @@ class TestBasicCalculatorCases(BaseTestCase):
 
         with allure.step("Enter digits 0-9"):
             for digit in self.app.digits:
-                digit.tap()
+                self.app.digits[digit].tap()
 
         with allure.step("Press '=' button"):
             self.app.equal.tap()
@@ -179,7 +178,7 @@ class TestBasicCalculatorCases(BaseTestCase):
 
         with allure.step("Enter digits 0-9"):
             for digit in self.app.digits:
-                digit.tap()
+                self.app.digits[digit].tap()
 
         with allure.step("Test 'DEL' button"):
 
