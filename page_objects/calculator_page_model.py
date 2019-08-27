@@ -6,6 +6,7 @@
 
 from drivers.element.base_element import BaseElement
 from page_locators.calculator_page_locator import CalculatorPageLocator
+from selenium.common.exceptions import TimeoutException
 
 
 class CalculatorPageModel:
@@ -25,9 +26,18 @@ class CalculatorPageModel:
 		self._8 = BaseElement(driver=driver, locator=CalculatorPageLocator.DIGITS[8])
 		self._9 = BaseElement(driver=driver, locator=CalculatorPageLocator.DIGITS[9])
 
-		self._digits = [self._0, self._1, self._2, self._3, self._4,
-		                self._5, self._6, self._7, self._8, self._9]
+		self._digits = {0: self._0,
+		                1: self._1,
+		                2: self._2,
+		                3: self._3,
+		                4: self._4,
+		                5: self._5,
+		                6: self._6,
+		                7: self._7,
+		                8: self._8,
+		                9: self._9}
 
+		# Buttons
 		self._minus = BaseElement(driver=driver, locator=CalculatorPageLocator.MINUS_BTN)
 		self._plus = BaseElement(driver=driver, locator=CalculatorPageLocator.PLUS_BTN)
 		self._multiplication = BaseElement(driver=driver, locator=CalculatorPageLocator.MULTIPLICATION_BTN)
@@ -36,25 +46,28 @@ class CalculatorPageModel:
 		self._minus = BaseElement(driver=driver, locator=CalculatorPageLocator.MINUS_BTN)
 		self._dot = BaseElement(driver=driver, locator=CalculatorPageLocator.POINT_BTN)
 
+		# All butt5ons
 		self._buttons = [self._0, self._1, self._2, self._3, self._4,
 		                 self._5, self._6, self._7, self._8, self._9,
 		                 self._minus, self._plus, self._multiplication,
 		                 self._division, self._equal, self._minus, self._dot]
 
+		# Screens
 		self._main_screen = BaseElement(driver=driver, locator=CalculatorPageLocator.DISPLAY)
-
-		# self._del = None
-		# self._clr = None
-		# self._screen_formula = None
-		# self._screen_result = None
 
 	@property
 	def screen_formula(self):
-		return BaseElement(driver=self.driver, locator=CalculatorPageLocator.SCREEN_FORMULA)
+		try:
+			return BaseElement(driver=self.driver, locator=CalculatorPageLocator.SCREEN_FORMULA)
+		except TimeoutException:
+			return None
 
 	@property
 	def screen_result(self):
-		return BaseElement(driver=self.driver, locator=CalculatorPageLocator.SCREEN_RESULT)
+		try:
+			return BaseElement(driver=self.driver, locator=CalculatorPageLocator.SCREEN_RESULT)
+		except TimeoutException:
+			return None
 
 	@property
 	def clr(self):
