@@ -50,6 +50,27 @@ class BaseTestCase(unittest.TestCase):
             self.addCleanup(self.screen_shot)
             self._driver.driver_instance.implicitly_wait(3)
 
+    def enter_number(self, number):
+        """
+        Enter a number
+        :param number:
+        :return:
+        """
+
+        if number < 0:
+            self.app.minus.tap()
+
+        if len(str(number)) == 1:
+            self.app.digits[abs(number)].tap()
+        else:
+            for char in str(number):
+
+                if char.isdigit():
+                    self.app.digits[int(char)].tap()
+
+                if char == '.':
+                    self.app.dot.tap()
+
     def screen_shot(self):
         """
         Take a Screen-shot of the drive homepage, when it Failed.
@@ -123,6 +144,7 @@ class BaseTestCase(unittest.TestCase):
 
             for i, arg in enumerate(args):
 
+                '''
                 if arg < 0:
                     self.app.minus.tap()
 
@@ -136,6 +158,9 @@ class BaseTestCase(unittest.TestCase):
 
                         if char == '.':
                             self.app.dot.tap()
+                '''
+
+                self.enter_number(arg)
 
                 if i != len(args) - 1:
                     self.app.plus.tap()
