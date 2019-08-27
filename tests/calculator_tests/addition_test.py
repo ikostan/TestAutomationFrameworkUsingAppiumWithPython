@@ -350,7 +350,16 @@ class TestAdditionCase(BaseTestCase):
 		"""
 		allure.dynamic.title("Add a negative floating point and a positive integer")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
-		pass
+
+		numbers = [-1987.50, 1987]
+		with allure.step("Check the addition of negative floating point and a positive integer: {}".format(numbers)):
+			self.perform_addition(numbers)
+			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+
+		numbers = [1987, -1987.50]
+		with allure.step("Check the addition of negative floating point and a positive integer: {}".format(numbers)):
+			self.perform_addition(numbers)
+			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
 
 	def test_able_to_add_a_positive_integer_to_the_results_of_a_previous_operation(self):
 		"""
@@ -359,7 +368,30 @@ class TestAdditionCase(BaseTestCase):
 		"""
 		allure.dynamic.title("Add a positive integer to the results of a previous operation")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
-		pass
+
+		# 1500 - 2000 = -500 + 500 = 0
+		numbers = [1500, -2000, -500, 500]
+		with allure.step("Check the addition of positive integer to the results of a previous operation: {}".format(numbers)):
+			self.enter_number(numbers[0])
+			self.app.plus.tap()
+			self.enter_number(numbers[1])
+			self.app.plus.tap()
+			self.enter_number(numbers[2])
+			self.app.plus.tap()
+			self.enter_number(numbers[3])
+			self.app.equal.tap()
+			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+
+		# 6 * 2 + 8 = 20
+		numbers = [6, 2, 8]
+		with allure.step("Check the addition of positive integer to the results of a previous operation: {}".format(numbers)):
+			self.enter_number(numbers[0])
+			self.app.multiplication.tap()
+			self.enter_number(numbers[1])
+			self.app.plus.tap()
+			self.enter_number(numbers[2])
+			self.app.equal.tap()
+			assert self.app.screen_result.label == self.eval_formula(6 * 2 + 8)
 
 	def test_able_to_add_a_positive_floating_point_number_to_the_results_of_a_previous_operation(self):
 		"""
