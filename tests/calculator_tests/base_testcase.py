@@ -90,31 +90,6 @@ class BaseTestCase(unittest.TestCase):
                         is_screen_clear = False
                         continue
 
-    def scientific_notation_to_integer_converter(self, data) -> str:
-        """
-        Convert scientific notation (string like '1e7') to an integer:
-            In Python the e-form indicates a float, as does the presence of a
-            decimal point, but you can convert to float and then to int: int(float('1e7')) >>> 10000000
-
-        Source: https://mail.python.org/pipermail/python-list/2009-November/557390.html
-
-        Example:
-            1e5 is a number expressed using scientific notation and it means
-            10 to the 5th power (the e meaning 'exponent'), so 1e5 is equal to 100000,
-            both notations are interchangeably meaning the same.
-
-        Source: https://stackoverflow.com/questions/26174531/what-is-the-meaning-of-number-1e5
-        :param data:
-        :return:
-        """
-        if 'E' not in data:
-            return data
-        else:
-            print("Converting {} into int.".format(data))
-            return str(int(float(self.app.screen_result.label.replace('.E', 'e'))))
-
-
-
     @staticmethod
     def eval_formula(data) -> str:
         """
@@ -169,7 +144,7 @@ class BaseTestCase(unittest.TestCase):
             print("Result: {}".format(self.app.screen_result.label))
 
             expected = self.eval_formula(self.app.screen_formula.label)
-            actual = self.scientific_notation_to_integer_converter(self.app.screen_result.label)
+            actual = self.app.screen_result.label
             with allure.step("Perform result (screen) evaluation: "
                              "{} should be equal {}".format(actual, expected)):
                 print('Perform result (screen) evaluation: '
