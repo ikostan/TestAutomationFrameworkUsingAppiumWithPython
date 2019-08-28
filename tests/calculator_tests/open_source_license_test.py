@@ -1,4 +1,4 @@
-"""Open Source License Test"""
+"""Android Calculator App Test: Open Source License Test"""
 
 #  Created by Egor Kostan.
 #  GitHub: https://github.com/ikostan
@@ -15,5 +15,8 @@ from tests.calculator_tests.calculator_base_testcase import AndroidCalculatorBas
 @allure.feature("Open Source License")
 @allure.story('Open Source Licenses Menu')
 class TestOpenSourceLicenseCase(AndroidCalculatorBaseTestCase):
-	"""Test that open source license is acceptable and can be displayed"""
+	"""
+	Android Calculator App Test: Open Source License Test
+	Test that open source license is acceptable and can be displayed
+	"""
 	pass
