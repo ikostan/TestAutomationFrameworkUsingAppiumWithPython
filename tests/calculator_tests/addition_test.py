@@ -5,7 +5,7 @@
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
 
 import allure
-from tests.calculator_tests.base_testcase import BaseTestCase
+from tests.calculator_tests.calculator_base_testcase import CalculatorBaseTestCase
 
 
 @allure.epic('Android Native App')
@@ -14,7 +14,7 @@ from tests.calculator_tests.base_testcase import BaseTestCase
 @allure.sub_suite("Positive Tests")
 @allure.feature("Addition Calculation")
 @allure.story('Addition Button')
-class TestAdditionCase(BaseTestCase):
+class TestAdditionCase(CalculatorBaseTestCase):
 
 	"""
 	This suite tests the current code in the calculator.
