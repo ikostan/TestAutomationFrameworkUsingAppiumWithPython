@@ -1,4 +1,4 @@
-"""Divide By Zero Test Case"""
+"""Android Calculator App Test: Divide By Zero Test Case"""
 
 #  Created by Egor Kostan.
 #  GitHub: https://github.com/ikostan
@@ -16,6 +16,8 @@ from tests.calculator_tests.calculator_base_testcase import AndroidCalculatorBas
 @allure.story('Division By Zero')
 class TestDivideByZeroCase(AndroidCalculatorBaseTestCase):
 	"""
+	Android Calculator App Test: Divide By Zero Test Case
+
 	Test the condition where some number divided by zero
 	"""
 	pass
