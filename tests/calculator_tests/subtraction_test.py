@@ -5,7 +5,7 @@
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
 
 import allure
-from tests.calculator_tests.base_testcase import BaseTestCase
+from tests.calculator_tests.calculator_base_testcase import CalculatorBaseTestCase
 
 
 @allure.epic('Android Native App')
@@ -14,7 +14,7 @@ from tests.calculator_tests.base_testcase import BaseTestCase
 @allure.sub_suite("Positive Tests")
 @allure.feature("Subtraction Calculation")
 @allure.story('Subtraction Button')
-class TestSubtractionCase(BaseTestCase):
+class TestSubtractionCase(CalculatorBaseTestCase):
 	"""
     Terminology:
     Minuend - Subtrahend = Difference
