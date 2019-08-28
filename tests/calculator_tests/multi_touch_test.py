@@ -1,4 +1,4 @@
-"""Multi Touch Test Case"""
+"""Android Calculator App Test: Multi Touch Test Case"""
 
 #  Created by Egor Kostan.
 #  GitHub: https://github.com/ikostan
@@ -16,7 +16,8 @@ from tests.calculator_tests.calculator_base_testcase import AndroidCalculatorBas
 @allure.story('Multi Touch Support')
 class TestMultiTouchCase(AndroidCalculatorBaseTestCase):
 	"""
-	Multi Touch Test Case
+	Android Calculator App Test: Multi Touch Test Case
+
 	Perform tests with a multi touch action sequence
 
 	Documentation:
