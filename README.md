@@ -367,7 +367,9 @@ adb install path/to/your/app.apk('/Users/johndoe/path/to/app.apk');
   
   <summary><b>How to start/stop Appium server programmatically in Python</b></summary>
   <br/>
-    
+
+**Using AppiumService Class**<br>
+
 The Python client actually comes with a handy module called AppiumService that you can use to programmatically start/stop an Appium server.<br/>
 
 To start:<br/>
@@ -382,9 +384,29 @@ To stop:<br/>
 self.appium_service.stop()
 ```
 
+**Using CMD/scripting**<br/>
+
+To start:<br/>
+```python
+import os
+os.system("start /B start cmd.exe @cmd /k appium") 
+```
+
+In case you want to change the port(e.g. to 4728) of the appium server (may be when you have multiple servers for multiple devices) you can use following:<br/>
+```python
+import os
+os.system("start /B start cmd.exe @cmd /k appium -a 127.0.0.1 -p 4728")
+```
+
+To stop:<br/>
+```python
+os.system("taskkill /F /IM node.exe") 
+```
+
 Source:<br/>
    - https://stackoverflow.com/questions/51734382/how-to-start-appium-server-programmatically-in-python<br/>
    - https://github.com/appium/python-client/blob/master/appium/webdriver/appium_service.py<br/>
+   - https://discuss.appium.io/t/launching-and-stopping-appium-server-programmtically/700/2
 </details>
 
 
