@@ -5,7 +5,7 @@
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
 
 import allure
-from tests.calculator_tests.base_testcase import BaseTestCase
+from tests.calculator_tests.calculator_base_testcase import CalculatorBaseTestCase
 
 
 @allure.epic('Android Native App')
@@ -14,8 +14,6 @@ from tests.calculator_tests.base_testcase import BaseTestCase
 @allure.sub_suite("Positive Tests")
 @allure.feature("Open Source License")
 @allure.story('Open Source Licenses Menu')
-class TestOpenSourceLicenseCase(BaseTestCase):
+class TestOpenSourceLicenseCase(CalculatorBaseTestCase):
 	"""Test that open source license is acceptable and can be displayed"""
-
-	def test_something(self):
-		pass
+	pass
