@@ -5,7 +5,7 @@
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
 
 import allure
-from tests.android_v7_calculator_tests.calculator_base_testcase import AndroidCalculatorBaseTestCase
+from tests.android_v7.calculator_tests.calculator_base_testcase import AndroidCalculatorBaseTestCase
 
 
 @allure.epic('Android Native App')
@@ -89,87 +89,102 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 
 	def test_divide_a_negative_floating_point_dividend_by_a_positive_divisor(self):
 		"""
-
+		Should be able to divide a negative floating point dividend by a positive divisor
+		-3.123 / 5 = -0.6246
 		:return:
 		"""
-		allure.dynamic.title("Division of a ")
+		allure.dynamic.title("Division of a negative floating point dividend by a positive divisor test")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 
-		#
-		numbers = []
-		with allure.step("Check the division of : {}".format(numbers)):
+		# -3.123 / 5 = -0.6246
+		numbers = [-3.123, 5]
+		with allure.step("Check the division of negative floating point dividend by a positive divisor: {}".format(numbers)):
 			self.perform_division(numbers)
-			assert self.app.screen_result.label == self.eval_formula()
+			assert self.app.screen_result.label == self.eval_formula(-3.123 / 5)
 
-	def test_divide_negative_integer_dividend_by_positive_floating_point_divisor_to_nine_significiant_figures(self):
+	def test_divide_negative_integer_dividend_by_positive_floating_point_divisor_to_nine_significant_figures(self):
 		"""
-
+		Should be able to divide a negative integer dividend by a positive floating point divisor to nine significant figures
+		-5 / 3.123 = -1.60102466
 		:return:
 		"""
-		allure.dynamic.title("Division of a ")
+		allure.dynamic.title("Division of a a negative integer dividend by a positive "
+		                     "floating point divisor to nine significant figures test")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 
-		#
-		numbers = []
-		with allure.step("Check the division of : {}".format(numbers)):
+		# -5 / 3.123 = -1.60102466
+		numbers = [-5, 3.123]
+		with allure.step("Check the division of a negative integer dividend by a positive "
+		                 "floating point divisor to nine significant figures: {}".format(numbers)):
 			self.perform_division(numbers)
-			assert self.app.screen_result.label == self.eval_formula()
+			assert self.app.screen_result.label == self.eval_formula(-5 / 3.123)
 
 	def test_divide_an_floating_point_dividend_by_an_integer_divisor(self):
 		"""
-
+		Should be able to divide an floating point dividend by an integer divisor
+		4.21 / 3 = 1.40333333
 		:return:
 		"""
-		allure.dynamic.title("Division of a ")
+		allure.dynamic.title("Division of floating point dividend by an integer divisor test")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 
-		#
-		numbers = []
-		with allure.step("Check the division of : {}".format(numbers)):
+		# 4.21 / 3 = 1.40333333
+		numbers = [4.21, 3]
+		with allure.step("Check the division of floating point dividend by an integer divisor: {}".format(numbers)):
 			self.perform_division(numbers)
-			assert self.app.screen_result.label == self.eval_formula()
+			assert self.app.screen_result.label == self.eval_formula(4.21 / 3)
 
 	def test_divide_an_integer_dividend_by_a_floating_point_divisor(self):
 		"""
-
+		Should be able to divide an integer dividend by a floating point divisor
+		10 / 3.123 = 3.20204931
 		:return:
 		"""
-		allure.dynamic.title("Division of a ")
+		allure.dynamic.title("Division of a integer dividend by a floating point divisor test")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 
-		#
-		numbers = []
-		with allure.step("Check the division of : {}".format(numbers)):
+		# 10 / 3.123 = 3.20204931
+		numbers = [10, 3.123]
+		with allure.step("Check the division of integer dividend by a floating point divisor: {}".format(numbers)):
 			self.perform_division(numbers)
-			assert self.app.screen_result.label == self.eval_formula()
+			assert self.app.screen_result.label == self.eval_formula(10 / 3.123)
 
 	def test_divide_two_floating_point_numbers(self):
 		"""
-
+		Should be able to divide two floating point numbers
+		0.234 / 3.123 = 0.0749279539
 		:return:
 		"""
-		allure.dynamic.title("Division of a ")
+		allure.dynamic.title("Division of two floating point numbers")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 
-		#
-		numbers = []
-		with allure.step("Check the division of : {}".format(numbers)):
+		# 0.234 / 3.123 = 0.0749279539
+		numbers = [0.234, 3.123]
+		with allure.step("Check the division of two floating point numbers: {}".format(numbers)):
 			self.perform_division(numbers)
-			assert self.app.screen_result.label == self.eval_formula()
+			assert self.app.screen_result.label == self.eval_formula(0.234 / 3.123)
 
 	def test_divide_the_result_of_a_previous_operation_by_a_positive_floating_point_number(self):
 		"""
 
+		1500 - 2000 = 500 / 3.12 = -160.25641
 		:return:
 		"""
 		allure.dynamic.title("Division of a ")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 
-		#
-		numbers = []
+		# 1500 - 2000 = 500 / 3.12 = -160.25641
+		numbers = [1500, 2000, 500, 3.12]
 		with allure.step("Check the division of : {}".format(numbers)):
-			self.perform_division(numbers)
-			assert self.app.screen_result.label == self.eval_formula()
+			self.enter_number(1500)
+			self.app.minus.tap()
+			self.enter_number(2000)
+			self.app.equal.tap()
+			self.enter_number(500)
+			self.app.division.tap()
+			self.enter_number(3.12)
+			self.app.equal.tap()
+			assert self.app.screen_result.label == self.eval_formula(1500 - 2000 + (500 / 3.12))
 
 	def test_divide_the_result_of_a_previous_operation_by_a_positive_integer(self):
 		"""
