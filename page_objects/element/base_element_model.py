@@ -61,6 +61,8 @@ class BaseElementModel:
 		Replace invalid characters with valid math operators:
 
 		1. '−' >>> '-'
+		2. '×' >>> '*'
+		3. '÷' >>> '/'
 
 		:param data:
 		:return:
@@ -71,6 +73,9 @@ class BaseElementModel:
 
 		if '×' in data:
 			data = data.replace('×', '*')
+
+		if '÷' in data:
+			data = data.replace('÷', '/')
 
 		return data
 
