@@ -16,7 +16,7 @@ from utils.driver import Driver
 from selenium.common.exceptions import TimeoutException
 
 
-class CalculatorBaseTestCase(unittest.TestCase):
+class AndroidCalculatorBaseTestCase(unittest.TestCase):
     """
     Base Test Case
     """
@@ -25,13 +25,10 @@ class CalculatorBaseTestCase(unittest.TestCase):
     def setUpClass(cls) -> None:
 
         with allure.step("Start Appium Service"):
-            # Python client actually comes with a handy module called AppiumService
             # that you can use to programmatically start/stop an Appium server.
             # Source: https://stackoverflow.com/questions/51734382/how-to-start-appium-server-programmatically-in-python
             # Source: https://github.com/appium/python-client/blob/master/appium/webdriver/appium_service.py
-
-            # cls._appium_service = AppiumService()
-            # cls._appium_service.start()
+            # Source: https://discuss.appium.io/t/launching-and-stopping-appium-server-programmtically/700/2
             os.system("start /B start cmd.exe @cmd /k appium --relaxed-security")
 
         with allure.step("Set driver to None"):
@@ -71,7 +68,6 @@ class CalculatorBaseTestCase(unittest.TestCase):
         :param number:
         :return:
         """
-
         print("Enter a number: {}".format(number))
 
         if number < 0:
@@ -151,7 +147,6 @@ class CalculatorBaseTestCase(unittest.TestCase):
         Convert result to a string and return it
         :return:
         """
-
         if not isinstance(data, str):
             data = str(data)
 
@@ -228,3 +223,4 @@ class CalculatorBaseTestCase(unittest.TestCase):
 
             self.app.equal.tap()
             print("Screen output: {}".format(self.app.screen_result.label))
+
