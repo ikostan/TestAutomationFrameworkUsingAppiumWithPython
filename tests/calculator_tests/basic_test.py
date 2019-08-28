@@ -1,10 +1,11 @@
-"""Basic Functionality Test Case"""
+"""Android Calculator App Basic Functionality Test Case"""
 
 #  Created by Egor Kostan.
 #  GitHub: https://github.com/ikostan
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
 
 import allure
+import pytest
 from selenium.common.exceptions import TimeoutException
 from tests.calculator_tests.calculator_base_testcase import AndroidCalculatorBaseTestCase
 
@@ -17,6 +18,8 @@ from tests.calculator_tests.calculator_base_testcase import AndroidCalculatorBas
 @allure.story('Basic Functionality')
 class TestBasicCalculatorCases(AndroidCalculatorBaseTestCase):
     """
+    Android Calculator App Basic Functionality Test Case
+
     Test basic functionality:
 
     Should be able to open calculator_test app
@@ -29,12 +32,17 @@ class TestBasicCalculatorCases(AndroidCalculatorBaseTestCase):
     Check for the visibility of all buttons (0-9, DEL, CLR, . +,-,*,/,=)
     """
 
+    @pytest.skip("Not implemented")
     def test_btn_labeling(self):
         """
         All buttons should be labeled appropriately
         :return:
         """
-        assert False
+        allure.dynamic.title("Buttons labeling test")
+        allure.dynamic.severity(allure.severity_level.BLOCKER)
+
+        with allure.step(""):
+            pass
 
     def test_btn_visibility(self):
         """
