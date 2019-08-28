@@ -32,7 +32,7 @@ class TestBasicCalculatorCases(AndroidCalculatorBaseTestCase):
     Check for the visibility of all buttons (0-9, DEL, CLR, . +,-,*,/,=)
     """
 
-    @pytest.skip("Not implemented")
+    @pytest.mark.skip("Not implemented")
     def test_btn_labeling(self):
         """
         All buttons should be labeled appropriately
@@ -112,8 +112,7 @@ class TestBasicCalculatorCases(AndroidCalculatorBaseTestCase):
         allure.dynamic.severity(allure.severity_level.BLOCKER)
 
         with allure.step("Enter digits 0-9"):
-            for digit in self.app.digits:
-                self.app.digits[digit].tap()
+            self.enter_number("0123456789")
 
         with allure.step("Verify screen output"):
             assert self.app.screen_formula.label == '0123456789'
@@ -132,8 +131,7 @@ class TestBasicCalculatorCases(AndroidCalculatorBaseTestCase):
         allure.dynamic.severity(allure.severity_level.BLOCKER)
 
         with allure.step("Enter digits 0-9"):
-            for digit in self.app.digits:
-                self.app.digits[digit].tap()
+            self.enter_number("0123456789")
 
         with allure.step("Press '=' button"):
             self.app.equal.tap()
@@ -153,8 +151,7 @@ class TestBasicCalculatorCases(AndroidCalculatorBaseTestCase):
         allure.dynamic.severity(allure.severity_level.BLOCKER)
 
         with allure.step("Enter digits 0-9"):
-            for digit in self.app.digits:
-                self.app.digits[digit].tap()
+            self.enter_number("0123456789")
 
         with allure.step("Press '=' button"):
             self.app.equal.tap()
@@ -185,8 +182,7 @@ class TestBasicCalculatorCases(AndroidCalculatorBaseTestCase):
         allure.dynamic.severity(allure.severity_level.BLOCKER)
 
         with allure.step("Enter digits 0-9"):
-            for digit in self.app.digits:
-                self.app.digits[digit].tap()
+            self.enter_number("0123456789")
 
         with allure.step("Test 'DEL' button"):
 
