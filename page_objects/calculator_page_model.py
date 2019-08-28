@@ -4,7 +4,7 @@
 #  GitHub: https://github.com/ikostan
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
 
-from drivers.element.base_element import BaseElement
+from page_objects.element import BaseElement
 from page_locators.calculator_page_locator import CalculatorPageLocator
 from selenium.common.exceptions import TimeoutException
 
@@ -161,23 +161,3 @@ class CalculatorPageModel:
 		"""
 		return self._driver
 
-	'''
-	def tap_digit(self, digit):
-		"""
-		Tap on digit.
-		Digits allowed: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
-		:param digit:
-		:return:
-		"""
-		digit = BaseElement(driver=self.driver, locator=CalculatorPageLocator.DIGITS[digit])
-		digit.tap()
-		return None
-
-	def is_element_visible(self, locator):
-		"""
-		Returns element visibility
-		:param locator: 
-		:return: 
-		"""
-		return BaseElement(self.driver, locator).is_visible
-	'''
