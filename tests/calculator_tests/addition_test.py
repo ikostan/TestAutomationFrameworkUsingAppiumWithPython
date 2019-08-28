@@ -61,7 +61,6 @@ class TestAdditionCase(AndroidCalculatorBaseTestCase):
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 
 		# Should be able to add two positive integers numbers
-
 		numbers = [1, 1]
 		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
 			self.perform_addition(numbers)
