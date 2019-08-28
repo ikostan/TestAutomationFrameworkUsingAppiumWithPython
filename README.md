@@ -365,6 +365,31 @@ adb install path/to/your/app.apk('/Users/johndoe/path/to/app.apk');
 
 <details>
   
+  <summary><b>How to start/stop Appium server programmatically in Python</b></summary>
+  <br/>
+    
+The Python client actually comes with a handy module called AppiumService that you can use to programmatically start/stop an Appium server.<br/>
+
+To start:<br/>
+```python
+from appium.webdriver.appium_service import AppiumService
+appium_service = AppiumService()
+self.appium_service.start()
+```
+
+To stop:<br/>
+```python
+self.appium_service.stop()
+```
+
+Source:<br/>
+   - https://stackoverflow.com/questions/51734382/how-to-start-appium-server-programmatically-in-python<br/>
+   - https://github.com/appium/python-client/blob/master/appium/webdriver/appium_service.py<br/>
+</details>
+
+
+<details>
+  
   <summary><b>error: RPC failed; curl 56 Recv failure: Connection was reset</b></summary>
   <br/>
   1. Open Git Bash<br/>
