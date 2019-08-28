@@ -31,8 +31,10 @@ class CalculatorBaseTestCase(unittest.TestCase):
             # that you can use to programmatically start/stop an Appium server.
             # Source: https://stackoverflow.com/questions/51734382/how-to-start-appium-server-programmatically-in-python
             # Source: https://github.com/appium/python-client/blob/master/appium/webdriver/appium_service.py
-            cls._appium_service = AppiumService()
-            cls._appium_service.start()
+
+            # cls._appium_service = AppiumService()
+            # cls._appium_service.start()
+            os.system("start /B start cmd.exe @cmd /k appium")
 
         with allure.step("Set driver to None"):
             cls._driver = None
@@ -47,8 +49,10 @@ class CalculatorBaseTestCase(unittest.TestCase):
 
         with allure.step("Stop Appium Service"):
             # Stop Appium service
+            # Source: https://discuss.appium.io/t/launching-and-stopping-appium-server-programmtically/700/2
             if cls._appium_service:
-                cls.appium_service.stop()
+                # cls.appium_service.stop()
+                os.system('taskkill /F /IM node.exe')
 
     def setUp(self) -> None:
         with allure.step("Set up driver object"):
