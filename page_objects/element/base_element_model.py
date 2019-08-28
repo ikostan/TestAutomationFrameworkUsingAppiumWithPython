@@ -69,6 +69,9 @@ class BaseElementModel:
 		if '−' in data:
 			data = data.replace('−', '-')
 
+		if '×' in data:
+			data = data.replace('×', '*')
+
 		return data
 
 	@staticmethod
