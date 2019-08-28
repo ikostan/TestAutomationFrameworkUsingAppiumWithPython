@@ -5,7 +5,7 @@
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
 
 import allure
-from tests.android_v7_calculator_tests.calculator_base_testcase import AndroidCalculatorBaseTestCase
+from tests.android_v7.calculator_tests.calculator_base_testcase import AndroidCalculatorBaseTestCase
 
 
 @allure.epic('Android Native App')
