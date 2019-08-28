@@ -70,8 +70,9 @@ class AndroidCalculatorBaseTestCase(unittest.TestCase):
         """
         print("Enter a number: {}".format(number))
 
-        if number < 0:
-            self.app.minus.tap()
+        if not isinstance(number, str):
+            if number < 0:
+                self.app.minus.tap()
 
         if len(str(number)) == 1:
             self.app.digits[abs(number)].tap()
@@ -220,6 +221,42 @@ class AndroidCalculatorBaseTestCase(unittest.TestCase):
                 print('Perform result (screen) evaluation: '
                       '{} should be equal {}'.format(actual, expected))
                 assert expected == actual
+
+            self.app.equal.tap()
+            print("Screen output: {}".format(self.app.screen_result.label))
+
+    def perform_multiplication(self, args):
+        """
+        Perform multiplication action for any list of numbers.
+        :param args:
+        :return:
+        """
+        self.clear_calculator_screen()
+
+        with allure.step("Performing multiplication of following numbers: {}".format(args)):
+            print("\nPerforming multiplication of following numbers: {}".format(args))
+
+            for i, arg in enumerate(args):
+
+                self.enter_number(arg)
+
+                if i != len(args) - 1:
+                    self.app.multiplication.tap()
+
+            print("Formula: {}".format(self.app.screen_formula.label))
+            print("Result: {}".format(self.app.screen_result.label))
+
+            expected = self.eval_formula(self.app.screen_formula.label)
+            actual = self.app.screen_result.label
+            with allure.step("Perform result (screen) evaluation: "
+                             "{} should be equal {}".format(actual, expected)):
+                print('Perform result (screen) evaluation: '
+                      '{} should be equal {}'.format(actual, expected))
+                if '.' in expected:
+                    if len(expected[expected.index('.'):]) > 12:
+                        assert '%.13f'.format(expected) == '%.13f'.format(actual)
+                    else:
+                        assert expected == actual
 
             self.app.equal.tap()
             print("Screen output: {}".format(self.app.screen_result.label))
