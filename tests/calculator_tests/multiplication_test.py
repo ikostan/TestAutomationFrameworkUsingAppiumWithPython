@@ -15,451 +15,314 @@ from tests.calculator_tests.calculator_base_testcase import AndroidCalculatorBas
 @allure.feature("Multiplication Calculation")
 @allure.story('Multiplication Button')
 class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
-
 	"""
 	Android Calculator App Test: Multiplication
-
-	This suite tests the current code in the calculator.
-
-	Terminology
-	Addend + Addend = Sum
-
-	Test Suite List:
-
-	Should be able to add two positive integers numbers
-	Should be able to add a negative integer to a positive floating point number
-	Should be able to add a floating point number to an integer
-	Should be able to add an integer to a floating point number
-	Should be able to add two floating point numbers
-	Should be able to add a negative integer and zero
-	Should be able to add zero and a positive integer
-	Should be able to add a negative integer with a positive number
-	Should be able to add two large positive integers
-	Should be able to add a negative floating point and a positive integer
-	Should be able to add a positive integer to the results of a previous operation
-	Should be able to add a positive floating point number to the results of a previous operation
-	Should be able to add a floating point number with many decimal places to a previous result
-	Should be able to add a large integer to a previous result
+	
+	Terminology:
+	Multiplicand * Multiplier = Product
+	
+	Should be able to multiply two positive integers 
+	Should be able to multiply a floating point multiplicand with an integer multipliplier40ms 
+	Should be able to multiply an integer multiplicand with a floating point multiplier 
+	Should be able to multiply two floating point numbers 
+	Should be able to multiply a integer multiplicand with zero 
+	Should be able to multiply a negative integer multiplicand with a positive intger multiplier 
+	Should be able to multiply a negative floating point multiplicand with a positive integer multiplier 
+	Should be able to multiply a negative integer multiplicand with a positive floating point multiplier 
+	Should be able to multiply the result of a previous operation by a positive floating point number 
+	Should be able to multiply the result of a previous operation by a positive integer 
+	Should be able to multiply two many digit floating point numbers 
+	Should be able to multiply two large integers 
+	Should be able to multiply the result of a previous operation by large integer 
+	Should be able to multiply the result of a previous operation by a many digit floating point number 
+	Should be able to result of a previous operation when the previous result is zero
 
 	Source: https://mozilla.github.io/calculator/test/?grep=Unit%20Tests%20Addition
 	"""
 
-	def test_able_to_add_two_positive_integers(self):
+	def test_multiply_two_positive_integers(self):
 		"""
-		Should be able to add two positive integers numbers and display the result
-
-		Steps:
-		1. Key in a valid integer from - 9999999999 to +9999999999
-		2. Key in operator +
-		3. Key in second operand,a valid integer from - 9999999999 To +999999999
-		4. Result verification > check the screen output
-
-		Source: https://www.ques10.com/p/38809/prepare-and-write-six-test-cases-for-simple-calcul/?
-		:return:
+		Should be able to multiply two positive integers
+		1500 * 2000 = 3000000
+		:return: 
 		"""
-		allure.dynamic.title("Add two positive integers numbers and display the result")
+		allure.dynamic.title("Multiply two positive integers test")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 
-		# Should be able to add two positive integers numbers
-
-		numbers = [1, 1]
-		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == str(sum(numbers))
-
-		numbers = [1, 9]
-		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == str(sum(numbers))
-
-		numbers = [19, 2]
-		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == str(sum(numbers))
-
-		numbers = [19, 37]
-		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == str(sum(numbers))
-
+		# 1500 * 2000 = 3000000
 		numbers = [1500, 2000]
-		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == str(sum(numbers))
+		with allure.step("Check the multiplication of two positive integers: {}".format(numbers)):
+			self.perform_multiplication(numbers)
+			assert self.app.screen_result.label == self.eval_formula(1500 * 2000)
 
-		numbers = [999999, 1]
-		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == str(sum(numbers))
-
-		numbers = [9999999, 1]
-		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
-
-		numbers = [99999999, 1]
-		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
-
-		numbers = [999999999, 1]
-		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
-
-		numbers = [9999999999, 1]
-		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
-
-	def test_able_to_add_a_negative_integer_to_a_positive_floating_point_number(self):
+	def test_multiply_a_floating_point_multiplicand_with_an_integer_multipliplier(self):
 		"""
-		Should be able to add a negative integer to a positive floating point number
-		:return:
+		Should be able to multiply a floating point multiplicand with an integer multipliplier:
+		1.212 * 8 = 9.696
+		:return: 
 		"""
-		allure.dynamic.title("Add a negative integer to a positive floating point number")
+		allure.dynamic.title("Multiplication of a floating point multiplicand "
+		                     "with an integer multipliplier test")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 
-		numbers = [-1, 1.000]
-		with allure.step("Check the addition of negative integer to a positive floating point number: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+		# 1.212 * 8 = 9.696
+		numbers = [1.212, 8]
+		with allure.step("Check the multiplication of a floating point "
+		                 "multiplicand with an integer multipliplier: {}".format(numbers)):
+			self.perform_multiplication(numbers)
+			assert self.app.screen_result.label == self.eval_formula(1.212 * 8)
 
-		numbers = [-2, 1.000]
-		with allure.step(
-				"Check the addition of negative integer to a positive floating point number: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
-
-		numbers = [-1, 2.000]
-		with allure.step(
-				"Check the addition of negative integer to a positive floating point number: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
-
-	def test_able_to_add_a_floating_point_number_to_an_integer(self):
+	def test_multiply_an_integer_multiplicand_with_a_floating_point_multiplier(self):
 		"""
-		Should be able to add a floating point number to an integer
-		:return:
+		Should be able to multiply an integer multiplicand with a floating point multiplier
+		3 * 1.212 = 3.636
+		:return: 
 		"""
-		allure.dynamic.title("Add a floating point number to an integer")
+		allure.dynamic.title("Multiplication an integer multiplicand "
+		                     "with a floating point multiplier test")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 
-		numbers = [10.1, 2]
-		with allure.step(
-				"Check the addition of floating point number to an integer: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+		# 3 * 1.212 = 3.636
+		numbers = [3, 1.212]
+		with allure.step("Check the multiplication of an integer "
+		                 "multiplicand with a floating point multiplier: {}".format(numbers)):
+			self.perform_multiplication(numbers)
+			assert self.app.screen_result.label == self.eval_formula(3 * 1.212)
 
-		numbers = [10.000, 2]
-		with allure.step(
-				"Check the addition of floating point number to an integer: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
-
-		numbers = [0.0, 2]
-		with allure.step(
-				"Check the addition of floating point number to an integer: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
-
-	def test_able_to_add_an_integer_to_a_floating_point_number(self):
+	def test_multiply_two_floating_point_numbers(self):
 		"""
-		Should be able to add an integer to a floating point number
-		:return:
+		Should be able to multiply two floating point numbers
+		0.133 * 1.212 = 0.161196
+		:return: 
 		"""
-		allure.dynamic.title("Add an integer to a floating point number")
+		allure.dynamic.title("Multiply of two floating point numbers test")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 
-		numbers = [10, 9.9999]
-		with allure.step(
-				"Check the addition of an integer to a floating point number: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+		# 0.133 * 1.212 = 0.161196
+		numbers = [0.133, 1.212]
+		with allure.step("Check the multiplication of two floating point numbers: {}".format(numbers)):
+			self.perform_multiplication(numbers)
+			assert self.app.screen_result.label == self.eval_formula(0.133 * 1.212)
 
-		numbers = [9, 10.9999]
-		with allure.step(
-				"Check the addition of an integer to a floating point number: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
-
-	def test_able_to_add_two_floating_point_numbers(self):
+	def test_multiply_a_integer_multiplicand_with_zero(self):
 		"""
-		Should be able to add two floating point numbers
-		:return:
+		Should be able to multiply a integer multiplicand with zero
+		1500 * 0 = 0
+		:return: 
 		"""
-		allure.dynamic.title("Add two floating point numbers")
+		allure.dynamic.title("Multiplication of a integer multiplicand with zero test")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 
-		numbers = [34.999, 1.0]
-		with allure.step(
-				"Check the addition of two floating point numbers: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+		# 1500 * 0 = 0
+		numbers = [1500, 0]
+		with allure.step("Check the multiplication of a integer multiplicand with zero: {}".format(numbers)):
+			self.perform_multiplication(numbers)
+			assert self.app.screen_result.label == self.eval_formula(1500 * 0)
 
-		numbers = [1.0, 34.999]
-		with allure.step(
-				"Check the addition of two floating point numbers: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
-
-		numbers = [1.0000, 34.999]
-		with allure.step(
-				"Check the addition of two floating point numbers: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
-
-	def test_able_to_add_a_negative_integer_and_zero(self):
+	def test_multiply_a_negative_integer_multiplicand_with_a_positive_intger_multiplier(self):
 		"""
-		Should be able to add a negative integer and zero
-		:return:
+		Should be able to multiply a negative integer multiplicand with a positive intger multiplier
+		-1500 * 2000 = -3000000
+		:return: 
 		"""
-		allure.dynamic.title("Add a negative integer and zero")
+		allure.dynamic.title("Multiplication of a negative integer multiplicand "
+		                     "with a positive integer multiplier test")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 
-		numbers = [0, -5]
-		with allure.step(
-				"Check the addition of negative integer and zero: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+		# -1500 * 2000 = -3000000
+		numbers = [-1500, 2000]
+		with allure.step("Check the multiplication of a negative integer multiplicand "
+		                 "with a positive intger multiplier: {}".format(numbers)):
+			self.perform_multiplication(numbers)
+			assert self.app.screen_result.label == self.eval_formula(-1500 * 2000)
 
-		numbers = [-5, 0]
-		with allure.step(
-				"Check the addition of negative integer and zero: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
-
-		numbers = [5, -0]
-		with allure.step(
-				"Check the addition of negative integer and zero: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
-
-		numbers = [-0, 5]
-		with allure.step(
-				"Check the addition of negative integer and zero: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
-
-	def test_able_to_add_zero_and_a_positive_integer(self):
+	def test_multiply_a_negative_floating_point_multiplicand_with_a_positive_integer_multiplier(self):
 		"""
-		Should be able to add zero and a positive integer
-		:return:
+		Should be able to multiply a negative floating point multiplicand with a positive integer multiplier
+		-1.212 * 8 = -9.696
+		:return: 
 		"""
-		allure.dynamic.title("Add zero and a positive integer")
+		allure.dynamic.title("Multiplication of a negative floating point multiplicand "
+		                     "with a positive integer multiplier test")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 
-		numbers = [0, 0]
-		with allure.step("Check the addition of zero and a positive integer: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+		# -1.212 * 8 = -9.696
+		numbers = [-1.212, 8]
+		with allure.step("Check the multiplication of a negative floating point multiplicand "
+		                 "with a positive integer multiplier: {}".format(numbers)):
+			self.perform_multiplication(numbers)
+			assert self.app.screen_result.label == self.eval_formula(-1.212 * 8)
 
-		numbers = [0, 1]
-		with allure.step("Check the addition of zero and a positive integer: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
-
-		numbers = [1, 0]
-		with allure.step("Check the addition of zero and a positive integer: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
-
-		numbers = [0, 5]
-		with allure.step("Check the addition of zero and a positive integer: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
-
-	def test_able_to_add_a_negative_integer_with_a_positive_number(self):
+	def test_multiply_a_negative_integer_multiplicand_with_a_positive_floating_point_multiplier(self):
 		"""
-		Should be able to add a negative integer with a positive number
-		:return:
+		Should be able to multiply a negative integer multiplicand with a positive floating point multiplier
+		-8 * 1.212 = -9.696
+		:return: 
 		"""
-		allure.dynamic.title("Add a negative integer with a positive number")
+		allure.dynamic.title("multiplication of a negative integer multiplicand with "
+		                     "a positive floating point multiplier test")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 
-		numbers = [-5, 5]
-		with allure.step("Check the addition of a negative integer with a positive number: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+		# -8 * 1.212 = -9.696
+		numbers = [-8, 1.212]
+		with allure.step("Check the multiplication of a negative integer "
+		                 "multiplicand with a positive floating point multiplier: {}".format(numbers)):
+			self.perform_multiplication(numbers)
+			assert self.app.screen_result.label == self.eval_formula(-8 * 1.212)
 
-		numbers = [5, -5]
-		with allure.step("Check the addition of a negative integer with a positive number: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
-
-		numbers = [6, -5]
-		with allure.step("Check the addition of a negative integer with a positive number: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
-
-		numbers = [-6, 5]
-		with allure.step("Check the addition of a negative integer with a positive number: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
-
-	def test_able_to_add_two_large_positive_integers(self):
+	def test_multiply_the_result_of_a_previous_operation_by_a_positive_floating_point_number(self):
 		"""
-		Should be able to add two large positive integers
-		:return:
+		Should be able to multiply the result of a previous operation by a positive floating point number
+		1500 - 2000 = -500 * 1.23 = -615
+		:return: 
 		"""
-		allure.dynamic.title("Add two large positive integers")
+		allure.dynamic.title("Multiplication of the result of a previous "
+		                     "operation by a positive floating point number test")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 
-		numbers = [999999, 999999]
-		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
-
-		numbers = [999999, 99999]
-		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
-
-		numbers = [99999, 99999]
-		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
-
-		numbers = [53645567, 78967875]
-		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
-
-		numbers = [9999999999, 567457362343241]
-		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
-
-		numbers = [300000000, 900000000]
-		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
-
-		numbers = [900000000, 900000000]
-		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
-
-		numbers = [999999999, 1]
-		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
-
-	def test_able_to_add_a_negative_floating_point_and_a_positive_integer(self):
-		"""
-		Should be able to add a negative floating point and a positive integer
-		:return:
-		"""
-		allure.dynamic.title("Add a negative floating point and a positive integer")
-		allure.dynamic.severity(allure.severity_level.BLOCKER)
-
-		numbers = [-1987.50, 1987]
-		with allure.step("Check the addition of negative floating point and a positive integer: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
-
-		numbers = [1987, -1987.50]
-		with allure.step("Check the addition of negative floating point and a positive integer: {}".format(numbers)):
-			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
-
-	def test_able_to_add_a_positive_integer_to_the_results_of_a_previous_operation(self):
-		"""
-		Should be able to add a positive integer to the results of a previous operation
-		:return:
-		"""
-		allure.dynamic.title("Add a positive integer to the results of a previous operation")
-		allure.dynamic.severity(allure.severity_level.BLOCKER)
-
-		# 1500 - 2000 = -500 + 500 =
-		numbers = [1500, -2000, -500, 500]
-		with allure.step("Check the addition of positive integer to the results of a previous operation: {}".format(numbers)):
-			self.enter_number(numbers[0])
-			self.app.plus.tap()
-			self.enter_number(numbers[1])
-			self.app.plus.tap()
-			self.enter_number(numbers[2])
-			self.app.plus.tap()
-			self.enter_number(numbers[3])
+		# 1500 - 2000 = -500 * 1.23 = -615
+		numbers = [1500, 2000, -500, 1.23]
+		with allure.step("Check the multiplication of the result of a previous "
+		                 "operation by a positive floating point number: {}".format(numbers)):
+			self.enter_number(1500)
+			self.app.minus.tap()
+			self.enter_number(2000)
 			self.app.equal.tap()
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
-
-		# 6 * 2 + 8 = 20
-		numbers = [6, 2, 8]
-		with allure.step("Check the addition of positive integer to the results of a previous operation: {}".format(numbers)):
-			self.enter_number(numbers[0])
+			self.enter_number(-500)
 			self.app.multiplication.tap()
-			self.enter_number(numbers[1])
-			self.app.plus.tap()
-			self.enter_number(numbers[2])
+			self.enter_number(1.23)
 			self.app.equal.tap()
-			assert self.app.screen_result.label == self.eval_formula(6 * 2 + 8)
+			assert self.app.screen_result.label == self.eval_formula(1500 - 2000 + (-500 * 1.23))
 
-	def test_able_to_add_a_positive_floating_point_number_to_the_results_of_a_previous_operation(self):
+	def test_multiply_the_result_of_a_previous_operation_by_a_positive_integer(self):
 		"""
-		Should be able to add a positive floating point number to the results of a previous operation
-		:return:
+		Should be able to multiply the result of a previous operation by a positive integer
+		1500 - 2000 = -500 * 123 = -61500
+		6 * 2 = 12 * 8 = 96
+		:return: 
 		"""
-		allure.dynamic.title("Add a positive floating point number to the results of a previous operation")
+		allure.dynamic.title("Multiplication of the result of a previous "
+		                     "operation by a positive integer test")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 
-		# 1500 - 2000 = -500 + 0.25 =
-		numbers = [1500, -2000, -500, 0.25]
-		with allure.step(
-				"Check that user is able to add a positive floating point "
-				"number to the results of a previous operation: {}".format(numbers)):
-			self.enter_number(numbers[0])
-			self.app.plus.tap()
-			self.enter_number(numbers[1])
+		# 1500 - 2000 = -500 * 123 = -61500
+		numbers = [1500, 2000, -500, 123]
+		with allure.step("Check the multiplication of the result of a previous "
+		                 "operation by a positive integer: {}".format(numbers)):
+			self.enter_number(1500)
+			self.app.minus.tap()
+			self.enter_number(2000)
 			self.app.equal.tap()
-			self.enter_number(numbers[2])
-			self.app.plus.tap()
-			self.enter_number(numbers[3])
+			self.enter_number(-500)
+			self.app.multiplication.tap()
+			self.enter_number(123)
 			self.app.equal.tap()
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+			assert self.app.screen_result.label == self.eval_formula(1500 - 2000 + (-500 * 123))
 
-	def test_able_to_add_a_floating_point_number_with_many_decimal_places_to_a_previous_result(self):
+		# 6 * 2 = 12 * 8 = 96
+		numbers = [6, 2, 12, 8]
+		with allure.step("Check the multiplication of the result of a previous "
+		                 "operation by a positive integer: {}".format(numbers)):
+			self.enter_number(6)
+			self.app.minus.tap()
+			self.enter_number(2)
+			self.app.equal.tap()
+			self.enter_number(12)
+			self.app.multiplication.tap()
+			self.enter_number(8)
+			self.app.equal.tap()
+			assert self.app.screen_result.label == self.eval_formula(12 * 8)
+
+	def test_multiply_two_many_digit_floating_point_numbers(self):
 		"""
-		Should be able to add a floating point number with many decimal places to a previous result
-		:return:
+		Should be able to multiply two many digit floating point numbers
+		1.23456789 * 2.10987654 = 2.60478583
+		:return: 
 		"""
-		allure.dynamic.title("Add a floating point number with many decimal places to a previous result")
+		allure.dynamic.title("Multiplication of two many digit floating point numbers test")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 
-		# 1500 - 2000 = -500 + 1.23456789 =
-		numbers = [1500, -2000, -500, 1.23456789]
-		with allure.step(
-				"Check that user is able to add a floating point number with many decimal "
-				"places to a previous result: {}".format(numbers)):
-			self.enter_number(numbers[0])
-			self.app.plus.tap()
-			self.enter_number(numbers[1])
-			self.app.equal.tap()
-			self.enter_number(numbers[2])
-			self.app.plus.tap()
-			self.enter_number(numbers[3])
-			self.app.equal.tap()
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+		# 1.23456789 * 2.10987654 = 2.60478583
+		numbers = [1.23456789, 2.10987654]
+		with allure.step("Check the multiplication of two many digit floating point numbers: {}".format(numbers)):
+			self.perform_multiplication(numbers)
+			assert '%.13f'.format(self.app.screen_result.label) == '%.13f'.format(1.23456789 * 2.10987654)
 
-	def test_able_to_add_a_large_integer_to_a_previous_result(self):
+	def test_multiply_two_large_integers(self):
 		"""
-		Should be able to add a large integer to a previous result
-		:return:
+		Should be able to multiply two large integers
+		123456789 * 210987654 = 2.60478583e+16
+		:return: 
 		"""
-		allure.dynamic.title("Add a large integer to a previous result")
+		allure.dynamic.title("Multiplication of two large integers")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 
-		# 1500 - 2000 = -500 + 123456789 = 123456289
-		numbers = [1500, -2000, -500, 123456789]
-		with allure.step(
-				"Check that user is able to add a floating point number with many decimal "
-				"places to a previous result: {}".format(numbers)):
-			self.enter_number(numbers[0])
-			self.app.plus.tap()
-			self.enter_number(numbers[1])
-			self.app.plus.tap()
-			self.enter_number(numbers[2])
-			self.app.plus.tap()
-			self.enter_number(numbers[3])
+		# 
+		numbers = [123456789, 210987654]
+		with allure.step("Check the multiplication of two large integers: {}".format(numbers)):
+			self.perform_multiplication(numbers)
+			assert self.app.screen_result.label == self.eval_formula(123456789 * 210987654)
+
+	def test_multiply_the_result_of_a_previous_operation_by_large_integer(self):
+		"""
+		Should be able to multiply the result of a previous operation by large integer
+		1500 - 2000 = -500 * 123456789 = -6.17283945e+10
+		:return: 
+		"""
+		allure.dynamic.title("Multiplication of the result of a previous operation by large integer test")
+		allure.dynamic.severity(allure.severity_level.BLOCKER)
+
+		# 1500 - 2000 = -500 * 123456789 = -6.17283945e+10
+		numbers = [1500, 2000, -500, 123456789]
+		with allure.step("Check the multiplication of the result of a "
+		                 "previous operation by large integer: {}".format(numbers)):
+			self.enter_number(1500)
+			self.app.minus.tap()
+			self.enter_number(2000)
 			self.app.equal.tap()
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+			self.enter_number(-500)
+			self.app.multiplication.tap()
+			self.enter_number(123456789)
+			self.app.equal.tap()
+			assert self.app.screen_result.label == self.eval_formula(1500 - 2000 + (-500 * 123456789))
+
+	def test_multiply_the_result_of_a_previous_operation_by_a_many_digit_floating_point_number(self):
+		"""
+		Should be able to multiply the result of a previous operation by a many digit floating point number
+		1500 - 2000 = -500 * 123.456789 = -61728.3945
+		:return: 
+		"""
+		allure.dynamic.title("Multiplication the result of a previous operation "
+		                     "by a many digit floating point number test")
+		allure.dynamic.severity(allure.severity_level.BLOCKER)
+
+		# 1500 - 2000 = -500 * 123.456789 = -61728.3945
+		numbers = [1500, 2000, -500, 123.456789]
+		with allure.step("Check the multiplication of the result of a previous operation "
+		                 "by a many digit floating point number: {}".format(numbers)):
+			self.enter_number(1500)
+			self.app.minus.tap()
+			self.enter_number(2000)
+			self.app.equal.tap()
+			self.enter_number(-500)
+			self.app.multiplication.tap()
+			self.enter_number(123.456789)
+			self.app.equal.tap()
+			assert self.app.screen_result.label == self.eval_formula(1500 - 2000 + (-500 * 123.456789))
+
+	def test_multiply_result_of_a_previous_operation_when_the_previous_result_is_zero(self):
+		"""
+		Should be able multiply to result of a previous operation when the previous result is zero
+		0 * 6 * 6 = 0
+		:return: 
+		"""
+		allure.dynamic.title("Multiply to result of a previous operation when the "
+		                     "previous result is zero test")
+		allure.dynamic.severity(allure.severity_level.BLOCKER)
+
+		# 0 * 6 * 6 = 0
+		numbers = [0, 6, 6]
+		with allure.step("Check the multiplication of result of a "
+		                 "previous operation when the previous result is zero: {}".format(numbers)):
+			self.perform_multiplication(numbers)
+			assert self.app.screen_result.label == self.eval_formula(0 * 6 * 6)
