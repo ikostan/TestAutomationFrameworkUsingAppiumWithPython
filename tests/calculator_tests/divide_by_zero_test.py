@@ -5,7 +5,7 @@
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
 
 import allure
-from tests.calculator_tests.calculator_base_testcase import CalculatorBaseTestCase
+from tests.calculator_tests.calculator_base_testcase import AndroidCalculatorBaseTestCase
 
 
 @allure.epic('Android Native App')
@@ -14,7 +14,7 @@ from tests.calculator_tests.calculator_base_testcase import CalculatorBaseTestCa
 @allure.sub_suite("Negative Tests")
 @allure.feature("Division Calculation")
 @allure.story('Division By Zero')
-class TestDivideByZeroCase(CalculatorBaseTestCase):
+class TestDivideByZeroCase(AndroidCalculatorBaseTestCase):
 	"""
 	Test the condition where some number divided by zero
 	"""
