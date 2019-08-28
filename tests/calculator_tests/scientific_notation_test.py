@@ -1,4 +1,5 @@
-"""Scientific Notation Conversion"""
+"""Android Calculator App Test: Scientific Notation Conversion"""
+
 #  Created by Egor Kostan.
 #  GitHub: https://github.com/ikostan
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
@@ -14,5 +15,7 @@ from tests.calculator_tests.calculator_base_testcase import AndroidCalculatorBas
 @allure.feature("Scientific Notation")
 @allure.story('Scientific Notation Conversion')
 class TestScientificNotationConversionCase(AndroidCalculatorBaseTestCase):
-
+	"""
+	Android Calculator App Test: Scientific Notation Conversion
+	"""
 	pass
