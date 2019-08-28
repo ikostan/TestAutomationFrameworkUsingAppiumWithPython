@@ -1,4 +1,4 @@
-"""Calculator App Test: Addition"""
+"""Android Calculator App Test: Addition"""
 
 #  Created by Egor Kostan.
 #  GitHub: https://github.com/ikostan
@@ -17,6 +17,8 @@ from tests.calculator_tests.calculator_base_testcase import AndroidCalculatorBas
 class TestAdditionCase(AndroidCalculatorBaseTestCase):
 
 	"""
+	Android Calculator App Test: Addition
+
 	This suite tests the current code in the calculator.
 
 	Terminology
