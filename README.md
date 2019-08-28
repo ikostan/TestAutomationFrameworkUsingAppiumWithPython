@@ -334,6 +334,28 @@ Source: https://www.idiotinside.com/2015/05/10/python-auto-generate-requirements
 
 
 <details>
+  
+  <summary><b>Install the given app from .apk file onto the device</b></summary>
+  <br/>
+  
+**Full Documentation:**<br/>
+
+- [Install the given app onto the device](http://appium.io/docs/en/commands/device/app/install-app/)<br/>
+- [ADB: Installing App on Emulator](https://nishantverma.gitbooks.io/appium-for-android/installing_app_on_emulator.html)<br/>
+
+** Python code example (Appium):**<br/>
+```python
+self.driver.install_app('/Users/johndoe/path/to/app.apk');
+```
+
+** Code example (adb):**<br/>
+```
+adb install path/to/your/app.apk('/Users/johndoe/path/to/app.apk');
+```
+</details>
+
+
+<details>
   <summary><b>Common Selenium errors</b></summary>
 
 <br/>- **[How to fix common Selenium errors?](https://www.ultimateqa.com/common-selenium-webdriver-errors-fix/)**<br/>
