@@ -1,4 +1,4 @@
-"""Base Test Case"""
+"""Android Calculator App Test: Base Test Case"""
 
 #  Created by Egor Kostan.
 #  GitHub: https://github.com/ikostan
@@ -18,7 +18,7 @@ from selenium.common.exceptions import TimeoutException
 
 class AndroidCalculatorBaseTestCase(unittest.TestCase):
     """
-    Base Test Case
+    Android Calculator App Test: Base Test Case
     """
 
     @classmethod
