@@ -17,7 +17,3 @@ class TestInstallAppFromFileCase(unittest.TestCase):
 	App source: http://search.maven.org/remotecontent?filepath=io/selendroid/selendroid-test-app/0.17.0/selendroid-test-app-0.17.0.apk
 	"""
 	pass
-
-
-if __name__ == '__main__':
-	unittest.main()
