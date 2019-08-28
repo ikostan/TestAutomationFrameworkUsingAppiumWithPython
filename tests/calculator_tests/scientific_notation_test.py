@@ -4,7 +4,7 @@
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
 
 import allure
-from tests.calculator_tests.calculator_base_testcase import CalculatorBaseTestCase
+from tests.calculator_tests.calculator_base_testcase import AndroidCalculatorBaseTestCase
 
 
 @allure.epic('Android Native App')
@@ -13,6 +13,6 @@ from tests.calculator_tests.calculator_base_testcase import CalculatorBaseTestCa
 @allure.sub_suite("Positive Tests")
 @allure.feature("Scientific Notation")
 @allure.story('Scientific Notation Conversion')
-class TestScientificNotationConversionCase(CalculatorBaseTestCase):
+class TestScientificNotationConversionCase(AndroidCalculatorBaseTestCase):
 
 	pass
