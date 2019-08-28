@@ -4,14 +4,11 @@
 #  GitHub: https://github.com/ikostan
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
 
-
 import os
 import unittest
 
 import allure
 from allure_commons.types import AttachmentType
-
-from appium.webdriver.appium_service import AppiumService
 
 from page_objects.calculator_page_model import CalculatorPageModel
 from utils.driver import Driver
@@ -26,6 +23,7 @@ class CalculatorBaseTestCase(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls) -> None:
+
         with allure.step("Start Appium Service"):
             # Python client actually comes with a handy module called AppiumService
             # that you can use to programmatically start/stop an Appium server.
@@ -34,7 +32,7 @@ class CalculatorBaseTestCase(unittest.TestCase):
 
             # cls._appium_service = AppiumService()
             # cls._appium_service.start()
-            os.system("start /B start cmd.exe @cmd /k appium")
+            os.system("start /B start cmd.exe @cmd /k appium --relaxed-security")
 
         with allure.step("Set driver to None"):
             cls._driver = None
@@ -48,11 +46,9 @@ class CalculatorBaseTestCase(unittest.TestCase):
                 cls._driver = None
 
         with allure.step("Stop Appium Service"):
-            # Stop Appium service
+            # Stop Appium Service
             # Source: https://discuss.appium.io/t/launching-and-stopping-appium-server-programmtically/700/2
-            if cls._appium_service:
-                # cls.appium_service.stop()
-                os.system('taskkill /F /IM node.exe')
+            os.system('taskkill /F /IM node.exe')
 
     def setUp(self) -> None:
         with allure.step("Set up driver object"):
@@ -66,7 +62,7 @@ class CalculatorBaseTestCase(unittest.TestCase):
         # NOTE: In addCleanup, the first in, is executed last.
         with allure.step("Set up Cleanup methods"):
             self.addCleanup(self._driver.driver_instance.quit)
-            self.addCleanup(self.screen_shot)
+            self.addCleanup(self.snap_shot)
             self._driver.driver_instance.implicitly_wait(3)
 
     def enter_number(self, number):
@@ -92,17 +88,32 @@ class CalculatorBaseTestCase(unittest.TestCase):
                 if char == '.':
                     self.app.dot.tap()
 
-    def screen_shot(self):
+    def snap_shot(self):
         """
-        Take a Screen-shot of the drive homepage, when it Failed.
-        Source: https://stackoverflow.com/questions/12024848/automatic-screenshots-when-test-fail-by-selenium-webdriver-in-python
+        Take a Screen-shot + Appium Server Log
         """
         for error in self._outcome.errors:
             if error:
+                # Screen shot:
+                # Source: https://stackoverflow.com/questions/12024848/
+                # automatic-screenshots-when-test-fail-by-selenium-webdriver-in-python
                 file_name = "screenshot_{}.png".format(self.id())
                 self._driver.driver_instance.get_screenshot_as_file(file_name)
                 allure.attach.file('./' + file_name, attachment_type=AttachmentType.PNG)
-                os.remove('./' + file_name)
+                os.remove(file_name)
+
+                # Get Appium Server Logs:
+                # Source: https://appium.readthedocs.io/en/stable/en/commands/session/logs/get-log/#get-logs
+                appium_server_log = self._driver.driver_instance.get_log('server')
+                file_name = "./appium_server_log.txt"
+                with open(file_name, "w") as f:
+                    for dictionary in appium_server_log:
+                        for k in dictionary:
+                            f.write("{} : {}\n".format(k, dictionary[k]))
+                        f.write("\n")
+
+                allure.attach.file(file_name, attachment_type=AttachmentType.TEXT)
+                os.remove(file_name)
 
     def clear_calculator_screen(self):
         """
