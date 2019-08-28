@@ -4,7 +4,7 @@
 #  GitHub: https://github.com/ikostan
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
 
-from page_objects.element import BaseElement
+from page_objects.element.base_element_model import BaseElementModel
 from page_locators.calculator_page_locator import CalculatorPageLocator
 from selenium.common.exceptions import TimeoutException
 
@@ -15,16 +15,16 @@ class CalculatorPageModel:
 		self._driver = driver
 
 		# digits
-		self._0 = BaseElement(driver=driver, locator=CalculatorPageLocator.DIGITS[0])
-		self._1 = BaseElement(driver=driver, locator=CalculatorPageLocator.DIGITS[1])
-		self._2 = BaseElement(driver=driver, locator=CalculatorPageLocator.DIGITS[2])
-		self._3 = BaseElement(driver=driver, locator=CalculatorPageLocator.DIGITS[3])
-		self._4 = BaseElement(driver=driver, locator=CalculatorPageLocator.DIGITS[4])
-		self._5 = BaseElement(driver=driver, locator=CalculatorPageLocator.DIGITS[5])
-		self._6 = BaseElement(driver=driver, locator=CalculatorPageLocator.DIGITS[6])
-		self._7 = BaseElement(driver=driver, locator=CalculatorPageLocator.DIGITS[7])
-		self._8 = BaseElement(driver=driver, locator=CalculatorPageLocator.DIGITS[8])
-		self._9 = BaseElement(driver=driver, locator=CalculatorPageLocator.DIGITS[9])
+		self._0 = BaseElementModel(driver=driver, locator=CalculatorPageLocator.DIGITS[0])
+		self._1 = BaseElementModel(driver=driver, locator=CalculatorPageLocator.DIGITS[1])
+		self._2 = BaseElementModel(driver=driver, locator=CalculatorPageLocator.DIGITS[2])
+		self._3 = BaseElementModel(driver=driver, locator=CalculatorPageLocator.DIGITS[3])
+		self._4 = BaseElementModel(driver=driver, locator=CalculatorPageLocator.DIGITS[4])
+		self._5 = BaseElementModel(driver=driver, locator=CalculatorPageLocator.DIGITS[5])
+		self._6 = BaseElementModel(driver=driver, locator=CalculatorPageLocator.DIGITS[6])
+		self._7 = BaseElementModel(driver=driver, locator=CalculatorPageLocator.DIGITS[7])
+		self._8 = BaseElementModel(driver=driver, locator=CalculatorPageLocator.DIGITS[8])
+		self._9 = BaseElementModel(driver=driver, locator=CalculatorPageLocator.DIGITS[9])
 
 		self._digits = {0: self._0,
 		                1: self._1,
@@ -38,13 +38,13 @@ class CalculatorPageModel:
 		                9: self._9}
 
 		# Buttons
-		self._minus = BaseElement(driver=driver, locator=CalculatorPageLocator.MINUS_BTN)
-		self._plus = BaseElement(driver=driver, locator=CalculatorPageLocator.PLUS_BTN)
-		self._multiplication = BaseElement(driver=driver, locator=CalculatorPageLocator.MULTIPLICATION_BTN)
-		self._division = BaseElement(driver=driver, locator=CalculatorPageLocator.DIVISION_BTN)
-		self._equal = BaseElement(driver=driver, locator=CalculatorPageLocator.EQUAL_BTN)
-		self._minus = BaseElement(driver=driver, locator=CalculatorPageLocator.MINUS_BTN)
-		self._dot = BaseElement(driver=driver, locator=CalculatorPageLocator.POINT_BTN)
+		self._minus = BaseElementModel(driver=driver, locator=CalculatorPageLocator.MINUS_BTN)
+		self._plus = BaseElementModel(driver=driver, locator=CalculatorPageLocator.PLUS_BTN)
+		self._multiplication = BaseElementModel(driver=driver, locator=CalculatorPageLocator.MULTIPLICATION_BTN)
+		self._division = BaseElementModel(driver=driver, locator=CalculatorPageLocator.DIVISION_BTN)
+		self._equal = BaseElementModel(driver=driver, locator=CalculatorPageLocator.EQUAL_BTN)
+		self._minus = BaseElementModel(driver=driver, locator=CalculatorPageLocator.MINUS_BTN)
+		self._dot = BaseElementModel(driver=driver, locator=CalculatorPageLocator.POINT_BTN)
 
 		# All butt5ons
 		self._buttons = [self._0, self._1, self._2, self._3, self._4,
@@ -53,29 +53,29 @@ class CalculatorPageModel:
 		                 self._division, self._equal, self._minus, self._dot]
 
 		# Screens
-		self._main_screen = BaseElement(driver=driver, locator=CalculatorPageLocator.DISPLAY)
+		self._main_screen = BaseElementModel(driver=driver, locator=CalculatorPageLocator.DISPLAY)
 
 	@property
 	def screen_formula(self):
 		try:
-			return BaseElement(driver=self.driver, locator=CalculatorPageLocator.SCREEN_FORMULA)
+			return BaseElementModel(driver=self.driver, locator=CalculatorPageLocator.SCREEN_FORMULA)
 		except TimeoutException:
 			return None
 
 	@property
 	def screen_result(self):
 		try:
-			return BaseElement(driver=self.driver, locator=CalculatorPageLocator.SCREEN_RESULT)
+			return BaseElementModel(driver=self.driver, locator=CalculatorPageLocator.SCREEN_RESULT)
 		except TimeoutException:
 			return None
 
 	@property
 	def clr(self):
-		return BaseElement(driver=self.driver, locator=CalculatorPageLocator.CLEAR_BTN)
+		return BaseElementModel(driver=self.driver, locator=CalculatorPageLocator.CLEAR_BTN)
 
 	@property
 	def del_btn(self):
-		return BaseElement(driver=self.driver, locator=CalculatorPageLocator.DEL_BTN)
+		return BaseElementModel(driver=self.driver, locator=CalculatorPageLocator.DEL_BTN)
 
 	@property
 	def buttons(self):
