@@ -129,3 +129,4 @@ dmypy.json
 .idea/vcs.xml
 tests/allure-results/
 tests/allure-report/
+tests/allure_results/
