@@ -6,7 +6,7 @@
 
 import allure
 from selenium.common.exceptions import TimeoutException
-from tests.calculator_tests.calculator_base_testcase import CalculatorBaseTestCase
+from tests.calculator_tests.calculator_base_testcase import AndroidCalculatorBaseTestCase
 
 
 @allure.epic('Android Native App')
@@ -15,7 +15,7 @@ from tests.calculator_tests.calculator_base_testcase import CalculatorBaseTestCa
 @allure.sub_suite("Positive Tests")
 @allure.feature("Calculator Basic Buttons")
 @allure.story('Basic Functionality')
-class TestBasicCalculatorCases(CalculatorBaseTestCase):
+class TestBasicCalculatorCases(AndroidCalculatorBaseTestCase):
     """
     Test basic functionality:
 
