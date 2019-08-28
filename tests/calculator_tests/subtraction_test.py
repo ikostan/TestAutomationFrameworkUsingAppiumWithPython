@@ -1,4 +1,4 @@
-"""Subtraction Test Case"""
+"""Android Calculator App Test: Subtraction Test Case"""
 
 #  Created by Egor Kostan.
 #  GitHub: https://github.com/ikostan
@@ -16,6 +16,8 @@ from tests.calculator_tests.calculator_base_testcase import AndroidCalculatorBas
 @allure.story('Subtraction Button')
 class TestSubtractionCase(AndroidCalculatorBaseTestCase):
 	"""
+	Android Calculator App Test: Subtraction Test Case
+
     Terminology:
     Minuend - Subtrahend = Difference
 
