@@ -103,7 +103,7 @@ class AndroidCalculatorBaseTestCase(unittest.TestCase):
                 # Source: https://appium.readthedocs.io/en/stable/en/commands/session/logs/get-log/#get-logs
                 appium_server_log = self._driver.driver_instance.get_log('server')
                 file_name = "./appium_server_log.txt"
-                with open(file_name, "w") as f:
+                with open(file_name, "w", encoding="utf-8") as f:
                     for dictionary in appium_server_log:
                         for k in dictionary:
                             f.write("{} : {}\n".format(k, dictionary[k]))
