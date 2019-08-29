@@ -199,13 +199,13 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 		# 1500 - 2000 = -500 * 1.23 = -615
 		with allure.step("Check the multiplication of the result of a previous "
 		                 "operation by a positive floating point number: 1500 - 2000 + (-500 * 1.23)"):
-			self.enter_number(1500)
+			self.enter_digit(1500)
 			self.app.minus.tap()
-			self.enter_number(2000)
+			self.enter_digit(2000)
 			self.app.equal.tap()
-			self.enter_number(-500)
+			self.enter_digit(-500)
 			self.app.multiplication.tap()
-			self.enter_number(1.23)
+			self.enter_digit(1.23)
 			self.app.equal.tap()
 
 			with allure.step("Verify the result"):
@@ -225,13 +225,13 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 		# 1500 - 2000 = -500 * 123 = -61500
 		with allure.step("Check the multiplication of the result of a previous "
 		                 "operation by a positive integer: 1500 - 2000 + (-500 * 123)"):
-			self.enter_number(1500)
+			self.enter_digit(1500)
 			self.app.minus.tap()
-			self.enter_number(2000)
+			self.enter_digit(2000)
 			self.app.equal.tap()
-			self.enter_number(-500)
+			self.enter_digit(-500)
 			self.app.multiplication.tap()
-			self.enter_number(123)
+			self.enter_digit(123)
 			self.app.equal.tap()
 
 			with allure.step("Verify the result"):
@@ -240,13 +240,13 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 		# 6 * 2 = 12 * 8 = 96
 		with allure.step("Check the multiplication of the result of a previous "
 		                 "operation by a positive integer: 6 * 2 = 12 * 8 = 96"):
-			self.enter_number(6)
+			self.enter_digit(6)
 			self.app.minus.tap()
-			self.enter_number(2)
+			self.enter_digit(2)
 			self.app.equal.tap()
-			self.enter_number(12)
+			self.enter_digit(12)
 			self.app.multiplication.tap()
-			self.enter_number(8)
+			self.enter_digit(8)
 			self.app.equal.tap()
 
 			with allure.step("Verify the result"):
@@ -299,13 +299,13 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 		# 1500 - 2000 = -500 * 123456789 = -6.17283945e+10
 		with allure.step("Check the multiplication of the result of a "
 		                 "previous operation by large integer: 1500 - 2000 + (-500 * 123456789)"):
-			self.enter_number(1500)
+			self.enter_digit(1500)
 			self.app.minus.tap()
-			self.enter_number(2000)
+			self.enter_digit(2000)
 			self.app.equal.tap()
-			self.enter_number(-500)
+			self.enter_digit(-500)
 			self.app.multiplication.tap()
-			self.enter_number(123456789)
+			self.enter_digit(123456789)
 			self.app.equal.tap()
 
 			with allure.step("Verify the result"):
@@ -324,13 +324,13 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 		# 1500 - 2000 = -500 * 123.456789 = -61728.3945
 		with allure.step("Check the multiplication of the result of a previous operation "
 		                 "by a many digit floating point number: 1500 - 2000 + (-500 * 123.456789)"):
-			self.enter_number(1500)
+			self.enter_digit(1500)
 			self.app.minus.tap()
-			self.enter_number(2000)
+			self.enter_digit(2000)
 			self.app.equal.tap()
-			self.enter_number(-500)
+			self.enter_digit(-500)
 			self.app.multiplication.tap()
-			self.enter_number(123.456789)
+			self.enter_digit(123.456789)
 			self.app.equal.tap()
 
 			with allure.step("Verify the result"):
