@@ -38,7 +38,7 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 	Should be able to divide the result of a previous operation by a many digit floating point number
 	Should be able to divide the result of a previous operation by a large integer
 
-	Source: http://mozilla.github.io/calculator/test/?grep=Unit%20Tests%20Division
+	Source: http://mozilla.github.io/calculator/test/
 	"""
 
 	def test_divide_two_positive_integers(self):
@@ -222,7 +222,7 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			expected = str(500 / 312)
-			assert self.app.screen_result.label[:len(expected) - 1] == expected[-1]
+			assert self.app.screen_result.label[:len(expected) - 1] == expected[:-1]
 
 		# 6 * 2 = 12 / 8 = 1.5
 		numbers = [6, 2, 12, 8]
