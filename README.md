@@ -25,6 +25,7 @@
 - [Android Debug Bridge (adb)](https://developer.android.com/studio/command-line/adb)<br/>
 - [Appium Desired Capabilities](http://appium.io/docs/en/writing-running-appium/caps/)<br/>
 - [Appium Android Driver](https://github.com/appium/appium-android-driver)<br/>
+- [Webdriver API Docs](https://webdriver.io/docs/api.html)
 
 
 **Additional Resources:**<br/>
