@@ -51,9 +51,11 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 
 		# 1500 * 2000 = 3000000
 		numbers = [1500, 2000]
-		with allure.step("Check the multiplication of two positive integers: {}".format(numbers)):
+		with allure.step("Check the multiplication of two positive integers: 1500 * 2000 = 3000000"):
 			self.perform_multiplication(numbers)
-			assert self.app.screen_result.label == self.eval_formula(1500 * 2000)
+
+			with allure.step("Verify the result"):
+				assert self.app.screen_result.label == self.eval_formula(1500 * 2000)
 
 	def test_multiply_a_floating_point_multiplicand_with_an_integer_multipliplier(self):
 		"""
@@ -68,9 +70,11 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 		# 1.212 * 8 = 9.696
 		numbers = [1.212, 8]
 		with allure.step("Check the multiplication of a floating point "
-		                 "multiplicand with an integer multipliplier: {}".format(numbers)):
+		                 "multiplicand with an integer multipliplier: 1.212 * 8 = 9.696"):
 			self.perform_multiplication(numbers)
-			assert self.app.screen_result.label == self.eval_formula(1.212 * 8)
+
+			with allure.step("Verify the result"):
+				assert self.app.screen_result.label == self.eval_formula(1.212 * 8)
 
 	def test_multiply_an_integer_multiplicand_with_a_floating_point_multiplier(self):
 		"""
@@ -85,9 +89,11 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 		# 3 * 1.212 = 3.636
 		numbers = [3, 1.212]
 		with allure.step("Check the multiplication of an integer "
-		                 "multiplicand with a floating point multiplier: {}".format(numbers)):
+		                 "multiplicand with a floating point multiplier: 3 * 1.212 = 3.636"):
 			self.perform_multiplication(numbers)
-			assert self.app.screen_result.label == self.eval_formula(3 * 1.212)
+
+			with allure.step("Verify the result"):
+				assert self.app.screen_result.label == self.eval_formula(3 * 1.212)
 
 	def test_multiply_two_floating_point_numbers(self):
 		"""
@@ -100,9 +106,11 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 
 		# 0.133 * 1.212 = 0.161196
 		numbers = [0.133, 1.212]
-		with allure.step("Check the multiplication of two floating point numbers: {}".format(numbers)):
+		with allure.step("Check the multiplication of two floating point numbers: 0.133 * 1.212 = 0.161196"):
 			self.perform_multiplication(numbers)
-			assert self.app.screen_result.label == self.eval_formula(0.133 * 1.212)
+
+			with allure.step("Verify the result"):
+				assert self.app.screen_result.label == self.eval_formula(0.133 * 1.212)
 
 	def test_multiply_a_integer_multiplicand_with_zero(self):
 		"""
@@ -115,9 +123,11 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 
 		# 1500 * 0 = 0
 		numbers = [1500, 0]
-		with allure.step("Check the multiplication of a integer multiplicand with zero: {}".format(numbers)):
+		with allure.step("Check the multiplication of a integer multiplicand with zero: 1500 * 0 = 0"):
 			self.perform_multiplication(numbers)
-			assert self.app.screen_result.label == self.eval_formula(1500 * 0)
+
+			with allure.step("Verify the result"):
+				assert self.app.screen_result.label == self.eval_formula(1500 * 0)
 
 	def test_multiply_a_negative_integer_multiplicand_with_a_positive_intger_multiplier(self):
 		"""
@@ -132,9 +142,11 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 		# -1500 * 2000 = -3000000
 		numbers = [-1500, 2000]
 		with allure.step("Check the multiplication of a negative integer multiplicand "
-		                 "with a positive intger multiplier: {}".format(numbers)):
+		                 "with a positive intger multiplier: -1500 * 2000 = -3000000"):
 			self.perform_multiplication(numbers)
-			assert self.app.screen_result.label == self.eval_formula(-1500 * 2000)
+
+			with allure.step("Verify the result"):
+				assert self.app.screen_result.label == self.eval_formula(-1500 * 2000)
 
 	def test_multiply_a_negative_floating_point_multiplicand_with_a_positive_integer_multiplier(self):
 		"""
@@ -149,9 +161,11 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 		# -1.212 * 8 = -9.696
 		numbers = [-1.212, 8]
 		with allure.step("Check the multiplication of a negative floating point multiplicand "
-		                 "with a positive integer multiplier: {}".format(numbers)):
+		                 "with a positive integer multiplier: -1.212 * 8 = -9.696"):
 			self.perform_multiplication(numbers)
-			assert self.app.screen_result.label == self.eval_formula(-1.212 * 8)
+
+			with allure.step("Verify the result"):
+				assert self.app.screen_result.label == self.eval_formula(-1.212 * 8)
 
 	def test_multiply_a_negative_integer_multiplicand_with_a_positive_floating_point_multiplier(self):
 		"""
@@ -166,9 +180,11 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 		# -8 * 1.212 = -9.696
 		numbers = [-8, 1.212]
 		with allure.step("Check the multiplication of a negative integer "
-		                 "multiplicand with a positive floating point multiplier: {}".format(numbers)):
+		                 "multiplicand with a positive floating point multiplier: -8 * 1.212 = -9.696"):
 			self.perform_multiplication(numbers)
-			assert self.app.screen_result.label == self.eval_formula(-8 * 1.212)
+
+			with allure.step("Verify the result"):
+				assert self.app.screen_result.label == self.eval_formula(-8 * 1.212)
 
 	def test_multiply_the_result_of_a_previous_operation_by_a_positive_floating_point_number(self):
 		"""
@@ -181,9 +197,8 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 
 		# 1500 - 2000 = -500 * 1.23 = -615
-		numbers = [1500, 2000, -500, 1.23]
 		with allure.step("Check the multiplication of the result of a previous "
-		                 "operation by a positive floating point number: {}".format(numbers)):
+		                 "operation by a positive floating point number: 1500 - 2000 + (-500 * 1.23)"):
 			self.enter_number(1500)
 			self.app.minus.tap()
 			self.enter_number(2000)
@@ -192,7 +207,9 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 			self.app.multiplication.tap()
 			self.enter_number(1.23)
 			self.app.equal.tap()
-			assert self.app.screen_result.label == self.eval_formula(1500 - 2000 + (-500 * 1.23))
+
+			with allure.step("Verify the result"):
+				assert self.app.screen_result.label == self.eval_formula(1500 - 2000 + (-500 * 1.23))
 
 	def test_multiply_the_result_of_a_previous_operation_by_a_positive_integer(self):
 		"""
@@ -206,9 +223,8 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 
 		# 1500 - 2000 = -500 * 123 = -61500
-		numbers = [1500, 2000, -500, 123]
 		with allure.step("Check the multiplication of the result of a previous "
-		                 "operation by a positive integer: {}".format(numbers)):
+		                 "operation by a positive integer: 1500 - 2000 + (-500 * 123)"):
 			self.enter_number(1500)
 			self.app.minus.tap()
 			self.enter_number(2000)
@@ -217,12 +233,13 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 			self.app.multiplication.tap()
 			self.enter_number(123)
 			self.app.equal.tap()
-			assert self.app.screen_result.label == self.eval_formula(1500 - 2000 + (-500 * 123))
+
+			with allure.step("Verify the result"):
+				assert self.app.screen_result.label == self.eval_formula(1500 - 2000 + (-500 * 123))
 
 		# 6 * 2 = 12 * 8 = 96
-		numbers = [6, 2, 12, 8]
 		with allure.step("Check the multiplication of the result of a previous "
-		                 "operation by a positive integer: {}".format(numbers)):
+		                 "operation by a positive integer: 6 * 2 = 12 * 8 = 96"):
 			self.enter_number(6)
 			self.app.minus.tap()
 			self.enter_number(2)
@@ -231,7 +248,9 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 			self.app.multiplication.tap()
 			self.enter_number(8)
 			self.app.equal.tap()
-			assert self.app.screen_result.label == self.eval_formula(12 * 8)
+
+			with allure.step("Verify the result"):
+				assert self.app.screen_result.label == self.eval_formula(12 * 8)
 
 	def test_multiply_two_many_digit_floating_point_numbers(self):
 		"""
@@ -244,9 +263,12 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 
 		# 1.23456789 * 2.10987654 = 2.60478583
 		numbers = [1.23456789, 2.10987654]
-		with allure.step("Check the multiplication of two many digit floating point numbers: {}".format(numbers)):
+		with allure.step("Check the multiplication of two many digit "
+		                 "floating point numbers: 1.23456789 * 2.10987654"):
 			self.perform_multiplication(numbers)
-			assert '%.13f'.format(self.app.screen_result.label) == '%.13f'.format(1.23456789 * 2.10987654)
+
+			with allure.step("Verify the result"):
+				assert '%.13f'.format(self.app.screen_result.label) == '%.13f'.format(1.23456789 * 2.10987654)
 
 	def test_multiply_two_large_integers(self):
 		"""
@@ -257,11 +279,13 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 		allure.dynamic.title("Multiplication of two large integers")
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 
-		# 
+		# 123456789 * 210987654
 		numbers = [123456789, 210987654]
-		with allure.step("Check the multiplication of two large integers: {}".format(numbers)):
+		with allure.step("Check the multiplication of two large integers: 123456789 * 210987654"):
 			self.perform_multiplication(numbers)
-			assert self.app.screen_result.label == self.eval_formula(123456789 * 210987654)
+
+			with allure.step("Verify the result"):
+				assert self.app.screen_result.label == self.eval_formula(123456789 * 210987654)
 
 	def test_multiply_the_result_of_a_previous_operation_by_large_integer(self):
 		"""
@@ -273,9 +297,8 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 
 		# 1500 - 2000 = -500 * 123456789 = -6.17283945e+10
-		numbers = [1500, 2000, -500, 123456789]
 		with allure.step("Check the multiplication of the result of a "
-		                 "previous operation by large integer: {}".format(numbers)):
+		                 "previous operation by large integer: 1500 - 2000 + (-500 * 123456789)"):
 			self.enter_number(1500)
 			self.app.minus.tap()
 			self.enter_number(2000)
@@ -284,7 +307,9 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 			self.app.multiplication.tap()
 			self.enter_number(123456789)
 			self.app.equal.tap()
-			assert self.app.screen_result.label == self.eval_formula(1500 - 2000 + (-500 * 123456789))
+
+			with allure.step("Verify the result"):
+				assert self.app.screen_result.label == self.eval_formula(1500 - 2000 + (-500 * 123456789))
 
 	def test_multiply_the_result_of_a_previous_operation_by_a_many_digit_floating_point_number(self):
 		"""
@@ -297,9 +322,8 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 
 		# 1500 - 2000 = -500 * 123.456789 = -61728.3945
-		numbers = [1500, 2000, -500, 123.456789]
 		with allure.step("Check the multiplication of the result of a previous operation "
-		                 "by a many digit floating point number: {}".format(numbers)):
+		                 "by a many digit floating point number: 1500 - 2000 + (-500 * 123.456789)"):
 			self.enter_number(1500)
 			self.app.minus.tap()
 			self.enter_number(2000)
@@ -308,7 +332,9 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 			self.app.multiplication.tap()
 			self.enter_number(123.456789)
 			self.app.equal.tap()
-			assert self.app.screen_result.label == self.eval_formula(1500 - 2000 + (-500 * 123.456789))
+
+			with allure.step("Verify the result"):
+				assert self.app.screen_result.label == self.eval_formula(1500 - 2000 + (-500 * 123.456789))
 
 	def test_multiply_result_of_a_previous_operation_when_the_previous_result_is_zero(self):
 		"""
@@ -323,6 +349,8 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 		# 0 * 6 * 6 = 0
 		numbers = [0, 6, 6]
 		with allure.step("Check the multiplication of result of a "
-		                 "previous operation when the previous result is zero: {}".format(numbers)):
+		                 "previous operation when the previous result is zero: 0 * 6 * 6 = 0"):
 			self.perform_multiplication(numbers)
-			assert self.app.screen_result.label == self.eval_formula(0 * 6 * 6)
+
+			with allure.step("Verify the result"):
+				assert self.app.screen_result.label == self.eval_formula(0 * 6 * 6)
