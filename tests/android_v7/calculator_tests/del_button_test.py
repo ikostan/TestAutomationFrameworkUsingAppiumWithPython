@@ -28,7 +28,7 @@ class TestDelBtnCase(AndroidCalculatorBaseTestCase):
 	Should be able to clear after inserting a large negative integer
 	Should be able to clear after inserting a large integer
 
-	Source: http://mozilla.github.io/calculator/test/?grep=Unit%20Tests%20Division
+	Source: http://mozilla.github.io/calculator/test/
 	"""
 
 	def test_clear_the_screen_after_inserting_a_negative_floating_point_number(self):
@@ -42,7 +42,8 @@ class TestDelBtnCase(AndroidCalculatorBaseTestCase):
 
 		with allure.step("Clear the screen after inserting a negative floating point number"):
 			self.enter_number(-12.3)
-			self.app.del_btn.tap()
+			self.clear_calculator_screen()
+			assert self.app.screen_formula.label == ''
 			assert self.app.screen_result.label == ''
 
 	def test_clear_the_screen_after_inserting_an_positive_floating_point_number(self):
@@ -56,7 +57,8 @@ class TestDelBtnCase(AndroidCalculatorBaseTestCase):
 
 		with allure.step("clear the screen after inserting an positive floating point number"):
 			self.enter_number(12.3)
-			self.app.del_btn.tap()
+			self.clear_calculator_screen()
+			assert self.app.screen_formula.label == ''
 			assert self.app.screen_result.label == ''
 
 	def test_clear_the_screen_after_inserting_a_negative_integer(self):
@@ -70,7 +72,8 @@ class TestDelBtnCase(AndroidCalculatorBaseTestCase):
 
 		with allure.step("Clear the screen after inserting a negative integer"):
 			self.enter_number(-123)
-			self.app.del_btn.tap()
+			self.clear_calculator_screen()
+			assert self.app.screen_formula.label == ''
 			assert self.app.screen_result.label == ''
 
 	def test_clear_the_screen_after_inserting_a_positive_integer(self):
@@ -84,7 +87,8 @@ class TestDelBtnCase(AndroidCalculatorBaseTestCase):
 
 		with allure.step("Clear the screen after inserting a positive integer"):
 			self.enter_number(123)
-			self.app.del_btn.tap()
+			self.clear_calculator_screen()
+			assert self.app.screen_formula.label == ''
 			assert self.app.screen_result.label == ''
 
 	def test_clear_to_be_pressed_multiple_times(self):
@@ -98,9 +102,8 @@ class TestDelBtnCase(AndroidCalculatorBaseTestCase):
 
 		with allure.step("Clear to be pressed multiple times"):
 			self.enter_number(123456789)
-			self.app.del_btn.tap()
-			self.app.del_btn.tap()
-			self.app.del_btn.tap()
+			self.clear_calculator_screen()
+			assert self.app.screen_formula.label == ''
 			assert self.app.screen_result.label == ''
 
 	def test_clear_after_inserting_a_many_digit_floating_point_number(self):
@@ -114,7 +117,8 @@ class TestDelBtnCase(AndroidCalculatorBaseTestCase):
 
 		with allure.step("Clear after inserting a many digit floating point number"):
 			self.enter_number(1234.56789)
-			self.app.del_btn.tap()
+			self.clear_calculator_screen()
+			assert self.app.screen_formula.label == ''
 			assert self.app.screen_result.label == ''
 
 	def test_clear_after_inserting_a_negative_many_digit_floating_point_number(self):
@@ -128,7 +132,8 @@ class TestDelBtnCase(AndroidCalculatorBaseTestCase):
 
 		with allure.step("Clear after inserting a negative many digit floating point number"):
 			self.enter_number(-1234.56789)
-			self.app.del_btn.tap()
+			self.clear_calculator_screen()
+			assert self.app.screen_formula.label == ''
 			assert self.app.screen_result.label == ''
 
 	def test_clear_after_inserting_a_large_negative_integer(self):
@@ -142,7 +147,8 @@ class TestDelBtnCase(AndroidCalculatorBaseTestCase):
 
 		with allure.step("Clear after inserting a large negative integer"):
 			self.enter_number(-123456789)
-			self.app.del_btn.tap()
+			self.clear_calculator_screen()
+			assert self.app.screen_formula.label == ''
 			assert self.app.screen_result.label == ''
 
 	def test_clear_after_inserting_a_large_integer(self):
@@ -156,7 +162,8 @@ class TestDelBtnCase(AndroidCalculatorBaseTestCase):
 
 		with allure.step("Clear after inserting a large integer"):
 			self.enter_number(123456789)
-			self.app.del_btn.tap()
+			self.clear_calculator_screen()
+			assert self.app.screen_formula.label == ''
 			assert self.app.screen_result.label == ''
 
 
