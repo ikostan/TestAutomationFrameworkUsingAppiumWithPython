@@ -52,9 +52,11 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 
 		# 1500 / 2000 = 0.75
 		numbers = [1500, 2000]
-		with allure.step("Check the division of two positive integers: {}".format(numbers)):
+		with allure.step("Check the division of two positive integers: 1500 / 2000 = 0.75"):
 			self.perform_division(numbers)
-			assert self.app.screen_result.label == self.eval_formula(1500 / 2000)
+
+			with allure.step("Verify the result"):
+				assert self.app.screen_result.label == self.eval_formula(1500 / 2000)
 
 	def test_divide_zero_by_a_integer_divisor(self):
 		"""
@@ -67,9 +69,11 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 
 		# 0 / 2000 = 0
 		numbers = [0, 2000]
-		with allure.step("Check the division of zero by integer : {}".format(numbers)):
+		with allure.step("Check the division of zero by integer : 0 / 2000 = 0"):
 			self.perform_division(numbers)
-			assert self.app.screen_result.label == self.eval_formula(0 / 2000)
+
+			with allure.step("Verify the result"):
+				assert self.app.screen_result.label == self.eval_formula(0 / 2000)
 
 	def test_divide_a_negative_dividend_by_a_positive_divisor(self):
 		"""
@@ -82,9 +86,12 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 
 		# -1500 / 2000 = -0.75
 		numbers = [-1500, 2000]
-		with allure.step("Check the division of a negative dividend by a positive divisor: {}".format(numbers)):
+		with allure.step("Check the division of a negative dividend "
+		                 "by a positive divisor: -1500 / 2000 = -0.75"):
 			self.perform_division(numbers)
-			assert self.app.screen_result.label == self.eval_formula(-1500 / 2000)
+
+			with allure.step("Verify the result"):
+				assert self.app.screen_result.label == self.eval_formula(-1500 / 2000)
 
 	def test_divide_a_negative_floating_point_dividend_by_a_positive_divisor(self):
 		"""
@@ -97,9 +104,12 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 
 		# -3.123 / 5 = -0.6246
 		numbers = [-3.123, 5]
-		with allure.step("Check the division of negative floating point dividend by a positive divisor: {}".format(numbers)):
+		with allure.step("Check the division of negative floating point dividend by a "
+		                 "positive divisor: -3.123 / 5 = -0.6246"):
 			self.perform_division(numbers)
-			assert self.app.screen_result.label == self.eval_formula(-3.123 / 5)
+
+			with allure.step("Verify the result"):
+				assert self.app.screen_result.label == self.eval_formula(-3.123 / 5)
 
 	def test_divide_negative_integer_dividend_by_positive_floating_point_divisor_to_nine_significant_figures(self):
 		"""
@@ -114,11 +124,13 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 		# -5 / 3.123 = -1.60102466
 		numbers = [-5, 3.123]
 		with allure.step("Check the division of a negative integer dividend by a positive "
-		                 "floating point divisor to nine significant figures: {}".format(numbers)):
+		                 "floating point divisor to nine significant figures: -5 / 3.123 = -1.60102466"):
 			self.perform_division(numbers)
 
 			expected = self.eval_formula(-5 / 3.123)
-			assert self.app.screen_result.label[:len(expected) - 1] == expected[:-1]
+
+			with allure.step("Verify the result"):
+				assert self.app.screen_result.label[:len(expected) - 1] == expected[:-1]
 
 	def test_divide_an_floating_point_dividend_by_an_integer_divisor(self):
 		"""
@@ -131,11 +143,14 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 
 		# 4.21 / 3 = 1.40333333
 		numbers = [4.21, 3]
-		with allure.step("Check the division of floating point dividend by an integer divisor: {}".format(numbers)):
+		with allure.step("Check the division of floating point dividend "
+		                 "by an integer divisor: 4.21 / 3 = 1.40333333"):
 			self.perform_division(numbers)
 
 			expected = self.eval_formula(4.21 / 3)
-			assert self.app.screen_result.label[:len(expected) - 1] == expected[:-1]
+
+			with allure.step("Verify the result"):
+				assert self.app.screen_result.label[:len(expected) - 1] == expected[:-1]
 
 	def test_divide_an_integer_dividend_by_a_floating_point_divisor(self):
 		"""
@@ -148,11 +163,14 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 
 		# 10 / 3.123 = 3.20204931
 		numbers = [10, 3.123]
-		with allure.step("Check the division of integer dividend by a floating point divisor: {}".format(numbers)):
+		with allure.step("Check the division of integer dividend by a "
+		                 "floating point divisor: 10 / 3.123 = 3.20204931"):
 			self.perform_division(numbers)
 
 			expected = self.eval_formula(10 / 3.123)
-			assert self.app.screen_result.label[:len(expected) - 1] == expected[:-1]
+
+			with allure.step("Verify the result"):
+				assert self.app.screen_result.label[:len(expected) - 1] == expected[:-1]
 
 	def test_divide_two_floating_point_numbers(self):
 		"""
@@ -165,11 +183,13 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 
 		# 0.234 / 3.123 = 0.0749279539
 		numbers = [0.234, 3.123]
-		with allure.step("Check the division of two floating point numbers: {}".format(numbers)):
+		with allure.step("Check the division of two floating point numbers: 0.234 / 3.123 = 0.0749279539"):
 			self.perform_division(numbers)
 
 			expected = self.eval_formula(0.234 / 3.123)
-			assert self.app.screen_result.label[:len(expected) - 1] == expected[:-1]
+
+			with allure.step("Verify the result"):
+				assert self.app.screen_result.label[:len(expected) - 1] == expected[:-1]
 
 	def test_divide_the_result_of_a_previous_operation_by_a_positive_floating_point_number(self):
 		"""
@@ -182,9 +202,8 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 
 		# 1500 - 2000 = 500 / 3.12 = -160.25641
-		numbers = [1500, 2000, 500, 3.12]
 		with allure.step("Check the division of the result of a previous operation "
-		                 "by a positive floating point number: {}".format(numbers)):
+		                 "by a positive floating point number: 1500 - 2000 = 500 / 3.12 = "):
 			self.enter_number(1500)
 			self.app.minus.tap()
 			self.enter_number(2000)
@@ -195,7 +214,9 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			expected = self.eval_formula(500 / 3.12)
-			assert self.app.screen_result.label[:len(expected) - 1] == expected[:-1]
+
+			with allure.step("Verify the result"):
+				assert self.app.screen_result.label[:len(expected) - 1] == expected[:-1]
 
 	def test_divide_the_result_of_a_previous_operation_by_a_positive_integer(self):
 		"""
@@ -209,9 +230,8 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 
 		# 1500 - 2000 = 500 / 312 = -1.6025641
-		numbers = [1500, 2000, 500, 312]
 		with allure.step("Check the division of the result of a previous "
-		                 "operation by a positive integer: {}".format(numbers)):
+		                 "operation by a positive integer: 1500 - 2000 = 500 / 312 = -1.6025641"):
 			self.enter_number(1500)
 			self.app.minus.tap()
 			self.enter_number(2000)
@@ -222,12 +242,13 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			expected = str(500 / 312)
-			assert self.app.screen_result.label[:len(expected) - 1] == expected[:-1]
+
+			with allure.step("Verify the result"):
+				assert self.app.screen_result.label[:len(expected) - 1] == expected[:-1]
 
 		# 6 * 2 = 12 / 8 = 1.5
-		numbers = [6, 2, 12, 8]
 		with allure.step("Check the division of the result of a previous "
-		                 "operation by a positive integer: {}".format(numbers)):
+		                 "operation by a positive integer: 6 * 2 = 12 / 8 = 1.5"):
 			self.enter_number(6)
 			self.app.minus.tap()
 			self.enter_number(2)
@@ -238,7 +259,9 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			expected = self.eval_formula(12 / 8)
-			assert self.app.screen_result.label[:len(expected) - 1] == expected[:-1]
+
+			with allure.step("Verify the result"):
+				assert self.app.screen_result.label[:len(expected) - 1] == expected[:-1]
 
 	def test_able_to_divide_two_many_digit_floating_point_numbers(self):
 		"""
@@ -251,11 +274,13 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 
 		# 1.23456789 / 2.10987654 = 0.585137503
 		numbers = [1.23456789, 2.10987654]
-		with allure.step("Check the division of two many digit floating point numbers: {}".format(numbers)):
+		with allure.step("Check the division of two many digit floating point numbers: 1.23456789 / 2.10987654"):
 			self.perform_division(numbers)
 
 			expected = self.eval_formula(1.23456789 / 2.10987654)
-			assert self.app.screen_result.label[:len(expected) - 1] == expected[:-1]
+
+			with allure.step("Verify the result"):
+				assert self.app.screen_result.label[:len(expected) - 1] == expected[:-1]
 
 	def test_able_to_divide_the_result_of_a_previous_operation_by_a_many_digit_floating_point_number(self):
 		"""
@@ -268,9 +293,8 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 
 		# 1500 - 2000 = -500 / 1234.56789 = -0.405000004
-		numbers = [1500, 2000, -500, 1234.56789]
 		with allure.step("Check the division of the result of a previous operation "
-		                 "by a many digit floating point number: {}".format(numbers)):
+		                 "by a many digit floating point number: 1500 - 2000 + (-500 / 1234.56789)"):
 			self.enter_number(1500)
 			self.app.minus.tap()
 			self.enter_number(2000)
@@ -281,7 +305,9 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			expected = self.eval_formula(1500 - 2000 + (-500 / 1234.56789))
-			assert self.app.screen_result.label[:len(expected) - 1] == expected[:-1]
+
+			with allure.step("Verify the result"):
+				assert self.app.screen_result.label[:len(expected) - 1] == expected[:-1]
 
 	def test_divide_the_result_of_a_previous_operation_by_a_large_integer(self):
 		"""
@@ -294,9 +320,8 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 		allure.dynamic.severity(allure.severity_level.BLOCKER)
 
 		# 1500 - 2000 = -500 / 123456789 = -0.00000405000004
-		numbers = []
 		with allure.step("Check the division of the result of a previous "
-		                 "operation by a large integer: {}".format(numbers)):
+		                 "operation by a large integer: -500 - (500 / 123456789)"):
 			self.enter_number(1500)
 			self.app.minus.tap()
 			self.enter_number(2000)
@@ -307,5 +332,7 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			expected = str(-500 - (500 / 123456789))
-			assert self.app.screen_result.label[:len(expected) - 1] == expected[:-1]
+
+			with allure.step("Verify the result"):
+				assert self.app.screen_result.label[:len(expected) - 1] == expected[:-1]
 
