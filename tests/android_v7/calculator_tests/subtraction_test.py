@@ -140,13 +140,13 @@ class TestSubtractionCase(AndroidCalculatorBaseTestCase):
 
 		numbers = [6, 2, 12, 8]
 		with allure.step("Test subtraction of integer from the results of a previous operation: 6 * 2 = 12 - 8 = 4"):
-			self.enter_number(6)
+			self.enter_digit(6)
 			self.app.multiplication.tap()
-			self.enter_number(2)
+			self.enter_digit(2)
 			self.app.equal.tap()
-			self.enter_number(12)
+			self.enter_digit(12)
 			self.app.minus.tap()
-			self.enter_number(8)
+			self.enter_digit(8)
 			self.app.equal.tap()
 
 			with allure.step("Verify the result"):
@@ -214,9 +214,9 @@ class TestSubtractionCase(AndroidCalculatorBaseTestCase):
 
 		# 7.1234567 - 2.2109876 = 4.9124691
 		with allure.step("Test subtraction of two max-input floating point numbers: 7.1234567 - 2.2109876 = 4.9124691"):
-			self.enter_number(7.1234567)
+			self.enter_digit(7.1234567)
 			self.app.minus.tap()
-			self.enter_number(2.2109876)
+			self.enter_digit(2.2109876)
 			self.app.equal.tap()
 
 			with allure.step("Verify the result"):
@@ -234,9 +234,9 @@ class TestSubtractionCase(AndroidCalculatorBaseTestCase):
 
 		# 1000 + - 10.99 = 989.01
 		with allure.step("Test subtraction of positive floating point subtrahend: 1000 + - 10.99 = 989.01"):
-			self.enter_number(1000)
+			self.enter_digit(1000)
 			self.app.plus.tap()
-			self.enter_number(-10.99)
+			self.enter_digit(-10.99)
 			self.app.equal.tap()
 
 			with allure.step("Verify the result"):
@@ -254,9 +254,9 @@ class TestSubtractionCase(AndroidCalculatorBaseTestCase):
 
 		# 1.0 + - 989.99
 		with allure.step("Test subtraction of a positive integer subtrahend: 1.0 + - 989.99"):
-			self.enter_number(1.0)
+			self.enter_digit(1.0)
 			self.app.plus.tap()
-			self.enter_number(-989.99)
+			self.enter_digit(-989.99)
 			self.app.equal.tap()
 
 			with allure.step("Verify the result"):
@@ -274,9 +274,9 @@ class TestSubtractionCase(AndroidCalculatorBaseTestCase):
 
 		# 50 + - 60 = -10
 		with allure.step("Test subtraction of positive integer subtrahend: 50 + - 60 = -10"):
-			self.enter_number(50)
+			self.enter_digit(50)
 			self.app.plus.tap()
-			self.enter_number(-60)
+			self.enter_digit(-60)
 			self.app.equal.tap()
 
 			with allure.step("Verify the result"):
@@ -294,9 +294,9 @@ class TestSubtractionCase(AndroidCalculatorBaseTestCase):
 		# -5 + - 20 = -25
 		with allure.step("Test subtraction of a floating point number from the "
 		                 "result of a previous operation: -5 + - 20 = -25"):
-			self.enter_number(-5)
+			self.enter_digit(-5)
 			self.app.plus.tap()
-			self.enter_number(-20)
+			self.enter_digit(-20)
 			self.app.equal.tap()
 
 			with allure.step("Verify the result"):
@@ -314,13 +314,13 @@ class TestSubtractionCase(AndroidCalculatorBaseTestCase):
 		# 1500 - 2000 = -500 - 33.12 =
 		with allure.step("Test subtraction of an integer from a negative "
 		                 "floating point number: 1500 - 2000 = -500 - 33.12 = -533.12"):
-			self.enter_number(1500)
+			self.enter_digit(1500)
 			self.app.minus.tap()
-			self.enter_number(2000)
+			self.enter_digit(2000)
 			self.app.equal.tap()
-			self.enter_number(-500)
+			self.enter_digit(-500)
 			self.app.minus.tap()
-			self.enter_number(33.12)
+			self.enter_digit(33.12)
 			self.app.equal.tap()
 
 			with allure.step("Verify the result"):
@@ -391,13 +391,13 @@ class TestSubtractionCase(AndroidCalculatorBaseTestCase):
 		with allure.step(
 				"Test subtraction of a large decimal number from the results of a "
 				"previous result: 1500 - 2000 = -500 - 12.3456789 = -512.3456789"):
-			self.enter_number(1500)
+			self.enter_digit(1500)
 			self.app.minus.tap()
-			self.enter_number(2000)
+			self.enter_digit(2000)
 			self.app.equal.tap()
-			self.enter_number(-500)
+			self.enter_digit(-500)
 			self.app.minus.tap()
-			self.enter_number(12.3456789)
+			self.enter_digit(12.3456789)
 			self.app.equal.tap()
 
 			with allure.step("Verify the result"):
@@ -416,13 +416,13 @@ class TestSubtractionCase(AndroidCalculatorBaseTestCase):
 		numbers = [1500, 2000, -500, 123456789]
 		with allure.step(
 				"Enter following: 1500 - 2000 + (-500) - 123456789"):
-			self.enter_number(1500)
+			self.enter_digit(1500)
 			self.app.minus.tap()
-			self.enter_number(2000)
+			self.enter_digit(2000)
 			self.app.equal.tap()
-			self.enter_number(-500)
+			self.enter_digit(-500)
 			self.app.minus.tap()
-			self.enter_number(123456789)
+			self.enter_digit(123456789)
 			self.app.equal.tap()
 
 			with allure.step("Verify the result"):
