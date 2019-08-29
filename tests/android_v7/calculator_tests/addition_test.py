@@ -41,7 +41,7 @@ class TestAdditionCase(AndroidCalculatorBaseTestCase):
 	Should be able to add a floating point number with many decimal places to a previous result
 	Should be able to add a large integer to a previous result
 
-	Source: https://mozilla.github.io/calculator/test/?grep=Unit%20Tests%20Addition
+	Source: https://mozilla.github.io/calculator/test/
 	"""
 
 	def test_able_to_add_two_positive_integers(self):
