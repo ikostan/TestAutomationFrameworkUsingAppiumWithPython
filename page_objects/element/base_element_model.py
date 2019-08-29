@@ -16,6 +16,14 @@ class BaseElementModel:
 		self._locator = locator
 		self._element = self._set_element()
 
+	@property
+	def id(self):
+		"""
+		Returns element id
+		:return:
+		"""
+		return self._element.id
+
 	def _set_element(self):
 		return WebDriverWait(self._driver, 5).until(
 			EC.presence_of_element_located(self._locator))
