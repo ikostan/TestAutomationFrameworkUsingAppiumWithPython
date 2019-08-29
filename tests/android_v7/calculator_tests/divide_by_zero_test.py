@@ -14,7 +14,7 @@ from tests.android_v7.calculator_tests.calculator_base_testcase import AndroidCa
 @allure.parent_suite('Functional Test')
 @allure.suite("Calculator Test Suite")
 @allure.sub_suite("Negative Tests")
-@allure.feature("Division Calculation")
+@allure.feature("Invalid Scenarios")
 @allure.story('Division By Zero')
 class TestDivideByZeroCase(AndroidCalculatorBaseTestCase):
 	"""
@@ -35,7 +35,9 @@ class TestDivideByZeroCase(AndroidCalculatorBaseTestCase):
 
 		#
 		numbers = [1500 / 0]
-		with allure.step("Check error for division by 0: {}".format(numbers)):
+		with allure.step("Check error for division by 0: 1500 / 0 -> ERROR"):
 			self.perform_division(numbers)
-			pass
+
+			with allure.step("Verify error message"):
+				pass
 
