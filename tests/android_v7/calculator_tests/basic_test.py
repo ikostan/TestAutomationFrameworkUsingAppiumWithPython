@@ -112,7 +112,7 @@ class TestBasicCalculatorCases(AndroidCalculatorBaseTestCase):
         allure.dynamic.severity(allure.severity_level.BLOCKER)
 
         with allure.step("Enter digits 0-9"):
-            self.enter_number("0123456789")
+            self.enter_digit("0123456789")
 
         with allure.step("Verify screen output"):
             assert self.app.screen_formula.label == '0123456789'
@@ -131,7 +131,7 @@ class TestBasicCalculatorCases(AndroidCalculatorBaseTestCase):
         allure.dynamic.severity(allure.severity_level.BLOCKER)
 
         with allure.step("Enter digits 0-9"):
-            self.enter_number("0123456789")
+            self.enter_digit("0123456789")
 
         with allure.step("Press '=' button"):
             self.app.equal.tap()
@@ -151,7 +151,7 @@ class TestBasicCalculatorCases(AndroidCalculatorBaseTestCase):
         allure.dynamic.severity(allure.severity_level.BLOCKER)
 
         with allure.step("Enter digits 0-9"):
-            self.enter_number("0123456789")
+            self.enter_digit("0123456789")
 
         with allure.step("Press '=' button"):
             self.app.equal.tap()
@@ -182,7 +182,7 @@ class TestBasicCalculatorCases(AndroidCalculatorBaseTestCase):
         allure.dynamic.severity(allure.severity_level.BLOCKER)
 
         with allure.step("Enter digits 0-9"):
-            self.enter_number("0123456789")
+            self.enter_digit("0123456789")
 
         with allure.step("Test 'DEL' button"):
 
