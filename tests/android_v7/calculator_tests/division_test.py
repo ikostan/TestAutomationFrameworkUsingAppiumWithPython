@@ -204,13 +204,13 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 		# 1500 - 2000 = 500 / 3.12 = -160.25641
 		with allure.step("Check the division of the result of a previous operation "
 		                 "by a positive floating point number: 1500 - 2000 = 500 / 3.12 = "):
-			self.enter_number(1500)
+			self.enter_digit(1500)
 			self.app.minus.tap()
-			self.enter_number(2000)
+			self.enter_digit(2000)
 			self.app.equal.tap()
-			self.enter_number(500)
+			self.enter_digit(500)
 			self.app.division.tap()
-			self.enter_number(3.12)
+			self.enter_digit(3.12)
 			self.app.equal.tap()
 
 			expected = self.eval_formula(500 / 3.12)
@@ -232,13 +232,13 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 		# 1500 - 2000 = 500 / 312 = -1.6025641
 		with allure.step("Check the division of the result of a previous "
 		                 "operation by a positive integer: 1500 - 2000 = 500 / 312 = -1.6025641"):
-			self.enter_number(1500)
+			self.enter_digit(1500)
 			self.app.minus.tap()
-			self.enter_number(2000)
+			self.enter_digit(2000)
 			self.app.equal.tap()
-			self.enter_number(500)
+			self.enter_digit(500)
 			self.app.division.tap()
-			self.enter_number(312)
+			self.enter_digit(312)
 			self.app.equal.tap()
 
 			expected = str(500 / 312)
@@ -249,13 +249,13 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 		# 6 * 2 = 12 / 8 = 1.5
 		with allure.step("Check the division of the result of a previous "
 		                 "operation by a positive integer: 6 * 2 = 12 / 8 = 1.5"):
-			self.enter_number(6)
+			self.enter_digit(6)
 			self.app.minus.tap()
-			self.enter_number(2)
+			self.enter_digit(2)
 			self.app.equal.tap()
-			self.enter_number(12)
+			self.enter_digit(12)
 			self.app.division.tap()
-			self.enter_number(8)
+			self.enter_digit(8)
 			self.app.equal.tap()
 
 			expected = self.eval_formula(12 / 8)
@@ -295,13 +295,13 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 		# 1500 - 2000 = -500 / 1234.56789 = -0.405000004
 		with allure.step("Check the division of the result of a previous operation "
 		                 "by a many digit floating point number: 1500 - 2000 + (-500 / 1234.56789)"):
-			self.enter_number(1500)
+			self.enter_digit(1500)
 			self.app.minus.tap()
-			self.enter_number(2000)
+			self.enter_digit(2000)
 			self.app.equal.tap()
-			self.enter_number(-500)
+			self.enter_digit(-500)
 			self.app.division.tap()
-			self.enter_number(1234.56789)
+			self.enter_digit(1234.56789)
 			self.app.equal.tap()
 
 			expected = self.eval_formula(1500 - 2000 + (-500 / 1234.56789))
@@ -322,13 +322,13 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 		# 1500 - 2000 = -500 / 123456789 = -0.00000405000004
 		with allure.step("Check the division of the result of a previous "
 		                 "operation by a large integer: -500 - (500 / 123456789)"):
-			self.enter_number(1500)
+			self.enter_digit(1500)
 			self.app.minus.tap()
-			self.enter_number(2000)
+			self.enter_digit(2000)
 			self.app.equal.tap()
-			self.enter_number(-500)
+			self.enter_digit(-500)
 			self.app.division.tap()
-			self.enter_number(123456789)
+			self.enter_digit(123456789)
 			self.app.equal.tap()
 
 			expected = str(-500 - (500 / 123456789))
