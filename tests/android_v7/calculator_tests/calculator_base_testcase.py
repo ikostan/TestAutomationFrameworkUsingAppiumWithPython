@@ -62,7 +62,7 @@ class AndroidCalculatorBaseTestCase(unittest.TestCase):
             self.addCleanup(self.snap_shot)
             self._driver.driver_instance.implicitly_wait(3)
 
-    def enter_number(self, number):
+    def enter_digit(self, number):
         """
         Enter a number
         :param number:
@@ -174,7 +174,7 @@ class AndroidCalculatorBaseTestCase(unittest.TestCase):
 
             for i, arg in enumerate(args):
 
-                self.enter_number(arg)
+                self.enter_digit(arg)
 
                 if i != len(args) - 1:
                     self.app.minus.tap()
@@ -206,7 +206,7 @@ class AndroidCalculatorBaseTestCase(unittest.TestCase):
 
             for i, arg in enumerate(args):
 
-                self.enter_number(arg)
+                self.enter_digit(arg)
 
                 if i != len(args) - 1:
                     self.app.plus.tap()
@@ -238,7 +238,7 @@ class AndroidCalculatorBaseTestCase(unittest.TestCase):
 
             for i, arg in enumerate(args):
 
-                self.enter_number(arg)
+                self.enter_digit(arg)
 
                 if i != len(args) - 1:
                     self.app.multiplication.tap()
@@ -274,7 +274,7 @@ class AndroidCalculatorBaseTestCase(unittest.TestCase):
 
             for i, arg in enumerate(args):
 
-                self.enter_number(arg)
+                self.enter_digit(arg)
 
                 if i != len(args) - 1:
                     self.app.division.tap()
