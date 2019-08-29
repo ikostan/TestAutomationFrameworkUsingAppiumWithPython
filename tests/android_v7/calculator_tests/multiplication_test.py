@@ -37,7 +37,7 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 	Should be able to multiply the result of a previous operation by a many digit floating point number 
 	Should be able to result of a previous operation when the previous result is zero
 
-	Source: https://mozilla.github.io/calculator/test/?grep=Unit%20Tests%20Addition
+	Source: https://mozilla.github.io/calculator/test/
 	"""
 
 	def test_multiply_two_positive_integers(self):
