@@ -1,5 +1,7 @@
 ## Selendroid Test App
 
+If you want to play around with Android automation, you can use selendroid-test-app. You can download this app <a href="http://search.maven.org/remotecontent?filepath=io/selendroid/selendroid-test-app/0.17.0/selendroid-test-app-0.17.0.apk">here</a>.<br/>
+
 ### Documentation:
 
 - [Install the given app onto the device](http://appium.io/docs/en/commands/device/app/install-app/)<br/>
