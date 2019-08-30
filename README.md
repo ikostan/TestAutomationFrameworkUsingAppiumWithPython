@@ -19,8 +19,13 @@
 7. <a href="#tech_issues">Tech Issues and Problem Solving</a>
 8. <a href="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/tree/master/drivers">Drivers</a>
     - <a href="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/tree/master/drivers/chromedriver">ChromeDriver</a>
-9. <a href="">Images</a>
-10.
+9. <a href="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/tree/master/img">Images</a>
+10. <a href="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/tree/master/page_locators">Page Locators</a>
+11. 
+12.
+13.
+14.
+15.
 
 
 ### Main Objectives:<br/>
