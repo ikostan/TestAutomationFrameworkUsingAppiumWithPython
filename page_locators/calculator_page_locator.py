@@ -38,3 +38,7 @@ class CalculatorPageLocator:
     DISPLAY = (MobileBy.ID, 'com.android.calculator2:id/display')
     SCREEN_FORMULA = (MobileBy.ID, 'com.android.calculator2:id/formula')
     SCREEN_RESULT = (MobileBy.ID, 'com.android.calculator2:id/result')
+
+    MORE_OPTIONS = (MobileBy.XPATH, '//android.widget.ImageButton[@content-desc="More options"]')
+
+    OPEN_SOURCE_LICENSE = (MobileBy.ID, 'android:id/title')
