@@ -4,6 +4,7 @@
 #  GitHub: https://github.com/ikostan
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
 
+from appium.webdriver.common.touch_action import TouchAction
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchAttributeException
@@ -30,14 +31,20 @@ class BaseElementModel:
 
 	def tap(self) -> None:
 		"""
-		Tap on app element
+		Tap app element
 		:return:
 		"""
+
+		'''
 		element = WebDriverWait(self._driver, 5).until(
 			EC.element_to_be_clickable(self._locator))
-		if element.text not in '0123456789.':
-			print("Tap '{}'".format(element.text))
-		element.click()
+		'''
+
+		if self._element.text not in '0123456789.':
+			print("Tap '{}'".format(self._element.text))
+
+		TouchAction(self._driver).tap(self._element).wait(3).perform()
+		# element.click()
 		return None
 
 	@property
