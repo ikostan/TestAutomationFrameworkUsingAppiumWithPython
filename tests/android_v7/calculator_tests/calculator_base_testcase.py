@@ -9,6 +9,7 @@ import unittest
 
 import allure
 from allure_commons.types import AttachmentType
+from appium.webdriver.common.touch_action import TouchAction
 
 from page_objects.calculator_page_model import CalculatorPageModel
 from utils.driver import Driver
