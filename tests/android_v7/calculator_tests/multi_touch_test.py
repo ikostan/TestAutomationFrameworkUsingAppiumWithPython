@@ -46,10 +46,10 @@ class TestMultiTouchCase(AndroidCalculatorBaseTestCase):
 		:return:
 		"""
 
-		with allure.step("Enter following: 12"):
-			touch_action_1 = TouchAction().press(self.app.digits[1]).release()
-			touch_action_2 = TouchAction().press(self.app.digits[2]).release()
-	
+		with allure.step("Enter following using multi touch action: 12"):
+			touch_action_1 = TouchAction().tap(self.app.digits[1])
+			touch_action_2 = TouchAction().tap(self.app.digits[2])
+
 			multi_touch_action = MultiAction(self.app.driver)
 			multi_touch_action.add(touch_action_2, touch_action_1)
 			multi_touch_action.perform()
