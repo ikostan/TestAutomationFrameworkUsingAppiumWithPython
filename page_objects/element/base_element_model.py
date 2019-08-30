@@ -11,11 +11,22 @@ from selenium.common.exceptions import NoSuchAttributeException
 
 
 class BaseElementModel:
+	"""
+	Base Element Definition Class
+	"""
 
 	def __init__(self, driver, locator: tuple):
 		self._driver = driver
 		self._locator = locator
 		self._element = self._set_element()
+
+	@property
+	def element(self):
+		"""
+		Returns Appium/Web element
+		:return:
+		"""
+		return self._element
 
 	@property
 	def id(self):
