@@ -1,4 +1,4 @@
-"""Locator Class"""
+"""Calculator Locator Class"""
 
 #  Created by Egor Kostan.
 #  GitHub: https://github.com/ikostan
@@ -9,7 +9,7 @@ from appium.webdriver.common.mobileby import MobileBy
 
 class CalculatorPageLocator:
     """
-    Contains page_locators for calculator_tests App
+    Contains page locators for Calculator App
     Each locator is a tuple: locator method + locator
     """
     DIGITS = {
