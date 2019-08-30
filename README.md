@@ -21,7 +21,7 @@
     - <a href="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/tree/master/drivers/chromedriver">ChromeDriver</a>
 9. <a href="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/tree/master/img">Images</a>
 10. <a href="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/tree/master/page_locators">Page Locators</a>
-11. 
+11. <a href="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/tree/master/page_object_models"> Page Object Models</a>
 12.
 13.
 14.
