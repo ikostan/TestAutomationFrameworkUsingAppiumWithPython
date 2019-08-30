@@ -1,3 +1,5 @@
+"""Driver Class"""
+
 #  Created by Egor Kostan.
 #  GitHub: https://github.com/ikostan
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
@@ -7,6 +9,9 @@ from appium import webdriver
 
 class Driver:
 	"""
+	Driver Class.
+	Helps instantiate Appium driver.
+
 	Sources:
 	Appium Desired Capabilities: http://appium.io/docs/en/writing-running-appium/caps/
 	Python appium.webdriver.Remote() Examples: https://www.programcreek.com/python/example/100038/appium.webdriver.Remote
