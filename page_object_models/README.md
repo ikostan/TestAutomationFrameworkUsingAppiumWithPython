@@ -6,7 +6,9 @@
 
 ### Introduction<br/>
 
-Page Object Model is a design pattern to create Object Repository for web UI elements. Under this model, for each web page in the application, there should be corresponding page class. This Page class will find the WebElements of that web page and also contains Page methods which perform operations on those WebElements.<br/>
+Within your web app's UI there are areas that your tests interact with. A Page Object simply models these as objects within the test code. This reduces the amount of duplicated code and means that if the UI changes, the fix need only be applied in one place.<br/>
+
+Page Object Model is a design pattern to create Object Repository for web UI elements. Under this model, for each web page in the application, there should be corresponding page class. This Page class will find the Elements of that web/app page and also contains Page methods which perform operations on those Elements.<br/>
 
 ### Problem<br/>
 
@@ -69,3 +71,4 @@ There are a few best practices in using page objects, that you should make an ef
 - [Getting Started with Page Object Pattern for Your Selenium Tests](https://www.pluralsight.com/guides/getting-started-with-page-object-pattern-for-your-selenium-tests)<br/>
 - [Design Patterns - Page Object Model](https://docs.experitest.com/display/TE/Design+Patterns+-+Page+Object+Model)<br/>
 - [Page Object Model (Selenium, Python)](https://qxf2.com/blog/page-object-model-selenium-python/)
+- [PageObjects](https://github.com/SeleniumHQ/selenium/wiki/PageObjects)
