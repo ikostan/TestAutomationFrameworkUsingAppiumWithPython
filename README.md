@@ -10,8 +10,17 @@
 
 ### Table of Contents:<br/>
 
+1. <a href="#main_objectives">Main Objectives</a>
+2. <a href="#official_documentation_sources">Official Documentation Sources</a>
+3. <a href="#additional_tech_info_resources">Additional Tech Info Resources</a>
+4. <a href="#dev_env">Dev Environment</a>
+5. <a href="#tools">Nice to have tools</a>
+6. <a href="#guidelines">General guidelines: How to set up dev environment</a>
+7. <a href="#tech_issues">Tech Issues and Problem Solving</a>
+
 
 ### Main Objectives:<br/>
+<a id="main_objectives"></a>
 - Creating Mobile Automation Testing Framework for IOS and Android<br/>
 - Build fast and readable automation using minimal code<br/>
 - Showcase with effective way to identify app elements<br/>
@@ -23,7 +32,8 @@
 - Using built-in apps in order to accomplish all the above<br/>
 
 
-### Documentation:
+### Official Documentation Sources:<br/>
+<a id="official_documentation_sources"></a>
 - [Appium API Documentation](http://appium.io/docs/en/about-appium/api/)<br/>
 - [Appium Desktop](https://github.com/appium/appium-desktop)<br/>
 - [Appium Python Client](https://github.com/appium/python-client)<br/>
@@ -33,8 +43,8 @@
 - [Webdriver API Docs](https://webdriver.io/docs/api.html)
 
 
-**Additional Resources:**<br/>
-
+**Additional Tech Info Resources:**<br/>
+<a id="additional_tech_info_resources">
 - [Selenium Documentation](https://seleniumhq.github.io/selenium/docs/api/py/api.html)<br/>
 - [Full Pytest documentation](http://doc.pytest.org/en/latest/contents.html)<br/>
 - ['Selenium with Python' official documentation webpage](https://selenium-python.readthedocs.io)<br/>
@@ -46,8 +56,7 @@
 - [How to print numbers in scientific notation form](https://mail.python.org/pipermail/tutor/2008-June/062649.html)
 
 ### Dev Environment:<br/>
-<a id="dev"></a>
-
+<a id="dev_env"></a>
 - [Python 3.7.4](https://www.python.org/downloads/release/python-374/)<br/>
 - [Appium](http://appium.io/)<br/>
 - [Appium-Python-Client 0.47](https://pypi.org/project/Appium-Python-Client/)<br/>
@@ -71,6 +80,7 @@ Full list of dependencies see [here.](https://github.com/ikostan/TEST_AUTOMATION
 
 
 ### Nice to have tools:
+<a id="tools"></a>
 1. [Fiddler: The free web debugging proxy](https://www.telerik.com/fiddler)<br/>
 2. [Kite: Code Faster in Python](https://kite.com/)<br/>
 3. [Ragnorex: Smart Selector Generator](https://www.ranorex.com/selocity/browser-extension)<br/>
@@ -82,7 +92,7 @@ Full list of dependencies see [here.](https://github.com/ikostan/TEST_AUTOMATION
 
 
 ### General guidelines: How to set up dev environment.<br/>
-
+<a id="guidelines"></a>
 1. Install Python<br/>
 2. Install PyCharm<br/>
 3. Configure Python virtual environment and activate it<br/>
