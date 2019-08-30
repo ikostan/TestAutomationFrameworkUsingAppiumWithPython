@@ -33,7 +33,7 @@
 - Creating Mobile Automation Testing Framework for IOS and Android<br/>
 - Build fast and readable automation using minimal code<br/>
 - Showcase with effective way to identify app elements<br/>
-- [Page Objects](https://github.com/SeleniumHQ/selenium/wiki/PageObjects) and [Element Objects](https://www.tutorialspoint.com/dom/dom_element_object) implementation<br/>
+- [Page Objects](https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/tree/master/page_object_models) and [Element Objects](https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/tree/master/page_object_models/element) implementation<br/>
 - Industry-ready test structure<br/>
 - Ability to pass arguments from CLI (see [get_args_from_cli](https://github.com/ikostan/TEST_AUTOMATION_FRAMEWORK_USING_APPIUM_WITH_PYTHON/blob/master/utils/get_args_from_cli.py) file)
 - Build readable test report using Allure Framework<br/>
