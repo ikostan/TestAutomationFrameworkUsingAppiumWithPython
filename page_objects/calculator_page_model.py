@@ -3,10 +3,13 @@
 #  Created by Egor Kostan.
 #  GitHub: https://github.com/ikostan
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
+from appium.webdriver.common.touch_action import TouchAction
 
 from page_objects.element.base_element_model import BaseElementModel
 from page_locators.calculator_page_locator import CalculatorPageLocator
 from selenium.common.exceptions import TimeoutException
+
+from page_objects.license_page_model import LicensePageModel
 
 
 class CalculatorPageModel:
@@ -54,6 +57,24 @@ class CalculatorPageModel:
 
 		# Screens
 		self._main_screen = BaseElementModel(driver=driver, locator=CalculatorPageLocator.DISPLAY)
+
+		# More Options menu
+		self._more_options = BaseElementModel(driver=driver, locator=CalculatorPageLocator.MORE_OPTIONS)
+
+	def open_license(self):
+		"""
+		1. Tap More Options menu
+		2. Tap on "More Options"
+		3. Returns "LicensePageModel" object
+		:return:
+		"""
+
+		TouchAction(self._driver).tap(self._more_options.element).wait(3).perform()
+		print('Tap on "More Options"')
+		open_source_license = BaseElementModel(driver=self._driver, locator=CalculatorPageLocator.OPEN_SOURCE_LICENSE)
+		TouchAction(self._driver).tap(open_source_license.element).wait(3).perform()
+		print('Tap on "Open Source License"')
+		return LicensePageModel(self._driver)
 
 	@property
 	def screen_formula(self):
