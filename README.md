@@ -24,9 +24,8 @@
 11. <a href="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/tree/master/page_object_models"> Page Object Models</a>
     - <a href="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/tree/master/page_object_models/element">Base Element Model</a>
 12. <a href="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/tree/master/selendroid_app">Selendroid Test App</a>
-13. <a href=""></a>
-14. <a href=""></a>
-15. <a href=""></a>
+13. <a href="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/tree/master/tests">Tests</a>
+14. <a href="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/tree/master/utils">Utils</a>
 
 
 ### Main Objectives:<br/>
