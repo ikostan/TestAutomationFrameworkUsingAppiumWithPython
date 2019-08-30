@@ -1,4 +1,4 @@
-## Element Object (WebElement)
+## Element Object 
 
 <div align="right"> 
 <img width="7%" height="7%" src="https://github.com/ikostan/ParaBankSeleniumAutomation/blob/master/images/iconfinder_availability-items_3018516.png" hspace="10">
