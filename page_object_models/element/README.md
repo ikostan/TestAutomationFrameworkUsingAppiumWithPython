@@ -26,3 +26,4 @@ Sources:<br/>
 - [WebElement Commands](https://www.toolsqa.com/selenium-webdriver/webelement-commands/)<br/>
 - [Element](https://developer.mozilla.org/en-US/docs/Web/API/Element)<br/>
 - [The HTML DOM Element Object](https://www.w3schools.com/jsref/dom_obj_all.asp)
+- [DOM - Element Object](https://www.tutorialspoint.com/dom/dom_element_object)
