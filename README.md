@@ -50,6 +50,7 @@
 - [Appium Desired Capabilities](http://appium.io/docs/en/writing-running-appium/caps/)<br/>
 - [Appium Android Driver](https://github.com/appium/appium-android-driver)<br/>
 - [Webdriver API Docs](https://webdriver.io/docs/api.html)
+- [Allure Test Report](http://allure.qatools.ru/)
 
 
 **Additional Tech Info Resources:**<br/>
