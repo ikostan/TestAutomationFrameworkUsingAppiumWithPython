@@ -17,6 +17,10 @@
 5. <a href="#tools">Nice to have tools</a>
 6. <a href="#guidelines">General guidelines: How to set up dev environment</a>
 7. <a href="#tech_issues">Tech Issues and Problem Solving</a>
+8. <a href="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/tree/master/drivers">Drivers</a>
+    - <a href="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/tree/master/drivers/chromedriver">ChromeDriver</a>
+9. <a href="">Images</a>
+10.
 
 
 ### Main Objectives:<br/>
