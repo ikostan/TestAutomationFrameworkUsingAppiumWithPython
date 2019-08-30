@@ -20,8 +20,9 @@ HTML elements can be nested (elements can contain elements). All HTML documents 
 
 One more thing to notice that WebElement can be of any type, like it can be a Text, Link, Radio Button, Drop Down, WebTable or any HTML element. But all the actions will always populate against the any element irrespective of whether the action is valid on the WebElement or not. For e.g. clear() command, even if you have a link element still you get the option to choose clear() command on it, which if you choose may result in some error or may not does anything.<br/>
 
-Source:<br/>
-[Selenium Form WebElement: TextBox, Submit Button, sendkeys(), click()](https://www.guru99.com/accessing-forms-in-webdriver.html)<br/>
-[WebElement Commands](https://www.toolsqa.com/selenium-webdriver/webelement-commands/)<br/>
-[Element](https://developer.mozilla.org/en-US/docs/Web/API/Element)<br/>
-[The HTML DOM Element Object](https://www.w3schools.com/jsref/dom_obj_all.asp)
+Sources:<br/>
+
+- [Selenium Form WebElement: TextBox, Submit Button, sendkeys(), click()](https://www.guru99.com/accessing-forms-in-webdriver.html)<br/>
+- [WebElement Commands](https://www.toolsqa.com/selenium-webdriver/webelement-commands/)<br/>
+- [Element](https://developer.mozilla.org/en-US/docs/Web/API/Element)<br/>
+- [The HTML DOM Element Object](https://www.w3schools.com/jsref/dom_obj_all.asp)
