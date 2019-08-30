@@ -38,6 +38,7 @@
 - [CREATING A TEST AUTOMATION FRAMEWORK USING APPIUM WITH PYTHON](https://qaboy.com/2018/06/27/automation-framework-using-appium-python/)<br/>
 - [How to Setup ADB/Fastboot on Windows](https://theunlockr.com/how-to-set-up-adb-usb-drivers-for-android-devices/)<br/>
 - [APPIUM Tutorial for Android & iOS Mobile Apps Testing](https://www.guru99.com/introduction-to-appium.html)
+- [How to print numbers in scientific notation form](https://mail.python.org/pipermail/tutor/2008-June/062649.html)
 
 ### Dev Environment:<br/>
 <a id="dev"></a>
