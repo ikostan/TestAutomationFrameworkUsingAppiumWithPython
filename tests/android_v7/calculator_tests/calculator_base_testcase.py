@@ -9,7 +9,6 @@ import unittest
 
 import allure
 from allure_commons.types import AttachmentType
-from appium.webdriver.common.touch_action import TouchAction
 
 from page_objects.calculator_page_model import CalculatorPageModel
 from utils.driver import Driver
@@ -53,6 +52,12 @@ class AndroidCalculatorBaseTestCase(unittest.TestCase):
             self._driver = Driver()
             self._driver.set_capability("appPackage", "com.android.calculator2")
             self._driver.set_capability("appActivity", "com.android.calculator2.Calculator")
+
+            #self._driver.set_capability("browserName", "Chrome")
+            self._driver.set_capability('chromedriverExecutable',
+                                      'C:\\Users\\superadmin\\Documents\\GitHub\\'
+                                      'TEST_AUTOMATION_FRAMEWORK_USING_APPIUM_WITH_PYTHON\\'
+                                      'drivers\\chromedriver\\v2_44\\chromedriver.exe')
 
         with allure.step("Set up Page Model object"):
             self.app = CalculatorPageModel(self._driver.driver_instance)
