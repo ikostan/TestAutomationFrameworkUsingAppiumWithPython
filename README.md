@@ -63,12 +63,14 @@
 - [How to Setup ADB/Fastboot on Windows](https://theunlockr.com/how-to-set-up-adb-usb-drivers-for-android-devices/)<br/>
 - [APPIUM Tutorial for Android & iOS Mobile Apps Testing](https://www.guru99.com/introduction-to-appium.html)
 - [How to print numbers in scientific notation form](https://mail.python.org/pipermail/tutor/2008-June/062649.html)
+- [Category Archives: Appium](https://www.toolsqa.com/category/mobile-automation/appium/)
 
 ### Dev Environment:<br/>
 <a id="dev_env"></a>
 - [Python 3.7.4](https://www.python.org/downloads/release/python-374/)<br/>
 - [Appium](http://appium.io/)<br/>
 - [Appium-Python-Client 0.47](https://pypi.org/project/Appium-Python-Client/)<br/>
+- [Appium Desktop](https://github.com/appium/appium-desktop)
 - [PyTest 5.1.1](https://pypi.org/project/pytest/)<br/>
 - [Allure Framework 2.12.1](http://allure.qatools.ru/)<br/>
 - [Win 10 (64 bit)](https://www.microsoft.com/en-ca/software-download/windows10)<br/>
