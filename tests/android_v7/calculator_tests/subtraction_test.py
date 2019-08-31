@@ -67,7 +67,7 @@ class TestSubtractionCase(AndroidCalculatorBaseTestCase):
 			self.perform_subtraction(numbers)
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(1500 - 2000)
+				assert self.app.screen_result.formatted_text == self.eval_formula(1500 - 2000)
 
 	def test_subtract_zero_from_a_negative_integer(self):
 		"""
@@ -84,7 +84,7 @@ class TestSubtractionCase(AndroidCalculatorBaseTestCase):
 			self.perform_subtraction(numbers)
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(-3 - 0)
+				assert self.app.screen_result.formatted_text == self.eval_formula(-3 - 0)
 
 	def test_subtract_0_from_a_positive_integer(self):
 		"""
@@ -101,7 +101,7 @@ class TestSubtractionCase(AndroidCalculatorBaseTestCase):
 			self.perform_subtraction(numbers)
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(3 - 0)
+				assert self.app.screen_result.formatted_text == self.eval_formula(3 - 0)
 
 	def test_subtract_a_floating_point_number_from_a_negative_integer(self):
 		"""
@@ -118,7 +118,7 @@ class TestSubtractionCase(AndroidCalculatorBaseTestCase):
 			self.perform_subtraction(numbers)
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(-1 - 2.25)
+				assert self.app.screen_result.formatted_text == self.eval_formula(-1 - 2.25)
 
 	def test_subtract_an_integer_from_the_results_of_a_previous_operation(self):
 		"""
@@ -136,7 +136,7 @@ class TestSubtractionCase(AndroidCalculatorBaseTestCase):
 			self.perform_subtraction(numbers)
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(1500 - 2000 - 500 - 500)
+				assert self.app.screen_result.formatted_text == self.eval_formula(1500 - 2000 - 500 - 500)
 
 		numbers = [6, 2, 12, 8]
 		with allure.step("Test subtraction of integer from the results of a previous operation: 6 * 2 = 12 - 8 = 4"):
@@ -150,7 +150,7 @@ class TestSubtractionCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(12 - 8)
+				assert self.app.screen_result.formatted_text == self.eval_formula(12 - 8)
 
 	def test_subtract_an_integer_from_a_floating_point_number(self):
 		"""
@@ -167,7 +167,7 @@ class TestSubtractionCase(AndroidCalculatorBaseTestCase):
 			self.perform_subtraction(numbers)
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(9.35 - 1)
+				assert self.app.screen_result.formatted_text == self.eval_formula(9.35 - 1)
 
 	def test_subtract_a_floating_point_number_from_an_integer(self):
 		"""
@@ -184,7 +184,7 @@ class TestSubtractionCase(AndroidCalculatorBaseTestCase):
 			self.perform_subtraction(numbers)
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(9 - 1.35)
+				assert self.app.screen_result.formatted_text == self.eval_formula(9 - 1.35)
 
 	def test_subtract_two_floating_point_numbers(self):
 		"""
@@ -201,7 +201,7 @@ class TestSubtractionCase(AndroidCalculatorBaseTestCase):
 			self.perform_subtraction(numbers)
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(0.29 - 1.35)
+				assert self.app.screen_result.formatted_text == self.eval_formula(0.29 - 1.35)
 
 	def test_subtract_two_max_input_floating_point_numbers(self):
 		"""
@@ -220,7 +220,7 @@ class TestSubtractionCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(7.1234567 - 2.2109876)
+				assert self.app.screen_result.formatted_text == self.eval_formula(7.1234567 - 2.2109876)
 
 	def test_addition_of_a_negative_floating_point_addend_to_an_integer_addend(self):
 		"""
@@ -240,7 +240,7 @@ class TestSubtractionCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(1000 + (-10.99))
+				assert self.app.screen_result.formatted_text == self.eval_formula(1000 + (-10.99))
 
 	def test_addition_of_a_negative_floating_point_addend(self):
 		"""
@@ -260,7 +260,7 @@ class TestSubtractionCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(1.0 + (-989.99))
+				assert self.app.screen_result.formatted_text == self.eval_formula(1.0 + (-989.99))
 
 	def test_addition_of_a_negative_integer_addend(self):
 		"""
@@ -280,7 +280,7 @@ class TestSubtractionCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(50 + (-60))
+				assert self.app.screen_result.formatted_text == self.eval_formula(50 + (-60))
 
 	def test_addition_of_a_negative_integer_addend_to_another_negative_integer_addend(self):
 		"""
@@ -300,7 +300,7 @@ class TestSubtractionCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(-5 + (-20))
+				assert self.app.screen_result.formatted_text == self.eval_formula(-5 + (-20))
 
 	def test_subtract_a_floating_point_number_from_the_result_of_a_previous_operation(self):
 		"""
@@ -324,7 +324,7 @@ class TestSubtractionCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(1500 - 2000 + (-500) - 33.12)
+				assert self.app.screen_result.formatted_text == self.eval_formula(1500 - 2000 + (-500) - 33.12)
 
 	def test_subtract_an_integer_from_a_negative_floating_point_number(self):
 		"""
@@ -341,7 +341,7 @@ class TestSubtractionCase(AndroidCalculatorBaseTestCase):
 			self.perform_subtraction(numbers)
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(-1.33 - 2)
+				assert self.app.screen_result.formatted_text == self.eval_formula(-1.33 - 2)
 
 	def test_subtract_two_large_integers(self):
 		"""
@@ -358,7 +358,7 @@ class TestSubtractionCase(AndroidCalculatorBaseTestCase):
 			self.perform_subtraction(numbers)
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(123456789 - 210987654)
+				assert self.app.screen_result.formatted_text == self.eval_formula(123456789 - 210987654)
 
 	def test_subtract_two_floating_point_numbers_with_many_digits(self):
 		"""
@@ -376,7 +376,7 @@ class TestSubtractionCase(AndroidCalculatorBaseTestCase):
 			self.perform_subtraction(numbers)
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(7.12345678 - 2.21098765)
+				assert self.app.screen_result.formatted_text == self.eval_formula(7.12345678 - 2.21098765)
 
 	def test_subtract_a_large_decimal_number_from_the_results_of_a_previous_result(self):
 		"""
@@ -401,7 +401,7 @@ class TestSubtractionCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(1500 - 2000 + (-500) - 12.3456789)
+				assert self.app.screen_result.formatted_text == self.eval_formula(1500 - 2000 + (-500) - 12.3456789)
 
 	def test_subtract_a_large_integer_from_the_results_of_a_previous_result(self):
 		"""
@@ -426,4 +426,4 @@ class TestSubtractionCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(1500 - 2000 + (-500) - 123456789)
+				assert self.app.screen_result.formatted_text == self.eval_formula(1500 - 2000 + (-500) - 123456789)
