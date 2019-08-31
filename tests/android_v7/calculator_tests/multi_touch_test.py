@@ -57,6 +57,6 @@ class TestMultiTouchCase(AndroidCalculatorBaseTestCase):
 			multi_touch_action.perform()
 
 			with allure.step("Verify screen output"):
-				assert self.app.screen_formula.label == '12'
+				assert self.app.screen_formula.formatted_text == '12'
 
 
