@@ -55,21 +55,21 @@ class AndroidBrowserBaseTestCase(unittest.TestCase):
 
         with allure.step("Set desired capabilities"):
             self._driver.set_capability("platformName",
-                                       self.args["platformName"])
+                                        self.args["platformName"])
 
             self._driver.set_capability("deviceName",
-                                       self.args["deviceName"])
+                                        self.args["deviceName"])
 
             self._driver.set_capability("automationName",
-                                       self.args["automationName"])
+                                        self.args["automationName"])
 
             self._driver.set_capability("browserName",
-                                       "Chrome")
+                                        "Chrome")
 
             self._driver.set_capability('chromedriverExecutable',
-                                       'C:\\Users\\superadmin\\Documents\\GitHub\\'
-                                       'TEST_AUTOMATION_FRAMEWORK_USING_APPIUM_WITH_PYTHON\\'
-                                       'drivers\\chromedriver\\v2_44\\chromedriver.exe')
+                                        'C:\\Users\\superadmin\\Documents\\GitHub\\'
+                                        'TEST_AUTOMATION_FRAMEWORK_USING_APPIUM_WITH_PYTHON\\'
+                                        'drivers\\chromedriver\\v2_44\\chromedriver.exe')
 
         # NOTE: In addCleanup, the first in, is executed last.
         with allure.step("Add clean up methods"):
@@ -106,4 +106,3 @@ class AndroidBrowserBaseTestCase(unittest.TestCase):
 
                 allure.attach.file(file_name, attachment_type=AttachmentType.TEXT)
                 os.remove(file_name)
-
