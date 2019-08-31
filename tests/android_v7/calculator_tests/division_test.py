@@ -56,7 +56,7 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 			self.perform_division(numbers)
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(1500 / 2000)
+				assert self.app.screen_result.formatted_text == self.eval_formula(1500 / 2000)
 
 	def test_divide_zero_by_a_integer_divisor(self):
 		"""
@@ -73,7 +73,7 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 			self.perform_division(numbers)
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(0 / 2000)
+				assert self.app.screen_result.formatted_text == self.eval_formula(0 / 2000)
 
 	def test_divide_a_negative_dividend_by_a_positive_divisor(self):
 		"""
@@ -91,7 +91,7 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 			self.perform_division(numbers)
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(-1500 / 2000)
+				assert self.app.screen_result.formatted_text == self.eval_formula(-1500 / 2000)
 
 	def test_divide_a_negative_floating_point_dividend_by_a_positive_divisor(self):
 		"""
@@ -109,7 +109,7 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 			self.perform_division(numbers)
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(-3.123 / 5)
+				assert self.app.screen_result.formatted_text == self.eval_formula(-3.123 / 5)
 
 	def test_divide_negative_integer_dividend_by_positive_floating_point_divisor_to_nine_significant_figures(self):
 		"""
@@ -130,7 +130,7 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 			expected = self.eval_formula(-5 / 3.123)
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label[:len(expected) - 1] == expected[:-1]
+				assert self.app.screen_result.formatted_text[:len(expected) - 1] == expected[:-1]
 
 	def test_divide_an_floating_point_dividend_by_an_integer_divisor(self):
 		"""
@@ -150,7 +150,7 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 			expected = self.eval_formula(4.21 / 3)
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label[:len(expected) - 1] == expected[:-1]
+				assert self.app.screen_result.formatted_text[:len(expected) - 1] == expected[:-1]
 
 	def test_divide_an_integer_dividend_by_a_floating_point_divisor(self):
 		"""
@@ -170,7 +170,7 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 			expected = self.eval_formula(10 / 3.123)
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label[:len(expected) - 1] == expected[:-1]
+				assert self.app.screen_result.formatted_text[:len(expected) - 1] == expected[:-1]
 
 	def test_divide_two_floating_point_numbers(self):
 		"""
@@ -189,7 +189,7 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 			expected = self.eval_formula(0.234 / 3.123)
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label[:len(expected) - 1] == expected[:-1]
+				assert self.app.screen_result.formatted_text[:len(expected) - 1] == expected[:-1]
 
 	def test_divide_the_result_of_a_previous_operation_by_a_positive_floating_point_number(self):
 		"""
@@ -216,7 +216,7 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 			expected = self.eval_formula(500 / 3.12)
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label[:len(expected) - 1] == expected[:-1]
+				assert self.app.screen_result.formatted_text[:len(expected) - 1] == expected[:-1]
 
 	def test_divide_the_result_of_a_previous_operation_by_a_positive_integer(self):
 		"""
@@ -244,7 +244,7 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 			expected = str(500 / 312)
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label[:len(expected) - 1] == expected[:-1]
+				assert self.app.screen_result.formatted_text[:len(expected) - 1] == expected[:-1]
 
 		# 6 * 2 = 12 / 8 = 1.5
 		with allure.step("Check the division of the result of a previous "
@@ -261,7 +261,7 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 			expected = self.eval_formula(12 / 8)
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label[:len(expected) - 1] == expected[:-1]
+				assert self.app.screen_result.formatted_text[:len(expected) - 1] == expected[:-1]
 
 	def test_able_to_divide_two_many_digit_floating_point_numbers(self):
 		"""
@@ -280,7 +280,7 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 			expected = self.eval_formula(1.23456789 / 2.10987654)
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label[:len(expected) - 1] == expected[:-1]
+				assert self.app.screen_result.formatted_text[:len(expected) - 1] == expected[:-1]
 
 	def test_able_to_divide_the_result_of_a_previous_operation_by_a_many_digit_floating_point_number(self):
 		"""
@@ -307,7 +307,7 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 			expected = self.eval_formula(1500 - 2000 + (-500 / 1234.56789))
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label[:len(expected) - 1] == expected[:-1]
+				assert self.app.screen_result.formatted_text[:len(expected) - 1] == expected[:-1]
 
 	def test_divide_the_result_of_a_previous_operation_by_a_large_integer(self):
 		"""
@@ -334,5 +334,5 @@ class TestDivisionCase(AndroidCalculatorBaseTestCase):
 			expected = str(-500 - (500 / 123456789))
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label[:len(expected) - 1] == expected[:-1]
+				assert self.app.screen_result.formatted_text[:len(expected) - 1] == expected[:-1]
 
