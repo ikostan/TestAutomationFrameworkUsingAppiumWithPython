@@ -6,11 +6,12 @@
 
 import os
 import unittest
-
 import allure
+
 from allure_commons.types import AttachmentType
 
 from utils.driver import Driver
+from utils.get_args_from_cli import get_args
 
 
 class AndroidBrowserBaseTestCase(unittest.TestCase):
@@ -28,11 +29,14 @@ class AndroidBrowserBaseTestCase(unittest.TestCase):
             # Source: https://discuss.appium.io/t/launching-and-stopping-appium-server-programmtically/700/2
             os.system("start /B start cmd.exe @cmd /k appium --relaxed-security")
 
-        cls._driver = None
+        with allure.step("Set Driver to None"):
+            cls._driver = None
+
+        with allure.step("Get args from CLI"):
+            cls.args = get_args()
 
     @classmethod
     def tearDownClass(cls) -> None:
-
         with allure.step("Close Page Model > Set driver to None"):
             if cls._driver:
                 if cls._driver.driver_instance:
@@ -45,18 +49,36 @@ class AndroidBrowserBaseTestCase(unittest.TestCase):
             os.system('taskkill /F /IM node.exe')
 
     def setUp(self) -> None:
-        self._driver = Driver()
-        self._driver.set_capability("browserName", "Chrome")
-        self._driver.set_capability('chromedriverExecutable',
-                                   'C:\\Users\\superadmin\\Documents\\GitHub\\'
-                                   'TEST_AUTOMATION_FRAMEWORK_USING_APPIUM_WITH_PYTHON\\'
-                                   'drivers\\chromedriver\\v2_44\\chromedriver.exe')
+
+        with allure.step("Instantiate Driver"):
+            self._driver = Driver()
+
+        with allure.step("Set desired capabilities"):
+            self._driver.set_capability("platformName",
+                                       self.args["platformName"])
+
+            self._driver.set_capability("deviceName",
+                                       self.args["deviceName"])
+
+            self._driver.set_capability("automationName",
+                                       self.args["automationName"])
+
+            self._driver.set_capability("browserName",
+                                       "Chrome")
+
+            self._driver.set_capability('chromedriverExecutable',
+                                       'C:\\Users\\superadmin\\Documents\\GitHub\\'
+                                       'TEST_AUTOMATION_FRAMEWORK_USING_APPIUM_WITH_PYTHON\\'
+                                       'drivers\\chromedriver\\v2_44\\chromedriver.exe')
 
         # NOTE: In addCleanup, the first in, is executed last.
-        self.addCleanup(self._driver.driver_instance.quit)
-        self.addCleanup(self.snap_shot)
-        self._driver.driver_instance.implicitly_wait(3)
-        self.page = self._driver.driver_instance
+        with allure.step("Add clean up methods"):
+            self.addCleanup(self._driver.driver_instance.quit)
+            self.addCleanup(self.snap_shot)
+
+        with allure.step("Get driver/page instance"):
+            self._driver.driver_instance.implicitly_wait(3)
+            self.page = self._driver.driver_instance
 
     def snap_shot(self):
         """
