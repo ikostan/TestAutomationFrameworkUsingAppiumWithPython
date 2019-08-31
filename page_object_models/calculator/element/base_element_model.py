@@ -59,14 +59,30 @@ class BaseElementModel:
 		return None
 
 	@property
-	def label(self):
+	def formatted_text(self):
 		"""
-		Returns text/label.
+		Returns formatted text/label.
 		:return:
 		"""
 		try:
 			txt = self.string_formatter(self._element.text)
+			print('Element\'s original text/label: {}'.format(txt))
 			txt = self.scientific_notation_to_integer_converter(txt)
+			print('Element\'s formatted text/label: {}'.format(txt))
+			return txt
+		except NoSuchAttributeException as err:
+			print("ERROR: {}".format(err))
+			return None
+
+	@property
+	def raw_text(self):
+		"""
+		Returns original/raw text/label.
+		:return:
+		"""
+		try:
+			txt = self._element.text
+			print('Element\'s original text/label: {}'.format(txt))
 			return txt
 		except NoSuchAttributeException as err:
 			print("ERROR: {}".format(err))
