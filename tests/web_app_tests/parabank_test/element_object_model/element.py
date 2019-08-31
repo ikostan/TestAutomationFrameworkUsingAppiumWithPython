@@ -4,13 +4,14 @@
 #  GitHub: https://github.com/ikostan
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
 
-from tests.web_app_tests.parabank_test.element_object_model import BaseElement
 
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, \
 	InvalidElementStateException, \
 	NoSuchAttributeException
+
+from tests.web_app_tests.parabank_test.element_object_model.base_element import BaseElement
 
 
 class Element(BaseElement):
