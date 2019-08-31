@@ -38,7 +38,6 @@ class TestMultiTouchCase(AndroidCalculatorBaseTestCase):
 	touch_action.py:
 	https://github.com/appium/python-client/blob/master/appium/webdriver/common/touch_action.py
 	"""
-	pass
 
 	def test_multi_touch_action(self):
 		"""
@@ -47,7 +46,7 @@ class TestMultiTouchCase(AndroidCalculatorBaseTestCase):
 		"""
 
 		allure.dynamic.title("Multi touch action test")
-		allure.dynamic.severity(allure.severity_level.MINORL)
+		allure.dynamic.severity(allure.severity_level.MINOR)
 
 		with allure.step("Enter following using multi touch action: 12"):
 			touch_action_1 = TouchAction().tap(self.app.digits[1])
