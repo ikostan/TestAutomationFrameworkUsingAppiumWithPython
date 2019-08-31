@@ -22,7 +22,7 @@ class Driver:
 		# Appium Desired Capabilities:
 		# http://appium.io/docs/en/writing-running-appium/caps/
 		self._desired_capabilities = dict()
-
+		
 		self._driver_instance = None
 
 	def set_capability(self, capability_type, capability):
