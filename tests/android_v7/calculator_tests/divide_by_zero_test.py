@@ -41,5 +41,5 @@ class TestDivideByZeroCase(AndroidCalculatorBaseTestCase):
 
 			with allure.step("Verify error message"):
 				expected = 'Can\'t divide by 0'
-				assert self.app.screen_result.label == expected
+				assert self.app.screen_result.formatted_text == expected
 
