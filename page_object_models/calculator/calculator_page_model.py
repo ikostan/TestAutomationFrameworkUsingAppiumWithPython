@@ -4,15 +4,11 @@
 #  GitHub: https://github.com/ikostan
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
 
-#  Created by Egor Kostan.
-#  GitHub: https://github.com/ikostan
-#  LinkedIn: https://www.linkedin.com/in/egor-kostan/
 from appium.webdriver.common.touch_action import TouchAction
 
 from page_object_models.calculator.element.base_element_model import BaseElementModel
 from page_locators.calculator_page_locator import CalculatorPageLocator
 from selenium.common.exceptions import TimeoutException
-
 from page_object_models.calculator.license_page_model import LicensePageModel
 
 
