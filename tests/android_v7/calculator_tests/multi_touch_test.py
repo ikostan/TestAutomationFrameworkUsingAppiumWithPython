@@ -46,6 +46,9 @@ class TestMultiTouchCase(AndroidCalculatorBaseTestCase):
 		:return:
 		"""
 
+		allure.dynamic.title("Multi touch action test")
+		allure.dynamic.severity(allure.severity_level.MINORL)
+
 		with allure.step("Enter following using multi touch action: 12"):
 			touch_action_1 = TouchAction().tap(self.app.digits[1])
 			touch_action_2 = TouchAction().tap(self.app.digits[2])
