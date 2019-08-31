@@ -6,6 +6,7 @@
 
 import unittest
 import allure
+import pytest
 
 
 @allure.epic('Selendroid Test App')
@@ -19,4 +20,8 @@ class TestInstallAppFromFileCase(unittest.TestCase):
 	Android App Test: apk package installation
 	App source: http://search.maven.org/remotecontent?filepath=io/selendroid/selendroid-test-app/0.17.0/selendroid-test-app-0.17.0.apk
 	"""
-	pass
+
+	@pytest.mark.skip("Not implemented")
+	def test_app_installation_from_file(self):
+		pass
+
