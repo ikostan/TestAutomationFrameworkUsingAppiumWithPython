@@ -27,7 +27,9 @@ class TestOpenSourceLicenseCase(AndroidCalculatorBaseTestCase):
 		2. Open "Open Source License" page/view
 		3. Verify Title, CRC, Header, full license text
 		4. Go back to calculator
-		5. Close calculator app
+		5. Verify that some of the calculator buttons are visible (0-9)
+		6. Test basic buttons functionality
+		7. Close calculator app
 		:return:
 		"""
 
@@ -52,6 +54,21 @@ class TestOpenSourceLicenseCase(AndroidCalculatorBaseTestCase):
 		with allure.step("Go back to Calculator view"):
 			self.app = self.app.tap_arrow_btn()
 
+		# Digits 0-9
+		with allure.step("Test 0-9 digits/buttons visibility"):
+			for btn in self.app.buttons:
+				assert btn.is_visible
+
+		with allure.step("Test basic buttons functionality"):
+			with allure.step("Enter digits 0-9"):
+				self.enter_digit("0123456789")
+
+			with allure.step("Press '=' button"):
+				self.app.equal.tap()
+
+			with allure.step("Verify screen output"):
+				assert self.app.screen_result.label == '123456789'
+
 	@property
 	def sample_license_txt(self) -> str:
 		"""
@@ -61,7 +78,9 @@ class TestOpenSourceLicenseCase(AndroidCalculatorBaseTestCase):
 
 		with allure.step("Extract Source License full text sample from source file"):
 
-			license_file_name = 'open_source_license.txt'
+			license_file_name = 'C:/Users/superadmin/Documents/' \
+			                    'GitHub/TEST_AUTOMATION_FRAMEWORK_USING_APPIUM_WITH_PYTHON/' \
+			                    'tests/android_v7/calculator_tests/open_source_license.txt'
 			license_txt = ''
 
 			with open(license_file_name, "r", encoding="utf-8") as f:
