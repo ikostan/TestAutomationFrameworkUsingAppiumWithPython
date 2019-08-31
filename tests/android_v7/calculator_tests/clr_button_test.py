@@ -47,8 +47,8 @@ class TestClrBtnCase(AndroidCalculatorBaseTestCase):
 			self.app.clr.tap()
 
 			with allure.step("Check screen output"):
-				assert self.app.screen_formula.label == ''
-				assert self.app.screen_result.label == ''
+				assert self.app.screen_formula.formatted_text == ''
+				assert self.app.screen_result.formatted_text == ''
 
 	def test_clear_the_screen_after_inserting_an_positive_floating_point_number(self):
 		"""
@@ -66,8 +66,8 @@ class TestClrBtnCase(AndroidCalculatorBaseTestCase):
 			self.app.clr.tap()
 
 			with allure.step("Check screen output"):
-				assert self.app.screen_formula.label == ''
-				assert self.app.screen_result.label == ''
+				assert self.app.screen_formula.formatted_text == ''
+				assert self.app.screen_result.formatted_text == ''
 
 	def test_clear_the_screen_after_inserting_a_negative_integer(self):
 		"""
@@ -85,8 +85,8 @@ class TestClrBtnCase(AndroidCalculatorBaseTestCase):
 			self.app.clr.tap()
 
 			with allure.step("Check screen output"):
-				assert self.app.screen_formula.label == ''
-				assert self.app.screen_result.label == ''
+				assert self.app.screen_formula.formatted_text == ''
+				assert self.app.screen_result.formatted_text == ''
 
 	def test_clear_the_screen_after_inserting_a_positive_integer(self):
 		"""
@@ -104,8 +104,8 @@ class TestClrBtnCase(AndroidCalculatorBaseTestCase):
 			self.app.clr.tap()
 
 			with allure.step("Check screen output"):
-				assert self.app.screen_formula.label == ''
-				assert self.app.screen_result.label == ''
+				assert self.app.screen_formula.formatted_text == ''
+				assert self.app.screen_result.formatted_text == ''
 
 	def test_clear_to_be_pressed_multiple_times(self):
 		"""
@@ -123,8 +123,8 @@ class TestClrBtnCase(AndroidCalculatorBaseTestCase):
 			self.app.clr.tap()
 
 			with allure.step("Check screen output"):
-				assert self.app.screen_formula.label == ''
-				assert self.app.screen_result.label == ''
+				assert self.app.screen_formula.formatted_text == ''
+				assert self.app.screen_result.formatted_text == ''
 
 	def test_clear_after_inserting_a_many_digit_floating_point_number(self):
 		"""
@@ -142,8 +142,8 @@ class TestClrBtnCase(AndroidCalculatorBaseTestCase):
 			self.app.clr.tap()
 
 			with allure.step("Check screen output"):
-				assert self.app.screen_formula.label == ''
-				assert self.app.screen_result.label == ''
+				assert self.app.screen_formula.formatted_text == ''
+				assert self.app.screen_result.formatted_text == ''
 
 	def test_clear_after_inserting_a_negative_many_digit_floating_point_number(self):
 		"""
@@ -161,8 +161,8 @@ class TestClrBtnCase(AndroidCalculatorBaseTestCase):
 			self.app.clr.tap()
 
 			with allure.step("Check screen output"):
-				assert self.app.screen_formula.label == ''
-				assert self.app.screen_result.label == ''
+				assert self.app.screen_formula.formatted_text == ''
+				assert self.app.screen_result.formatted_text == ''
 
 	def test_clear_after_inserting_a_large_negative_integer(self):
 		"""
@@ -180,8 +180,8 @@ class TestClrBtnCase(AndroidCalculatorBaseTestCase):
 			self.app.clr.tap()
 
 			with allure.step("Check screen output"):
-				assert self.app.screen_formula.label == ''
-				assert self.app.screen_result.label == ''
+				assert self.app.screen_formula.formatted_text == ''
+				assert self.app.screen_result.formatted_text == ''
 
 	def test_clear_after_inserting_a_large_integer(self):
 		"""
@@ -199,7 +199,7 @@ class TestClrBtnCase(AndroidCalculatorBaseTestCase):
 			self.app.clr.tap()
 
 			with allure.step("Check screen output"):
-				assert self.app.screen_formula.label == ''
-				assert self.app.screen_result.label == ''
+				assert self.app.screen_formula.formatted_text == ''
+				assert self.app.screen_result.formatted_text == ''
 
 
