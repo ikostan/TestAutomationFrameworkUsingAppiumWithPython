@@ -10,22 +10,24 @@
 
 ### Table of Contents:<br/>
 
-1. <a href="#main_objectives">Main Objectives</a>
-2. <a href="#official_documentation_sources">Official Documentation Sources</a>
-3. <a href="#additional_tech_info_resources">Additional Tech Info Resources</a>
-4. <a href="#dev_env">Dev Environment</a>
-5. <a href="#tools">Nice to have tools</a>
-6. <a href="#guidelines">General guidelines: How to set up dev environment</a>
-7. <a href="#tech_issues">Tech Issues and Problem Solving</a>
-8. <a href="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/tree/master/drivers">Drivers</a>
-    - <a href="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/tree/master/drivers/chromedriver">ChromeDriver</a>
-9. <a href="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/tree/master/img">Images</a>
-10. <a href="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/tree/master/page_locators">Page Locators</a>
-11. <a href="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/tree/master/page_object_models"> Page Object Models</a>
-    - <a href="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/tree/master/page_object_models/element">Base Element Model</a>
-12. <a href="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/tree/master/selendroid_app">Selendroid Test App</a>
-13. <a href="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/tree/master/tests">Tests</a>
-14. <a href="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/tree/master/utils">Utils</a>
+1. <a href="#main_objectives">Main Objectives</a><br/>
+2. <a href="#official_documentation_sources">Official Documentation Sources</a><br/>
+3. <a href="#additional_tech_info_resources">Additional Tech Info Resources</a><br/>
+4. <a href="#dev_env">Dev Environment</a><br/>
+5. <a href="#tools">Nice to have tools</a><br/>
+6. <a href="#guidelines">General guidelines: How to set up dev environment</a><br/>
+7. <a href="#tech_issues">Tech Issues and Problem Solving</a><br/>
+8. <a href="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/tree/master/drivers">Drivers</a><br/>
+    - <a href="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/tree/master/drivers/chromedriver">ChromeDriver</a><br/>
+9. <a href="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/tree/master/img">Images</a><br/>
+10. <a href="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/tree/master/page_locators">Page Locators</a><br/>
+11. <a href="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/tree/master/page_object_models">Page Object Models</a><br/>
+    i. Calculator:<br/>
+        - Page Object Model<br/>
+        - Base Element Model<br/>
+12. <a href="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/tree/master/selendroid_app">Selendroid Test App</a><br/>
+13. <a href="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/tree/master/tests">Tests</a><br/>
+14. <a href="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/tree/master/utils">Utils</a><br/>
 
 
 ### Main Objectives:<br/>
