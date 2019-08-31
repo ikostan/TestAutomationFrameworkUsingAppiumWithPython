@@ -8,5 +8,5 @@ Here you can find some relevant documentation.<br/>
 
 ### Table of Contents:<br/>
 
-- [Parasoft: Setting Up ParaBank](https://github.com/ikostan/ParaBankSeleniumAutomation/blob/master/docs/Setting_Up_ParaBank.pdf)<br/>
+- [Parasoft: Setting Up ParaBank](https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/blob/master/tests/web_app_tests/parabank_test/docs/Setting_Up_ParaBank.pdf)<br/>
 
