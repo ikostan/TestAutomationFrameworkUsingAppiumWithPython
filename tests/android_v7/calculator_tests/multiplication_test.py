@@ -55,7 +55,7 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 			self.perform_multiplication(numbers)
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(1500 * 2000)
+				assert self.app.screen_result.formatted_text == self.eval_formula(1500 * 2000)
 
 	def test_multiply_a_floating_point_multiplicand_with_an_integer_multipliplier(self):
 		"""
@@ -74,7 +74,7 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 			self.perform_multiplication(numbers)
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(1.212 * 8)
+				assert self.app.screen_result.formatted_text == self.eval_formula(1.212 * 8)
 
 	def test_multiply_an_integer_multiplicand_with_a_floating_point_multiplier(self):
 		"""
@@ -93,7 +93,7 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 			self.perform_multiplication(numbers)
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(3 * 1.212)
+				assert self.app.screen_result.formatted_text == self.eval_formula(3 * 1.212)
 
 	def test_multiply_two_floating_point_numbers(self):
 		"""
@@ -110,7 +110,7 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 			self.perform_multiplication(numbers)
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(0.133 * 1.212)
+				assert self.app.screen_result.formatted_text == self.eval_formula(0.133 * 1.212)
 
 	def test_multiply_a_integer_multiplicand_with_zero(self):
 		"""
@@ -127,7 +127,7 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 			self.perform_multiplication(numbers)
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(1500 * 0)
+				assert self.app.screen_result.formatted_text == self.eval_formula(1500 * 0)
 
 	def test_multiply_a_negative_integer_multiplicand_with_a_positive_intger_multiplier(self):
 		"""
@@ -146,7 +146,7 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 			self.perform_multiplication(numbers)
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(-1500 * 2000)
+				assert self.app.screen_result.formatted_text == self.eval_formula(-1500 * 2000)
 
 	def test_multiply_a_negative_floating_point_multiplicand_with_a_positive_integer_multiplier(self):
 		"""
@@ -165,7 +165,7 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 			self.perform_multiplication(numbers)
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(-1.212 * 8)
+				assert self.app.screen_result.formatted_text == self.eval_formula(-1.212 * 8)
 
 	def test_multiply_a_negative_integer_multiplicand_with_a_positive_floating_point_multiplier(self):
 		"""
@@ -184,7 +184,7 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 			self.perform_multiplication(numbers)
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(-8 * 1.212)
+				assert self.app.screen_result.formatted_text == self.eval_formula(-8 * 1.212)
 
 	def test_multiply_the_result_of_a_previous_operation_by_a_positive_floating_point_number(self):
 		"""
@@ -209,7 +209,7 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(1500 - 2000 + (-500 * 1.23))
+				assert self.app.screen_result.formatted_text == self.eval_formula(1500 - 2000 + (-500 * 1.23))
 
 	def test_multiply_the_result_of_a_previous_operation_by_a_positive_integer(self):
 		"""
@@ -235,7 +235,7 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(1500 - 2000 + (-500 * 123))
+				assert self.app.screen_result.formatted_text == self.eval_formula(1500 - 2000 + (-500 * 123))
 
 		# 6 * 2 = 12 * 8 = 96
 		with allure.step("Check the multiplication of the result of a previous "
@@ -250,7 +250,7 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(12 * 8)
+				assert self.app.screen_result.formatted_text == self.eval_formula(12 * 8)
 
 	def test_multiply_two_many_digit_floating_point_numbers(self):
 		"""
@@ -268,7 +268,7 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 			self.perform_multiplication(numbers)
 
 			with allure.step("Verify the result"):
-				assert '%.13f'.format(self.app.screen_result.label) == '%.13f'.format(1.23456789 * 2.10987654)
+				assert '%.13f'.format(self.app.screen_result.formatted_text) == '%.13f'.format(1.23456789 * 2.10987654)
 
 	def test_multiply_two_large_integers(self):
 		"""
@@ -285,7 +285,7 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 			self.perform_multiplication(numbers)
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(123456789 * 210987654)
+				assert self.app.screen_result.formatted_text == self.eval_formula(123456789 * 210987654)
 
 	def test_multiply_the_result_of_a_previous_operation_by_large_integer(self):
 		"""
@@ -309,7 +309,7 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(1500 - 2000 + (-500 * 123456789))
+				assert self.app.screen_result.formatted_text == self.eval_formula(1500 - 2000 + (-500 * 123456789))
 
 	def test_multiply_the_result_of_a_previous_operation_by_a_many_digit_floating_point_number(self):
 		"""
@@ -334,7 +334,7 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(1500 - 2000 + (-500 * 123.456789))
+				assert self.app.screen_result.formatted_text == self.eval_formula(1500 - 2000 + (-500 * 123.456789))
 
 	def test_multiply_result_of_a_previous_operation_when_the_previous_result_is_zero(self):
 		"""
@@ -353,4 +353,4 @@ class TestMultiplicationCase(AndroidCalculatorBaseTestCase):
 			self.perform_multiplication(numbers)
 
 			with allure.step("Verify the result"):
-				assert self.app.screen_result.label == self.eval_formula(0 * 6 * 6)
+				assert self.app.screen_result.formatted_text == self.eval_formula(0 * 6 * 6)
