@@ -67,7 +67,7 @@ class TestOpenSourceLicenseCase(AndroidCalculatorBaseTestCase):
 				self.app.equal.tap()
 
 			with allure.step("Verify screen output"):
-				assert self.app.screen_result.label == '123456789'
+				assert self.app.screen_result.formatted_text == '123456789'
 
 	@property
 	def sample_license_txt(self) -> str:
