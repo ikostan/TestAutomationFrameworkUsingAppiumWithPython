@@ -23,7 +23,6 @@ class TestDivideByZeroCase(AndroidCalculatorBaseTestCase):
 	Test the condition where some number divided by zero
 	"""
 
-	@pytest.mark.skip("Not implemented")
 	def test_report_error_for_division_by_zero(self):
 		"""
 		Should report error for division by 0
@@ -31,13 +30,16 @@ class TestDivideByZeroCase(AndroidCalculatorBaseTestCase):
 		:return:
 		"""
 		allure.dynamic.title("Report error for division by 0 test")
-		allure.dynamic.severity(allure.severity_level.BLOCKER)
+		allure.dynamic.severity(allure.severity_level.CRITICAL)
 
-		#
-		numbers = [1500 / 0]
+		# Perform division by zero
 		with allure.step("Check error for division by 0: 1500 / 0 -> ERROR"):
-			self.perform_division(numbers)
+			self.enter_digit(1500)
+			self.app.division.tap()
+			self.enter_digit(0)
+			self.app.equal.tap()
 
 			with allure.step("Verify error message"):
-				pass
+				expected = 'Can\'t divide by 0'
+				assert self.app.screen_result.label == expected
 
