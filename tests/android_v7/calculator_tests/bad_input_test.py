@@ -49,7 +49,7 @@ class TestBadInputCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == '0.1'
+				assert self.app.screen_result.formatted_text == '0.1'
 
 	def test_allow_multiple_zeros_as_input(self):
 		"""
@@ -68,7 +68,7 @@ class TestBadInputCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == '0'
+				assert self.app.screen_result.formatted_text == '0'
 
 	def test_allow_multiple_zeros_before_a_decimal_mark(self):
 		"""
@@ -84,7 +84,7 @@ class TestBadInputCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == '0.11111'
+				assert self.app.screen_result.formatted_text == '0.11111'
 
 	def test_allow_a_zero_before_another_digit_of_input(self):
 		"""
@@ -100,7 +100,7 @@ class TestBadInputCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == '6'
+				assert self.app.screen_result.formatted_text == '6'
 
 	def test_allow_a_zero_before_another_digit_of_input_for_a_second_operand(self):
 		"""
@@ -118,7 +118,7 @@ class TestBadInputCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == '36'
+				assert self.app.screen_result.formatted_text == '36'
 
 	def test_allow_floating_point_input_with_multiple_digits_before_and_after_the_decimal_mark(self):
 		"""
@@ -137,7 +137,7 @@ class TestBadInputCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == '1111.11111'
+				assert self.app.screen_result.formatted_text == '1111.11111'
 
 		digit = '123.567'
 		with allure.step("Enter following digit: {}".format(digit)):
@@ -145,7 +145,7 @@ class TestBadInputCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == '123.567'
+				assert self.app.screen_result.formatted_text == '123.567'
 
 	def test_allow_a_first_decimal_operand_to_display_a_leading_zero(self):
 		"""
@@ -162,14 +162,14 @@ class TestBadInputCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == '0.6'
+				assert self.app.screen_result.formatted_text == '0.6'
 
 		with allure.step("Enter following: .6 = "):
 			self.enter_digit('.6')
 			self.app.equal.tap()
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == '0.6'
+				assert self.app.screen_result.formatted_text == '0.6'
 
 	def test_allow_the_second_decimal_operand_to_display_a_leading_zero(self):
 		"""
@@ -188,7 +188,7 @@ class TestBadInputCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == '3.6'
+				assert self.app.screen_result.formatted_text == '3.6'
 
 		with allure.step("Enter following: 6 * .6 = "):
 			self.enter_digit(6)
@@ -197,7 +197,7 @@ class TestBadInputCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == '3.6'
+				assert self.app.screen_result.formatted_text == '3.6'
 
 	def test_allow_floating_point_input_with_single_digit_before_and_after_the_decimal_mark(self):
 		"""
@@ -215,7 +215,7 @@ class TestBadInputCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == '1.1'
+				assert self.app.screen_result.formatted_text == '1.1'
 
 	def test_not_count_a_decimal_mark_against_max_input(self):
 		"""
@@ -232,7 +232,7 @@ class TestBadInputCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == '12.3456789'
+				assert self.app.screen_result.formatted_text == '12.3456789'
 
 	def test_not_allow_a_double_negation(self):
 		"""
@@ -250,7 +250,7 @@ class TestBadInputCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == '-21'
+				assert self.app.screen_result.formatted_text == '-21'
 
 	def test_allow_the_maximum_input_when_the_first_digit_is_zero(self):
 		"""
@@ -267,4 +267,4 @@ class TestBadInputCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == '123456789'
+				assert self.app.screen_result.formatted_text == '123456789'
