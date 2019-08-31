@@ -48,7 +48,7 @@ class TestBasicCalculatorCases(AndroidCalculatorBaseTestCase):
             self.enter_digit("0123456789")
 
         with allure.step("Verify screen output"):
-            assert self.app.screen_formula.label == '0123456789'
+            assert self.app.screen_formula.formatted_text == '0123456789'
 
     def test_equal_btn(self):
         """
@@ -70,7 +70,7 @@ class TestBasicCalculatorCases(AndroidCalculatorBaseTestCase):
             self.app.equal.tap()
 
         with allure.step("Verify screen output"):
-            assert self.app.screen_result.label == '123456789'
+            assert self.app.screen_result.formatted_text == '123456789'
 
     def test_clear_btn(self):
         """
@@ -96,10 +96,10 @@ class TestBasicCalculatorCases(AndroidCalculatorBaseTestCase):
             self.app.clr.tap()
 
         with allure.step("Verify formula screen output"):
-            assert self.app.screen_formula.label == ''
+            assert self.app.screen_formula.formatted_text == ''
 
         with allure.step("Verify result screen output"):
-            assert self.app.screen_result.label == ''
+            assert self.app.screen_result.formatted_text == ''
 
     def test_delete_btn(self):
         """
@@ -124,10 +124,10 @@ class TestBasicCalculatorCases(AndroidCalculatorBaseTestCase):
                     self.app.del_btn.tap()
 
                 with allure.step("Verify formula screen output"):
-                    assert self.app.screen_formula.label == '0123456789'[0:len('0123456789') - (1 + index)]
+                    assert self.app.screen_formula.formatted_text == '0123456789'[0:len('0123456789') - (1 + index)]
 
         with allure.step("Verify formula screen output"):
-            assert self.app.screen_formula.label == ''
+            assert self.app.screen_formula.formatted_text == ''
 
         with allure.step("Verify result screen output"):
-            assert self.app.screen_result.label == ''
+            assert self.app.screen_result.formatted_text == ''
