@@ -142,12 +142,12 @@ class AndroidCalculatorBaseTestCase(unittest.TestCase):
                     self.app.clr.tap()
 
                 if self.app.screen_formula:
-                    if self.app.screen_formula.label != '':
+                    if self.app.screen_formula.formatted_text != '':
                         is_screen_clear = False
                         continue
 
                 if self.app.screen_result:
-                    if self.app.screen_result.label != '':
+                    if self.app.screen_result.formatted_text != '':
                         is_screen_clear = False
                         continue
 
@@ -190,11 +190,11 @@ class AndroidCalculatorBaseTestCase(unittest.TestCase):
                 if i != len(args) - 1:
                     self.app.minus.tap()
 
-            print("Formula: {}".format(self.app.screen_formula.label))
-            print("Result: {}".format(self.app.screen_result.label))
+            print("Formula: {}".format(self.app.screen_formula.formatted_text))
+            print("Result: {}".format(self.app.screen_result.formatted_text))
 
-            expected = self.eval_formula(self.app.screen_formula.label)
-            actual = self.app.screen_result.label
+            expected = self.eval_formula(self.app.screen_formula.formatted_text)
+            actual = self.app.screen_result.formatted_text
             with allure.step("Perform result (screen) evaluation: "
                              "{} should be equal {}".format(actual, expected)):
                 print('Perform result (screen) evaluation: '
@@ -202,7 +202,7 @@ class AndroidCalculatorBaseTestCase(unittest.TestCase):
                 assert expected == actual
 
             self.app.equal.tap()
-            print("Screen output: {}".format(self.app.screen_result.label))
+            print("Screen output: {}".format(self.app.screen_result.formatted_text))
 
     def perform_addition(self, args):
         """
@@ -222,11 +222,11 @@ class AndroidCalculatorBaseTestCase(unittest.TestCase):
                 if i != len(args) - 1:
                     self.app.plus.tap()
 
-            print("Formula: {}".format(self.app.screen_formula.label))
-            print("Result: {}".format(self.app.screen_result.label))
+            print("Formula: {}".format(self.app.screen_formula.formatted_text))
+            print("Result: {}".format(self.app.screen_result.formatted_text))
 
-            expected = self.eval_formula(self.app.screen_formula.label)
-            actual = self.app.screen_result.label
+            expected = self.eval_formula(self.app.screen_formula.formatted_text)
+            actual = self.app.screen_result.formatted_text
             with allure.step("Perform result (screen) evaluation: "
                              "{} should be equal {}".format(actual, expected)):
                 print('Perform result (screen) evaluation: '
@@ -234,7 +234,7 @@ class AndroidCalculatorBaseTestCase(unittest.TestCase):
                 assert expected == actual
 
             self.app.equal.tap()
-            print("Screen output: {}".format(self.app.screen_result.label))
+            print("Screen output: {}".format(self.app.screen_result.formatted_text))
 
     def perform_multiplication(self, args):
         """
@@ -254,11 +254,11 @@ class AndroidCalculatorBaseTestCase(unittest.TestCase):
                 if i != len(args) - 1:
                     self.app.multiplication.tap()
 
-            print("Formula: {}".format(self.app.screen_formula.label))
-            print("Result: {}".format(self.app.screen_result.label))
+            print("Formula: {}".format(self.app.screen_formula.formatted_text))
+            print("Result: {}".format(self.app.screen_result.formatted_text))
 
-            expected = self.eval_formula(self.app.screen_formula.label)
-            actual = self.app.screen_result.label
+            expected = self.eval_formula(self.app.screen_formula.formatted_text)
+            actual = self.app.screen_result.formatted_text
             with allure.step("Perform result (screen) evaluation: "
                              "{} should be equal {}".format(actual, expected)):
                 print('Perform result (screen) evaluation: '
@@ -270,7 +270,7 @@ class AndroidCalculatorBaseTestCase(unittest.TestCase):
                         assert expected == actual
 
             self.app.equal.tap()
-            print("Screen output: {}".format(self.app.screen_result.label))
+            print("Screen output: {}".format(self.app.screen_result.formatted_text))
 
     def perform_division(self, args):
         """
@@ -290,11 +290,11 @@ class AndroidCalculatorBaseTestCase(unittest.TestCase):
                 if i != len(args) - 1:
                     self.app.division.tap()
 
-            print("Formula: {}".format(self.app.screen_formula.label))
-            print("Result: {}".format(self.app.screen_result.label))
+            print("Formula: {}".format(self.app.screen_formula.formatted_text))
+            print("Result: {}".format(self.app.screen_result.formatted_text))
 
-            expected = self.eval_formula(self.app.screen_formula.label)
-            actual = self.app.screen_result.label
+            expected = self.eval_formula(self.app.screen_formula.formatted_text)
+            actual = self.app.screen_result.formatted_text
             with allure.step("Perform result (screen) evaluation: "
                              "{} should be equal {}".format(actual, expected)):
                 print('Perform result (screen) evaluation: '
@@ -306,5 +306,5 @@ class AndroidCalculatorBaseTestCase(unittest.TestCase):
                         assert expected == actual
 
             self.app.equal.tap()
-            print("Screen output: {}".format(self.app.screen_result.label))
+            print("Screen output: {}".format(self.app.screen_result.formatted_text))
 
