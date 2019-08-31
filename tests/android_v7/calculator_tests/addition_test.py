@@ -66,68 +66,68 @@ class TestAdditionCase(AndroidCalculatorBaseTestCase):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == str(sum(numbers))
+				assert self.app.screen_result.formatted_text == str(sum(numbers))
 
 		numbers = [1, 9]
 		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == str(sum(numbers))
+				assert self.app.screen_result.formatted_text == str(sum(numbers))
 
 		numbers = [19, 2]
 		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == str(sum(numbers))
+				assert self.app.screen_result.formatted_text == str(sum(numbers))
 
 		numbers = [19, 37]
 		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == str(sum(numbers))
+				assert self.app.screen_result.formatted_text == str(sum(numbers))
 
 		numbers = [1500, 2000]
 		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
 			self.perform_addition(numbers)
-			assert self.app.screen_result.label == str(sum(numbers))
+			assert self.app.screen_result.formatted_text == str(sum(numbers))
 
 		numbers = [999999, 1]
 		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == str(sum(numbers))
+				assert self.app.screen_result.formatted_text == str(sum(numbers))
 
 		numbers = [9999999, 1]
 		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 		numbers = [99999999, 1]
 		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 		numbers = [999999999, 1]
 		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 		numbers = [9999999999, 1]
 		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 	def test_able_to_add_a_negative_integer_to_a_positive_floating_point_number(self):
 		"""
@@ -142,7 +142,7 @@ class TestAdditionCase(AndroidCalculatorBaseTestCase):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 		numbers = [-2, 1.000]
 		with allure.step(
@@ -150,7 +150,7 @@ class TestAdditionCase(AndroidCalculatorBaseTestCase):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 		numbers = [-1, 2.000]
 		with allure.step(
@@ -158,7 +158,7 @@ class TestAdditionCase(AndroidCalculatorBaseTestCase):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 	def test_able_to_add_a_floating_point_number_to_an_integer(self):
 		"""
@@ -174,7 +174,7 @@ class TestAdditionCase(AndroidCalculatorBaseTestCase):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 		numbers = [10.000, 2]
 		with allure.step(
@@ -182,7 +182,7 @@ class TestAdditionCase(AndroidCalculatorBaseTestCase):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 		numbers = [0.0, 2]
 		with allure.step(
@@ -190,7 +190,7 @@ class TestAdditionCase(AndroidCalculatorBaseTestCase):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 	def test_able_to_add_an_integer_to_a_floating_point_number(self):
 		"""
@@ -206,7 +206,7 @@ class TestAdditionCase(AndroidCalculatorBaseTestCase):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 		numbers = [9, 10.9999]
 		with allure.step(
@@ -214,7 +214,7 @@ class TestAdditionCase(AndroidCalculatorBaseTestCase):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 	def test_able_to_add_two_floating_point_numbers(self):
 		"""
@@ -230,7 +230,7 @@ class TestAdditionCase(AndroidCalculatorBaseTestCase):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 		numbers = [1.0, 34.999]
 		with allure.step(
@@ -238,7 +238,7 @@ class TestAdditionCase(AndroidCalculatorBaseTestCase):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 		numbers = [1.0000, 34.999]
 		with allure.step(
@@ -246,7 +246,7 @@ class TestAdditionCase(AndroidCalculatorBaseTestCase):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 	def test_able_to_add_a_negative_integer_and_zero(self):
 		"""
@@ -262,7 +262,7 @@ class TestAdditionCase(AndroidCalculatorBaseTestCase):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 		numbers = [-5, 0]
 		with allure.step(
@@ -270,7 +270,7 @@ class TestAdditionCase(AndroidCalculatorBaseTestCase):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 		numbers = [5, -0]
 		with allure.step(
@@ -278,7 +278,7 @@ class TestAdditionCase(AndroidCalculatorBaseTestCase):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 		numbers = [-0, 5]
 		with allure.step(
@@ -286,7 +286,7 @@ class TestAdditionCase(AndroidCalculatorBaseTestCase):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 	def test_able_to_add_zero_and_a_positive_integer(self):
 		"""
@@ -301,28 +301,28 @@ class TestAdditionCase(AndroidCalculatorBaseTestCase):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 		numbers = [0, 1]
 		with allure.step("Check the addition of zero and a positive integer: {}".format(numbers)):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 		numbers = [1, 0]
 		with allure.step("Check the addition of zero and a positive integer: {}".format(numbers)):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 		numbers = [0, 5]
 		with allure.step("Check the addition of zero and a positive integer: {}".format(numbers)):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 	def test_able_to_add_a_negative_integer_with_a_positive_number(self):
 		"""
@@ -337,26 +337,26 @@ class TestAdditionCase(AndroidCalculatorBaseTestCase):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 		numbers = [5, -5]
 		with allure.step("Check the addition of a negative integer with a positive number: {}".format(numbers)):
 			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+			assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 		numbers = [6, -5]
 		with allure.step("Check the addition of a negative integer with a positive number: {}".format(numbers)):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 		numbers = [-6, 5]
 		with allure.step("Check the addition of a negative integer with a positive number: {}".format(numbers)):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 	def test_able_to_add_two_large_positive_integers(self):
 		"""
@@ -371,56 +371,56 @@ class TestAdditionCase(AndroidCalculatorBaseTestCase):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 		numbers = [999999, 99999]
 		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 		numbers = [99999, 99999]
 		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 		numbers = [53645567, 78967875]
 		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 		numbers = [9999999999, 567457362343241]
 		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 		numbers = [300000000, 900000000]
 		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 		numbers = [900000000, 900000000]
 		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 		numbers = [999999999, 1]
 		with allure.step("Check the addition of integer numbers: {}".format(numbers)):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 	def test_able_to_add_a_negative_floating_point_and_a_positive_integer(self):
 		"""
@@ -433,14 +433,14 @@ class TestAdditionCase(AndroidCalculatorBaseTestCase):
 		numbers = [-1987.50, 1987]
 		with allure.step("Check the addition of negative floating point and a positive integer: {}".format(numbers)):
 			self.perform_addition(numbers)
-			assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+			assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 		numbers = [1987, -1987.50]
 		with allure.step("Check the addition of negative floating point and a positive integer: {}".format(numbers)):
 			self.perform_addition(numbers)
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 	def test_able_to_add_a_positive_integer_to_the_results_of_a_previous_operation(self):
 		"""
@@ -463,7 +463,7 @@ class TestAdditionCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 		# 6 * 2 + 8 = 20
 		numbers = [6, 2, 8]
@@ -476,7 +476,7 @@ class TestAdditionCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(6 * 2 + 8)
+				assert self.app.screen_result.formatted_text == self.eval_formula(6 * 2 + 8)
 
 	def test_able_to_add_a_positive_floating_point_number_to_the_results_of_a_previous_operation(self):
 		"""
@@ -499,7 +499,7 @@ class TestAdditionCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 	def test_able_to_add_a_floating_point_number_with_many_decimal_places_to_a_previous_result(self):
 		"""
@@ -523,7 +523,7 @@ class TestAdditionCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
 
 	def test_able_to_add_a_large_integer_to_a_previous_result(self):
 		"""
@@ -547,4 +547,4 @@ class TestAdditionCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Check the result"):
-				assert self.app.screen_result.label == self.eval_formula(sum(numbers))
+				assert self.app.screen_result.formatted_text == self.eval_formula(sum(numbers))
