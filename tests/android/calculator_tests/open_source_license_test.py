@@ -7,6 +7,7 @@
 import allure
 
 from tests.android.calculator_tests.calculator_base_testcase import AndroidCalculatorBaseTestCase
+from tests.android.calculator_tests.open_source_license import FullLicenseText
 
 
 @allure.epic('Android Native App')
@@ -46,7 +47,7 @@ class TestOpenSourceLicenseCase(AndroidCalculatorBaseTestCase):
 			assert self.app.crc == 'CRCalc'
 
 		with allure.step("Verify Open Source License full text"):
-			assert self.app.full_license_txt == self.sample_license_txt
+			assert self.app.full_license_txt == FullLicenseText.text
 
 		with allure.step("Verify Open Source License title"):
 			assert self.app.title == 'Open source licenses'
@@ -69,22 +70,3 @@ class TestOpenSourceLicenseCase(AndroidCalculatorBaseTestCase):
 			with allure.step("Verify screen output"):
 				assert self.app.screen_result.formatted_text == '123456789'
 
-	@property
-	def sample_license_txt(self) -> str:
-		"""
-		Returns license text from stored/source file
-		:return:
-		"""
-
-		with allure.step("Extract Source License full text sample from source file"):
-
-			license_file_name = 'C:/Users/superadmin/Documents/' \
-			                    'GitHub/TEST_AUTOMATION_FRAMEWORK_USING_APPIUM_WITH_PYTHON/' \
-			                    'tests/android/calculator_tests/open_source_license.txt'
-			license_txt = ''
-
-			with open(license_file_name, "r", encoding="utf-8") as f:
-				for line in f:
-					license_txt += line
-
-			return license_txt
