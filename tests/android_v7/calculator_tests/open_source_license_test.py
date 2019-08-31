@@ -6,8 +6,6 @@
 
 import allure
 
-from appium.webdriver.common.touch_action import TouchAction
-
 from tests.android_v7.calculator_tests.calculator_base_testcase import AndroidCalculatorBaseTestCase
 
 
@@ -27,23 +25,32 @@ class TestOpenSourceLicenseCase(AndroidCalculatorBaseTestCase):
 		"""
 		1. Open Calculator App
 		2. Open "Open Source License" page/view
-		3. Verify Title
-		4. Close it and go back to calculator
+		3. Verify Title, CRC, Header, full license text
+		4. Go back to calculator
 		5. Close calculator app
 		:return:
 		"""
 
-		self.app = self.app.open_license()
+		allure.dynamic.title("Open Source License View Test")
+		allure.dynamic.severity(allure.severity_level.NORMAL)
 
-		assert self.app.header == 'Notices for files:'
+		with allure.step("Go to Open Source License view"):
+			self.app = self.app.open_license()
 
-		assert self.app.crc == 'CRCalc'
+		with allure.step("Verify Open Source License header"):
+			assert self.app.header == 'Notices for files:'
 
-		assert self.app.full_license_txt == self.sample_license_txt
+		with allure.step("Verify Open Source License CRCalc"):
+			assert self.app.crc == 'CRCalc'
 
-		assert self.app.title == 'Open source licenses'
+		with allure.step("Verify Open Source License full text"):
+			assert self.app.full_license_txt == self.sample_license_txt
 
-		TouchAction(self.app.driver).tap(self.app.arrow_btn).wait(5).perform()
+		with allure.step("Verify Open Source License title"):
+			assert self.app.title == 'Open source licenses'
+
+		with allure.step("Go back to Calculator view"):
+			self.app = self.app.tap_arrow_btn()
 
 	@property
 	def sample_license_txt(self) -> str:
@@ -52,13 +59,13 @@ class TestOpenSourceLicenseCase(AndroidCalculatorBaseTestCase):
 		:return:
 		"""
 
-		license_file_name = 'C:/Users/superadmin/Documents/GitHub/' \
-		                    'TEST_AUTOMATION_FRAMEWORK_USING_APPIUM_WITH_PYTHON/' \
-		                    'files/open_source_license.txt'
-		license_txt = ''
+		with allure.step("Extract Source License full text sample from source file"):
 
-		with open(license_file_name, "r", encoding="utf-8") as f:
-			for line in f:
-				license_txt += line
+			license_file_name = 'open_source_license.txt'
+			license_txt = ''
 
-		return license_txt
+			with open(license_file_name, "r", encoding="utf-8") as f:
+				for line in f:
+					license_txt += line
+
+			return license_txt
