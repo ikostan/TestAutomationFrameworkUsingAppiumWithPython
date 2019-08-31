@@ -10,7 +10,7 @@ import unittest
 import allure
 from allure_commons.types import AttachmentType
 
-from page_objects.calculator_page_model import CalculatorPageModel
+from page_object_models.calculator_page_model import CalculatorPageModel
 from utils.driver import Driver
 
 from selenium.common.exceptions import TimeoutException
@@ -50,10 +50,12 @@ class AndroidCalculatorBaseTestCase(unittest.TestCase):
     def setUp(self) -> None:
         with allure.step("Set up driver object"):
             self._driver = Driver()
-            self._driver.set_capability("appPackage", "com.android.calculator2")
-            self._driver.set_capability("appActivity", "com.android.calculator2.Calculator")
 
-            #self._driver.set_capability("browserName", "Chrome")
+            # Add desired capabilities:
+            self._driver.set_capability("appPackage",
+                                        "com.android.calculator2")
+            self._driver.set_capability("appActivity",
+                                        "com.android.calculator2.Calculator")
             self._driver.set_capability('chromedriverExecutable',
                                       'C:\\Users\\superadmin\\Documents\\GitHub\\'
                                       'TEST_AUTOMATION_FRAMEWORK_USING_APPIUM_WITH_PYTHON\\'
@@ -97,9 +99,11 @@ class AndroidCalculatorBaseTestCase(unittest.TestCase):
         """
         for error in self._outcome.errors:
             if error:
+
                 # Screen shot:
                 # Source: https://stackoverflow.com/questions/12024848/
                 # automatic-screenshots-when-test-fail-by-selenium-webdriver-in-python
+
                 file_name = "screenshot_{}.png".format(self.id())
                 self._driver.driver_instance.get_screenshot_as_file(file_name)
                 allure.attach.file('./' + file_name, attachment_type=AttachmentType.PNG)
@@ -107,6 +111,7 @@ class AndroidCalculatorBaseTestCase(unittest.TestCase):
 
                 # Get Appium Server Logs:
                 # Source: https://appium.readthedocs.io/en/stable/en/commands/session/logs/get-log/#get-logs
+
                 appium_server_log = self._driver.driver_instance.get_log('server')
                 file_name = "./appium_server_log.txt"
                 with open(file_name, "w", encoding="utf-8") as f:
