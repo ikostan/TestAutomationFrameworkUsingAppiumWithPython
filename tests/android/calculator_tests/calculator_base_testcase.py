@@ -15,6 +15,8 @@ from utils.driver import Driver
 
 from selenium.common.exceptions import TimeoutException
 
+from utils.get_args_from_cli import get_args
+
 
 class AndroidCalculatorBaseTestCase(unittest.TestCase):
     """
@@ -23,6 +25,9 @@ class AndroidCalculatorBaseTestCase(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls) -> None:
+
+        with allure.step("Get args from CLI"):
+            cls.args = get_args()
 
         with allure.step("Start Appium Service"):
             # that you can use to programmatically start/stop an Appium server.
@@ -53,6 +58,11 @@ class AndroidCalculatorBaseTestCase(unittest.TestCase):
             self._driver = Driver()
 
             # Add desired capabilities:
+
+            for key in self.args:
+                self._driver.set_capability(key, self.args[key])
+
+            '''
             self._driver.set_capability("platformName",
                                         "android")
 
@@ -67,7 +77,7 @@ class AndroidCalculatorBaseTestCase(unittest.TestCase):
 
             self._driver.set_capability("appActivity",
                                         "com.android.calculator2.Calculator")
-
+            '''
             self._driver.set_capability('chromedriverExecutable',
                                         'C:\\Users\\superadmin\\Documents\\GitHub\\'
                                         'TEST_AUTOMATION_FRAMEWORK_USING_APPIUM_WITH_PYTHON\\'
