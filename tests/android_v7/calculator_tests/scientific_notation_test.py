@@ -45,7 +45,7 @@ class TestScientificNotationConversionCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Verify screen output"):
-				assert self.app.screen_result.element.text == expected
+				assert self.app.screen_result.raw_text == expected
 
 		with allure.step("Clear Calculator screen"):
 			self.clear_calculator_screen()
@@ -56,7 +56,7 @@ class TestScientificNotationConversionCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Verify screen output"):
-				assert self.app.screen_result.element.text == digit
+				assert self.app.screen_result.raw_text == digit
 
 		digit = '345600967890045645000006.78679'
 		with allure.step("Enter {} digit and tap '='".format(digit)):
@@ -64,7 +64,7 @@ class TestScientificNotationConversionCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Verify screen output"):
-				assert self.app.screen_result.element.text == digit
+				assert self.app.screen_result.raw_text == digit
 
 		with allure.step("Calculate following: 3.45 x 10^5".format(digit)):
 			expected_output = '345000'
@@ -74,7 +74,7 @@ class TestScientificNotationConversionCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Verify screen output"):
-				assert self.app.screen_result.element.text == expected_output
+				assert self.app.screen_result.raw_text == expected_output
 
 	def test_scientific_notation_positive(self):
 		"""
@@ -96,7 +96,7 @@ class TestScientificNotationConversionCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Verify screen output"):
-				assert self.app.screen_result.element.text == expected_output
+				assert self.app.screen_result.raw_text == expected_output
 
 		with allure.step("Clear Calculator screen"):
 			self.clear_calculator_screen()
@@ -108,7 +108,7 @@ class TestScientificNotationConversionCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Verify screen output"):
-				assert self.app.screen_result.element.text == expected_output
+				assert self.app.screen_result.raw_text == expected_output
 
 		with allure.step("Clear Calculator screen"):
 			self.clear_calculator_screen()
@@ -120,7 +120,7 @@ class TestScientificNotationConversionCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Verify screen output"):
-				assert self.app.screen_result.element.text == expected_output
+				assert self.app.screen_result.raw_text == expected_output
 
 		with allure.step("Clear Calculator screen"):
 			self.clear_calculator_screen()
@@ -132,7 +132,7 @@ class TestScientificNotationConversionCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Verify screen output"):
-				assert self.app.screen_result.element.text == expected_output
+				assert self.app.screen_result.raw_text == expected_output
 
 		with allure.step("Clear Calculator screen"):
 			self.clear_calculator_screen()
@@ -144,7 +144,7 @@ class TestScientificNotationConversionCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Verify screen output"):
-				assert self.app.screen_result.element.text == expected_output
+				assert self.app.screen_result.raw_text == expected_output
 
 		with allure.step("Clear Calculator screen"):
 			self.clear_calculator_screen()
@@ -156,7 +156,7 @@ class TestScientificNotationConversionCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Verify screen output"):
-				assert self.app.screen_result.element.text == expected_output
+				assert self.app.screen_result.raw_text == expected_output
 
 		with allure.step("Calculate following: 3.45 x 10^5".format(digit)):
 			expected_output = '3.45E10'
@@ -166,7 +166,7 @@ class TestScientificNotationConversionCase(AndroidCalculatorBaseTestCase):
 			self.app.equal.tap()
 
 			with allure.step("Verify screen output"):
-				assert self.app.screen_result.element.text == expected_output
+				assert self.app.screen_result.raw_text == expected_output
 
 
 
