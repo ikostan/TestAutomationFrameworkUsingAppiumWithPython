@@ -31,44 +31,44 @@ class TestButtonsLabelingCases(AndroidCalculatorBaseTestCase):
 
         # Digits 0-9
         with allure.step("Test 0-9 digits/buttons labeling"):
-            for i, btn in enumerate(self.app.buttons):
-                assert btn.element.text == i
+            for i, btn in enumerate(self.app.digits):
+                assert self.app.digits[btn].raw_text == str(i)
 
         # . button
         with allure.step("Test '.' button labeling"):
-            assert self.app.dot.element.text == '.'
+            assert self.app.dot.raw_text == '.'
 
         # +
         with allure.step("Test '+' button labeling"):
-            assert self.app.plus.element.text == '+'
+            assert self.app.plus.raw_text == '+'
 
         # -
         with allure.step("Test '-' button labeling"):
-            assert self.app.minus.element.text == '−'
+            assert self.app.minus.raw_text == '−'
 
         # *
         with allure.step("Test '*' button labeling"):
-            assert self.app.multiplication.element.text == 'x'
+            assert self.app.multiplication.raw_text == '×'
 
         # /
         with allure.step("Test '/' button labeling"):
-            assert self.app.division.element.text == '÷'
+            assert self.app.division.raw_text == '÷'
 
         # DEL
         with allure.step("Test 'DEL' button visibility"):
-            assert self.app.del_btn.text == 'DEL'
+            assert self.app.del_btn.raw_text == 'DEL'
 
-        # CLR button is not presented by default
+        # CLR button
         with allure.step("Test 'CLR' button labeling"):
+            # CLR button is not presented by default
             self.enter_digit(10)
             self.app.equal.tap()
-            with self.assertRaises(TimeoutException):
-                assert self.app.clr.text == "CLR"
-                self.app.clr.tap()
+            assert self.app.clr.raw_text == "CLR"
+            self.app.clr.tap()
 
         # =
         with allure.step("Test '=' button labeling"):
-            assert self.app.equal.text == '='
+            assert self.app.equal.raw_text == '='
 
     def test_btn_visibility(self):
         """
