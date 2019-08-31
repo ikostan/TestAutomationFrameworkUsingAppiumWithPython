@@ -10,7 +10,7 @@ import unittest
 import allure
 from allure_commons.types import AttachmentType
 
-from page_object_models.calculator_page_model import CalculatorPageModel
+from page_object_models.calculator.calculator_page_model import CalculatorPageModel
 from utils.driver import Driver
 
 from selenium.common.exceptions import TimeoutException
