@@ -19,6 +19,7 @@ class Driver:
 	"""
 
 	def __init__(self):
+
 		# Appium Desired Capabilities:
 		# http://appium.io/docs/en/writing-running-appium/caps/
 		self._desired_capabilities = dict()
