@@ -6,9 +6,14 @@
 
 from selenium.webdriver.common.by import By
 
+from tests.web_app_tests.parabank_test.expected_results.page_content.base_personal_info_content import \
+	BasePersonalInfoContent
+
 
 class BasePersonalInfoPageLocator:
 	"""
+	Base Personal Info PageLocator Class
+
 	Holds all shared locators for 'Register' and 'Forgot Login Info' page web elements.
 	Each locator is a tuple.
 	Separate the locator strings from the place where they are being used.
