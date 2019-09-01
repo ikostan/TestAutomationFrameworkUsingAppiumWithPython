@@ -1,17 +1,18 @@
+"""Base Personal Info PageLocator Class"""
+
 #  Created by Egor Kostan.
 #  GitHub: https://github.com/ikostan
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
 
 from selenium.webdriver.common.by import By
-from expected_results.page_content.base_personal_info_content import BasePersonalInfoContent
 
 
 class BasePersonalInfoPageLocator:
-	'''
+	"""
 	Holds all shared locators for 'Register' and 'Forgot Login Info' page web elements.
 	Each locator is a tuple.
 	Separate the locator strings from the place where they are being used.
-	'''
+	"""
 
 	HEADER = (By.XPATH, '//*[@id="rightPanel"]/h1[@class="title"]')
 	DESCRIPTION = (By.XPATH, '//*[@id="rightPanel"]/p')
