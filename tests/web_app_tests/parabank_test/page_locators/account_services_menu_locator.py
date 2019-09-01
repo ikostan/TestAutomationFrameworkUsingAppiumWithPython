@@ -6,9 +6,13 @@
 
 from selenium.webdriver.common.by import By
 
+from tests.web_app_tests.parabank_test.expected_results.page_content.bank_account_content import BankAccountContent
+
 
 class AccountServicesMenuLocator:
 	"""
+	Account Services Menu Locator Class
+
 	Holds all relevant locators for any page web elements.
 	Each locator is a tuple.
 	Separate the locator strings from the place where they are being used.
@@ -16,28 +20,37 @@ class AccountServicesMenuLocator:
 
 	WELCOME_MESSAGE = (By.XPATH, '//*[@id="leftPanel"]/p')
 
-	ACCOUNT_SERVICES_HEADER = (By.XPATH, '//h2[contains(text(),"Account Services")]')
+	ACCOUNT_SERVICES_HEADER = (By.XPATH,
+	                           '//h2[contains(text(),"{}")]'.format(BankAccountContent.ACCOUNT_SERVICES_MENU['title']))
 
-	OPEN_NEW_ACCOUNT = (By.XPATH, '//*[@id="leftPanel"]/ul/li[1]/a[text()="{}"]'.format(
-		BankAccountContent.ACCOUNT_SERVICES_MENU['menu_items']['open_new_account']['text']))
+	OPEN_NEW_ACCOUNT = (By.XPATH,
+	                    '//*[@id="leftPanel"]/ul/li[1]/a[text()="{}"]'.format(
+		                    BankAccountContent.ACCOUNT_SERVICES_MENU['menu_items']['open_new_account']['text']))
 
-	ACCOUNTS_OVERVIEW = (By.XPATH, '//*[@id="leftPanel"]/ul/li[2]/a[text()="{}"]'.format(
-		BankAccountContent.ACCOUNT_SERVICES_MENU['menu_items']['account_overview']['text']))
+	ACCOUNTS_OVERVIEW = (By.XPATH,
+	                     '//*[@id="leftPanel"]/ul/li[2]/a[text()="{}"]'.format(
+		                     BankAccountContent.ACCOUNT_SERVICES_MENU['menu_items']['account_overview']['text']))
 
-	TRANSFER_FUNDS = (By.XPATH, '//*[@id="leftPanel"]/ul/li[3]/a[text()="{}"'.format(
-		BankAccountContent.ACCOUNT_SERVICES_MENU['menu_items']['transfer_funds']['text']))
+	TRANSFER_FUNDS = (By.XPATH,
+	                  '//*[@id="leftPanel"]/ul/li[3]/a[text()="{}"'.format(
+		                  BankAccountContent.ACCOUNT_SERVICES_MENU['menu_items']['transfer_funds']['text']))
 
-	BILL_PAY = (By.XPATH, '//*[@id="leftPanel"]/ul/li[4]/a[text()="{}"'.format(
-		BankAccountContent.ACCOUNT_SERVICES_MENU['menu_items']['bill_pay']['text']))
+	BILL_PAY = (By.XPATH,
+	            '//*[@id="leftPanel"]/ul/li[4]/a[text()="{}"'.format(
+		            BankAccountContent.ACCOUNT_SERVICES_MENU['menu_items']['bill_pay']['text']))
 
-	FIND_TRANSACTIONS = (By.XPATH, '//*[@id="leftPanel"]/ul/li[5]/a[text()="{}"'.format(
-		BankAccountContent.ACCOUNT_SERVICES_MENU['menu_items']['find_transactions']['text']))
+	FIND_TRANSACTIONS = (By.XPATH,
+	                     '//*[@id="leftPanel"]/ul/li[5]/a[text()="{}"'.format(
+		                     BankAccountContent.ACCOUNT_SERVICES_MENU['menu_items']['find_transactions']['text']))
 
-	UPDATE_CONTACT_INFO = (By.XPATH, '//*[@id="leftPanel"]/ul/li[6]/a[text()="{}"'.format(
-		BankAccountContent.ACCOUNT_SERVICES_MENU['menu_items']['update_info']['text']))
+	UPDATE_CONTACT_INFO = (By.XPATH,
+	                       '//*[@id="leftPanel"]/ul/li[6]/a[text()="{}"'.format(
+		                       BankAccountContent.ACCOUNT_SERVICES_MENU['menu_items']['update_info']['text']))
 
-	REQUEST_LOAN = (By.XPATH, '//*[@id="leftPanel"]/ul/li[7]/a[text()="{}"'.format(
-		BankAccountContent.ACCOUNT_SERVICES_MENU['menu_items']['request_loan']['text']))
+	REQUEST_LOAN = (By.XPATH,
+	                '//*[@id="leftPanel"]/ul/li[7]/a[text()="{}"'.format(
+		                BankAccountContent.ACCOUNT_SERVICES_MENU['menu_items']['request_loan']['text']))
 
-	LOG_OUT = (By.XPATH, '//a[text()="{}"]'.format(
-		BankAccountContent.ACCOUNT_SERVICES_MENU['menu_items']['log_out']['text']))
+	LOG_OUT = (By.XPATH,
+	           '//a[text()="{}"]'.format(
+		           BankAccountContent.ACCOUNT_SERVICES_MENU['menu_items']['log_out']['text']))
