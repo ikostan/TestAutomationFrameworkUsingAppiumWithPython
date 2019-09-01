@@ -1,12 +1,15 @@
+"""Environment Configuration Class"""
+
 #  Created by Egor Kostan.
 #  GitHub: https://github.com/ikostan
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
+
 from utils.get_args_from_cli import get_args
 
 
 class Config:
 	"""
-	Environment Configuration
+	Environment Configuration Class
 	Source: https://www.udemy.com/elegant-automation-frameworks-with-python-and-pytest
 	"""
 	def __init__(self):
@@ -14,6 +17,7 @@ class Config:
 		params = get_args()
 
 		self._base_url = {
+			'integration': 'http://192.168.2.3:8080',
 			'production': 'https://parabank.parasoft.com',
 			'localhost': 'http://localhost:8080',
 		}[params['env'].lower()]
