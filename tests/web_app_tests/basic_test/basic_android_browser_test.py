@@ -37,21 +37,21 @@ class TestBasicAndroidBrowserCase(AndroidBrowserBaseTestCase):
         allure.dynamic.severity(allure.severity_level.MINOR)
 
         # Open Google search web page
-        self.page.get("http://google.com")
-        WebDriverWait(self.page, 5).until(EC.title_contains("Google"))
-        current_url = self.page.current_url
+        self.driver.get("http://google.com")
+        WebDriverWait(self.driver, 5).until(EC.title_contains("Google"))
+        current_url = self.driver.current_url
 
         # Type "Hello Appium" in search field
-        search_field = self.page.find_element(By.NAME, 'q')
+        search_field = self.driver.find_element(By.NAME, 'q')
         search_field.send_keys("Hello Appium")
 
         # Hit search button
-        search_btn = self.page.find_element(By.XPATH,
+        search_btn = self.driver.find_element(By.XPATH,
                                             '//*[@id="tsf"]/div[2]/div[1]/div[1]/button[2]')
         search_btn.click()
 
         # Wait until search results appears
-        WebDriverWait(self.page, 5).until(EC.url_changes(current_url))
+        WebDriverWait(self.driver, 5).until(EC.url_changes(current_url))
 
         # Verify web page title
-        assert "Hello Appium - Google Search" == self.page.title
+        assert "Hello Appium - Google Search" == self.driver.title
