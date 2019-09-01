@@ -1,11 +1,12 @@
+"""Contact Page Locator Class"""
+
 #  Created by Egor Kostan.
 #  GitHub: https://github.com/ikostan
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
 
 from selenium.webdriver.common.by import By
 
-from expected_results.page_content.contact_page_content import ContactPageContent
-from page_locators.base_page_locator import BasePageLocator
+from tests.web_app_tests.parabank_test.page_locators.base_page_locator import BasePageLocator
 
 
 class ContactPageLocator(BasePageLocator):
