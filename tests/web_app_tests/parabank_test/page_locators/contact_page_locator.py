@@ -7,10 +7,13 @@
 from selenium.webdriver.common.by import By
 
 from tests.web_app_tests.parabank_test.page_locators.base_page_locator import BasePageLocator
+from tests.web_app_tests.parabank_test.expected_results.page_content.contact_page_content import ContactPageContent
 
 
 class ContactPageLocator(BasePageLocator):
 	"""
+	Contact Page Locator Class
+
 	Holds all relevant locators for 'Contact' page web elements.
 	Each locator is a tuple.
 	Separate the locator strings from the place where they are being used.
