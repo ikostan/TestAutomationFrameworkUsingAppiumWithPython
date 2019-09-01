@@ -8,49 +8,52 @@
 import time
 import allure
 
-from tests.web_app_tests.parabank_test.helper_methods.open_web_browser import open_web_browser
 from tests.web_app_tests.parabank_test.page_object_models.register_page_model import RegisterPageModel
 from tests.web_app_tests.parabank_test.expected_results.page_content.register_page_content import RegisterPageContent
 
 
-def register_user(user, config):
+def register_user(driver, user, config):
     """
+    Register User helper method
+
     Registers a new user.
     Does not check for any errors.
-    Using Selenium webdriver + chrome browser by default
+    Using Selenium WebDriver + Chrome browser by default
+    :param driver:
     :param config:
     :param page:
     :param user:
     :return:
     """
 
-    page_model = RegisterPageModel
-    page_context = RegisterPageContent
-
     print("\nUser registration procedure...")
     print("\n1. Open web browser...")
-    page = open_web_browser(config=config,
-                            page_model=page_model,
-                            page_content=page_context)
+    page = RegisterPageModel(config=config,
+                             driver=driver,
+                             implicit_wait_time=5,
+                             explicit_wait_time=10)
+    # Open Web page
+    with allure.step("Open Register web page"):
+        page.go()
 
     with allure.step("Fill out Register web form"):
         print("\n2. Filling out user data...")
 
-        page.type_first_name(user.first_name)
+        page.personal_info.type_first_name(user.first_name)
 
-        page.type_last_name(user.last_name)
+        page.personal_info.type_last_name(user.last_name)
 
-        page.type_address(user.address)
+        page.personal_info.type_address(user.address)
 
-        page.type_city(user.city)
+        page.personal_info.type_city(user.city)
 
-        page.type_state(user.state)
+        page.personal_info.type_state(user.state)
 
-        page.type_zip_code(user.zip_code)
+        page.personal_info.type_zip_code(user.zip_code)
 
-        page.type_phone(user.phone)
+        page.personal_info.type_phone(user.phone)
 
-        page.type_ssn(user.ssn)
+        page.personal_info.type_ssn(user.ssn)
 
         page.type_username(user.username)
 
@@ -60,17 +63,8 @@ def register_user(user, config):
 
     with allure.step("Hit 'REGISTER' button"):
         print("\n3. Hit 'REGISTER' button...")
-        page.hit_register_btn()
+        page = page.hit_register_btn()
         time.sleep(3)
-
-    with allure.step("Verify \"Welcome\" message"):
-        print('Verify "Welcome" message...')
-        expected = RegisterPageContent.WELCOME_MESSAGE['message']
-        actual = page.welcome_message
-        if expected == actual:
-            print("OK: Welcome message detected")
-        else:
-            print("ERROR: Welcome message does not appear")
 
     with allure.step("Do Log Out"):
         print("\n4. Do Log Out...")
@@ -79,5 +73,6 @@ def register_user(user, config):
 
     with allure.step("Close web browser"):
         print("\n5. Close web browser...")
-        page.quit()
+        # page.quit()
+        pass
 
