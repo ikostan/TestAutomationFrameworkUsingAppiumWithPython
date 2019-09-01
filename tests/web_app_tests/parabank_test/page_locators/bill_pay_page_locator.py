@@ -7,10 +7,13 @@
 from selenium.webdriver.common.by import By
 
 from tests.web_app_tests.parabank_test.page_locators.base_page_locator import BasePageLocator
+from tests.web_app_tests.parabank_test.expected_results.page_content.bill_pay_content import BillPayContent
 
 
 class BillPayPageLocator(BasePageLocator):
 	"""
+	BillPay Page Locator Class
+
 	Holds all shared locators for 'Register' and 'Bill Pay' page web elements.
 	Each locator is a tuple.
 	Separate the locator strings from the place where they are being used.
