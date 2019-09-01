@@ -1,13 +1,21 @@
+"""BillPay Page Locator Class"""
+
 #  Created by Egor Kostan.
 #  GitHub: https://github.com/ikostan
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
 
 from selenium.webdriver.common.by import By
-from page_locators.base_page_locator import BasePageLocator
-from expected_results.page_content.bill_pay_content import BillPayContent
+
+from tests.web_app_tests.parabank_test.page_locators.base_page_locator import BasePageLocator
 
 
 class BillPayPageLocator(BasePageLocator):
+	"""
+	Holds all shared locators for 'Register' and 'Bill Pay' page web elements.
+	Each locator is a tuple.
+	Separate the locator strings from the place where they are being used.
+	"""
+
 	PAYEE_NAME_TITLE = (By.XPATH, '//b[contains(text(), \'{}\')]'.
 	                    format(BillPayContent.FORM['payee name']['title']))
 	PAYEE_NAME_INPUT = (By.XPATH, '//input[@name=\'payee.name\']')
