@@ -1,3 +1,5 @@
+"""Base Page Locator"""
+
 #  Created by Egor Kostan.
 #  GitHub: https://github.com/ikostan
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
@@ -6,11 +8,11 @@ from selenium.webdriver.common.by import By
 
 
 class BasePageLocator:
-	'''
+	"""
 	Holds all relevant locators for any page web elements.
 	Each locator is a tuple.
 	Separate the locator strings from the place where they are being used.
-	'''
+	"""
 
 	# Admin Logo:
 	ADMIN_LOGO_HREF = (By.XPATH, '//*[@id="topPanel"]/'
