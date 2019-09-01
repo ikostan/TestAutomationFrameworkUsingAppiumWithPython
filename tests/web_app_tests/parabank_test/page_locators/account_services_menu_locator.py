@@ -1,17 +1,18 @@
+"""Account Services Menu Locator Class"""
+
 #  Created by Egor Kostan.
 #  GitHub: https://github.com/ikostan
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
 
 from selenium.webdriver.common.by import By
-from expected_results.page_content.bank_account_content import BankAccountContent
 
 
 class AccountServicesMenuLocator:
-	'''
+	"""
 	Holds all relevant locators for any page web elements.
 	Each locator is a tuple.
 	Separate the locator strings from the place where they are being used.
-	'''
+	"""
 
 	WELCOME_MESSAGE = (By.XPATH, '//*[@id="leftPanel"]/p')
 
