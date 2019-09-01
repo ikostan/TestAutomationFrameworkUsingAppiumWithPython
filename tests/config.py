@@ -22,23 +22,24 @@ class Config:
 			'localhost': 'http://localhost:8080',
 		}[params['env'].lower()]
 
+		'''
 		self._is_headless = params['is_headless']
 
 		self._browser = {
 			'chrome': 'chrome',
 			'edge': 'edge',
 			'firefox': 'mozilla'
-		}[params['browser'].lower()]
-
-		self._print_run_config()
-
-	@property
-	def browser(self):
-		return self._browser
+		}[params['browserName'].lower()]
+		'''
 
 	@property
 	def base_url(self):
 		return self._base_url
+
+	'''
+	@property
+	def browser(self):
+		return self._browser
 
 	@property
 	def is_headless(self):
@@ -52,4 +53,5 @@ class Config:
 		print('\nRun configurations -> Browser: {}\n'
 		      'Run configurations -> Environment: {}\n'
 		      'Run configurations -> Is Headless: {}'.format(self.browser, self.base_url, self.is_headless))
+	'''
 
