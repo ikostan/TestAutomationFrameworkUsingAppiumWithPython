@@ -10,6 +10,8 @@ from tests.web_app_tests.parabank_test.page_locators.base_page_locator import Ba
 
 class AboutPageLocator(BasePageLocator):
 	"""
+	About Page Locator Class
+
 	Holds all relevant locators for 'ABOUT' page web elements.
 	Each locator is a tuple.
 	Separate the locator strings from the place where they are being used.
