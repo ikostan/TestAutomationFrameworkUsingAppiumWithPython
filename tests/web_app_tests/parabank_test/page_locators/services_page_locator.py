@@ -9,6 +9,8 @@ from tests.web_app_tests.parabank_test.page_locators.base_page_locator import Ba
 
 class ServicesPageLocator(BasePageLocator):
 	"""
+	Services Page Locator Class
+
 	Holds all relevant locators for 'Services' page web elements.
 	Each locator is a tuple.
 	Separate the locator strings from the place where they are being used.
