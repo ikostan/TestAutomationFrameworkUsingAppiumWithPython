@@ -1,4 +1,4 @@
-"""Base Page Locator"""
+"""Base Page Locator Class"""
 
 #  Created by Egor Kostan.
 #  GitHub: https://github.com/ikostan
@@ -9,6 +9,8 @@ from selenium.webdriver.common.by import By
 
 class BasePageLocator:
 	"""
+	Base Page Locator Class
+
 	Holds all relevant locators for any page web elements.
 	Each locator is a tuple.
 	Separate the locator strings from the place where they are being used.
