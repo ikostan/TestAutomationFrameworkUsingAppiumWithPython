@@ -1,11 +1,14 @@
+"""Account Overview Content Class"""
+
 #  Created by Egor Kostan.
 #  GitHub: https://github.com/ikostan
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
 
-from expected_results.page_content.bank_account_content import BankAccountContent
+from tests.web_app_tests.parabank_test.expected_results.page_content.bank_account_content import BankAccountContent
 
 
 class AccountOverviewContent(BankAccountContent):
+	"""Account Overview Content Class"""
 
 	URL = BankAccountContent.URL + 'overview.htm'
 	TITLE = 'Accounts Overview'
