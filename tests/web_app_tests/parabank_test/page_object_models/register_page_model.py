@@ -3,14 +3,13 @@
 #  Created by Egor Kostan.
 #  GitHub: https://github.com/ikostan
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
-from tests.web_app_tests.parabank_test.page_object_models.account_services_page_model import AccountServicesMenuModel
+
 from utils.driver import Driver
 from tests.config import Config
 
 from tests.web_app_tests.parabank_test.page_object_models.base_page_model import BasePageModel
 from tests.web_app_tests.parabank_test.page_locators.register_page_locator import RegisterPageLocator
 from tests.web_app_tests.parabank_test.expected_results.page_content.register_page_content import RegisterPageContent
-from tests.web_app_tests.parabank_test.page_object_models.base_personal_info_page_model import BasePersonalInfoPageModel
 
 
 class RegisterPageModel(BasePageModel):
@@ -25,6 +24,9 @@ class RegisterPageModel(BasePageModel):
 		super().__init__(config, driver, implicit_wait_time, explicit_wait_time)
 
 		self._url = config.base_url + RegisterPageContent.URL
+		from tests.web_app_tests.parabank_test.page_object_models.base_personal_info_page_model import \
+			BasePersonalInfoPageModel
+
 		self._personal_info = BasePersonalInfoPageModel(driver=driver,
 		                                                explicit_wait_time=explicit_wait_time)
 		self._locator = RegisterPageLocator
@@ -211,6 +213,8 @@ class RegisterPageModel(BasePageModel):
 		locator = self._locator.REGISTER_BUTTON
 		element = self.create_web_element(locator)
 		element.click_on()
+		from tests.web_app_tests.parabank_test.page_object_models.account_services_page_model import \
+			AccountServicesMenuModel
 		return AccountServicesMenuModel(config=self._config,
 		                                driver=self.driver,
 		                                implicit_wait_time=5,
