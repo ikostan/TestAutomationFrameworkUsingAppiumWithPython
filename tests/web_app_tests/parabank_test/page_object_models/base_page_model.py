@@ -21,6 +21,10 @@ class BasePageModel:
 		self._implicit_wait_time = implicit_wait_time
 		self._explicit_wait_time = explicit_wait_time
 		self._driver = driver
+		from tests.web_app_tests.parabank_test.page_object_models.customer_login_model import CustomerLoginModel
+		self._customer_login = CustomerLoginModel(driver=self._driver,
+		                                          config=self._config,
+		                                          explicit_wait_time=self._explicit_wait_time)
 
 	def create_web_element(self, locator):
 		"""Returns base web element"""
@@ -28,6 +32,14 @@ class BasePageModel:
 		return Element(driver=self._driver,
 		               explicit_wait_time=self._explicit_wait_time,
 		               locator=locator)
+
+	@property
+	def customer_login(self):
+		"""
+		Returns CustomerLoginModel instance
+		:return:
+		"""
+		return self._customer_login
 
 	@property
 	def implicit_wait_time(self):
@@ -45,7 +57,8 @@ class BasePageModel:
 
 		print("\nGO: {}\n".format(self._url))
 		self._driver.get(self._url)
-		# self._driver.maximize_window()
+		if self._driver.capabilities["automationName"] == 'Selenium':
+			self._driver.maximize_window()
 		return None
 
 	def quit(self):
