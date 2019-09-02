@@ -9,7 +9,6 @@ import time
 import allure
 
 from tests.web_app_tests.parabank_test.page_object_models.register_page_model import RegisterPageModel
-from tests.web_app_tests.parabank_test.expected_results.page_content.register_page_content import RegisterPageContent
 
 
 def register_user(driver, user, config):
