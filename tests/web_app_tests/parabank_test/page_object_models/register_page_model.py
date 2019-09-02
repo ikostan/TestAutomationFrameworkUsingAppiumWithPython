@@ -3,7 +3,7 @@
 #  Created by Egor Kostan.
 #  GitHub: https://github.com/ikostan
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
-
+from tests.web_app_tests.parabank_test.page_object_models.account_services_page_model import AccountServicesMenuModel
 from utils.driver import Driver
 from tests.config import Config
 
@@ -25,9 +25,17 @@ class RegisterPageModel(BasePageModel):
 		super().__init__(config, driver, implicit_wait_time, explicit_wait_time)
 
 		self._url = config.base_url + RegisterPageContent.URL
-		self.personal_info = BasePersonalInfoPageModel(driver=driver,
-		                                               explicit_wait_time=explicit_wait_time)
+		self._personal_info = BasePersonalInfoPageModel(driver=driver,
+		                                                explicit_wait_time=explicit_wait_time)
 		self._locator = RegisterPageLocator
+
+	@property
+	def personal_info(self):
+		"""
+		Returns an instance of BasePersonalInfoPageModel class
+		:return:
+		"""
+		return self._personal_info
 
 	@property
 	def username_title(self):
@@ -203,10 +211,10 @@ class RegisterPageModel(BasePageModel):
 		locator = self._locator.REGISTER_BUTTON
 		element = self.create_web_element(locator)
 		element.click_on()
-		return RegisterPageModel(config=self._config,
-		                         driver=self.driver,
-		                         implicit_wait_time=5,
-		                         explicit_wait_time=10)
+		return AccountServicesMenuModel(config=self._config,
+		                                driver=self.driver,
+		                                implicit_wait_time=5,
+		                                explicit_wait_time=10)
 
 	@property
 	def welcome_header(self):
@@ -214,7 +222,7 @@ class RegisterPageModel(BasePageModel):
 		Returns welcome header
 		:return:
 		"""
-		locator = self._locator.HEADER
+		locator = self._locator.PERSONAL_INFO.HEADER
 		element = self.create_web_element(locator)
 		value = element.text
 		return value
@@ -225,7 +233,7 @@ class RegisterPageModel(BasePageModel):
 		Returns welcome message
 		:return:
 		"""
-		locator = self._locator.DESCRIPTION
+		locator = self._locator.PERSONAL_INFO.DESCRIPTION
 		element = self.create_web_element(locator)
 		value = element.text
 		return value
