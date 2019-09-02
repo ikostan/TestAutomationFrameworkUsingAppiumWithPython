@@ -1,4 +1,4 @@
-"""Base Page Object Model"""
+"""Base Page Object Model Class"""
 
 #  Created by Egor Kostan.
 #  GitHub: https://github.com/ikostan
@@ -10,7 +10,7 @@ from tests.web_app_tests.parabank_test.expected_results.page_content.base_page_c
 
 class BasePageModel:
 	"""
-	Base Page Object Model
+	Base Page Object Model Class
 
 	The page object pattern intends creating an object for each web page.
 	By following this technique a layer of separation between the test code and technical implementation is created.
@@ -21,20 +21,6 @@ class BasePageModel:
 		self._implicit_wait_time = implicit_wait_time
 		self._explicit_wait_time = explicit_wait_time
 		self._driver = driver
-		self._set_implicit_wait(implicit_wait_time)
-
-	def _set_implicit_wait(self, implicit_wait_time: int):
-		"""
-		The default value of time that can be set using Implicit wait is zero.
-		Its unit is in seconds.
-		Implicit wait remains associated with the web element until it gets destroyed.
-		:param implicit_wait_time:
-		:return:
-		"""
-		if type(implicit_wait_time) != int:
-			raise TypeError('\nERROR: wrong data type. Please set "implicit_wait_time" value as integer.\n')
-		self._driver.implicitly_wait(implicit_wait_time)
-		return None
 
 	def create_web_element(self, locator):
 		"""Returns base web element"""
@@ -57,8 +43,9 @@ class BasePageModel:
 		:return:
 		"""
 
+		print("\nGO: {}\n".format(self._url))
 		self._driver.get(self._url)
-		self._driver.maximize_window()
+		# self._driver.maximize_window()
 		return None
 
 	def quit(self):
