@@ -7,6 +7,7 @@
 
 class BasePageContent:
 	"""
+	Base Page Content Class
 	Holds expected context values for Base web page items
 	"""
 
