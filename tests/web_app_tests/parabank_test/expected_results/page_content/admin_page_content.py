@@ -2,14 +2,16 @@
 #  GitHub: https://github.com/ikostan
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
 
-from expected_results.page_content.base_page_content import BasePageContent
+from tests.web_app_tests.parabank_test.expected_results.page_content.base_page_content import BasePageContent
 
 
 class AdminPageContent(BasePageContent):
 
 	TITLE = BasePageContent.TITLE + 'Administration'
 
-	URL = BasePageContent.URL + 'admin.htm'
+	BASE_URL = 'admin.htm'
+
+	URL = BasePageContent.URL + BASE_URL
 
 	INITIALIZE_BUTTON = 'Initialize'
 
