@@ -1,20 +1,28 @@
+"""Register Page Content Class"""
+
 #  Created by Egor Kostan.
 #  GitHub: https://github.com/ikostan
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
 
-from expected_results.page_content.base_page_content import BasePageContent
-from expected_results.page_content.base_personal_info_content import BasePersonalInfoContent
+from tests.web_app_tests.parabank_test.expected_results.page_content.base_page_content import BasePageContent
+from tests.web_app_tests.parabank_test.expected_results.page_content.base_personal_info_content import \
+	BasePersonalInfoContent
 
 
 # TODO: review this one and try to remove BasePersonalInfoContext
-class RegisterPageContent(BasePageContent, BasePersonalInfoContent):
-	'''
+class RegisterPageContent(BasePageContent):
+	"""
+	Register Page Content Class
 	Holds fields/data from "Register" form
-	'''
+	"""
+
+	PERSONAL_INFO = BasePersonalInfoContent
 
 	TITLE = BasePageContent.TITLE + 'Register for Free Online Account Access'
 
-	URL = BasePageContent.URL + 'register.htm'
+	BASE_URL = 'register.htm'
+
+	URL = BasePageContent.URL + BASE_URL
 
 	HEADER = {
 		'class': "title",
