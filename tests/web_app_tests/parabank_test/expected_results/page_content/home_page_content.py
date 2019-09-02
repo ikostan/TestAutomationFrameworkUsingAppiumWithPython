@@ -1,16 +1,21 @@
+"""Home Page Content Class"""
+
 #  Created by Egor Kostan.
 #  GitHub: https://github.com/ikostan
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
 
-from expected_results.page_content.base_page_content import BasePageContent
+from tests.web_app_tests.parabank_test.expected_results.page_content.base_page_content import BasePageContent
 
 
 class HomePageContent(BasePageContent):
-	'''
+	"""
+	Home Page Content Class
 	Holds expected context values for home page items
-	'''
+	"""
 
-	URL = BasePageContent.URL + 'index.htm'
+	BASE_URL = 'index.htm'
+
+	URL = BasePageContent.URL + BASE_URL
 
 	TITLE = BasePageContent.TITLE + 'Welcome | Online Banking'
 
