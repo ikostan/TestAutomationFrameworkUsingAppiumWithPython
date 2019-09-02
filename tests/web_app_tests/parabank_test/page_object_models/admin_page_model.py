@@ -23,9 +23,11 @@ class AdminPageModel(BasePageModel):
 	def __init__(self, config: Config, driver: Driver, implicit_wait_time, explicit_wait_time):
 
 		super().__init__(config, driver, implicit_wait_time, explicit_wait_time)
+
 		self._url = config.base_url + AdminPageContent.URL
 		self._locator = AdminPageLocator
 
+	@property
 	def initialize_button(self):
 		"""
 		Returns Initialize button
@@ -36,6 +38,7 @@ class AdminPageModel(BasePageModel):
 		element = self.create_web_element(locator)
 		return element
 
+	@property
 	def clean_button(self):
 		"""
 		Returns Clean button
