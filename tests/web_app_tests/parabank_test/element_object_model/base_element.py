@@ -18,7 +18,7 @@ class BaseElement:
     """
 
     def __init__(self, driver: selenium.webdriver, explicit_wait_time: int, locator=None):
-        self._driver = self._set_driver(driver)
+        self._driver = driver
         self._explicit_wait_time = explicit_wait_time
         self._locator = self._set_locator(locator)
         self._element = self._find_element()
@@ -84,16 +84,6 @@ class BaseElement:
             raise NoSuchElementException(
                 '\nERROR: can not find element. The element is not present on the DOM.\n'
                 'LOCATOR: {}\n'.format(self.locator))
-
-    @staticmethod
-    def _set_driver(driver: selenium.webdriver):
-        '''
-        Check if driver of type: selenium.webdriver
-        :param driver:
-        :return:
-        '''
-        BaseElement._check_driver_type(driver)
-        return driver
 
     @staticmethod
     def _check_driver_type(driver):
