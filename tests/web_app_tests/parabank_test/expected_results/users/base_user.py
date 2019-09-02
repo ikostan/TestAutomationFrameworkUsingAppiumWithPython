@@ -177,10 +177,10 @@ class BaseUser:
 
 	@property
 	def ssn(self):
-		'''
+		"""
 		Returns ssn value
 		:return:
-		'''
+		"""
 		return self._ssn
 
 	@ssn.setter
