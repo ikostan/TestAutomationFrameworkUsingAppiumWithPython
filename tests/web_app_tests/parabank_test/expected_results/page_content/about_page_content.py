@@ -9,12 +9,15 @@ from tests.web_app_tests.parabank_test.expected_results.page_content.base_page_c
 
 class AboutPageContent(BasePageContent):
 	"""
+	About Page Content Class
 	Holds expected context values for About web page items
 	"""
 
 	TITLE = BasePageContent.TITLE + 'About Us'
 
-	URL = BasePageContent.URL + 'about.htm'
+	BASE_URL = 'about.htm'
+
+	URL = BasePageContent.URL + BASE_URL
 
 	DESCRIPTION = {'title': 'ParaSoft Demo Website',
 	               'text': ['ParaBank is a demo site used for demonstration of Parasoft software solutions.\n'
@@ -24,3 +27,4 @@ class AboutPageContent(BasePageContent):
 	                        'call 888-305-0041']}
 
 	LINK = "http://www.parasoft.com/"
+
