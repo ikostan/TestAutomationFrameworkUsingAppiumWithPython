@@ -4,11 +4,12 @@
 #  GitHub: https://github.com/ikostan
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
 
-from tests.web_app_tests.parabank_test.element_object_model.element import Element
+from tests.web_app_tests.parabank_test.element_object_model.get_text_property import get_text_property
+from tests.web_app_tests.parabank_test.element_object_model.create_web_element import create_web_element
 from tests.web_app_tests.parabank_test.page_locators.base_personal_info_page_locator import BasePersonalInfoPageLocator
 
 
-class BasePersonalInfoPageModel:
+class BasePersonalInfoModel:
 	"""
 	Base Personal Info Page Model Class
 
@@ -21,13 +22,6 @@ class BasePersonalInfoPageModel:
 		self._explicit_wait_time = explicit_wait_time
 		self._locator = BasePersonalInfoPageLocator
 
-	def _create_web_element(self, locator):
-		"""Returns base web element"""
-
-		return Element(driver=self._driver,
-		               explicit_wait_time=self._explicit_wait_time,
-		               locator=locator)
-
 	@property
 	def header(self):
 		"""
@@ -35,9 +29,7 @@ class BasePersonalInfoPageModel:
         :return:
         """
 		locator = self._locator.HEADER
-		element = self._create_web_element(locator)
-		txt = element.text
-		return txt
+		return get_text_property(locator)
 
 	@property
 	def description(self):
@@ -46,9 +38,7 @@ class BasePersonalInfoPageModel:
         :return:
         """
 		locator = self._locator.DESCRIPTION
-		element = self._create_web_element(locator)
-		txt = element.text
-		return txt
+		return get_text_property(locator)
 
 	@property
 	def first_name_title(self):
@@ -57,9 +47,7 @@ class BasePersonalInfoPageModel:
         :return:
         """
 		locator = self._locator.FIRST_NAME_TITLE
-		element = self._create_web_element(locator)
-		txt = element.text
-		return txt
+		return get_text_property(locator)
 
 	def type_first_name(self, first_name: str):
 		"""
@@ -68,7 +56,7 @@ class BasePersonalInfoPageModel:
         :return:
         """
 		locator = self._locator.FIRST_NAME_INPUT
-		element = self._create_web_element(locator)
+		element = create_web_element(locator)
 		element.write(first_name)
 		return None
 
@@ -79,7 +67,7 @@ class BasePersonalInfoPageModel:
         :return:
         """
 		locator = self._locator.FIRST_NAME_INPUT
-		element = self._create_web_element(locator)
+		element = create_web_element(locator)
 		value = element.element_value
 		return value
 
@@ -91,7 +79,7 @@ class BasePersonalInfoPageModel:
         :return:
         """
 		locator = self._locator.FIRST_NAME_ERROR
-		element = self._create_web_element(locator)
+		element = create_web_element(locator)
 		txt = element.text
 		return txt
 
@@ -102,9 +90,7 @@ class BasePersonalInfoPageModel:
         :return:
         """
 		locator = self._locator.LAST_NAME_TITLE
-		element = self._create_web_element(locator)
-		txt = element.text
-		return txt
+		return get_text_property(locator)
 
 	def type_last_name(self, last_name: str):
 		"""
@@ -113,7 +99,7 @@ class BasePersonalInfoPageModel:
         :return:
         """
 		locator = self._locator.LAST_NAME_INPUT
-		element = self._create_web_element(locator)
+		element = create_web_element(locator)
 		element.write(last_name)
 		return None
 
@@ -124,7 +110,7 @@ class BasePersonalInfoPageModel:
         :return:
         """
 		locator = self._locator.LAST_NAME_INPUT
-		element = self._create_web_element(locator)
+		element = create_web_element(locator)
 		value = element.element_value
 		return value
 
@@ -135,9 +121,7 @@ class BasePersonalInfoPageModel:
         :return:
         """
 		locator = self._locator.LAST_NAME_ERROR
-		element = self._create_web_element(locator)
-		txt = element.text
-		return txt
+		return get_text_property(locator)
 
 	@property
 	def address_title(self):
@@ -146,9 +130,7 @@ class BasePersonalInfoPageModel:
         :return:
         """
 		locator = self._locator.ADDRESS_TITLE
-		element = self._create_web_element(locator)
-		txt = element.text
-		return txt
+		return get_text_property(locator)
 
 	def type_address(self, address: str):
 		"""
@@ -157,7 +139,7 @@ class BasePersonalInfoPageModel:
         :return:
         """
 		locator = self._locator.ADDRESS_INPUT
-		element = self._create_web_element(locator)
+		element = create_web_element(locator)
 		element.write(address)
 		return None
 
@@ -168,7 +150,7 @@ class BasePersonalInfoPageModel:
         :return:
         """
 		locator = self._locator.ADDRESS_INPUT
-		element = self._create_web_element(locator)
+		element = create_web_element(locator)
 		value = element.element_value
 		return value
 
@@ -179,9 +161,7 @@ class BasePersonalInfoPageModel:
         :return:
         """
 		locator = self._locator.ADDRESS_ERROR
-		element = self._create_web_element(locator)
-		txt = element.text
-		return txt
+		return get_text_property(locator)
 
 	@property
 	def city_title(self):
@@ -190,9 +170,7 @@ class BasePersonalInfoPageModel:
         :return:
         """
 		locator = self._locator.CITY_TITLE
-		element = self._create_web_element(locator)
-		txt = element.text
-		return txt
+		return get_text_property(locator)
 
 	def type_city(self, city: str):
 		"""
@@ -201,7 +179,7 @@ class BasePersonalInfoPageModel:
         :return:
         """
 		locator = self._locator.CITY_INPUT
-		element = self._create_web_element(locator)
+		element = create_web_element(locator)
 		element.write(city)
 		return None
 
@@ -212,7 +190,7 @@ class BasePersonalInfoPageModel:
         :return:
         """
 		locator = self._locator.CITY_INPUT
-		element = self._create_web_element(locator)
+		element = create_web_element(locator)
 		value = element.element_value
 		return value
 
@@ -223,9 +201,7 @@ class BasePersonalInfoPageModel:
         :return:
         """
 		locator = self._locator.CITY_ERROR
-		element = self._create_web_element(locator)
-		txt = element.text
-		return txt
+		return get_text_property(locator)
 
 	@property
 	def state_title(self):
@@ -234,9 +210,7 @@ class BasePersonalInfoPageModel:
         :return:
         """
 		locator = self._locator.STATE_TITLE
-		element = self._create_web_element(locator)
-		txt = element.text
-		return txt
+		return get_text_property(locator)
 
 	def type_state(self, state: str):
 		"""
@@ -245,7 +219,7 @@ class BasePersonalInfoPageModel:
         :return:
         """
 		locator = self._locator.STATE_INPUT
-		element = self._create_web_element(locator)
+		element = create_web_element(locator)
 		element.write(state)
 		return None
 
@@ -256,7 +230,7 @@ class BasePersonalInfoPageModel:
         :return:
         """
 		locator = self._locator.STATE_INPUT
-		element = self._create_web_element(locator)
+		element = create_web_element(locator)
 		value = element.element_value
 		return value
 
@@ -267,9 +241,7 @@ class BasePersonalInfoPageModel:
         :return:
         """
 		locator = self._locator.STATE_ERROR
-		element = self._create_web_element(locator)
-		txt = element.text
-		return txt
+		return get_text_property(locator)
 
 	@property
 	def zip_code_title(self):
@@ -278,9 +250,7 @@ class BasePersonalInfoPageModel:
         :return:
         """
 		locator = self._locator.ZIP_CODE_TITLE
-		element = self._create_web_element(locator)
-		txt = element.text
-		return txt
+		return get_text_property(locator)
 
 	def type_zip_code(self, zip_code: str):
 		"""
@@ -289,7 +259,7 @@ class BasePersonalInfoPageModel:
         :return:
         """
 		locator = self._locator.ZIP_CODE_INPUT
-		element = self._create_web_element(locator)
+		element = create_web_element(locator)
 		element.write(zip_code)
 		return None
 
@@ -300,7 +270,7 @@ class BasePersonalInfoPageModel:
         :return:
         """
 		locator = self._locator.ZIP_CODE_INPUT
-		element = self._create_web_element(locator)
+		element = create_web_element(locator)
 		value = element.element_value
 		return value
 
@@ -311,9 +281,7 @@ class BasePersonalInfoPageModel:
         :return:
         """
 		locator = self._locator.ZIP_CODE_ERROR
-		element = self._create_web_element(locator)
-		txt = element.text
-		return txt
+		return get_text_property(locator)
 
 	@property
 	def phone_title(self):
@@ -322,9 +290,7 @@ class BasePersonalInfoPageModel:
         :return:
         """
 		locator = self._locator.PHONE_TITLE
-		element = self._create_web_element(locator)
-		txt = element.text
-		return txt
+		return get_text_property(locator)
 
 	def type_phone(self, phone_number: str):
 		"""
@@ -333,7 +299,7 @@ class BasePersonalInfoPageModel:
         :return:
         """
 		locator = self._locator.PHONE_INPUT
-		element = self._create_web_element(locator)
+		element = create_web_element(locator)
 		element.write(phone_number)
 		return None
 
@@ -344,7 +310,7 @@ class BasePersonalInfoPageModel:
         :return:
         """
 		locator = self._locator.PHONE_INPUT
-		element = self._create_web_element(locator)
+		element = create_web_element(locator)
 		value = element.element_value
 		return value
 
@@ -355,9 +321,7 @@ class BasePersonalInfoPageModel:
         :return:
         """
 		locator = self._locator.SSN_TITLE
-		element = self._create_web_element(locator)
-		txt = element.text
-		return txt
+		return get_text_property(locator)
 
 	def type_ssn(self, ssn: str):
 		"""
@@ -366,7 +330,7 @@ class BasePersonalInfoPageModel:
         :return:
         """
 		locator = self._locator.SSN_INPUT
-		element = self._create_web_element(locator)
+		element = create_web_element(locator)
 		element.write(ssn)
 		return None
 
@@ -377,7 +341,7 @@ class BasePersonalInfoPageModel:
         :return:
         """
 		locator = self._locator.SSN_INPUT
-		element = self._create_web_element(locator)
+		element = create_web_element(locator)
 		value = element.element_value
 		return value
 
@@ -388,6 +352,4 @@ class BasePersonalInfoPageModel:
         :return:
         """
 		locator = self._locator.SSN_ERROR
-		element = self._create_web_element(locator)
-		txt = element.text
-		return txt
+		return get_text_property(locator)
