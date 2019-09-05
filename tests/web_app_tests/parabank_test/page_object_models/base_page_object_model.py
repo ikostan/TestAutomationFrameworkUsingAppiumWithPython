@@ -4,11 +4,11 @@
 #  GitHub: https://github.com/ikostan
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
 
-from tests.web_app_tests.parabank_test.element_object_model.element import Element
+from tests.web_app_tests.parabank_test.page_object_models.base_object_model import BaseObjectModel
 from tests.web_app_tests.parabank_test.expected_results.page_content.base_page_content import BasePageContent
 
 
-class BasePageModel:
+class BasePageObjectModel(BaseObjectModel):
 	"""
 	Base Page Object Model Class
 
@@ -16,22 +16,11 @@ class BasePageModel:
 	By following this technique a layer of separation between the test code and technical implementation is created.
 	"""
 
-	def __init__(self, config, driver, implicit_wait_time, explicit_wait_time):
+	def __init__(self, config, driver, explicit_wait_time):
+
+		super().__init__(driver=driver, explicit_wait_time=explicit_wait_time)
 		self._config = config
-		self._implicit_wait_time = implicit_wait_time
-		self._explicit_wait_time = explicit_wait_time
-		self._driver = driver
-		from tests.web_app_tests.parabank_test.page_object_models.customer_login_model import CustomerLoginModel
-		self._customer_login = CustomerLoginModel(driver=self._driver,
-		                                          config=self._config,
-		                                          explicit_wait_time=self._explicit_wait_time)
-
-	def create_web_element(self, locator):
-		"""Returns base web element"""
-
-		return Element(driver=self._driver,
-		               explicit_wait_time=self._explicit_wait_time,
-		               locator=locator)
+		self._url = self._config.base_url + BasePageContent.URL
 
 	@property
 	def customer_login(self):
@@ -39,15 +28,11 @@ class BasePageModel:
 		Returns CustomerLoginModel instance
 		:return:
 		"""
-		return self._customer_login
-
-	@property
-	def implicit_wait_time(self):
-		return self._implicit_wait_time
-
-	@property
-	def explicit_wait_time(self):
-		return self._explicit_wait_time
+		from tests.web_app_tests.parabank_test.page_object_models.customer_login_model import CustomerLoginModel
+		customer_login = CustomerLoginModel(driver=self._driver,
+		                                    config=self._config,
+		                                    explicit_wait_time=self._explicit_wait_time)
+		return customer_login
 
 	def go(self):
 		"""
@@ -78,14 +63,6 @@ class BasePageModel:
 		if self._driver:
 			self._driver.close()
 		return None
-
-	@property
-	def driver(self):
-		"""
-		Returns Selenium webdriver object
-		:return:
-		"""
-		return self._driver
 
 	@property
 	def title(self):
@@ -131,4 +108,3 @@ class BasePageModel:
 				url = url[:url.index(';')]
 
 		return url
-
