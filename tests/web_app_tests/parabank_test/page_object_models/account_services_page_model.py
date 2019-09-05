@@ -7,22 +7,29 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from tests.web_app_tests.parabank_test.element_object_model.element import Element
 from tests.web_app_tests.parabank_test.page_object_models.home_page_model import HomePageModel
+from tests.web_app_tests.parabank_test.page_object_models.base_object_model import BaseObjectModel
 from tests.web_app_tests.parabank_test.page_locators.account_services_menu_locator import AccountServicesMenuLocator
 
 
-class AccountServicesMenuModel:
+class AccountServicesMenuModel(BaseObjectModel):
 	"""
 	Account Services Menu Model Class
 	"""
 
-	def __init__(self, config, driver, implicit_wait_time=5, explicit_wait_time=10):
+	def __init__(self, config, driver, explicit_wait_time):
 
+		super().__init__(driver=driver, explicit_wait_time=explicit_wait_time)
 		self._config = config
-		self._driver = driver
-		self._implicit_wait_time = implicit_wait_time
-		self._explicit_wait_time = explicit_wait_time
+		self._locator = AccountServicesMenuLocator
+
+	@property
+	def welcome_message(self):
+		pass
+
+	@property
+	def menu_title(self):
+		pass
 
 	def hit_log_out_button(self):
 		"""
@@ -33,21 +40,22 @@ class AccountServicesMenuModel:
 		An expectation for checking the current url.
         url is the expected url, which must not be an exact match
         returns True if the url is different, false otherwise.
-        Source: https://seleniumhq.github.io/selenium/docs/api/py/_modules/selenium/webdriver/support/expected_conditions.html#url_changes
+
+        Source: https://seleniumhq.github.io/selenium/docs/api/py
+        /_modules/selenium/webdriver/support/expected_conditions.html#url_changes
 		:return:
 		"""
 
 		current_url = self._driver.current_url
 
-		element = Element(self._driver,
-		                  self._explicit_wait_time,
-		                  AccountServicesMenuLocator.LOG_OUT)
+		locator = self._locator.LOG_OUT
+		element = self.create_web_element(locator)
 
 		element.click_on()
 
-		WebDriverWait(self._driver, self._explicit_wait_time).until(EC.url_changes(current_url))
+		WebDriverWait(self.driver,
+		              self.explicit_wait_time).until(EC.url_changes(current_url))
 
 		return HomePageModel(config=self._config,
-		                     driver=self._driver,
-		                     implicit_wait_time=5,
-		                     explicit_wait_time=10)
+		                     driver=self.driver,
+		                     explicit_wait_time=self.explicit_wait_time)
