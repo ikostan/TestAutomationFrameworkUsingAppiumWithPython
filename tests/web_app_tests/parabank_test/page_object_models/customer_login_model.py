@@ -7,7 +7,8 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from tests.web_app_tests.parabank_test.element_object_model.element import Element
+from tests.web_app_tests.parabank_test.element_object_model.create_web_element import create_web_element
+from tests.web_app_tests.parabank_test.element_object_model.get_text_property import get_text_property
 from tests.web_app_tests.parabank_test.page_locators.customer_login_locator import CustomerLoginLocator
 from tests.web_app_tests.parabank_test.expected_results.page_content.login_page_content import LoginPageContent
 from tests.web_app_tests.parabank_test.expected_results.page_content.accounts_overview_page_content import \
@@ -27,16 +28,6 @@ class CustomerLoginModel:
 		self._driver = driver
 		self._explicit_wait_time = explicit_wait_time
 
-	def create_web_element(self, locator):
-		"""
-		Returns base web element
-		:param locator:
-		:return:
-		"""
-		return Element(driver=self._driver,
-		               explicit_wait_time=self._explicit_wait_time,
-		               locator=locator)
-
 	@property
 	def customer_login_title(self):
 		"""
@@ -44,9 +35,7 @@ class CustomerLoginModel:
 		:return:
 		"""
 		locator = self._locator.CUSTOMER_LOGIN_TITLE
-		element = self.create_web_element(locator)
-		txt = element.text
-		return txt
+		return get_text_property(locator)
 
 	@property
 	def username_login_title(self):
@@ -55,9 +44,7 @@ class CustomerLoginModel:
 		:return:
 		"""
 		locator = self._locator.USERNAME_LOGIN_TITLE
-		element = self.create_web_element(locator)
-		txt = element.text
-		return txt
+		return get_text_property(locator)
 
 	@property
 	def password_login_title(self):
@@ -66,9 +53,7 @@ class CustomerLoginModel:
 		:return:
 		"""
 		locator = self._locator.PASSWORD_LOGIN_TITLE
-		element = self.create_web_element(locator)
-		txt = element.text
-		return txt
+		return get_text_property(locator)
 
 	@property
 	def username(self):
@@ -77,7 +62,7 @@ class CustomerLoginModel:
 		:return:
 		"""
 		locator = self._locator.LOGIN_USERNAME_INPUT
-		element = self.create_web_element(locator)
+		element = create_web_element(locator)
 		value = element.element_value
 		return value
 
@@ -87,7 +72,7 @@ class CustomerLoginModel:
 		:return:
 		"""
 		locator = self._locator.LOGIN_USERNAME_INPUT
-		element = self.create_web_element(locator)
+		element = create_web_element(locator)
 		element.write(username)
 		return None
 
@@ -98,7 +83,7 @@ class CustomerLoginModel:
 		:return:
 		"""
 		locator = self._locator.LOGIN_PASSWORD_INPUT
-		element = self.create_web_element(locator)
+		element = create_web_element(locator)
 		value = element.element_value
 		return value
 
@@ -108,7 +93,7 @@ class CustomerLoginModel:
 		:return:
 		"""
 		locator = self._locator.LOGIN_PASSWORD_INPUT
-		element = self.create_web_element(locator)
+		element = create_web_element(locator)
 		element.write(password)
 		return None
 
@@ -119,7 +104,7 @@ class CustomerLoginModel:
 		:return:
 		"""
 		locator = self._locator.CUSTOMER_LOGIN_BUTTON
-		element = self.create_web_element(locator)
+		element = create_web_element(locator)
 		atr = element.element_value
 		return atr
 
@@ -132,7 +117,7 @@ class CustomerLoginModel:
 		:return:
 		"""
 		locator = self._locator.CUSTOMER_LOGIN_BUTTON
-		element = self.create_web_element(locator)
+		element = create_web_element(locator)
 		current_url = self._driver.current_url
 		element.click_on()
 		WebDriverWait(self._driver, self._explicit_wait_time).until(EC.url_changes(current_url))
@@ -161,7 +146,7 @@ class CustomerLoginModel:
 		:return:
 		"""
 		locator = self._locator.FORGOT_LOGIN
-		element = self.create_web_element(locator)
+		element = create_web_element(locator)
 		return element
 
 	@property
@@ -171,6 +156,6 @@ class CustomerLoginModel:
 		:return:
 		"""
 		locator = self._locator.REGISTER
-		element = self.create_web_element(locator)
+		element = create_web_element(locator)
 		return element
 
