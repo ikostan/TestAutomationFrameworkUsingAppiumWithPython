@@ -7,13 +7,14 @@
 from tests.config import Config
 from utils.driver import Driver
 
-from tests.web_app_tests.parabank_test.page_object_models.base_page_model import BasePageModel
+from tests.web_app_tests.parabank_test.page_object_models.base_page_object_model import BasePageObjectModel
+from tests.web_app_tests.parabank_test.element_object_model.get_text_property import get_text_property
 from tests.web_app_tests.parabank_test.page_locators.accounts_overview_page_locator import AccountsOverviewPageLocator
 from tests.web_app_tests.parabank_test.expected_results.page_content.accounts_overview_page_content import \
 	AccountsOverviewPageContent
 
 
-class AccountsOverviewPageModel(BasePageModel):
+class AccountsOverviewPageModel(BasePageObjectModel):
 	"""
 	Accounts Overview Page Model Class
 	The page object pattern intends creating an object for each web page.
@@ -27,14 +28,13 @@ class AccountsOverviewPageModel(BasePageModel):
 		self._locator = AccountsOverviewPageLocator
 		_url = config.base_url + AccountsOverviewPageContent.URL
 
+	@property
 	def total_balance(self):
 		"""
 		Returns total balance value
 		:return:
 		"""
 		locator = self._locator.TOTAL_VALUE
-		element = self.create_web_element(locator)
-		txt = element.text
-		return txt
+		return get_text_property(locator)
 
 
