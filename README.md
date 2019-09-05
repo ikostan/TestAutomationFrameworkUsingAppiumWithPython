@@ -1,6 +1,6 @@
 [![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
 
-## Creating Mobile Automation Testing Framework for IOS and Android Using Appium with Python
+## Creating Mobile Automation Testing Framework for Android Using Appium with Python
 
 <br/>   
 <div align="center"> 
