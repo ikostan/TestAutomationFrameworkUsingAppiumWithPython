@@ -7,12 +7,13 @@
 from tests.config import Config
 from utils.driver import Driver
 
-from tests.web_app_tests.parabank_test.page_object_models.base_page_model import BasePageModel
+from tests.web_app_tests.parabank_test.page_object_models.base_page_object_model import BasePageObjectModel
 from tests.web_app_tests.parabank_test.page_locators.login_page_locator import LoginPageLocator
+from tests.web_app_tests.parabank_test.element_object_model.get_text_property import get_text_property
 from tests.web_app_tests.parabank_test.expected_results.page_content.login_page_content import LoginPageContent
 
 
-class LoginPageModel(BasePageModel):
+class LoginPageModel(BasePageObjectModel):
 	"""
 	Login Page Model Class
 	The page object pattern intends creating an object for each web page.
@@ -32,9 +33,7 @@ class LoginPageModel(BasePageModel):
 		:return:
 		"""
 		locator = self._locator.ERROR_TITLE
-		element = self.create_web_element(locator)
-		txt = element.text
-		return txt
+		return get_text_property(locator)
 
 	@property
 	def error_message(self):
@@ -43,8 +42,6 @@ class LoginPageModel(BasePageModel):
 		:return:
 		"""
 		locator = self._locator.ERROR_MESSAGE
-		element = self.create_web_element(locator)
-		txt = element.text
-		return txt
+		return get_text_property(locator)
 
 
