@@ -8,11 +8,12 @@ from utils.driver import Driver
 
 from tests.config import Config
 from tests.web_app_tests.parabank_test.page_locators.admin_page_locator import AdminPageLocator
-from tests.web_app_tests.parabank_test.page_object_models.base_page_model import BasePageModel
+from tests.web_app_tests.parabank_test.page_object_models.base_page_object_model import BasePageObjectModel
+from tests.web_app_tests.parabank_test.element_object_model.create_web_element import create_web_element
 from tests.web_app_tests.parabank_test.expected_results.page_content.admin_page_content import AdminPageContent
 
 
-class AdminPageModel(BasePageModel):
+class AdminPageModel(BasePageObjectModel):
 	"""
 	Admin Page Model Class
 
@@ -35,7 +36,7 @@ class AdminPageModel(BasePageModel):
 		"""
 
 		locator = self._locator.INITIALIZE_BUTTON
-		element = self.create_web_element(locator)
+		element = create_web_element(locator)
 		return element
 
 	@property
@@ -46,5 +47,5 @@ class AdminPageModel(BasePageModel):
 		"""
 
 		locator = self._locator.CLEAN_BUTTON
-		element = self.create_web_element(locator)
+		element = create_web_element(locator)
 		return element
