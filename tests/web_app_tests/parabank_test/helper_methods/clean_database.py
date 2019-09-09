@@ -21,7 +21,6 @@ def clean_database(driver, config: Config):
 	print("Open web browser")
 	page = AdminPageModel(config=config,
 	                      driver=driver,
-	                      implicit_wait_time=5,
 	                      explicit_wait_time=10)
 	# Open Web page
 	with allure.step("Open Admin web page"):
