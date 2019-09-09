@@ -4,8 +4,8 @@
 
 <br/> 
 <div align="center"> 
-<img width="50%" height="50%" src="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/blob/master/img/video-to-gif-2.gif" hspace="0">
-<img width="50%" height="50%" src="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/blob/master/img/ezgif.com-video-to-gif.gif" hspace="0">
+<img width="40%" height="40%" src="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/blob/master/img/video-to-gif-2.gif" hspace="0">
+<img width="40%" height="40%" src="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/blob/master/img/ezgif.com-video-to-gif.gif" hspace="0">
 </div>
 <br/>
 
