@@ -7,8 +7,8 @@
 from utils.driver import Driver
 from tests.config import Config
 
-from tests.web_app_tests.parabank_test.page_object_models.base_page_object_model import BasePageObjectModel
 from tests.web_app_tests.parabank_test.page_locators.register_page_locator import RegisterPageLocator
+from tests.web_app_tests.parabank_test.page_object_models.base_page_object_model import BasePageObjectModel
 from tests.web_app_tests.parabank_test.expected_results.page_content.register_page_content import RegisterPageContent
 
 
@@ -21,7 +21,10 @@ class RegisterPageModel(BasePageObjectModel):
 	"""
 
 	def __init__(self, config: Config, driver: Driver, explicit_wait_time):
-		super().__init__(config, driver, explicit_wait_time)
+
+		super().__init__(config=config,
+		                 driver=driver,
+		                 explicit_wait_time=explicit_wait_time)
 
 		self._url = config.base_url + RegisterPageContent.URL
 		from tests.web_app_tests.parabank_test.page_object_models.base_personal_info_page_model import \
@@ -46,7 +49,7 @@ class RegisterPageModel(BasePageObjectModel):
 		:return:
 		"""
 		locator = self._locator.USERNAME_TITLE
-		return get_text_property(locator)
+		return self.get_text_property(locator)
 
 	def type_username(self, username: str):
 		"""
@@ -55,7 +58,7 @@ class RegisterPageModel(BasePageObjectModel):
 		:return:
 		"""
 		locator = self._locator.USERNAME_INPUT
-		element = create_web_element(locator)
+		element = self.create_web_element(locator)
 		element.write(username)
 		return None
 
@@ -66,7 +69,7 @@ class RegisterPageModel(BasePageObjectModel):
 		:return:
 		"""
 		locator = self._locator.USERNAME_INPUT
-		element = create_web_element(locator)
+		element = self.create_web_element(locator)
 		value = element.element_value
 		return value
 
@@ -77,7 +80,7 @@ class RegisterPageModel(BasePageObjectModel):
 		:return:
 		"""
 		locator = self._locator.USERNAME_ERROR
-		return get_text_property(locator)
+		return self.get_text_property(locator)
 
 	@property
 	def password_title(self):
@@ -86,7 +89,7 @@ class RegisterPageModel(BasePageObjectModel):
 		:return:
 		"""
 		locator = self._locator.PASSWORD_TITLE
-		return get_text_property(locator)
+		return self.get_text_property(locator)
 
 	def type_password(self, password: str):
 		"""
@@ -95,7 +98,7 @@ class RegisterPageModel(BasePageObjectModel):
 		:return:
 		"""
 		locator = self._locator.PASSWORD_INPUT
-		element = create_web_element(locator)
+		element = self.create_web_element(locator)
 		element.write(password)
 		return None
 
@@ -106,7 +109,7 @@ class RegisterPageModel(BasePageObjectModel):
 		:return:
 		"""
 		locator = self._locator.PASSWORD_INPUT
-		element = create_web_element(locator)
+		element = self.create_web_element(locator)
 		value = element.element_value
 		return value
 
@@ -117,7 +120,7 @@ class RegisterPageModel(BasePageObjectModel):
 		:return:
 		"""
 		locator = self._locator.PASSWORD_ERROR
-		return get_text_property(locator)
+		return self.get_text_property(locator)
 
 	@property
 	def confirm_title(self):
@@ -126,7 +129,7 @@ class RegisterPageModel(BasePageObjectModel):
 		:return:
 		"""
 		locator = self._locator.CONFIRM_TITLE
-		return get_text_property(locator)
+		return self.get_text_property(locator)
 
 	def type_confirm(self, password: str):
 		"""
@@ -135,7 +138,7 @@ class RegisterPageModel(BasePageObjectModel):
 		:return:
 		"""
 		locator = self._locator.CONFIRM_INPUT
-		element = create_web_element(locator)
+		element = self.create_web_element(locator)
 		element.write(password)
 		return None
 
@@ -146,7 +149,7 @@ class RegisterPageModel(BasePageObjectModel):
 		:return:
 		"""
 		locator = self._locator.CONFIRM_INPUT
-		element = create_web_element(locator)
+		element = self.create_web_element(locator)
 		value = element.element_value
 		return value
 
@@ -158,7 +161,7 @@ class RegisterPageModel(BasePageObjectModel):
 		:return:
 		"""
 		locator = self._locator.CONFIRM_ERROR
-		return get_text_property(locator)
+		return self.get_text_property(locator)
 
 	@property
 	def register_btn_label(self):
@@ -167,7 +170,7 @@ class RegisterPageModel(BasePageObjectModel):
 		:return:
 		"""
 		locator = self._locator.REGISTER_BUTTON
-		element = create_web_element(locator)
+		element = self.create_web_element(locator)
 		txt = element.element_value
 		return txt
 
@@ -178,7 +181,7 @@ class RegisterPageModel(BasePageObjectModel):
 		:return:
 		"""
 		locator = self._locator.REGISTER_BUTTON
-		element = create_web_element(locator)
+		element = self.create_web_element(locator)
 		txt = element.element_class
 		return txt
 
@@ -189,7 +192,7 @@ class RegisterPageModel(BasePageObjectModel):
 		:return:
 		"""
 		locator = self._locator.REGISTER_BUTTON
-		element = create_web_element(locator)
+		element = self.create_web_element(locator)
 		txt = element.element_type
 		return txt
 
@@ -199,7 +202,7 @@ class RegisterPageModel(BasePageObjectModel):
 		:return:
 		"""
 		locator = self._locator.REGISTER_BUTTON
-		element = create_web_element(locator)
+		element = self.create_web_element(locator)
 		element.click_on()
 		from tests.web_app_tests.parabank_test.page_object_models.account_services_page_model import \
 			AccountServicesMenuModel
@@ -214,7 +217,7 @@ class RegisterPageModel(BasePageObjectModel):
 		:return:
 		"""
 		locator = self._locator.PERSONAL_INFO.HEADER
-		return get_text_property(locator)
+		return self.get_text_property(locator)
 
 	@property
 	def welcome_message(self):
@@ -223,4 +226,5 @@ class RegisterPageModel(BasePageObjectModel):
 		:return:
 		"""
 		locator = self._locator.PERSONAL_INFO.DESCRIPTION
-		return get_text_property(locator)
+		return self.get_text_property(locator)
+
