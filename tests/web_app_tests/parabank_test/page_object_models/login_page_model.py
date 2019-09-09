@@ -7,9 +7,8 @@
 from tests.config import Config
 from utils.driver import Driver
 
-from tests.web_app_tests.parabank_test.page_object_models.base_page_object_model import BasePageObjectModel
 from tests.web_app_tests.parabank_test.page_locators.login_page_locator import LoginPageLocator
-from tests.web_app_tests.parabank_test.element_object_model.get_text_property import get_text_property
+from tests.web_app_tests.parabank_test.page_object_models.base_page_object_model import BasePageObjectModel
 from tests.web_app_tests.parabank_test.expected_results.page_content.login_page_content import LoginPageContent
 
 
@@ -20,9 +19,11 @@ class LoginPageModel(BasePageObjectModel):
 	By following this technique a layer of separation between the test code and technical implementation is created.
 	"""
 
-	def __init__(self, config: Config, driver: Driver, implicit_wait_time, explicit_wait_time):
+	def __init__(self, config: Config, driver: Driver, explicit_wait_time):
 
-		super().__init__(config, driver, implicit_wait_time, explicit_wait_time)
+		super().__init__(config=config,
+		                 driver=driver,
+		                 explicit_wait_time=explicit_wait_time)
 		self._locator = LoginPageLocator
 		self._url = config.base_url + LoginPageContent.URL
 
@@ -33,7 +34,7 @@ class LoginPageModel(BasePageObjectModel):
 		:return:
 		"""
 		locator = self._locator.ERROR_TITLE
-		return get_text_property(locator)
+		return self.get_text_property(locator)
 
 	@property
 	def error_message(self):
@@ -42,6 +43,6 @@ class LoginPageModel(BasePageObjectModel):
 		:return:
 		"""
 		locator = self._locator.ERROR_MESSAGE
-		return get_text_property(locator)
+		return self.get_text_property(locator)
 
 
