@@ -20,9 +20,9 @@ class AdminPageModel(BasePageObjectModel):
 	By following this technique a layer of separation between the test code and technical implementation is created.
 	"""
 
-	def __init__(self, config: Config, driver: Driver, implicit_wait_time, explicit_wait_time):
+	def __init__(self, config: Config, driver: Driver, explicit_wait_time):
 
-		super().__init__(config, driver, implicit_wait_time, explicit_wait_time)
+		super().__init__(config, driver, explicit_wait_time)
 
 		self._url = config.base_url + AdminPageContent.URL
 		self._locator = AdminPageLocator
@@ -35,7 +35,7 @@ class AdminPageModel(BasePageObjectModel):
 		"""
 
 		locator = self._locator.INITIALIZE_BUTTON
-		element = create_web_element(locator)
+		element = self.create_web_element(locator)
 		return element
 
 	@property
@@ -46,5 +46,5 @@ class AdminPageModel(BasePageObjectModel):
 		"""
 
 		locator = self._locator.CLEAN_BUTTON
-		element = create_web_element(locator)
+		element = self.create_web_element(locator)
 		return element
