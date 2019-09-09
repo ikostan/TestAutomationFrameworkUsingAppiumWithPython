@@ -3,8 +3,8 @@
 #  Created by Egor Kostan.
 #  GitHub: https://github.com/ikostan
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
-import time
 
+import time
 import allure
 import pytest
 
@@ -74,7 +74,6 @@ class TestUserLoginFromAdminPage(AndroidBrowserBaseTestCase):
         with allure.step("Open web browser"):
             page = AdminPageModel(config=config,
                                   driver=self.driver,
-                                  implicit_wait_time=5,
                                   explicit_wait_time=10)
 
         # 1. Open Home web page
