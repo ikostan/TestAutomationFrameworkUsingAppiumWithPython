@@ -9,8 +9,6 @@ from tests.config import Config
 
 from tests.web_app_tests.parabank_test.page_object_models.base_page_object_model import BasePageObjectModel
 from tests.web_app_tests.parabank_test.page_locators.register_page_locator import RegisterPageLocator
-from tests.web_app_tests.parabank_test.element_object_model.get_text_property import get_text_property
-from tests.web_app_tests.parabank_test.element_object_model.create_web_element import create_web_element
 from tests.web_app_tests.parabank_test.expected_results.page_content.register_page_content import RegisterPageContent
 
 
@@ -22,8 +20,8 @@ class RegisterPageModel(BasePageObjectModel):
 	By following this technique a layer of separation between the test code and technical implementation is created.
 	"""
 
-	def __init__(self, config: Config, driver: Driver, implicit_wait_time, explicit_wait_time):
-		super().__init__(config, driver, implicit_wait_time, explicit_wait_time)
+	def __init__(self, config: Config, driver: Driver, explicit_wait_time):
+		super().__init__(config, driver, explicit_wait_time)
 
 		self._url = config.base_url + RegisterPageContent.URL
 		from tests.web_app_tests.parabank_test.page_object_models.base_personal_info_page_model import \
