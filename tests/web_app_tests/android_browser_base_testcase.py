@@ -72,6 +72,10 @@ class AndroidBrowserBaseTestCase(unittest.TestCase):
                                        'TEST_AUTOMATION_FRAMEWORK_USING_APPIUM_WITH_PYTHON\\'
                                        'drivers\\chromedriver\\v2_44\\chromedriver.exe')
 
+            # Set Implicit Wait Timeout - the amount of time
+            # the driver should wait when searching for element
+            self.driver.driver_instance.implicitly_wait(5000)
+
         # NOTE: In addCleanup, the first in, is executed last.
         with allure.step("Add clean up methods"):
             self.addCleanup(self.driver.driver_instance.quit)
