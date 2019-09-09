@@ -3,11 +3,11 @@
 ## Creating Mobile Automation Testing Framework for Android Using Appium with Python
 
 <br/> 
-<div align="center"> 
-<img width="70%" height="70%" src="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/blob/master/img/video-to-gif-2.gif" hspace="20">
+<div align="left"> 
+<img width="40%" height="40%" src="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/blob/master/img/video-to-gif-2.gif" hspace="20">
 </div>
-<div align="center"> 
-<img width="70%" height="70%" src="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/blob/master/img/ezgif.com-video-to-gif.gif" hspace="20">
+<div align="right"> 
+<img width="40%" height="40%" src="https://github.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython/blob/master/img/ezgif.com-video-to-gif.gif" hspace="20">
 </div>
 <br/>
 
