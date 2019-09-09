@@ -8,7 +8,6 @@ from tests.config import Config
 from utils.driver import Driver
 
 from tests.web_app_tests.parabank_test.page_object_models.base_page_object_model import BasePageObjectModel
-from tests.web_app_tests.parabank_test.element_object_model.get_text_property import get_text_property
 from tests.web_app_tests.parabank_test.page_locators.accounts_overview_page_locator import AccountsOverviewPageLocator
 from tests.web_app_tests.parabank_test.expected_results.page_content.accounts_overview_page_content import \
 	AccountsOverviewPageContent
@@ -21,9 +20,11 @@ class AccountsOverviewPageModel(BasePageObjectModel):
 	By following this technique a layer of separation between the test code and technical implementation is created.
 	"""
 
-	def __init__(self, config: Config, driver: Driver, implicit_wait_time, explicit_wait_time):
+	def __init__(self, config: Config, driver: Driver, explicit_wait_time):
 
-		super().__init__(config, driver, implicit_wait_time, explicit_wait_time)
+		super().__init__(config=config,
+		                 driver=driver,
+		                 explicit_wait_time=explicit_wait_time)
 
 		self._locator = AccountsOverviewPageLocator
 		_url = config.base_url + AccountsOverviewPageContent.URL
@@ -35,6 +36,6 @@ class AccountsOverviewPageModel(BasePageObjectModel):
 		:return:
 		"""
 		locator = self._locator.TOTAL_VALUE
-		return get_text_property(locator)
+		return self.get_text_property(locator)
 
 
