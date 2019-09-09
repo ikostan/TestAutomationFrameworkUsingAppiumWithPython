@@ -7,15 +7,14 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from tests.web_app_tests.parabank_test.element_object_model.create_web_element import create_web_element
-from tests.web_app_tests.parabank_test.element_object_model.get_text_property import get_text_property
+from tests.web_app_tests.parabank_test.page_object_models.base_object_model import BaseObjectModel
 from tests.web_app_tests.parabank_test.page_locators.customer_login_locator import CustomerLoginLocator
 from tests.web_app_tests.parabank_test.expected_results.page_content.login_page_content import LoginPageContent
 from tests.web_app_tests.parabank_test.expected_results.page_content.accounts_overview_page_content import \
 	AccountsOverviewPageContent
 
 
-class CustomerLoginModel:
+class CustomerLoginModel(BaseObjectModel):
 	"""
 	Customer Login Model Class
 	Holds elements from Customer Login section
@@ -23,10 +22,10 @@ class CustomerLoginModel:
 
 	def __init__(self, driver, config, explicit_wait_time):
 
+		super().__init__(driver=driver,
+		                 explicit_wait_time=explicit_wait_time)
 		self._locator = CustomerLoginLocator
 		self._config = config
-		self._driver = driver
-		self._explicit_wait_time = explicit_wait_time
 
 	@property
 	def customer_login_title(self):
@@ -35,7 +34,7 @@ class CustomerLoginModel:
 		:return:
 		"""
 		locator = self._locator.CUSTOMER_LOGIN_TITLE
-		return get_text_property(locator)
+		return self.get_text_property(locator)
 
 	@property
 	def username_login_title(self):
@@ -44,7 +43,7 @@ class CustomerLoginModel:
 		:return:
 		"""
 		locator = self._locator.USERNAME_LOGIN_TITLE
-		return get_text_property(locator)
+		return self.get_text_property(locator)
 
 	@property
 	def password_login_title(self):
@@ -53,7 +52,7 @@ class CustomerLoginModel:
 		:return:
 		"""
 		locator = self._locator.PASSWORD_LOGIN_TITLE
-		return get_text_property(locator)
+		return self.get_text_property(locator)
 
 	@property
 	def username(self):
@@ -62,7 +61,7 @@ class CustomerLoginModel:
 		:return:
 		"""
 		locator = self._locator.LOGIN_USERNAME_INPUT
-		element = create_web_element(locator)
+		element = self.create_web_element(locator)
 		value = element.element_value
 		return value
 
@@ -72,7 +71,7 @@ class CustomerLoginModel:
 		:return:
 		"""
 		locator = self._locator.LOGIN_USERNAME_INPUT
-		element = create_web_element(locator)
+		element = self.create_web_element(locator)
 		element.write(username)
 		return None
 
@@ -83,7 +82,7 @@ class CustomerLoginModel:
 		:return:
 		"""
 		locator = self._locator.LOGIN_PASSWORD_INPUT
-		element = create_web_element(locator)
+		element = self.create_web_element(locator)
 		value = element.element_value
 		return value
 
@@ -93,7 +92,7 @@ class CustomerLoginModel:
 		:return:
 		"""
 		locator = self._locator.LOGIN_PASSWORD_INPUT
-		element = create_web_element(locator)
+		element = self.create_web_element(locator)
 		element.write(password)
 		return None
 
@@ -104,7 +103,7 @@ class CustomerLoginModel:
 		:return:
 		"""
 		locator = self._locator.CUSTOMER_LOGIN_BUTTON
-		element = create_web_element(locator)
+		element = self.create_web_element(locator)
 		atr = element.element_value
 		return atr
 
@@ -117,7 +116,7 @@ class CustomerLoginModel:
 		:return:
 		"""
 		locator = self._locator.CUSTOMER_LOGIN_BUTTON
-		element = create_web_element(locator)
+		element = self.create_web_element(locator)
 		current_url = self._driver.current_url
 		element.click_on()
 		WebDriverWait(self._driver, self._explicit_wait_time).until(EC.url_changes(current_url))
@@ -127,14 +126,12 @@ class CustomerLoginModel:
 				AccountsOverviewPageModel
 			return AccountsOverviewPageModel(config=self._config,
 			                                 driver=self._driver,
-			                                 implicit_wait_time=5,
 			                                 explicit_wait_time=10)
 
 		if self._driver.current_url == self._config.base_url + LoginPageContent.URL:
 			from tests.web_app_tests.parabank_test.page_object_models.login_page_model import LoginPageModel
 			return LoginPageModel(config=self._config,
 			                      driver=self._driver,
-			                      implicit_wait_time=5,
 			                      explicit_wait_time=10)
 
 		raise Exception("Unknown URL: {} > Flow is not implemented".format(self._driver.current_url))
@@ -146,7 +143,7 @@ class CustomerLoginModel:
 		:return:
 		"""
 		locator = self._locator.FORGOT_LOGIN
-		element = create_web_element(locator)
+		element = self.create_web_element(locator)
 		return element
 
 	@property
@@ -156,6 +153,6 @@ class CustomerLoginModel:
 		:return:
 		"""
 		locator = self._locator.REGISTER
-		element = create_web_element(locator)
+		element = self.create_web_element(locator)
 		return element
 
