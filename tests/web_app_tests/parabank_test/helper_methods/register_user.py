@@ -29,7 +29,6 @@ def register_user(driver, user, config):
     print("\n1. Open web browser...")
     page = RegisterPageModel(config=config,
                              driver=driver,
-                             implicit_wait_time=5,
                              explicit_wait_time=10)
     # Open Web page
     with allure.step("Open Register web page"):
