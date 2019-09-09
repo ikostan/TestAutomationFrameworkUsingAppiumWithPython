@@ -18,7 +18,8 @@ class BasePageObjectModel(BaseObjectModel):
 
 	def __init__(self, config, driver, explicit_wait_time):
 
-		super().__init__(driver=driver, explicit_wait_time=explicit_wait_time)
+		super().__init__(driver=driver,
+		                 explicit_wait_time=explicit_wait_time)
 		self._config = config
 		self._url = self._config.base_url + BasePageContent.URL
 
