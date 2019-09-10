@@ -10,7 +10,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from tests.web_app_tests.android_browser_base_testcase import AndroidBrowserBaseTestCase
+from tests.web_app_tests.parabank_test.base_case.android_browser_base_testcase import AndroidBrowserBaseTestCase
 
 
 @allure.epic('Android Web App')
