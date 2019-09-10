@@ -4,7 +4,6 @@
 #  GitHub: https://github.com/ikostan
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
 
-import time
 import allure
 import pytest
 
