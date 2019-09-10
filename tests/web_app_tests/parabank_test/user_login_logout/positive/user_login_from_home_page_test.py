@@ -8,7 +8,7 @@ import allure
 import pytest
 
 from utils.get_args_from_cli import get_args
-from selenium.common.exceptions import NoSuchAttributeException
+from selenium.common.exceptions import NoSuchElementException
 
 from tests.config import Config
 from tests.web_app_tests.parabank_test.expected_results.users.base_user import BaseUser
@@ -124,11 +124,10 @@ class TestUserLoginFromHomePage(AndroidBrowserBaseTestCase):
 
         # 11. Verify that "Account Services" menu is not present
         with allure.step("Verify that \"Account Services\" menu is not present"):
-            with pytest.raises(NoSuchAttributeException):
-                menu_title = AccountServicesMenuModel(config=config,
-                                                      driver=self.driver,
-                                                      explicit_wait_time=10).menu_title
-                assert "Account Services" == menu_title
+            with pytest.raises(NoSuchElementException):
+                AccountServicesMenuModel(config=config,
+                                         driver=self.driver,
+                                         explicit_wait_time=10).menu_title()
 
         # 12. Verify web page title
         with allure.step("Verify web page title"):
