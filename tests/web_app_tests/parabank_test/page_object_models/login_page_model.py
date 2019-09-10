@@ -5,6 +5,7 @@
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
 
 from tests.config import Config
+from tests.web_app_tests.parabank_test.page_object_models.customer_login_model import CustomerLoginModel
 from utils.driver import Driver
 
 from tests.web_app_tests.parabank_test.page_locators.login_page_locator import LoginPageLocator
@@ -26,6 +27,17 @@ class LoginPageModel(BasePageObjectModel):
 		                 explicit_wait_time=explicit_wait_time)
 		self._locator = LoginPageLocator
 		self._url = config.base_url + LoginPageContent.URL
+		self._customer_login = CustomerLoginModel(driver=driver,
+		                                          config=config,
+		                                          explicit_wait_time=explicit_wait_time)
+
+	@property
+	def customer_login(self):
+		"""
+		Returns Customer Login object
+		:return:
+		"""
+		return self._customer_login
 
 	@property
 	def error_title(self):
