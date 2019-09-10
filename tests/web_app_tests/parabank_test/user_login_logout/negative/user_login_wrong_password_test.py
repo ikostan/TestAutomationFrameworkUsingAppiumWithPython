@@ -101,7 +101,7 @@ class TestUserLoginWrongPassword(AndroidBrowserBaseTestCase):
 
         # 6. Verify page title
         with allure.step("Verify page title"):
-            assert LoginPageContent.ERROR_TITLE == page.title
+            assert LoginPageContent.TITLE == page.title
 
         # 7. Verify error title
         with allure.step("Verify error title"):
