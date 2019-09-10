@@ -4,15 +4,11 @@
 #  GitHub: https://github.com/ikostan
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
 
-#  Created by Egor Kostan.
-#  GitHub: https://github.com/ikostan
-#  LinkedIn: https://www.linkedin.com/in/egor-kostan/
-
 import allure
 import pytest
-from selenium.common.exceptions import NoSuchAttributeException
 
 from utils.get_args_from_cli import get_args
+from selenium.common.exceptions import NoSuchAttributeException
 
 from tests.config import Config
 from tests.web_app_tests.parabank_test.expected_results.users.base_user import BaseUser
