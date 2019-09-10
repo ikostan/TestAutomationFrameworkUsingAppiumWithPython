@@ -1,4 +1,4 @@
-"""Test User Login From Admin Page Class"""
+"""Test User Login From Home Page"""
 
 #  Created by Egor Kostan.
 #  GitHub: https://github.com/ikostan
@@ -13,17 +13,17 @@ from selenium.common.exceptions import NoSuchElementException
 from tests.config import Config
 from tests.web_app_tests.parabank_test.expected_results.users.base_user import BaseUser
 from tests.web_app_tests.parabank_test.helper_methods.register_user import register_user
-from tests.web_app_tests.android_browser_base_testcase import AndroidBrowserBaseTestCase
 from tests.web_app_tests.parabank_test.helper_methods.clean_database import clean_database
 from tests.web_app_tests.parabank_test.page_object_models.home_page_model import HomePageModel
 from tests.web_app_tests.parabank_test.expected_results.users.valid_users_templates.jane_doe import JaneDoe
 from tests.web_app_tests.parabank_test.expected_results.page_content.home_page_content import HomePageContent
+from tests.web_app_tests.parabank_test.base_case.android_browser_base_testcase import AndroidBrowserBaseTestCase
 from tests.web_app_tests.parabank_test.page_object_models.account_services_menu_model import AccountServicesMenuModel
 from tests.web_app_tests.parabank_test.expected_results.page_content.accounts_overview_page_content import \
     AccountsOverviewPageContent
 
 
-@allure.epic('Page Functionality')
+@allure.epic('ParaBank Web App')
 @allure.parent_suite('End To End')
 @allure.suite("User Login/Logout")
 @allure.sub_suite("Positive Tests")
@@ -34,10 +34,10 @@ from tests.web_app_tests.parabank_test.expected_results.page_content.accounts_ov
                            "Therefore, it will have negative effect on Travis CI status.")
 class TestUserLoginFromHomePage(AndroidBrowserBaseTestCase):
     """
-    Test User Login From Admin Page Class
+    Test User Login From Home Page Test Case
     """
 
-    def test_user_login_logout(self):
+    def test_user_login_logout_from_home_page(self):
         allure.dynamic.description("""
                 User Log In validation > Login from Home page:
                     
@@ -58,7 +58,7 @@ class TestUserLoginFromHomePage(AndroidBrowserBaseTestCase):
                     12. Verify web page title
                     13. Close web browser
                 """)
-        allure.dynamic.title("Admin Page > User Log In validation > Positive test")
+        allure.dynamic.title("Home Page > User Log In validation > Positive test")
         allure.dynamic.severity(allure.severity_level.BLOCKER)
 
         config = Config()
