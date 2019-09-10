@@ -73,7 +73,7 @@ def get_args():
 
         # Android Only
         # Activity name for the Android activity you want to launch from your package.
-        # e.g. com.example.android.myApp
+        # e.g. com.example.android_native.myApp
         if "--appActivity=" in param:
             app_activity = str(param).replace('--appActivity=', '')
             print("\n--appActivity={}".format(app_activity))
