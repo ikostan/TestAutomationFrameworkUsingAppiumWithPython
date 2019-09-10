@@ -33,17 +33,17 @@ class BaseElement:
 
     @property
     def driver(self):
-        '''
+        """
         Returns selenium.webdriver object
         :return:
-        '''
+        """
         return self._driver
 
     def attribute(self, attribute: str):
-        '''
+        """
         Returns attribute value
         :return:
-        '''
+        """
         try:
             atr = self.element.get_attribute(attribute)
             # print('\nattribute: {}, object: {}'.format(attribute, atr))  # debug only
@@ -64,17 +64,17 @@ class BaseElement:
 
     @property
     def locator(self):
-        '''
+        """
         Returns locator object (tuple)
         :return:
-        '''
+        """
         return self._locator
 
     def _find_element(self):
-        '''
+        """
         Returns web element or NoSuchElementException in case element does not exist on the DOM
         :return:
-        '''
+        """
         try:
             element = WebDriverWait(self.driver, self.explicit_wait_time).until(
                 EC.presence_of_element_located(self.locator))
@@ -87,6 +87,11 @@ class BaseElement:
 
     @staticmethod
     def _check_driver_type(driver):
+        """
+        Driver instance type verification
+        :param driver:
+        :return:
+        """
 
         # print('\nDRIVER TYPE: {}, {}\n'.format(type(driver),
         # driver.capabilities['browserName']))  # Debug only
@@ -96,29 +101,17 @@ class BaseElement:
                                 '"selenium.webdriver.chrome_tests.webdriver.WebDriver"\n')
             return None
 
-        if driver.capabilities['browserName'] == 'firefox':
-            if not isinstance(driver, selenium.webdriver.firefox.webdriver.WebDriver):
-                raise TypeError('\nERROR: driver must be of type '
-                                '"selenium.webdriver.firefox.webdriver.WebDriver"\n')
-            return None
-
-        if driver.capabilities['browserName'] == 'MicrosoftEdge':
-            if not isinstance(driver, selenium.webdriver.edge.webdriver.WebDriver):
-                raise TypeError('\nERROR: driver must be of type '
-                                '"selenium.webdriver.edge.webdriver.WebDriver"\n')
-            return None
-
-        raise TypeError('\nERROR: unsupported webdriver type: '
+        raise TypeError('\nERROR: unsupported web driver type: '
                         '{}. Browser: {}\n'.format(type(driver),
                                                    driver.capabilities['browserName']))
 
     @staticmethod
     def _set_locator(locator: tuple):
-        '''
+        """
         Check if locator of type: tuple
         :param locator:
         :return:
-        '''
+        """
         if not isinstance(locator, tuple):
             raise TypeError('\nERROR: locator must be of type TUPLE\n')
         return locator
