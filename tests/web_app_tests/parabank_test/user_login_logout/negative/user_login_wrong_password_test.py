@@ -1,4 +1,4 @@
-"""Test User Login From Admin Page Class"""
+"""Test User Login with Wrong Credentials"""
 
 #  Created by Egor Kostan.
 #  GitHub: https://github.com/ikostan
@@ -13,16 +13,16 @@ from selenium.common.exceptions import NoSuchElementException
 from tests.config import Config
 from tests.web_app_tests.parabank_test.expected_results.users.base_user import BaseUser
 from tests.web_app_tests.parabank_test.helper_methods.register_user import register_user
-from tests.web_app_tests.android_browser_base_testcase import AndroidBrowserBaseTestCase
 from tests.web_app_tests.parabank_test.helper_methods.clean_database import clean_database
 from tests.web_app_tests.parabank_test.page_object_models.home_page_model import HomePageModel
 from tests.web_app_tests.parabank_test.expected_results.users.valid_users_templates.jane_doe import JaneDoe
 from tests.web_app_tests.parabank_test.expected_results.page_content.home_page_content import HomePageContent
 from tests.web_app_tests.parabank_test.expected_results.page_content.login_page_content import LoginPageContent
+from tests.web_app_tests.parabank_test.base_case.android_browser_base_testcase import AndroidBrowserBaseTestCase
 from tests.web_app_tests.parabank_test.page_object_models.account_services_menu_model import AccountServicesMenuModel
 
 
-@allure.epic('Page Functionality')
+@allure.epic('ParaBank Web App')
 @allure.parent_suite('End To End')
 @allure.suite("User Login/Logout")
 @allure.sub_suite("Negative Tests")
@@ -31,18 +31,18 @@ from tests.web_app_tests.parabank_test.page_object_models.account_services_menu_
 @pytest.mark.skipif(get_args()['env'] == 'production',
                     reason="This is demo test that usually fails on production environment. "
                            "Therefore, it will have negative effect on Travis CI status.")
-class TestUserLoginWrongPassword(AndroidBrowserBaseTestCase):
+class TestUserLoginWrongCredentials(AndroidBrowserBaseTestCase):
     """
-    Test User Login From Admin Page Class
+    Test User Login -> Wrong Credentials Test Case
     """
 
-    def test_user_login_logout(self):
+    def test_user_login_with_wrong_password(self):
         allure.dynamic.description("""
-                User Log In validation > Login from Home page:
+                User Log In validation > Wrong password:
                     
-                Prerequisites: DB is clean, user is registered, web browser is opened
+                    Prerequisites: DB is clean, user is registered, web browser is opened
                     
-                Step by step:
+                    Step by step:
                     1. Open Home web page
                     2. Do URL verification
                     3. Do Title verification
@@ -55,7 +55,7 @@ class TestUserLoginWrongPassword(AndroidBrowserBaseTestCase):
                     10. Verify that "Account Services" menu is not displayed
                     11. Close web browser
                 """)
-        allure.dynamic.title("Admin Page > User Log In validation > Positive test")
+        allure.dynamic.title("Home Page > User Log In validation > Wrong password")
         allure.dynamic.severity(allure.severity_level.BLOCKER)
 
         config = Config()
