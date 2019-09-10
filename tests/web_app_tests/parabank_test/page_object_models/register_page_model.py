@@ -204,7 +204,7 @@ class RegisterPageModel(BasePageObjectModel):
 		locator = self._locator.REGISTER_BUTTON
 		element = self.create_web_element(locator)
 		element.click_on()
-		from tests.web_app_tests.parabank_test.page_object_models.account_services_page_model import \
+		from tests.web_app_tests.parabank_test.page_object_models.account_services_menu_model import \
 			AccountServicesMenuModel
 		return AccountServicesMenuModel(config=self._config,
 		                                driver=self.driver,
