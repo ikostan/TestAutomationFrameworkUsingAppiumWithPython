@@ -8,6 +8,8 @@ import time
 import allure
 import pytest
 
+from tests.web_app_tests.parabank_test.expected_results.page_content.home_page_content import HomePageContent
+from tests.web_app_tests.parabank_test.page_object_models.account_services_menu_model import AccountServicesMenuModel
 from utils.get_args_from_cli import get_args
 
 from tests.config import Config
@@ -18,6 +20,8 @@ from tests.web_app_tests.parabank_test.helper_methods.clean_database import clea
 from tests.web_app_tests.parabank_test.page_object_models.admin_page_model import AdminPageModel
 from tests.web_app_tests.parabank_test.expected_results.users.valid_users_templates.jane_doe import JaneDoe
 from tests.web_app_tests.parabank_test.expected_results.page_content.admin_page_content import AdminPageContent
+from tests.web_app_tests.parabank_test.expected_results.page_content.accounts_overview_page_content import \
+    AccountsOverviewPageContent
 
 
 @allure.epic('Page Functionality')
@@ -35,20 +39,19 @@ class TestUserLoginFromAdminPage(AndroidBrowserBaseTestCase):
     """
 
     def test_user_login_logout(self):
-
         allure.dynamic.description("""
                 User Log In validation > Login from Admin page:
                     
                     Prerequisites: DB is clean, user is registered, web browser is opened
                     
                     Step by step:
-                    1. Open Home web page
+                    1. Open Admin web page
                     2. Do URL verification
                     3. Do Title verification
                     4. Type username/password
                     5. Hit "Log In" button
                     6. Verify "Welcome" message
-                    7. Verify that "Account Services" menu is present
+                    7. Verify that "Account Services" menu title is present
                     8. Do URL verification
                     9. Log Out
                     10. Do URL verification
@@ -102,35 +105,39 @@ class TestUserLoginFromAdminPage(AndroidBrowserBaseTestCase):
 
         # 6. Verify "Welcome" message
         with allure.step("Verify \"Welcome\" message"):
-            pass
+            assert "Welcome {} {}".format(user.first_name, user.last_name) == page.account_services_menu.welcome_message
 
-        # 7. Verify that "Account Services" menu is present
-        with allure.step(""):
-            pass
+        # 7. Verify that "Account Services" menu title is present
+        with allure.step("Verify that \"Account Services\" menu title is present"):
+            assert "Account Services" == page.account_services_menu.menu_title
 
         # 8. Do URL verification
-        with allure.step(""):
-            pass
+        with allure.step("Do URL verification"):
+            assert config.base_url + AccountsOverviewPageContent.URL == page.url
 
         # 9. Log Out
-        with allure.step(""):
-            pass
+        with allure.step("Log Out"):
+            page = page.account_services_menu.hit_log_out_button()
 
         # 10. Do URL verification
-        with allure.step(""):
-            pass
+        with allure.step("Do URL verification"):
+            assert config.base_url + HomePageContent.URL == page.url
 
         # 11. Verify that "Account Services" menu is not present
         with allure.step(""):
-            pass
+            with pytest.raises(Exception):
+                menu_title = AccountServicesMenuModel(config=config,
+                                                      driver=self.driver,
+                                                      explicit_wait_time=self.explicit_wait_time).menu_title
+                assert "Account Services" == menu_title
 
         # 12. Verify web page title
-        with allure.step(""):
-            pass
+        with allure.step("Verify web page title"):
+            assert HomePageContent.TITLE == page.title
 
         # 13. Close web browser
-        with allure.step(""):
-            pass
+        with allure.step("Close web browser"):
+            page.close()
 
         # TODO: Remove wait when done with this test case
         time.sleep(5)
