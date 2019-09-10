@@ -8,8 +8,6 @@ import time
 import allure
 import pytest
 
-from tests.web_app_tests.parabank_test.expected_results.page_content.home_page_content import HomePageContent
-from tests.web_app_tests.parabank_test.page_object_models.account_services_menu_model import AccountServicesMenuModel
 from utils.get_args_from_cli import get_args
 
 from tests.config import Config
@@ -19,6 +17,8 @@ from tests.web_app_tests.android_browser_base_testcase import AndroidBrowserBase
 from tests.web_app_tests.parabank_test.helper_methods.clean_database import clean_database
 from tests.web_app_tests.parabank_test.page_object_models.admin_page_model import AdminPageModel
 from tests.web_app_tests.parabank_test.expected_results.users.valid_users_templates.jane_doe import JaneDoe
+from tests.web_app_tests.parabank_test.expected_results.page_content.home_page_content import HomePageContent
+from tests.web_app_tests.parabank_test.page_object_models.account_services_menu_model import AccountServicesMenuModel
 from tests.web_app_tests.parabank_test.expected_results.page_content.admin_page_content import AdminPageContent
 from tests.web_app_tests.parabank_test.expected_results.page_content.accounts_overview_page_content import \
     AccountsOverviewPageContent
@@ -139,5 +139,3 @@ class TestUserLoginFromAdminPage(AndroidBrowserBaseTestCase):
         with allure.step("Close web browser"):
             page.close()
 
-        # TODO: Remove wait when done with this test case
-        time.sleep(5)
