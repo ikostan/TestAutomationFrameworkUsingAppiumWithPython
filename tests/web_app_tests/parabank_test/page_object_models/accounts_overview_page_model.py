@@ -8,6 +8,7 @@ from tests.config import Config
 from utils.driver import Driver
 
 from tests.web_app_tests.parabank_test.page_object_models.base_page_object_model import BasePageObjectModel
+from tests.web_app_tests.parabank_test.page_object_models.account_services_menu_model import AccountServicesMenuModel
 from tests.web_app_tests.parabank_test.page_locators.accounts_overview_page_locator import AccountsOverviewPageLocator
 from tests.web_app_tests.parabank_test.expected_results.page_content.accounts_overview_page_content import \
 	AccountsOverviewPageContent
@@ -21,13 +22,23 @@ class AccountsOverviewPageModel(BasePageObjectModel):
 	"""
 
 	def __init__(self, config: Config, driver: Driver, explicit_wait_time):
-
 		super().__init__(config=config,
 		                 driver=driver,
 		                 explicit_wait_time=explicit_wait_time)
 
 		self._locator = AccountsOverviewPageLocator
 		_url = config.base_url + AccountsOverviewPageContent.URL
+		self._account_services_menu = AccountServicesMenuModel(config=config,
+		                                                       driver=driver,
+		                                                       explicit_wait_time=explicit_wait_time)
+
+	@property
+	def account_services_menu(self):
+		"""
+		Returns Account Services menu
+		:return:
+		"""
+		return self._account_services_menu
 
 	@property
 	def total_balance(self):
@@ -37,5 +48,3 @@ class AccountsOverviewPageModel(BasePageObjectModel):
 		"""
 		locator = self._locator.TOTAL_VALUE
 		return self.get_text_property(locator)
-
-
