@@ -199,7 +199,7 @@ class TestUserLoginWrongCredentials(AndroidBrowserBaseTestCase):
 
         # 8. Verify error message
         with allure.step("Verify error message"):
-            assert LoginPageContent.NO_SUCH_USER_ERROR_MESSAGE == page.error_message
+            assert LoginPageContent.EMPTY_FIELDS_ERROR_MESSAGE == page.error_message
 
         # 9. Do URL verification
         with allure.step("Do URL verification"):
