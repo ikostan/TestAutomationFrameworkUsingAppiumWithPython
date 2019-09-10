@@ -10,7 +10,7 @@ from tests.web_app_tests.parabank_test.expected_results.page_content.base_page_c
 class LoginPageContent(BasePageContent):
 	"""Login Page Content Class"""
 
-	TITLE_ERROR = BasePageContent.TITLE + 'Error'
+	TITLE = BasePageContent.TITLE + 'Error'
 
 	URL = BasePageContent.URL + 'login.htm'
 
