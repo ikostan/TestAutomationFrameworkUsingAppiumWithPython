@@ -131,7 +131,7 @@ class TestUserLoginFromHomePage(AndroidBrowserBaseTestCase):
             with pytest.raises(NoSuchAttributeException):
                 menu_title = AccountServicesMenuModel(config=config,
                                                       driver=self.driver,
-                                                      explicit_wait_time=self.explicit_wait_time).menu_title
+                                                      explicit_wait_time=10).menu_title
                 assert "Account Services" == menu_title
 
         # 12. Verify web page title
