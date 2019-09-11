@@ -10,12 +10,13 @@ import unittest
 import allure
 from allure_commons.types import AttachmentType
 
-from page_object_models.calculator.calculator_page_model import CalculatorPageModel
 from utils.driver import Driver
+from utils.get_args_from_cli import get_args
 
 from selenium.common.exceptions import TimeoutException
 
-from utils.get_args_from_cli import get_args
+from tests.android_native.calculator_tests.page_object_models.calculator_page_model import \
+    CalculatorPageModel
 
 
 class AndroidCalculatorBaseTestCase(unittest.TestCase):
@@ -26,9 +27,6 @@ class AndroidCalculatorBaseTestCase(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
 
-        with allure.step("Get args from CLI"):
-            cls.args = get_args()
-
         with allure.step("Start Appium Service"):
             # that you can use to programmatically start/stop an Appium server.
             # Source: https://stackoverflow.com/questions/51734382/how-to-start-appium-server-programmatically-in-python
@@ -38,6 +36,9 @@ class AndroidCalculatorBaseTestCase(unittest.TestCase):
 
         with allure.step("Set driver to None"):
             cls._driver = None
+
+        with allure.step("Get args from CLI"):
+            cls.args = get_args()
 
     @classmethod
     def tearDownClass(cls) -> None:
@@ -60,7 +61,14 @@ class AndroidCalculatorBaseTestCase(unittest.TestCase):
             # Add desired capabilities:
 
             for key in self.args:
-                self._driver.set_capability(key, self.args[key])
+                if self.args[key] is not None:
+                    print("key: {}, value: {}".format(key, self.args[key]))
+                    self._driver.set_capability(key, self.args[key])
+
+            self._driver.set_capability('chromedriverExecutable',
+                                        'C:\\Users\\superadmin\\Documents\\GitHub\\'
+                                        'TEST_AUTOMATION_FRAMEWORK_USING_APPIUM_WITH_PYTHON\\'
+                                        'drivers\\chromedriver\\v2_44\\chromedriver.exe')
 
             '''
             self._driver.set_capability("platformName",
@@ -78,19 +86,15 @@ class AndroidCalculatorBaseTestCase(unittest.TestCase):
             self._driver.set_capability("appActivity",
                                         "com.android_native.calculator2.Calculator")
             '''
-            self._driver.set_capability('chromedriverExecutable',
-                                        'C:\\Users\\superadmin\\Documents\\GitHub\\'
-                                        'TEST_AUTOMATION_FRAMEWORK_USING_APPIUM_WITH_PYTHON\\'
-                                        'drivers\\chromedriver\\v2_44\\chromedriver.exe')
 
         with allure.step("Set up Page Model object"):
+            self._driver.driver_instance.implicitly_wait(3)
             self.app = CalculatorPageModel(self._driver.driver_instance)
 
         # NOTE: In addCleanup, the first in, is executed last.
         with allure.step("Set up Cleanup methods"):
             self.addCleanup(self._driver.driver_instance.quit)
             self.addCleanup(self.snap_shot)
-            self._driver.driver_instance.implicitly_wait(3)
 
     def enter_digit(self, number):
         """
