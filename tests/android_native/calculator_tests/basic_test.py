@@ -5,8 +5,6 @@
 #  LinkedIn: https://www.linkedin.com/in/egor-kostan/
 
 import allure
-import pytest
-from selenium.common.exceptions import TimeoutException
 from tests.android_native.calculator_tests.calculator_base_testcase import AndroidCalculatorBaseTestCase
 
 
