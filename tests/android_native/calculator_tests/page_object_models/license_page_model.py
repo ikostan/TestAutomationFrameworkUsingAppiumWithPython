@@ -24,9 +24,9 @@ class LicensePageModel:
 
 		print("Waiting for License view...")
 		WebDriverWait(self._driver, 5).until(
-			EC.presence_of_element_located((By.XPATH, '/hierarchy/android_native.widget.FrameLayout/'
-			                                          'android_native.view.ViewGroup/android_native.widget.FrameLayout[1]/'
-			                                          'android_native.view.ViewGroup/android_native.widget.TextView')))
+			EC.presence_of_element_located((By.XPATH, '/hierarchy/android.widget.FrameLayout/'
+			                                          'android.view.ViewGroup/android.widget.FrameLayout[1]/'
+			                                          'android.view.ViewGroup/android.widget.TextView')))
 		print("License view is opened...")
 
 	@property
@@ -45,7 +45,7 @@ class LicensePageModel:
 		4. Returns text
 		:return:
 		"""
-		self.driver.switch_to.context("WEBVIEW_com.android_native.calculator2")
+		self.driver.switch_to.context("WEBVIEW_com.android.calculator2")
 		print('Context switched to web view')
 
 		txt = self.driver.find_element(by=locator[0],
@@ -101,9 +101,9 @@ class LicensePageModel:
 		Extracts title from native view
 		:return:
 		"""
-		txt = self.driver.find_element(MobileBy.XPATH, '/hierarchy/android_native.widget.FrameLayout/'
-		                                               'android_native.view.ViewGroup/android_native.widget.FrameLayout[1]/'
-		                                               'android_native.view.ViewGroup/android_native.widget.TextView').text
+		txt = self.driver.find_element(MobileBy.XPATH, '/hierarchy/android.widget.FrameLayout/'
+		                                               'android.view.ViewGroup/android.widget.FrameLayout[1]/'
+		                                               'android.view.ViewGroup/android.widget.TextView').text
 		print("Extracting Open Source License title")
 		return txt
 
