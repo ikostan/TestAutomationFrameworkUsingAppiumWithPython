@@ -1,4 +1,5 @@
 [![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
+[![HitCount](http://hits.dwyl.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython.svg)](http://hits.dwyl.com/ikostan/TestAutomationFrameworkUsingAppiumWithPython)
 
 ## Creating Mobile Automation Testing Framework for Android Using Appium with Python
 
